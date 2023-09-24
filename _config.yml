@@ -9,12 +9,11 @@ exclude:
   - "/vendor/"
 
 # Site settings
-title: Centrarium
-subtitle: "A simple yet classy theme for your Jekyll website or blog"
-email: blcentra@gmail.com
-name: Ben Centra
+title: Exploring ML Systems
+email: amberljc@umich.edu
+name: Amber Liu
 description: >
-  A simple yet classy theme for your Jekyll website or blog.
+  Here, we dive deep into the algorithms, architectures, and methodologies that are shaping the future of MLSys.
 # Base URL of site (i.e. /blog). It should always start with a slash,
 # and never end with a slash. Set it to a blank value if hosting at the
 # root of your server.
@@ -31,7 +30,7 @@ highlightjs_theme: "monokai-sublime"
 # Pagination Settings
 # https://github.com/sverrirs/jekyll-paginate-v2/blob/master/README-GENERATOR.md#site-configuration
 pagination:
-  enabled: true
+  enabled: false
   per_page: 5
   permalink: "/page/:num/"
   sort_reverse: true
@@ -78,8 +77,8 @@ descriptions:
 social:
   - name: Twitter
     icon: twitter
-    username: TheBenCentra
-    url: https://twitter.com/TheBenCentra
+    username: JIACHENLIU8
+    url: https://twitter.com/JIACHENLIU8
     desc: Follow me on Twitter
     share: true
 
@@ -88,19 +87,19 @@ social:
     username: thebencentra
     url: ""
     desc: Friend me on Facebook
-    share: true
+    share: false
 
   - name: GitHub
     icon: github
-    username: bencentra
-    url: https://github.com/bencentra
+    username: AmberLJC
+    url: https://github.com/AmberLJC
     desc: Fork me on GitHub
     share: false
 
   - name: LinkedIn
     icon: linkedin
-    username: Ben Centra
-    url: https://www.linkedin.com/pub/ben-centra/47/769/60a
+    username: Jiachen Liu
+    url: https://www.linkedin.com/in/jiachen-amber-liu-872506169/
     desc: Connect with me on LinkedIn
     share: true
 
