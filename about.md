@@ -5,14 +5,12 @@ permalink: /about/
 main_nav: true
 ---
 
-![alt text]({{ site.baseurl }}/assets/profile-placeholder.gif "Profile Picture"){:.profile}
+![alt text]({{ site.baseurl }}/assets/amber.png "Profile Picture"){:.profile}
 
-Centrarium is a custom theme for Jekyll, made by [Ben Centra][bencentra] for his own blog. He'd be humbled if you liked it enough to use it as well! Installation and configuration instructions can be found in the [GitHub repository](https://github.com/bencentra/centrarium).
 
-This page is a good place to write about yourself, your project, your product, or whatever it is your site is for. You can replace the image above, or you can get rid of it entirely. 
+Greetings~~ My name is [Amber(Jiachen) Liu](http://www-personal.umich.edu/~amberljc/). Fourth year CS PhD advised by [Prof. Mosharaf Chowdhury](https://www.mosharaf.com/). My research interest mainly falls on machine learning resource management. I have maintain paper lists for [federated learning systems](https://github.com/AmberLJC/FLsystem-paper) and [LLM systems](https://github.com/AmberLJC/LLMSys-PaperList/) . I am open to discussing research ideas and seeking academic collaborations. Drop me email if interested!
 
-You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/). And you can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+Before, I had a great time working with [Prof. Sam Madden](http://db.csail.mit.edu/madden/) and [Prof. Siqian Shen](http://www-personal.umich.edu/~siqian/), yay! I am almost always smiling. :)
 
-[centrarium]: https://github.com/bencentra/centrarium
-[bencentra]: http://bencentra.com
-[jekyll]: https://github.com/jekyll/jekyll
+
+ 

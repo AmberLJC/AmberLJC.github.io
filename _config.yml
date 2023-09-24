@@ -10,10 +10,11 @@ exclude:
 
 # Site settings
 title: Exploring ML Systems
+subtitle: Here, we dive deep into the algorithms, architectures, and methodologies that are shaping the future of MLSys.
 email: amberljc@umich.edu
 name: Amber Liu
-description: >
-  Here, we dive deep into the algorithms, architectures, and methodologies that are shaping the future of MLSys.
+# description: >
+#  Here, we dive deep into the algorithms, architectures, and methodologies that are shaping the future of MLSys.
 # Base URL of site (i.e. /blog). It should always start with a slash,
 # and never end with a slash. Set it to a blank value if hosting at the
 # root of your server.
@@ -53,11 +54,9 @@ jekyll-archives:
 
 # Category descriptions (for archive pages)
 descriptions:
-  - cat: jekyll
-    desc: "Posts describing Jekyll setup techniques."
+  - cat: knowledge
+    desc: "Relaxed Reads."
 
-  - cat: dummy
-    desc: "Just some placeholder posts, lorem ipsum and the rest."
 
 # Social icons and sharing options
 #

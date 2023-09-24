@@ -3,7 +3,7 @@ layout: post
 title:  " Unlocking Capabilities Beyond Pre-training: When to Fine-Tuning"
 date:   2023-09-24T10:25:52-05:00
 author: Jiachen Liu
-categories: Knowledge
+categories: knowledge
 ---
 # Unlocking Capabilities Beyond Pre-training: Fine-Tuning and Other Techniques
 
@@ -56,10 +56,11 @@ Instruction Tuning primarily utilizes a dataset composed of pairs of instruction
 ### Disadvantages:
 - **Dataset Complexity**: Requires carefully curated instruction-response pairs.
 
-
-<a href="../assets/blog/fig/compare.png" data-lightbox="falcon9-large" data-title="Check out the Falcon 9 from SpaceX">
-  <img src="../assets/blog/fig/compare.png"  title="Check out the Falcon 9 from SpaceX">
+<a href="/fine-tune-concept/compare.png" data-lightbox="falcon9-large" data-title="Difference among different techniques">
+  <img src="/fine-tune-concept/compare.png"  title="Difference among different techniques">
 </a>
+
+
 
 ---
 
@@ -97,3 +98,10 @@ Reinforcement Learning from Human Feedback (RLHF) is a promising but still emerg
 - **Complex Training**: Requires highly specialized training setups.
 > **Note**: Due to its research-oriented nature and current limitations, we won't delve deep into RLHF in this post. However, it remains an exciting field for future exploration.
 
+
+
+## Source
+- Challenges and Applications of Large Language Models  
+- Scaling Down to Scale Up: A Guide to Parameter-Efficient Fine-Tuning 
+- https://build.microsoft.com/en-US/sessions/db3f4859-cd30-4445-a0cd-553c3304f8e2
+- https://web.stanford.edu/class/cs224n/slides/cs224n-2023-lecture11-prompting-rlhf.pdf 
