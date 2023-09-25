@@ -3,7 +3,7 @@ layout: post
 title:  " Unlocking Capabilities Beyond Pre-training: When to Fine-Tuning"
 date:   2023-09-24T10:25:52-05:00
 author: Jiachen Liu
-categories: knowledge
+categories: knowledge, page
 ---
 # Unlocking Capabilities Beyond Pre-training: Fine-Tuning and Other Techniques
 
@@ -57,12 +57,12 @@ Instruction Tuning primarily utilizes a dataset composed of pairs of instruction
 - **Dataset Complexity**: Requires carefully curated instruction-response pairs.
 
 <a href="/assets/blog/fig/instruction.png" data-lightbox="falcon9-large" data-title="Difference among different techniques">
-  <img src="/assets/blog/fig/instruction.png"  title="Difference among different techniques ">
+  <img src="/assets/blog_fig/fine-tune-concept/instruction.png"  title="Difference among different techniques ">
 </a>
 
 
 
-<a href="/assets/blog/fig/compare.png" data-lightbox="falcon9-large" data-title="Instruction Tuning">
+<a href="/assets/blog_fig/fine-tune-concept/compare.png" data-lightbox="falcon9-large" data-title="Instruction Tuning">
   <img src="/assets/blog/fig/compare.png"  title="Instruction Tuning ">
 </a>
 
@@ -100,7 +100,7 @@ Parameter-Efficient Fine-Tuning, often abbreviated as PEFT, is a resource-saving
 
 
 
-<a href="/assets/blog/fig/peft.png" data-lightbox="falcon9-large" data-title="PEFT">
+<a href="/assets/blog_fig/fine-tune-concept/peft.png" data-lightbox="falcon9-large" data-title="PEFT">
   <img src="/assets/blog/fig/peft.png"  title="PEFT ">
 </a>
 
