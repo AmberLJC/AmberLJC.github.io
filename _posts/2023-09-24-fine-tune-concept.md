@@ -3,7 +3,7 @@ layout: post
 title:  " Unlocking Capabilities Beyond Pre-training: When to Fine-Tuning"
 date:   2023-09-24T10:25:52-05:00
 author: Jiachen Liu
-categories: knowledge
+categories: Knowledge
 ---
 # Unlocking Capabilities Beyond Pre-training: Fine-Tuning and Other Techniques
 
@@ -83,7 +83,7 @@ Retrieval-Augmented Generation (RAG) is an innovative approach that combines the
 
 
 <a href="/assets/blog_fig/fine-tune-concept/rag.png" data-lightbox="falcon9-large" data-title="RAG">
-  <img src="/assets/blog_fig/fine-tune-concept/fig/rag.png"  title="RAG ">
+  <img src="/assets/blog_fig/fine-tune-concept/rag.png"  title="RAG ">
 </a>
 
 
@@ -96,13 +96,15 @@ Parameter-Efficient Fine-Tuning, often abbreviated as PEFT, is a resource-saving
 ### Key Features:
 - **Resource Efficiency**: Lowers the computational and memory overhead.
 - **Time-Saving**: Faster fine-tuning cycles.
-> **Note**: We'll dive deeper into PEFT in an upcoming blog post, so stay tuned!
-
 
 
 <a href="/assets/blog_fig/fine-tune-concept/peft.png" data-lightbox="falcon9-large" data-title="PEFT">
   <img src="/assets/blog_fig/fine-tune-concept/peft.png"  title="PEFT ">
 </a>
+
+> **Note**: We'll dive deeper into PEFT in an upcoming blog post, so stay tuned!
+
+
 
 
 ---
