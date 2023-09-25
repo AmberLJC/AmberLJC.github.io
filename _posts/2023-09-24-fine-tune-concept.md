@@ -3,7 +3,7 @@ layout: post
 title:  " Unlocking Capabilities Beyond Pre-training: When to Fine-Tuning"
 date:   2023-09-24T10:25:52-05:00
 author: Jiachen Liu
-categories: knowledge, page
+categories: knowledge
 ---
 # Unlocking Capabilities Beyond Pre-training: Fine-Tuning and Other Techniques
 
@@ -56,14 +56,14 @@ Instruction Tuning primarily utilizes a dataset composed of pairs of instruction
 ### Disadvantages:
 - **Dataset Complexity**: Requires carefully curated instruction-response pairs.
 
-<a href="/assets/blog/fig/instruction.png" data-lightbox="falcon9-large" data-title="Difference among different techniques">
+<a href="/assets/blog_fig/fine-tune-concept/instruction.png" data-lightbox="falcon9-large" data-title="Difference among different techniques">
   <img src="/assets/blog_fig/fine-tune-concept/instruction.png"  title="Difference among different techniques ">
 </a>
 
 
 
 <a href="/assets/blog_fig/fine-tune-concept/compare.png" data-lightbox="falcon9-large" data-title="Instruction Tuning">
-  <img src="/assets/blog/fig/compare.png"  title="Instruction Tuning ">
+  <img src="/assets/blog_fig/fine-tune-concept/compare.png"  title="Instruction Tuning ">
 </a>
 
 
@@ -82,8 +82,8 @@ Retrieval-Augmented Generation (RAG) is an innovative approach that combines the
 - **Context Limitations**: Can misinterpret the context, leading to irrelevant retrievals.
 
 
-<a href="/assets/blog/fig/rag.png" data-lightbox="falcon9-large" data-title="RAG">
-  <img src="/assets/blog/fig/rag.png"  title="RAG ">
+<a href="/assets/blog_fig/fine-tune-concept/rag.png" data-lightbox="falcon9-large" data-title="RAG">
+  <img src="/assets/blog_fig/fine-tune-concept/fig/rag.png"  title="RAG ">
 </a>
 
 
@@ -101,7 +101,7 @@ Parameter-Efficient Fine-Tuning, often abbreviated as PEFT, is a resource-saving
 
 
 <a href="/assets/blog_fig/fine-tune-concept/peft.png" data-lightbox="falcon9-large" data-title="PEFT">
-  <img src="/assets/blog/fig/peft.png"  title="PEFT ">
+  <img src="/assets/blog_fig/fine-tune-concept/peft.png"  title="PEFT ">
 </a>
 
 
