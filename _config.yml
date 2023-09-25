@@ -54,7 +54,7 @@ jekyll-archives:
 
 # Category descriptions (for archive pages)
 descriptions:
-  - cat: knowledge  
+  - cat: knowledge
 
 # Social icons and sharing options
 #
