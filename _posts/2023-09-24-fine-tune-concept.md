@@ -3,7 +3,7 @@ layout: post
 title:  " Unlocking Capabilities Beyond Pre-training: When to Fine-Tuning"
 date:   2023-09-24T10:25:52-05:00
 author: Jiachen Liu
-categories: Knowledge
+categories: knowledge page
 ---
 # Unlocking Capabilities Beyond Pre-training: Fine-Tuning and Other Techniques
 

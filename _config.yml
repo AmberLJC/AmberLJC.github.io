@@ -18,7 +18,7 @@ name: Amber Liu
 # Base URL of site (i.e. /blog). It should always start with a slash,
 # and never end with a slash. Set it to a blank value if hosting at the
 # root of your server.
-baseurl: "" # the subpath of your site, e.g. /blog/
+baseurl: "https://amberljc.github.io/posts" # the subpath of your site, e.g. /blog/
 url: "https://amberljc.github.io/posts/" # the base hostname & protocol for your site
 cover: "/assets/header_image.jpg"
 logo: "/assets/logo.png"
@@ -31,7 +31,7 @@ highlightjs_theme: "monokai-sublime"
 # Pagination Settings
 # https://github.com/sverrirs/jekyll-paginate-v2/blob/master/README-GENERATOR.md#site-configuration
 pagination:
-  enabled: false
+  enabled: true
   per_page: 5
   permalink: "/page/:num/"
   sort_reverse: true
