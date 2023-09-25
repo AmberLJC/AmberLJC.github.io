@@ -56,10 +56,15 @@ Instruction Tuning primarily utilizes a dataset composed of pairs of instruction
 ### Disadvantages:
 - **Dataset Complexity**: Requires carefully curated instruction-response pairs.
 
-<a href="/fine-tune-concept/compare.png" data-lightbox="falcon9-large" data-title="Difference among different techniques">
-  <img src="/fine-tune-concept/compare.png"  title="Difference among different techniques">
+<a href="/assets/blog/fig/instruction.png" data-lightbox="falcon9-large" data-title="Difference among different techniques">
+  <img src="/assets/blog/fig/instruction.png"  title="Difference among different techniques ">
 </a>
 
+
+
+<a href="/assets/blog/fig/compare.png" data-lightbox="falcon9-large" data-title="Instruction Tuning">
+  <img src="/assets/blog/fig/compare.png"  title="Instruction Tuning ">
+</a>
 
 
 ---
@@ -76,6 +81,12 @@ Retrieval-Augmented Generation (RAG) is an innovative approach that combines the
 - **Accuracy of Retrieval**: May not always fetch the most relevant or complete information.
 - **Context Limitations**: Can misinterpret the context, leading to irrelevant retrievals.
 
+
+<a href="/assets/blog/fig/rag.png" data-lightbox="falcon9-large" data-title="RAG">
+  <img src="/assets/blog/fig/rag.png"  title="RAG ">
+</a>
+
+
 ---
 
 ## Parameter-Efficient Fine-Tuning (PEFT)
@@ -86,6 +97,13 @@ Parameter-Efficient Fine-Tuning, often abbreviated as PEFT, is a resource-saving
 - **Resource Efficiency**: Lowers the computational and memory overhead.
 - **Time-Saving**: Faster fine-tuning cycles.
 > **Note**: We'll dive deeper into PEFT in an upcoming blog post, so stay tuned!
+
+
+
+<a href="/assets/blog/fig/peft.png" data-lightbox="falcon9-large" data-title="PEFT">
+  <img src="/assets/blog/fig/peft.png"  title="PEFT ">
+</a>
+
 
 ---
 
