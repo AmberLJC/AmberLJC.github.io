@@ -91,7 +91,7 @@ social:
     username: AmberLJC
     url: https://github.com/AmberLJC
     desc: Fork me on GitHub
-    share: false
+    share: true
 
   - name: LinkedIn
     icon: linkedin
