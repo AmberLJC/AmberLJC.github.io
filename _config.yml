@@ -19,7 +19,7 @@ name: Amber Liu
 # and never end with a slash. Set it to a blank value if hosting at the
 # root of your server.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "https://amberljc.github.io/posts/" # the base hostname & protocol for your site
+url: "" # the base hostname & protocol for your site
 cover: "/assets/header_image.jpg"
 logo: "/assets/logo.png"
 
@@ -54,7 +54,11 @@ jekyll-archives:
 
 # Category descriptions (for archive pages)
 descriptions:
-  - cat: Knowledge
+  - cat: knowledge
+    desc: "Relaxed reading."
+
+  - cat: research
+    desc: "Deep thinking."
 
 # Social icons and sharing options
 #
