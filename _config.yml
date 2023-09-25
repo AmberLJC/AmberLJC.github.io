@@ -25,7 +25,7 @@ logo: "/assets/logo.png"
 
 # Build settings
 markdown: kramdown
-inter_post_navigation: true
+inter_post_navigation: false
 highlightjs_theme: "monokai-sublime"
 
 # Pagination Settings
@@ -54,10 +54,7 @@ jekyll-archives:
 
 # Category descriptions (for archive pages)
 descriptions:
-  - cat: knowledge 
-
-  - cat: research
-    desc: "Deep thinking."
+  - cat: knowledge  
 
 # Social icons and sharing options
 #
