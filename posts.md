@@ -20,4 +20,16 @@ main_nav: true
   </ul>
   {% if forloop.last == false %}<hr>{% endif %}
 {% endfor %}
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_TRACKING_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'YOUR_GA_TRACKING_ID');
+</script>
+
 <br>

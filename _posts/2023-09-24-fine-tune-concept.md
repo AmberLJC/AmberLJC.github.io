@@ -125,3 +125,4 @@ Reinforcement Learning from Human Feedback (RLHF) is a promising but still emerg
 - Scaling Down to Scale Up: A Guide to Parameter-Efficient Fine-Tuning 
 - https://build.microsoft.com/en-US/sessions/db3f4859-cd30-4445-a0cd-553c3304f8e2
 - https://web.stanford.edu/class/cs224n/slides/cs224n-2023-lecture11-prompting-rlhf.pdf 
+- http://www-personal.umich.edu/~amberljc/file/llm-fine-tuning.pdf
