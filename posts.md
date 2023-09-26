@@ -21,15 +21,14 @@ main_nav: true
   {% if forloop.last == false %}<hr>{% endif %}
 {% endfor %}
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_TRACKING_ID"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T1JYF39V5T"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
-  }
+  function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'YOUR_GA_TRACKING_ID');
+
+  gtag('config', 'G-T1JYF39V5T');
 </script>
 
 <br>
