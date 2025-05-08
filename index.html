@@ -1,88 +1,528 @@
----
-layout: default
-pagination: 
-  enabled: true
----
-<div class="home">
+<!doctype html>
+<html>
+  <head>
 
-<div class="site-header-container {% if site.cover %}has-cover{% endif %}" {% if site.cover %}style="background-image: url({{ site.cover | prepend: site.baseurl }});"{% endif %}>
-  <div class="scrim {% if site.cover %}has-cover{% endif %}">
-    <header class="site-header">
-      <h1 class="title">{{ site.title }}</h1>
-      {% if site.subtitle %}<p class="subtitle">{{ site.subtitle }}</p>{% endif %}
-    </header>
-  </div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jiachen Liu</title>
+    <link rel="shortcut icon" href="imag/bubbletea.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="js/9JZkBilUSmGpH8F5SvwGOfpXbTA.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151270318-1"></script>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+    <link rel="stylesheet" href="stylesheets/style.css">
+<style>
+  table.professional-experience {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+</style>
+<style>
+  .project-details h3 i {
+    font-size: 0.8em;
+  }
+</style>
+<style>
+  section {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+  h2 {
+    color: #2fb2fe;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  ul li {
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+  table {
+    max-width: 800px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  th, td {
+    text-align: left;
+    padding: 12px;
+  }
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  .project-details h3 {
+    color: #444;
+    margin: 0 0 10px;
+  }
+  .project-details p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .project-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+  }
+  .project-link:hover {
+    background: #555;
+  }
+</style>
+    
+    <style>
+      body {
+        font-size: 15px;
+        padding-bottom: 20px;
+      }
+      h1 { font-size: 30px; line-height: 135%;}
+      h2 { font-size: 22px; line-height: 135%;}
+      /* ... Other font-sizes */
+      hr { border-top: 2px solid #e5e5e5;}
+      p { text-align: justify;}
+
+
+      
+      .topnav {
+    background-color: #2fb2fe ; /* Amber background color #fff8e6 */
+    overflow: hidden;
+  }
+  .topnav a {
+    float: left;
+    color: #995200;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  .topnav a:hover {
+    background-color: #FFFAF0;
+    color: black;
+  }
+  .topnav a.active {
+    background-color: #ff8800; /* Amber background color */
+    color: #995200;
+  }
+      my-email::after { content: "@umich.edu"; }
+      my-phone::after { content: attr(phone-number); }
+      my-phone::before { content: attr(area-code); }
+    </style>
+    
+
+
+
+    
+  </head>
+  <body>
+<div style="position: fixed; top: 50px; right: 10px; background-color: rgba(47, 178, 254, 0.8); padding: 8px; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); font-size: 14px;">
+  <a href="#about-me" style="display: block; margin-bottom: 8px; color: #fff; text-decoration: none;">About Me</a>
+  <a href="#publications" style="display: block; margin-bottom: 8px; color: #fff; text-decoration: none;">Publications</a>
+  <a href="#awards" style="display: block; margin-bottom: 8px; color: #fff; text-decoration: none;">Awards</a>
+  <a href="#experience" style="display: block; margin-bottom: 8px; color: #fff; text-decoration: none;">Experience</a>
+  <a href="#projects" style="display: block; margin-bottom: 8px; color: #fff; text-decoration: none;">Side Projects</a>
+  <a href="#service" style="display: block; margin-bottom: 8px; color: #fff; text-decoration: none;">Service</a>
+  <a href="#education" style="display: block; margin-bottom: 8px; color: #fff; text-decoration: none;">Education</a>
 </div>
+    <div class="topnav">
+      <a class="active" href="#">Home</a>
+      <a href="blog.html">Blog</a>
+   <!--    <a href="about.html">About</a> -->
+    </div>
+    <!-- ... rest of your HTML content ... -->
 
-<div class="wrapper">
-<ul class="post-list">
-  {% for post in paginator.posts %}
-  <li>
-    <h2>
-      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-    </h2>
-    <section class="post-excerpt" itemprop="description">
-      <p>{{ post.content | strip_html | truncatewords: 50 }}</p>
-    </section>
-    <section class="post-meta">
-      <div class="post-date">{{ post.date | date: "%B %-d, %Y" }}</div>
-      <div class="post-categories">
-      {% if post.categories.size > 0 %}in {% for cat in post.categories %}
-        {% if site.jekyll-archives %}
-        <a href="{{ site.baseurl }}/category/{{ cat }}">{{ cat | capitalize }}</a>{% if forloop.last == false %}, {% endif %}
-        {% else %}
-        <a href="{{ site.baseurl }}/posts/#{{ cat }}">{{ cat | capitalize }}</a>{% if forloop.last == false %}, {% endif %}
-        {% endif %}
-      {% endfor %}{% endif %}
-      </div>
-    </section>
-  </li>
-  {% if forloop.last == false %}
-  <hr>
-  {% endif %}
-  {% endfor %}
-</ul>
 
-<nav class="pagination" role="navigation">
-	<p>
-    {% if paginator.previous_page %}
-			{% if paginator.page == 2 %}
-			<a class="newer-posts" href="{{ site.baseurl }}{{ paginator.previous_page_path }}">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-square fa-stack-2x"></i>
-          <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
-        </span>
-      </a>
-			{% else %}
-			<a class="newer-posts" href="{{ site.baseurl }}{{ paginator.next_page_path }}">
-				<span class="fa-stack fa-lg">
-					<i class="fa fa-square fa-stack-2x"></i>
-					<i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
-				</span>
-			</a>
-			{% endif %}
-		{% else %}
-		<span class="fa-stack fa-lg">
-      <i class="fa fa-square fa-stack-2x"></i>
-      <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
-    </span>
-		{% endif %}
-		<span class="page-number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
-		{% if paginator.next_page %}
-		<a class="newer-posts" href="{{ site.baseurl }}{{ paginator.next_page_path }}">
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-square fa-stack-2x"></i>
-        <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
+    <div class="wrapper">
+      <header>
+<div class="profile-picture" style="text-align:center; margin-bottom:20px;">
+  <img src="imag/bubbletea.jpg" alt="Profile Picture" style="border-radius:50%; width:150px; height:150px;">
+</div>
+        <h1 style="text-align:center">Jiachen Liu</h1>
+<center>
+<p>
+<span class="font-weight-bold"><center>PhD Candidate in CSE</span>
+</center>
+<center>
+<span class="font-weight-bold">University of Michigan, Ann Arbor</span>
+</p>
+</center>
+
+
+<ul class="list-inline" style="margin-left:-0px;" style="line-height:300%;padding-bottom:100px;">
+
+
+
+<li>
+
+<a href="https://www.linkedin.com/in/jiachen-amber-liu-872506169/" target="_blank" title="LinkedIn">
+       <span class="fa-stack fa-lg" aria-hidden="true">
+   <i class="fa fa-linkedin fa-2x" style="color:#2fb2fe"></i>
+     </span>   <span class="sr-only">LinkedIn</span>
+</a>
+
+    </li>
+
+
+    <li>
+    <a href="https://github.com/AmberLJC" target="_blank" title="github" >
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fa fa-github fa-2x"  style = "color:#2fb2fe"></i>
       </span>
+      <span class="sr-only">GitHub</span>
     </a>
-		{% else %}
-		<span class="fa-stack fa-lg">
-      <i class="fa fa-square fa-stack-2x"></i>
-      <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
-    </span>
-		{% endif %}
-	</p>
-</nav>
+    </li>
+
+    <li>
+    <a href="https://scholar.google.com/citations?user=-kQZFScAAAAJ&hl=en" target="_blank" title="linkedin">
+      <span class="fa-stack fa-lg" aria-hidden="true"  style = "color:#2fb2fe">
+         <i class="ai ai-google-scholar-square fa-2x"></i>
+        </span>
+         <span class="sr-only">Scholar</span>
+         </a>
+    </li>
+
+    <li>
+      <a href="documents/Amber_CV.pdf" target="_blank" title="CV">
+          <span class="fa-stack fa-lg" aria-hidden="true", style="color:#2fb2fe">
+            <i class="ai ai-cv-square fa-2x"></i>
+          </span>
+          <span class="sr-only">CV</span>
+        </a>
+        </li>
+  </ul>
+
+
+
+      </header>  
+
+  </section>
+
+  <section id="about-me">
+    <h1>About Me 👋</h1>
+
+    <p>
+        Hello! I'm Amber (Jiachen) Liu, a fifth-year Ph.D. candidate in Computer Science at the University of Michigan (Umich), where I'm fortunate to work under the guidance of <a href="https://www.mosharaf.com/">Prof. Mosharaf Chowdhury</a>. My academic journey has been enriched by wonderful collaborations with <a href="http://db.csail.mit.edu/madden/">Prof. Sam Madden</a> and <a href="https://www2.cs.arizona.edu/~caolei/">Prof. Lei Cao</a> at MIT, as well as <a href="http://www-personal.umich.edu/~siqian/">Prof. Siqian Shen</a> at Umich.
+    </p>
+
+    <p>
+      As an optimist and strong advocate of AGI, my research tries to build efficient systems that enable researchers to push the boundary of machine learning, particularly in <code>Federated Learning (FL)</code> and <code>Large Language Models (LLMs)</code>. Currently, I'm exploring two exciting frontiers: enhancing the <a href="https://llm-qoe.github.io/">Quality-of-Experience (QoE)</a> in LLM serving systems and developing infrastructure for extremely large-scale LLM training.
+    </p>
+
+    <p>
+        To contribute to the research community, I maintain comprehensive paper collections on <strong><a href="https://github.com/AmberLJC/FLsystem-paper">FL Systems</a> and <a href='https://github.com/AmberLJC/LLMSys-PaperList/'>LLM Systems</a></strong>. I also serve as a Teaching Assistant for <a href="https://github.com/mosharaf/eecs598/tree/w24-genai">Systems for Generative AI</a> at Michigan, where I've developed educational materials on <a href="documents/LLM-Systems-Basics.pdf">LLM Systems Fundamentals</a>, <a href="documents/llm-fine-tuning.pdf">LLM Fine-tuning</a>, and <a href="documents/vectordb_101.pdf">Vector Databases</a>.
+    </p>
+
+    <p>
+        I'm always eager to engage in meaningful discussions about research and explore potential academic collaborations. Feel free to reach out via email or <a href="https://calendly.com/amberljc/30min">schedule a meeting</a> to connect!
+    </p>
+</section>
+
+<section id="publications">
+  <h2>Publications 📃</h2>
+
+  
+
+  <ul>
+    <li> <div id="high_dim"> <a href="https://arxiv.org/abs/2502.16069">Curie: Toward Rigorous and Automated Scientific Experimentation with AI Agents</a>, <strong>Arxiv 2025</strong>.</div>
+      Patrick Tser Jern Kon*, <u>Jiachen Liu*</u>, Qiuyi Ding, Yiming Qiu, Zhenning Yang, Yibo Huang, Jayanth Srinivasa, Myungjin Lee, Mosharaf Chowdhury, Ang Chen (* Equal contribution).
+      <br><a href="https://github.com/Just-Curieous/Curie" target="_blank" style="font-size: 0.8em; border: 1px solid; border-radius: 5px; padding: 2px 5px;">GitHub</a> 
+      <a href="https://arxiv.org/abs/2502.16069" target="_blank" style="font-size: 0.8em; border: 1px solid; border-radius: 5px; padding: 2px 5px;">Paper</a>
+      <a href="https://www.just-curieous.com/" target="_blank" style="font-size: 0.8em; border: 1px solid; border-radius: 5px; padding: 2px 5px;">Blog & Demo</a>
+    </li>
+  </ul>
+  <ul>
+    <li> <div id="high_dim"> <a href="#">
+      Evaluation Framework for AI Systems in "the Wild"</a>, <strong>Arxiv 2025</strong>.</div>
+      Sarah Jabbour, Trenton Chang, Anindya Das Antar, Joseph Peper, Insu Jang, <u>Jiachen Liu</u>, Jae-Won Chung, Shiqi He, Michael Wellman, Bryan Goodman, Elizabeth Bondi-Kelly, Kevin Samy, Rada Mihalcea, Mosharaf Chowdhury, David Jurgens, Lu Wang
+      <br><a href="https://arxiv.org/abs/2504.16778" target="_blank" style="font-size: 0.8em; border: 1px solid; border-radius: 5px; padding: 2px 5px;">Paper</a>
+     </li>
+  </ul>
+
+  
+  <ul>
+    <li> <div id="high_dim"> <a href="https://neurips.cc/virtual/2024/poster/97835">
+      IaC-Eval: A code generation benchmark for Infrastructure-as-Code programs</a>, <strong>NeurIPS 2024</strong>.</div>
+Patrick Tser Jern Kon, <u>Jiachen Liu</u>, Yiming Qiu, Weijun Fan, Ting He, Lei Lin, Haoran Zhang, Owen M. Park, George Sajan Elengikal, Yuxin Kang, Ang Chen, Mosharaf Chowdhury, Myungjin Lee, Xinyu Wang
+<br><a href="https://github.com/autoiac-project/iac-eval" target="_blank" style="font-size: 0.8em; border: 1px solid; border-radius: 5px; padding: 2px 5px;">GitHub</a> <a href="https://neurips.cc/virtual/2024/poster/97835" target="_blank" style="font-size: 0.8em; border: 1px solid; border-radius: 5px; padding: 2px 5px;">Paper</a>
+     </li>
+  </ul>
+  
+  <ul>
+    <li> <div id="high_dim">   <a href="https://arxiv.org/abs/2404.16283">
+      Andes: Defining and Enhancing Quality-of-Experience in LLM-Based Text Streaming Services,  </a> <strong>Arxiv 2024</strong>.</div>
+      <u>Jiachen Liu</u>, Zhiyu Wu, Jae-Won Chung, Fan Lai, Myungjin Lee, Mosharaf Chowdhury
+<br><a href="https://llm-qoe.github.io/" target="_blank" style="font-size: 0.8em; border: 1px solid; border-radius: 5px; padding: 2px 5px;">Blog</a>
+ <a href="https://arxiv.org/abs/2404.16283" target="_blank" style="font-size: 0.8em; border: 1px solid; border-radius: 5px; padding: 2px 5px;">Paper</a>
+     </li>
+  </ul>
+  
+  <ul>
+    <li> <div id="high_dim"> <a href="https://arxiv.org/abs/2312.08298" >Venn: Resource Management Across Federated Learning Jobs</a>, <strong>MLSys 2025</strong>.</div>
+      <u>Jiachen Liu</u>, Fan Lai, Ding Ding, Yiwen Zhang, Mosharaf Chowdhury.
+      <br> <a href="https://arxiv.org/abs/2312.08298" target="_blank" style="font-size: 0.8em; border: 1px solid; border-radius: 5px; padding: 2px 5px;">Paper</a>
+     </li>
+  </ul>
+  
+  
+  <ul>
+    <li> <div id="high_dim"> <a href="https://arxiv.org/abs/2312.03863" >
+      Efficient Large Language Models: A Survey</a>, <strong>TMLR 2024</strong>.</div>
+      Zhongwei Wan, Xin Wang, Che Liu, Samiul Alam, Yu Zheng, <u>Jiachen Liu</u>, Zhongnan Qu, Shen Yan, Yi Zhu, Quanlu Zhang, Mosharaf Chowdhury, Mi Zhang.
+      <br>  <a href="https://arxiv.org/abs/2312.03863" target="_blank" style="font-size: 0.8em; border: 1px solid; border-radius: 5px; padding: 2px 5px;">Paper</a>
+      <a href="      https://github.com/AIoT-MLSys-Lab/Efficient-LLMs-Survey
+      " target="_blank" style="font-size: 0.8em; border: 1px solid; border-radius: 5px; padding: 2px 5px;">GitHub</a> 
+
+     </li>
+  </ul>
+  
+  <ul>
+    <li> <div id="high_dim">   <a href="https://arxiv.org/abs/2404.13515">
+      FedTrans: Efficient Federated Learning via Multi-Model Transformation,  </a> <strong>MLSys 2024</strong>.</div>
+      Yuxuan Zhu, <u>Jiachen Liu</u>, Mosharaf Chowdhury, Fan Lai
+      <br>  <a href="https://arxiv.org/abs/2404.13515" target="_blank" style="font-size: 0.8em; border: 1px solid; border-radius: 5px; padding: 2px 5px;">Paper</a>
+     </li>
+  </ul>
+  
+  <ul>
+    <li> <div id="high_dim"> <a href="https://arxiv.org/abs/2210.16656" >Auxo: Efficient Federated Learning via Scalable Cohort Identification</a>, <strong>SoCC 2023</strong>.</div>
+      <u>Jiachen Liu</u>, Fan Lai, Yinwei Dai, Aditya Akella, Harsha Madhyastha, Mosharaf Chowdhury.
+<br><a href="https://github.com/SymbioticLab/FedScale" target="_blank" style="font-size: 0.8em; border: 1px solid; border-radius: 5px; padding: 2px 5px;">GitHub</a> 
+<a href="https://arxiv.org/abs/2210.16656" target="_blank" style="font-size: 0.8em; border: 1px solid; border-radius: 5px; padding: 2px 5px;">Paper</a>
+     </li>
+  </ul>
+  
+  <ul>
+    <li> <div id="high_dim"> <a href="https://arxiv.org/abs/2105.11367" >FedScale: Benchmarking Model and System Performance of Federated Learning at Scale</a>, <strong>ICML 2022</strong></div>
+      Fan Lai, Yinwei Dai, Sanjay S. Singapuram, <u>Jiachen Liu</u>, Xiangfeng Zhu, Harsha V. Madhyastha, Mosharaf Chowdhury.
+<br><a href="https://github.com/SymbioticLab/FedScale" target="_blank" style="font-size: 0.8em; border: 1px solid; border-radius: 5px; padding: 2px 5px;">GitHub</a> <a href="https://arxiv.org/abs/2105.11367" target="_blank" style="font-size: 0.8em; border: 1px solid; border-radius: 5px; padding: 2px 5px;">Paper</a>
+     </li>
+  </ul>
+  
+  <ul>
+    <li> <div id="high_dim"> <a href="documents/scaleml-mlsys21.pdf" >Fluid: Resource-Aware Hyperparameter Tuning Engine</a>, <strong>MLSys 2021</strong></div>
+      Peifeng Yu*, <u>Jiachen Liu*</u>, Mosharaf Chowdhury (* Equal contribution).
+<br><a href="https://github.com/SymbioticLab/Fluid" target="_blank" style="font-size: 0.8em; border: 1px solid; border-radius: 5px; padding: 2px 5px;">GitHub</a> <a href="documents/scaleml-mlsys21.pdf" target="_blank" style="font-size: 0.8em; border: 1px solid; border-radius: 5px; padding: 2px 5px;">Paper</a>
+<a href="https://www.youtube.com/watch?v=LZQE90whvfY" target="_blank" style="font-size: 0.8em; border: 1px solid; border-radius: 5px; padding: 2px 5px;">Video</a>  
+</li>
+  </ul>
+  
+
+            </section>
+
+              <h2 style="color: #cc7000;">Awards 🥇</h2>
+              <section id="awards">
+                <ul>
+                  <li>
+                    <strong> Machine Learning and Systems Rising Stars 🌟 (Program of 2023)</strong>
+                  </li>
+                  <li>
+                    <strong> Shanghai (China) Outstanding Graduate 🎓 (Top 5%) 2020</strong>
+                  </li>
+               <!--  <li> Reviewer for TMC, MLSys workshop, ICDM, TPDS. </li> -->
+                </ul>
+              </section>
+            
+
+
+      </section>
+      <section id="experience"></section>
+      <h2> Experience 👩🏻‍💻 </h2>
+
+<table style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+  <thead>
+    <tr style="background-color: #f2f2f2;">
+      <th style="padding: 12px; text-align: left;"> </th>
+      <th style="padding: 12px; text-align: left;">Company/Institution</th>
+      <th style="padding: 12px; text-align: left;">Position</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 8px;"><img src="imag/meta.png" width="30" height="30" ></td>
+      <td style="padding: 8px;">Meta<br>Menlo Park, CA</td>
+      <td style="padding: 8px;">Part-time Research Scientist, <em>Llama Training Systems.</em> <br>May 2024 - Dec 2024</td>
+    </tr>
+    <tr style="background-color: #f8f8f8;">
+      <td style="padding: 8px;"><img src="imag/um.png" width="30" height="30" ></td>
+      <td style="padding: 8px;">University of Michigan<br>Ann Arbor, MI</td>
+      <td style="padding: 8px;">Teaching Assistant, <em> <a href="https://github.com/mosharaf/eecs598/tree/w24-genai" >Systems for Generative AI (EECS 598) </a></em> <br> Jan 2024 - May 2024</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px;"><img src="imag/apple.png" width="30" height="30" ></td>
+      <td style="padding: 8px;">Apple<br>New York, NY</td>
+      <td style="padding: 8px;">PhD Intern, <em>Private Machine Learning Framework.</em> <br>May 2022 - Aug 2022</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px;"><img src="imag/csail.png" width="30" height="30" ></td>
+      <td style="padding: 8px;">MIT CSAIL Database group<br>Cambridge, MA</td>
+      <td style="padding: 8px;">Research Intern, <em>High-dimensional vector database.</em>
+        <br>May 2019 - Jan 2020</td>
+    </tr>
+    <tr style="background-color: #f8f8f8;">
+      <td style="padding: 8px;"><img src="imag/um.png" width="30" height="30" ></td>
+      <td style="padding: 8px;">University of Michigan<br>Ann Arbor, MI</td>
+      <td style="padding: 8px;">Teaching Assistant, <em>Database Management (EECS484)</em><br> Sep 2019 - Aug 2020</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2 style="color: #cc7000;"> Side Projects 👩🏻‍💻 </h2>
+<section id="projects">
+
+  <div class="project">
+    <div class="energy">
+      <img src="imag/curie-logo_resized.png" style="transform: scale(1);" alt="Project Image">
+    </div>
+      <div class="project-details">
+    <h3><a href="https://github.com/Just-Curieous/Curie" target="_blank" title="curie-ai-for-science" style="color: rgb(252, 139, 69); text-decoration: none;"> <i class="fa fa-question-circle"></i> Curie </a></h3>
+    <p style="font-size: 11pt; color: grey;">[Year of 2024] Curie is the first AI-agent framework designed for automated and rigorous scientific experimentation.  
+    </p>
+      </div> 
+  </div>  
+
+  <div class="project">
+    <div class="energy">
+      <img src="imag/energy.png" style="transform: scale(1);" alt="Project Image">
+    </div>
+      <div class="project-details">
+    <h3><a href="https://ml.energy" target="_blank" title="ml energy leaderboard" style="color: green; text-decoration: none;"><i class="fa fa-bolt"></i> ML.Energy Leaderboard</a></h3>
+    <p style="font-size: 11pt; color: grey;">[Year of 2023] The goal of the ML.ENERGY Leaderboard is to give people a sense of how much energy LLMs would consume. </p>
+      </div> 
+  </div>  
+ 
+<div class="project">
+  <div class="energy">
+    <img src="imag/fedscale_resized.png" style="transform: scale(1);" alt="Project Image">
+  </div>
+    <div class="project-details">
+  <h3><a href="https://fedscale.ai/" target="_blank" title="fl engine" style="color: orange; text-decoration: none;"> <i class="fa fa-users"></i> FedScale</a></h3>
+  <p style="font-size: 11pt; color: grey;">[Year of 2022] FedScale is a scalable and extensible open-source federated learning (FL) engine and benchmark. 
+  </p>
+    </div>
+  </div>
+
+</section>
+
+
+<section id="service"></section>
+<h2> Community Service 🎯 </h2>
+
+<table style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+  <thead>
+    <tr style="background-color: #f2f2f2;">
+      <th style="padding: 12px; text-align: left;"> </th>
+      <th style="padding: 12px; text-align: left;">Organization</th>
+      <th style="padding: 12px; text-align: left;">Position</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f8f8f8;">
+      <td style="padding: 8px;"><img src="imag/um.png" width="30" height="30" ></td>
+      <td style="padding: 8px;">Umich CSE Graduate Students Organization<br>Ann Arbor, MI</td>
+      <td style="padding: 8px;">DEI Chair<br>May 2023 - May 2024</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px;"><img src="imag/sjtu.png" width="30" height="30" ></td>
+      <td style="padding: 8px;">SJTU-Joint Institute Student Union<br>SH, China</td>
+      <td style="padding: 8px;">Vice President<br>June 2017 - June 2018</td>
+    </tr>
+  </tbody>
+</table>
+
+<section id="education"></section>
+<h2>Education 🎓</h2>
+<table>
+     <tbody>
+   <tr>
+       <th>Year   </th>
+   <th>School</th>
+   <th>Degree</th>
+     </tr>
+     <td>2020-2025
+       <img src="imag/unnamed.png" width="40" height="40" >
+</td>
+    <td>University of Michigan</td>
+    <td>Master & Ph.D Candidate in Computer Science</td>
+
+   </tr>
+
+   <tr>
+       <td>2018-2020
+      <img src="imag/unnamed.png" width="40" height="40" >
+</td>
+   <td>University of Michigan</td>
+   <td>B.S.E in Data Science</td>
+</tr>
+
+       <td>2016-2020
+      <img src="imag/sjtu.png" width="40" height="40" >
+</td>
+
+   <td>Shanghai Jiaotong University</td>
+   <td>B.E in Electrical and Computer Engineering</td>
+
+     </tr>
+   </tr>
+   </tbody>
+   </table>
+
+
+
+<div style="width:100%; height:10px; clear:both;"></div>
+
+
+<div style="text-align:center;">
+
+<h4>Contact </h4>
+<div style="line-height:15px;"> 
+刘嘉晨
+</div>
+
+<i class="fa fa-envelope" style="font-size:16px"></i>
+<span class="font-weight-bold2" style="line-height:150%;">amberljc<my-email></my-email></span><br>
+<div style="line-height:5px;">
+
+
+<div style="line-height:15px;">
+<a href="https://twitter.com/JIACHENLIU8" target="_blank" title="Twitter">
+    <i class="fa fa-twitter" style="font-size:20px; margin-left:2px; color:#1DA1F2;"></i>
+<span class="font-weight-bold2" style="margin-left:5px;"><small>@JIACHENLIU8 </small></span>
+</a>
+</div>
+
+<div style="line-height:15px;">
+<i class="fa fa-map-marker" aria-hidden="true" style="font-size:20px;" style="margin-left:2px;"></i>
+<span class="font-weight-bold2" style="margin-left:5px;"><small>University of Michigan, Ann Arbor, 2260 Hayward St </small></span>
+
+
+
 
 </div>
 </div>
+
+
+      <footer>
+
+      <p>
+        <script src="js/resume.min.js"></script>
+
+    <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=9ac9f5&w=100&t=n&d=C9wiwH27Iusc4j3QW1Rpcxs0r_2h7Rd11ttSmAKDqAE&co=ffffff&cmo=bed6b0&cmn=fcaef0&ct=808080'> </script>
+    </p> 
+            </footer> 
+
+  </body>
+</html>

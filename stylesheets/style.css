@@ -1,0 +1,343 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f8f8;
+    color: #333;
+    font-size: 15px;
+    padding-bottom: 20px;
+}
+
+.wrapper {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    color: #444;
+}
+
+.list-inline {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.list-inline li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.fa-stack .fa {
+    color: #ADD8E6;
+}
+
+.container {
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+table {
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+footer p {
+    text-align: center;
+}
+
+#awards {
+    background-color: #fff8e6;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#awards h2 {
+    color: #cc7000;
+    text-align: center;
+}
+
+#awards ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#awards li {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+#projects {
+    background-color: #fff8e6;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#projects .project {
+    display: flex;
+    margin-bottom: 40px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    color: #cc7000;
+}
+
+.project-image {
+    width: 200px;
+    overflow: hidden;
+}
+
+.project-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.project-details {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.project-details h3 {
+    color: #444;
+    margin: 0 0 10px;
+}
+
+.project-details p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.project-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.project-link:hover {
+    background: #555;
+}
+
+#publications {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#publications h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#publications ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#publications li {
+    margin-bottom: 15px;
+}
+
+#publications a {
+    text-decoration: none;
+    color: #2fb2fe;
+    font-weight: bold;
+}
+
+#publications a:hover {
+    text-decoration: underline;
+}
+
+#publications div {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+#about-me {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff8e6;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #995200;
+}
+
+#about-me h1 {
+    color: #cc7000;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+#about-me p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+#about-me a {
+    color: #ff8c00;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#about-me a:hover {
+    text-decoration: underline;
+    color: #e67e00;
+}
+
+table.professional-experience {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.project-details h3 i {
+    font-size: 0.8em;
+}
+
+section {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: #2fb2fe;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+table {
+    max-width: 800px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.project-details h3 {
+    color: #444;
+    margin: 0 0 10px;
+}
+
+.project-details p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.project-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.project-link:hover {
+    background: #555;
+}
+
+body {
+    font-size: 15px;
+    padding-bottom: 20px;
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 135%;
+}
+
+h2 {
+    font-size: 22px;
+    line-height: 135%;
+}
+
+hr {
+    border-top: 2px solid #e5e5e5;
+}
+
+p {
+    text-align: justify;
+}
+
+.topnav {
+    background-color: #2fb2fe;
+    overflow: hidden;
+}
+
+.topnav a {
+    float: left;
+    color: #995200;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #FFFAF0;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #ff8800;
+    color: #995200;
+}
+
+my-email::after {
+    content: "@umich.edu";
+}
+
+my-phone::after {
+    content: attr(phone-number);
+}
+
+my-phone::before {
+    content: attr(area-code);
+}
