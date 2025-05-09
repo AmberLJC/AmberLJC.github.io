@@ -172,7 +172,7 @@ table.professional-experience {
 .list-inline {
   margin-left: -0px;
   line-height: 300%;
-  padding-bottom: 100px;
+  padding-bottom: 20px;
 }
 
 .social-icon {
@@ -261,4 +261,17 @@ footer {
 .project-description {
   font-size: 11pt;
   color: grey;
+}
+
+/* Publications Section */
+#publications ul {
+  text-align: left;
+}
+
+#publications ul li {
+  text-align: left;
+}
+
+#publications div, #publications p {
+  text-align: left;
 } 
