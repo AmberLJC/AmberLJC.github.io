@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../stylesheets/custom.css">
+    <title>Unlocking Capabilities Beyond Pre-training: When to Fine-Tuning</title>
+</head>
+<style>/* Modern Technical Blog Theme */
+    :root {
+        --primary-color: #2563eb;
+        --secondary-color: #1e40af;
+        --text-color: #1f2937;
+        --light-text: #6b7280;
+        --background: #ffffff;
+        --light-background: #f3f4f6;
+        --border-color: #e5e7eb;
+        --code-background: #f8fafc;
+        --link-color: #2563eb;
+        --link-hover: #1d4ed8;
+    }
+    
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.7;
+        background-color: var(--light-background);
+        color: var(--text-color);
+        margin: 0;
+        padding: 0;
+    }
+    
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    .topnav {
+        background: var(--background);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .topnav a {
+        float: left;
+        display: block;
+        color: var(--text-color);
+        text-align: center;
+        padding: 16px 20px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.2s ease;
+    }
+    
+    .topnav a:hover {
+        color: var(--primary-color);
+        background-color: var(--light-background);
+    }
+    
+    .topnav a.active {
+        color: var(--primary-color);
+        border-bottom: 2px solid var(--primary-color);
+    }
+    
+    .content {
+        background: var(--background);
+        padding: 40px;
+        margin: 20px auto;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .content h1 {
+        color: var(--text-color);
+        font-size: 2.5em;
+        margin-bottom: 0.5em;
+        font-weight: 700;
+    }
+    
+    .content h2 {
+        color: var(--text-color);
+        font-size: 1.8em;
+        margin: 1.5em 0 0.8em;
+        font-weight: 600;
+    }
+    
+    .content h3 {
+        color: var(--text-color);
+        font-size: 1.4em;
+        margin: 1.2em 0 0.6em;
+        font-weight: 600;
+    }
+    
+    .content p {
+        margin: 1em 0;
+        color: var(--text-color);
+    }
+    
+    .content ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 1em 0;
+    }
+    
+    .content li {
+        margin: 0.8em 0;
+        padding-left: 1.5em;
+        position: relative;
+    }
+    
+    .content li:before {
+        content: "•";
+        color: var(--primary-color);
+        position: absolute;
+        left: 0;
+    }
+    
+    .content a {
+        color: var(--link-color);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+    
+    .content a:hover {
+        color: var(--link-hover);
+        text-decoration: underline;
+    }
+    
+    .content code {
+        background-color: var(--code-background);
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+        font-size: 0.9em;
+    }
+    
+    .content pre {
+        background-color: var(--code-background);
+        padding: 1em;
+        border-radius: 6px;
+        overflow-x: auto;
+        margin: 1.5em 0;
+    }
+    
+    .content pre code {
+        background-color: transparent;
+        padding: 0;
+    }
+    
+    .content blockquote {
+        border-left: 4px solid var(--primary-color);
+        margin: 1.5em 0;
+        padding: 0.5em 1em;
+        background-color: var(--light-background);
+        color: var(--light-text);
+    }
+    
+    .content img {
+        max-width: 10%;
+        height: auto;
+        border-radius: 6px;
+        margin: 1.5em auto;
+        display: block;
+    }
+    
+    .blog-meta {
+        color: var(--light-text);
+        font-size: 0.9em;
+        margin-bottom: 2em;
+    }
+    
+    footer {
+        background: var(--background);
+        color: var(--light-text);
+        text-align: center;
+        padding: 20px;
+        margin-top: 40px;
+        border-top: 1px solid var(--border-color);
+    }
+    
+    footer p {
+        margin: 0;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .container {
+            padding: 10px;
+        }
+        
+        .content {
+            padding: 20px;
+        }
+        
+        .content h1 {
+            font-size: 2em;
+        }
+        
+        .content h2 {
+            font-size: 1.5em;
+        }
+        
+        .content h3 {
+            font-size: 1.2em;
+        }
+    }
+    
+    /* Article List Styling */
+    .article-list {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .article-list li {
+        background: var(--background);
+        margin: 10px 0;
+        padding: 15px 20px;
+        border-radius: 6px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease;
+    }
+    
+    .article-list li:hover {
+        transform: translateY(-2px);
+    }
+    
+    .article-list .date {
+        color: var(--light-text);
+        font-size: 0.9em;
+        margin-right: 10px;
+    }
+    
+    .article-list a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 500;
+    }
+    
+    .article-list a:hover {
+        color: var(--primary-color);
+    }
+
+    .blog-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .blog-content img {
+        width: 80%;
+        max-width: 500px;
+        height: auto;
+        border-radius: 6px;
+        margin: 1.5em auto;
+        display: block;
+    }
+</style>
+
+<body>
+  <div class="topnav">
+    <a href="../index.html">Home</a>
+    <a href="../blog.html">Blog</a>
+  </div>
+
+  <div class="blog-content">
+    <h1>Unlocking Capabilities Beyond Pre-training: Fine-Tuning and Other Techniques</h1>
+    <div class="blog-meta">
+      <p>Posted on September 24, 2023 by Jiachen Liu</p>
+    </div>
+
+    <h2>Introduction</h2>
+    <p>Machine learning practitioners often encounter large language models that are pre-trained on extensive datasets to predict the next token in a sequence. While these models are powerful, they aren't necessarily optimized for specific tasks or to answer particular questions. That's where fine-tuning comes into play.</p>
+
+    <p>During an internal tutorial session on fine-tuning large language models, I realized that there are several essential concepts and techniques worth discussing in-depth. This blog post aims to shed light on multiple ways to enhance your language model's performance, in addition to fine-tuning, and help you make an informed decision about which technique to use for your specific needs.</p>
+
+    <h2>Prompt Engineering</h2>
+    <p>Prompt Engineering involves carefully crafting the instruction (or 'prompt') given to a language model in order to elicit a specific type of response. By making the prompt more concise, more professional, or geared towards a certain task, we can significantly influence the output of the model.</p>
+
+    <h3>Example:</h3>
+    <ul>
+      <li>Non-engineered Prompt: <code>Tell me about climate change.</code></li>
+      <li>Engineered Prompt: <code>Provide a comprehensive, academic-style overview of climate change, focusing on its causes and effects.</code></li>
+    </ul>
+
+    <h3>Advantages:</h3>
+    <ul>
+      <li><strong>Resource Efficiency</strong>: Requires no additional computational cost.</li>
+      <li><strong>Precise Control</strong>: The prompt allows precise control over what the model generates.</li>
+    </ul>
+
+    <h3>Disadvantages:</h3>
+    <ul>
+      <li><strong>Context Length Limit</strong>: Long instructions may exceed the context limit of the model.</li>
+      <li><strong>Increased Latency</strong>: More tokens in the prompt can increase inference time.</li>
+      <li><strong>Lack of Depth</strong>: While prompt engineering can steer the model, it does not add any domain-specific depth.</li>
+    </ul>
+
+    <h2>Vanilla Fine-Tuning</h2>
+    <p>Vanilla Fine-Tuning is the process of adapting a pre-trained model to a specific task by further training it on a smaller domain-specific dataset. This method retrains all the model weights and is akin to the original pre-training process, albeit on a more narrow dataset.</p>
+
+    <h3>Advantages:</h3>
+    <ul>
+      <li><strong>Improved Performance</strong>: Gains expertise in the target domain. Leads to more accurate and relevant results for the task at hand.</li>
+    </ul>
+
+    <h3>Disadvantages:</h3>
+    <ul>
+      <li><strong>Resource Intensive</strong>: Require the same resources such as GPU memory as in the original pre-training stage.</li>
+    </ul>
+
+    <h2>Instruction Tuning</h2>
+    <p>Instruction Tuning primarily utilizes a dataset composed of pairs of instructions and corresponding responses. This approach aims to bridge the gap between the model's generic next-word prediction objectives and the user's specific intent or instructions.</p>
+
+    <h3>Advantages:</h3>
+    <ul>
+      <li><strong>Predictable Behavior</strong>: The model can be conditioned to act in a specific way.</li>
+      <li><strong>Versatility</strong>: Enables the model to perform tasks it wasn't explicitly trained for.</li>
+    </ul>
+
+    <h3>Disadvantages:</h3>
+    <ul>
+      <li><strong>Dataset Complexity</strong>: Requires carefully curated instruction-response pairs.</li>
+    </ul>
+
+    <img src="figs/instruction.png" alt="Difference among different techniques">
+    <img src="figs/compare.png" alt="Instruction Tuning">
+
+    <h2>Retrieval-Augmented Generation (RAG)</h2>
+    <p>Retrieval-Augmented Generation (RAG) is an innovative approach that combines the prowess of language models with the ability to pull in external knowledge. In a typical RAG setup, a vector database is used to retrieve context-relevant information, which is then organized into the prompt fed to the language model.</p>
+
+    <h3>Advantages:</h3>
+    <ul>
+      <li><strong>Enhanced Outputs</strong>: Combines internal model knowledge with external databases for richer context.</li>
+      <li><strong>Task Versatility</strong>: Can be adapted for a variety of tasks where external information is beneficial.</li>
+    </ul>
+
+    <h3>Disadvantages:</h3>
+    <ul>
+      <li><strong>Accuracy of Retrieval</strong>: May not always fetch the most relevant or complete information.</li>
+      <li><strong>Context Limitations</strong>: Can misinterpret the context, leading to irrelevant retrievals.</li>
+    </ul>
+
+    <img src="figs/rag.png" alt="RAG">
+
+    <h2>Parameter-Efficient Fine-Tuning (PEFT)</h2>
+    <p>Parameter-Efficient Fine-Tuning, often abbreviated as PEFT, is a resource-saving alternative to traditional fine-tuning methods. Unlike Vanilla Fine-Tuning, which updates all the model weights, PEFT focuses only on a subset of model weights.</p>
+
+    <h3>Key Features:</h3>
+    <ul>
+      <li><strong>Resource Efficiency</strong>: Lowers the computational and memory overhead.</li>
+      <li><strong>Time-Saving</strong>: Faster fine-tuning cycles.</li>
+    </ul>
+
+    <img src="figs/peft.png" alt="PEFT">
+
+    <blockquote>
+      <strong>Note</strong>: We'll dive deeper into PEFT in an upcoming blog post, so stay tuned!
+    </blockquote>
+
+    <h2>Reinforcement Learning from Human Feedback (RLHF)</h2>
+    <p>Reinforcement Learning from Human Feedback (RLHF) is a promising but still emerging technique to align large language models more closely with human preferences. The primary goal of RLHF is to incorporate more nuanced behaviors like emotional awareness into the model's responses.</p>
+
+    <h3>Challenges:</h3>
+    <ul>
+      <li><strong>Unstable Performance</strong>: Currently reported to offer inconsistent results.</li>
+      <li><strong>Complex Training</strong>: Requires highly specialized training setups.</li>
+    </ul>
+
+    <blockquote>
+      <strong>Note</strong>: Due to its research-oriented nature and current limitations, we won't delve deep into RLHF in this post. However, it remains an exciting field for future exploration.
+    </blockquote>
+
+    <h2>Sources</h2>
+    <ul>
+      <li>Challenges and Applications of Large Language Models</li>
+      <li>Scaling Down to Scale Up: A Guide to Parameter-Efficient Fine-Tuning</li>
+      <li><a href="https://build.microsoft.com/en-US/sessions/db3f4859-cd30-4445-a0cd-553c3304f8e2">Microsoft Build Session</a></li>
+      <li><a href="https://web.stanford.edu/class/cs224n/slides/cs224n-2023-lecture11-prompting-rlhf.pdf">Stanford CS224n Lecture</a></li>
+      <li><a href="http://www-personal.umich.edu/~amberljc/file/llm-fine-tuning.pdf">LLM Fine-tuning Guide</a></li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>&copy; AmberJCJJ - AI Blogger</p>
+  </footer>
+</body>
+</html> 
