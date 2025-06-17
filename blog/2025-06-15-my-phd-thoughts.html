@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>From 0→∞: A PhD's Lessons on Innovating in ML Systems</title>
+    <title>From 0→∞: My PhD Lessons on Innovating User-Centric ML Systems</title>
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -13,6 +13,7 @@
             --background-color: #f8f9fa;
             --section-bg: #ffffff;
             --border-color: #e9ecef;
+            --light-text: #6b7280;
         }
 
         body {
@@ -23,6 +24,46 @@
             padding: 40px 20px;
             color: var(--text-color);
             background-color: var(--background-color);
+            margin-top: 60px;
+        }
+
+        .topnav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--section-bg);
+            border-bottom: 2px solid var(--secondary-color);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            z-index: 1000;
+            padding: 0;
+            margin: 0;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: var(--primary-color);
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin: 8px 4px;
+        }
+
+        .topnav a:hover {
+            background-color: var(--secondary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .topnav a.active {
+            background-color: var(--accent-color);
+            color: white;
         }
 
         h1, h2, h3 {
@@ -73,8 +114,7 @@
         li {
             margin-bottom: 0.8em;
             line-height: 1.6;
-        }
-
+        } 
         .highlight {
             background-color: var(--section-bg);
             padding: 25px;
@@ -127,6 +167,7 @@
         @media (max-width: 600px) {
             body {
                 padding: 20px 15px;
+                margin-top: 60px;
             }
             
             h1 {
@@ -136,20 +177,52 @@
             .section {
                 padding: 5px;
             }
+
+            .topnav a {
+                padding: 12px 16px;
+                font-size: 16px;
+            }
         }
+    .blog-meta {
+        color: var(--light-text);
+        font-size: 0.9em;
+        margin-bottom: 2em;
+    }
+
     </style>
 </head>
 <body>
-    <h1>From 0→∞:A PhD's Lessons on Innovating in ML Systems</h1>
-    <p style="text-align: center;">Jiachen Liu, PhD in Computer Science, University of Michigan</p>
+
+    <div class="topnav">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Blog</a>
+    </div>
+
+    <h1>From 0→∞: My PhD Lessons on Innovating User-Centric ML Systems</h1>
+    <!-- <p style="text-align: center;">Jiachen Liu, PhD in Computer Science, University of Michigan</p>  -->
+    <div class="blog-meta">
+        <p>Posted on June 15, 2025 by Jiachen Liu</p>
+      </div>
+  
+    <div class="section">
+        <p>
+ 
+    I'm super happy and grateful to share that I've recently completed my PhD! 
+    Looking back, the past five years at <a href="https://symbioticlab.org">SymbioticLab</a> have been an intense mix of joy, frustration, discovery, and growth.
+    As I close this chapter, I wanted to take a moment to reflect — to write down some of the lessons, thoughts, and shifts I've experienced, especially in the world of MLSys.
+    This post is adapted from the conclusion section of <a href="documents/phd-dissertation.pdf"> my thesis</a> (User-Centric Machine Learning Systems),  hopingthat they might resonate with or support future researchers walking a similar path.
 
     
-     
-
-    <div class="section">
-        <!-- <h2>Abstract</h2> -->
+        </p>
+            
         <p>
-        hoook
+When I started my PhD in 2020, AI was largely limited to niche domains like image recognition and recommendation systems, primarily utilized by large corporations or research labs. 
+Today, in the year of 2025, it becomes a technology that seamlessly integrates into individuals' everyday life and professional workplace. 
+When AI interfaces with individuals through text, audio, images, video, and physical interactions, we need to rethink: How should we architect the new generation of ML systems to balance user-centric experiences with server-side efficiency.
+
+
+
+
         </p>
     </div>
 
