@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>From 0→∞: My PhD Lessons on Innovating User-Centric ML Systems</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T1JYF39V5T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-T1JYF39V5T');
+    </script>
+    
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -223,7 +233,61 @@
     <!-- <p style="text-align: center;">Jiachen Liu, PhD in Computer Science, University of Michigan</p>  -->
     <div class="blog-meta">
         <p>Posted on June 15, 2025 by Jiachen Liu</p>
-      </div>
+        <div id="visitor-count" style="margin-top: 10px; padding: 10px; background-color: var(--background-color); border-radius: 5px; font-size: 0.9em; color: var(--light-text);">
+            <span id="page-views">Loading...</span> page views
+        </div>
+    </div>
+
+    <!-- GoatCounter Analytics and Visitor Counter -->
+    <script data-goatcounter="https://amberljc.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+
+    <script>
+        // GoatCounter page view display
+        async function fetchGoatCounterViews() {
+            try {
+                // Your GoatCounter site name
+                const site = 'amberljc';
+                const currentPath = window.location.pathname;
+                
+                // GoatCounter API endpoint for getting page views
+                const response = await fetch(`https://${site}.goatcounter.com/api/v0/stats/pages?path=${encodeURIComponent(currentPath)}`, {
+                    headers: {
+                        'Authorization': 'Bearer 1rhhf25kaexfg23nz6j53gfc138w4f5tpz3y9023mojfexssgie'
+                    }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.length > 0) {
+                        const views = data[0].count;
+                        document.getElementById('page-views').textContent = views;
+                        return;
+                    }
+                }
+            } catch (error) {
+                console.log('GoatCounter API not configured yet');
+            }
+            
+            // Fallback: Simple local counter
+            updateLocalCounter();
+        }
+
+        // Fallback local counter
+        function updateLocalCounter() {
+            const pageKey = `goatcounter-fallback-${window.location.pathname}`;
+            let views = localStorage.getItem(pageKey) || 0;
+            views = parseInt(views) + 1;
+            localStorage.setItem(pageKey, views);
+            document.getElementById('page-views').textContent = views;
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Small delay to ensure GoatCounter has tracked the visit
+            setTimeout(fetchGoatCounterViews, 1000);
+        });
+    </script>
   
     <div class="section">
         <p>
@@ -233,13 +297,12 @@
     As I close this chapter, I wanted to take a moment to reflect — to write down some of the lessons, thoughts, and shifts I've experienced, especially in the world of MLSys.
     This post is adapted from the conclusion section of <a href="../documents/phd-dissertation.pdf"> my thesis</a> (User-Centric Machine Learning Systems),  hopingthat they might resonate with or support future researchers walking a similar path.
 
-    
         </p>
             
         <p>
-When I started my PhD in 2020, AI was largely limited to niche domains like image recognition and recommendation systems, primarily utilized by large corporations or research labs. 
-Today, in the year of 2025, it becomes a technology that seamlessly integrates into individuals' everyday life and professional workplace. 
-When AI interfaces with individuals through text, audio, images, video, and physical interactions, we need to rethink: How should we architect the new generation of ML systems to balance user-centric experiences with server-side efficiency.
+    When I started my PhD in 2020, AI was largely limited to niche domains like image recognition and recommendation systems, primarily utilized by large corporations or research labs. 
+    Today, in the year of 2025, it becomes a technology that seamlessly integrates into individuals' everyday life and professional workplace. 
+    When AI interfaces with individuals through text, audio, images, video, and physical interactions, we need to rethink: How should we architect the new generation of ML systems to balance user-centric experiences with server-side efficiency.
 
         </p>
     </div>
@@ -347,11 +410,11 @@ When AI interfaces with individuals through text, audio, images, video, and phys
             <p style="text-align: center; color: #666; font-size: 0.9em; margin-top: 1em; margin-bottom: 2em;"><strong>Table 1:</strong> Conceptual Stages of ML Systems Innovation</p>
 
             <ol>
-                <li><strong>0→1:</strong> This represents the most pioneering research, often best pursued in academic settings. It involves addressing entirely new ML use cases, applications, or workloads for which no existing system adequately caters to their unique objectives, resource constraints, or workload characteristics. The novelty lies in being the first to identify these distinct system design requirements and to build a foundational solution. For instance, my work on <em>Venn</em> [3], <em>Curie</em> [4] and <em>Exp-Bench</em> [5] exemplify 0→1 research by identifying and addressing previously unarticulated system needs for emerging ML paradigms.</li>
+                <li><strong>0→1:</strong> This represents the <em>most pioneering research</em>, often best pursued in <em>academic settings</em>. It involves addressing entirely new ML use cases, applications, or workloads for which no existing system adequately caters to their unique objectives, resource constraints, or workload characteristics. The novelty lies in being the first to identify these distinct system design requirements and to build a foundational solution. For instance, my work on Venn [3], Curie [4] and Exp-Bench [5] exemplify 0→1 research by identifying and addressing previously unarticulated system needs for emerging ML paradigms.</li>
 
-                <li><strong>1→2:</strong> Once a foundational (0→1) system or concept exists, the next critical step is to enhance its practicality and efficiency. This phase focuses on making the system scalable, robust, and more performant. It's about transforming an initial proof-of-concept into something that is not just usable but also efficient under realistic conditions. This stage of research is also valuable and well-suited for doctoral exploration, as it involves deep thinking and understanding of emerging ML workloads along with underlying resources to bridge the gap between novel concepts and practical applications. My contributions such as <em>Andes</em> [2], <em>Fluid</em> [1], and <em>FedScale</em> [7] fall into this category, building upon foundational ideas to deliver more performant systems capable of handling realistic workloads, and running with advanced resource scheduler and scaling to heterogeneous resources.</li>
+                <li><strong>1→2:</strong> Once a foundational (0→1) system or concept exists, the next critical step is to <em>enhance its practicality and efficiency</em>. This phase focuses on making the system scalable, robust, and more performant. It's about transforming an initial proof-of-concept into something that is not just usable but also efficient under realistic conditions. This stage of research is also valuable and well-suited for <em>doctoral exploration and industry collaboration</em>, as it involves deep thinking and understanding of emerging ML workloads along with underlying resources to bridge the gap between novel concepts and practical applications. My contributions such as Andes [2], Fluid [1], and FedScale [7] fall into this category, building upon foundational ideas to deliver more performant systems capable of handling realistic workloads, and running with advanced resource scheduler and scaling to heterogeneous resources.</li>
 
-                <li><strong>2→∞:</strong> This level involves the intensive effort required to make an ML system truly viable for large-scale, real-world industrial deployment. The primary focus here is on aggressively optimizing efficiency—cutting operational costs, maximizing resource utilization, and minimizing latency or training time. While critically important for widespread adoption, this phase often demands substantial engineering resources and domain-specific expertise, making it particularly well-suited for industry teams who possess the scale and focused incentives for such deep optimization. This distinction is perhaps particularly salient in ML systems, where academia and industry often collaborate or drive parallel innovations, especially with the rapid, real-world impact seen in fields like Generative AI. My projects like <em>Auxo</em> [6] and <em>FedTrans</em> [8] further improve the system and model efficiency via techniques like customized ML model training based on the underlying compute resources and data characteristics.</li>
+                <li><strong>2→∞:</strong> This level involves the intensive effort required to make an ML system truly viable for large-scale, real-world industrial deployment. The primary focus here is on <em>aggressively optimizing efficiency</em>—cutting operational costs, maximizing resource utilization, and minimizing latency or training time. While critically important for widespread adoption, this phase often <em>demands substantial engineering resources and domain-specific expertise</em>, making it particularly well-suited for industry teams who possess the scale and focused incentives for such deep optimization. This distinction is perhaps particularly salient in ML systems, where academia and industry often collaborate or drive parallel innovations, especially with the rapid, real-world impact seen in fields like Generative AI. My projects like Auxo [6] and FedTrans [8] further improve the system and model efficiency via techniques like customized ML model training based on the underlying compute resources and data characteristics.</li>
             </ol>
 
             <h4 id="think-ahead">Think Ahead</h4>
@@ -449,48 +512,6 @@ When AI interfaces with individuals through text, audio, images, video, and phys
         <p>[9] <a href="https://arxiv.org/abs/2504.16778">Evaluation Framework for AI Systems in "the Wild"</a>, Sarah Jabbour, Trenton Chang, Anindya Das Antar, Joseph Peper, Insu Jang, Jiachen Liu, Jae-Won Chung, Shiqi He, Michael Wellman, Bryan Goodman, Elizabeth Bondi-Kelly, Kevin Samy, Rada Mihalcea, Mosharaf Chowdhury, David Jurgens, Lu Wang. Arxiv 2025.</p>
         <p>[10] <a href="https://arxiv.org/abs/2312.03863">Efficient Large Language Models: A Survey</a>, Zhongwei Wan, Xin Wang, Che Liu, Samiul Alam, Yu Zheng, Jiachen Liu, Zhongnan Qu, Shen Yan, Yi Zhu, Quanlu Zhang, Mosharaf Chowdhury, Mi Zhang. TMLR 2024.</p>
     </div>
-
-    <div class="readership-counter" style="text-align: center; margin-top: 2em; padding: 15px; border-top: 1px solid var(--border-color);">
-        <p style="color: var(--light-text); font-size: 0.8em; margin: 0;">
-            <span id="reader-count">0</span> Page Views
-        </p>
-    </div>
-
-    <script>
-        // Initialize reader counter with a base number to make it feel more realistic
-        let baseReaders = 127; // Starting base to make it feel like others have read it
-        let userInteractions = parseInt(localStorage.getItem('phd-thoughts-readers') || '0');
-        let totalReaders = baseReaders + userInteractions;
-        
-        document.getElementById('reader-count').textContent = totalReaders;
-
-        // Increment counter on any meaningful interaction (clicks)
-        let hasInteracted = false;
-        document.addEventListener('click', function() {
-            if (!hasInteracted) {
-                hasInteracted = true;
-                userInteractions++;
-                totalReaders = baseReaders + userInteractions;
-                document.getElementById('reader-count').textContent = totalReaders;
-                localStorage.setItem('phd-thoughts-readers', userInteractions.toString());
-            }
-        });
-
-        // Also count as "read" if user scrolls significantly through the post
-        let hasScrolled = false;
-        window.addEventListener('scroll', function() {
-            if (!hasScrolled && window.scrollY > window.innerHeight * 0.5) {
-                hasScrolled = true;
-                if (!hasInteracted) {
-                    hasInteracted = true;
-                    userInteractions++;
-                    totalReaders = baseReaders + userInteractions;
-                    document.getElementById('reader-count').textContent = totalReaders;
-                    localStorage.setItem('phd-thoughts-readers', userInteractions.toString());
-                }
-            }
-        });
-    </script>
 
 </body>
 </html>
