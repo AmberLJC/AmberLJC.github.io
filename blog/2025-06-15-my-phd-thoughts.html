@@ -248,7 +248,7 @@
                 const currentPath = window.location.pathname;
                 
                 // GoatCounter API endpoint for getting page views
-                const response = await fetch(`https://${site}.goatcounter.com/api/v0/stats/pages?path=${encodeURIComponent(currentPath)}`, {
+                const response = await fetch(`https://${site}.goatcounter.com/api/v0/stats/hits?path_by_name=true&include_paths=${encodeURIComponent(currentPath)}`, {
                     headers: {
                         'Authorization': 'Bearer 1rhhf25kaexfg23nz6j53gfc138w4f5tpz3y9023mojfexssgie'
                     }
@@ -256,14 +256,19 @@
                 
                 if (response.ok) {
                     const data = await response.json();
-                    if (data.length > 0) {
-                        const views = data[0].count;
-                        document.getElementById('page-views').textContent = views;
-                        return;
+                    // Check if we got hits data and find our current path
+                    if (data.hits && data.hits.length > 0) {
+                        // Find the hit that matches our current path
+                        const pathHit = data.hits.find(hit => hit.path === currentPath);
+                        if (pathHit) {
+                            const views = pathHit.count;
+                            document.getElementById('page-views').textContent = views;
+                            return;
+                        }
                     }
                 }
             } catch (error) {
-                console.log('GoatCounter API not configured yet');
+                console.log('GoatCounter API error:', error);
             }
             
             // Fallback: Simple local counter
