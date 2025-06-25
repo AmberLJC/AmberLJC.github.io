@@ -32,7 +32,7 @@
 
         body {
             font-family: 'Georgia', serif;
-            line-height: 1.8;
+            line-height: 1.4;
             max-width: 1000px;
             margin: 0 auto;
             padding: 40px 20px;
@@ -107,7 +107,7 @@
         }
 
         p {
-            margin-bottom: 1.5em;
+            margin-bottom: 1em;
             font-size: 1em;
         }
 
@@ -115,19 +115,19 @@
             color: #666;
             font-size: 0.9em;
             background-color: var(--section-bg);
-            padding: 20px;
+            padding: 15px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         ul, ol {
-            margin-bottom: 1.5em;
+            margin-bottom: 1em;
             padding-left: 2em;
         }
 
         li {
-            margin-bottom: 0.8em;
-            line-height: 1.6;
+            margin-bottom: 0.5em;
+            line-height: 1.4;
         } 
         .highlight {
             background-color: var(--section-bg);
@@ -306,11 +306,8 @@
         async function fetchGoatCounterViews() {
             try {
                 // Get current date and create date range for the API call
-                const now = new Date();
-                const year = now.getFullYear();
-                const month = String(now.getMonth() + 1).padStart(2, '0');
-                const startDate = `${year}-${month}-01`;
-                const endDate = `${year}-${month}-30`;
+                const startDate = '2025-01-01';
+                const endDate = '2026-12-30';
                 
                 // Current path for matching
                 const currentPath = window.location.pathname;
@@ -586,7 +583,7 @@
     </div>
 
     <div class="citation">
-        <p>Citations (Works that I did throughout my PhD):</p>
+        <p><strong>Citations</strong> (Works that I did throughout my PhD):</strong></p>
         <p>[1] <a href="https://arxiv.org/abs/2105.11367">Fluid: Resource-Aware Hyperparameter Tuning Engine</a>, Peifeng Yu*, Jiachen Liu*, Mosharaf Chowdhury (* Equal contribution). MLSys 2021.</p>
         <p>[2] <a href="https://arxiv.org/abs/2404.16283">Andes: Defining and Enhancing Quality-of-Experience in LLM-Based Text Streaming Services</a>, Jiachen Liu, Zhiyu Wu, Jae-Won Chung, Fan Lai, Myungjin Lee, Mosharaf Chowdhury. Arxiv 2024.</p>
         <p>[3] <a href="https://arxiv.org/abs/2312.08298">Venn: Resource Management for Collaborative Learning Jobs</a>, Jiachen Liu, Fan Lai, Ding Ding, Yiwen Zhang, Mosharaf Chowdhury. MLSys 2025.</p>
@@ -597,11 +594,10 @@
         <p>[8] <a href="https://arxiv.org/abs/2404.13515">FedTrans: Efficient Federated Learning via Multi-Model Transformation</a>, Yuxuan Zhu, Jiachen Liu, Mosharaf Chowdhury, Fan Lai. MLSys 2024.</p>
         <p>[9] <a href="https://arxiv.org/abs/2504.16778">Evaluation Framework for AI Systems in "the Wild"</a>, Sarah Jabbour, Trenton Chang, Anindya Das Antar, Joseph Peper, Insu Jang, Jiachen Liu, Jae-Won Chung, Shiqi He, Michael Wellman, Bryan Goodman, Elizabeth Bondi-Kelly, Kevin Samy, Rada Mihalcea, Mosharaf Chowdhury, David Jurgens, Lu Wang. Arxiv 2025.</p>
         <p>[10] <a href="https://arxiv.org/abs/2312.03863">Efficient Large Language Models: A Survey</a>, Zhongwei Wan, Xin Wang, Che Liu, Samiul Alam, Yu Zheng, Jiachen Liu, Zhongnan Qu, Shen Yan, Yi Zhu, Quanlu Zhang, Mosharaf Chowdhury, Mi Zhang. TMLR 2024.</p>
-    </div>
-
+    </div> 
     <!-- Visitor Counter at Bottom -->
-    <div id="visitor-count" style="text-align: center; margin: 40px auto 20px; padding: 15px; background-color: var(--section-bg); border-radius: 8px; font-size: 0.9em; color: var(--light-text); max-width: 300px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-        👁️ <span id="page-views">...</span> page views
+    <div id="visitor-count" style="text-align: center; margin: 20px 0 10px auto; padding: 8px; background-color: var(--section-bg); border-radius: 6px; font-size: 0.75em; color: var(--light-text); max-width: 200px; box-shadow: 0 1px 2px rgba(0,0,0,0.1);">
+        👁️ You're the <span id="page-views">...</span>th reader.
     </div>
 
 </body>
