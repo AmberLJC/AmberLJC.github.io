@@ -177,6 +177,13 @@ table.professional-experience {
 
 .social-icon {
   color: #2fb2fe;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+  color: #ff8800;
 }
 
 /* Center Text */

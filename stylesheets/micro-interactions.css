@@ -1,0 +1,324 @@
+/* Micro-interactions CSS for enhanced user experience */
+
+/* Smooth transitions for all interactive elements */
+* {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Social media icons hover effects */
+.social-icon {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+    color: #ff8800 !important;
+}
+
+/* Card hover animations */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    border-color: #2fb2fe;
+}
+
+/* Card click effect */
+.card:active {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Publication links hover effect */
+.publication-link {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.publication-link:hover {
+    transform: translateX(3px);
+    color: #ff8800 !important;
+}
+
+.publication-link::before {
+    content: '';
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 136, 0, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.publication-link:hover::before {
+    left: 100%;
+}
+
+/* Navigation links hover effects */
+.fixed-nav a {
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.fixed-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateX(-3px);
+}
+
+.fixed-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.fixed-nav a:hover::after {
+    width: 80%;
+}
+
+/* Top navigation hover effects */
+.topnav a {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.topnav a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.topnav a:hover::before {
+    left: 100%;
+}
+
+.topnav a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile picture hover effect */
+.profile-picture img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-picture img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Table row hover effects */
+tbody tr {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+tbody tr:hover {
+    background-color: #e8f4fd !important;
+    transform: scale(1.01);
+}
+
+/* Button and link hover effects */
+.project-link, .publication-link {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-link:hover, .publication-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Section headers hover effect */
+h1, h2 {
+    transition: color 0.3s ease;
+}
+
+h1:hover, h2:hover {
+    color: #ff8800;
+}
+
+/* Award items hover effect */
+#awards li {
+    transition: all 0.3s ease;
+    padding: 10px;
+    border-radius: 5px;
+    border-left: 3px solid transparent;
+}
+
+#awards li:hover {
+    background-color: #fff3d6;
+    border-left-color: #ff8800;
+    transform: translateX(5px);
+}
+
+/* Contact info hover effects */
+.contact-info a {
+    transition: all 0.3s ease;
+}
+
+.contact-info a:hover {
+    transform: scale(1.05);
+}
+
+/* Loading animation for images */
+.card img {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.card img:hover {
+    transform: scale(1.1);
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Ripple effect for buttons (JavaScript will be added) */
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.ripple:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Ripple effect animation */
+.ripple-effect {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(0);
+    animation: ripple-animation 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Pulse animation for important elements */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Fade in animation for sections */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Bounce animation for social icons */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.bounce {
+    animation: bounce 1s ease-in-out;
+}
+
+/* Shake animation for error states */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+/* Page loading animation */
+@keyframes pageLoad {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    animation: pageLoad 0.8s ease-out;
+}
+
+/* Loading spinner for async content */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #2fb2fe;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+} 

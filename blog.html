@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheets/custom.css">
+    <link rel="stylesheet" href="stylesheets/modernist.css">
     <title>System for AI Paper Summary</title>
 </head>
 <style>
@@ -47,6 +48,7 @@ ul.article-list li {
   }
   h2 {
     color: #2fb2fe;
+    font-family: 'Lora', serif;
   }
   a {
     color: #ff8800;
@@ -77,42 +79,62 @@ ul.article-list li {
         <div class="content">
             <h2 style="color: #4682B4;">MLSys Paper List</h2>
 
- <div class="fancy-list">
-            <ul class="article-list">
-                <li><span class="date">[2022-2024]</span> <a href="https://github.com/AmberLJC/FLsystem-paper/blob/main/README.md">Awesome Federated Computation Systems Papers</a></li>
-                <li><span class="date">[2024-2025]</span> <a href="https://github.com/AmberLJC/LLMSys-PaperList/blob/main/README.md">Awesome LLM Systems Papers</a></li>
-            </ul>
-        </div>
+            <div class="card-grid">
+                <div class="card">
+                    <p class="date">[2022-2024]</p>
+                    <h3><a href="https://github.com/AmberLJC/FLsystem-paper/blob/main/README.md">Awesome Federated Computation Systems Papers</a></h3>
+                </div>
+                <div class="card">
+                    <p class="date">[2024-2025]</p>
+                    <h3><a href="https://github.com/AmberLJC/LLMSys-PaperList/blob/main/README.md">Awesome LLM Systems Papers</a></h3>
+                </div>
+            </div>
 
 
             <h2 style="color: #4682B4;">Blog</h2>
-            <div class="fancy-list">
-            <ul class="article-list">
-              <li><span class="date">[2025.06]</span> <a href="./blog/2025-06-15-my-phd-thoughts.html">My PhD Lessons on Innovating User-Centric ML Systems</a></li>
-              <li><span class="date">[2023.09]</span> <a href="./blog/2023-09-method-to-enhance-llm.html">Unlocking Capabilities Beyond Pre-training: When to Fine-Tuning?</a></li>
-            </ul>
-        </div> 
+            <div class="card-grid">
+                <div class="card">
+                    <p class="date">[2025.06]</p>
+                    <h3><a href="./blog/2025-06-15-my-phd-thoughts.html">My PhD Lessons on Innovating User-Centric ML Systems</a></h3>
+                </div>
+                <div class="card">
+                    <p class="date">[2023.09]</p>
+                    <h3><a href="./blog/2023-09-method-to-enhance-llm.html">Unlocking Capabilities Beyond Pre-training: When to Fine-Tuning?</a></h3>
+                </div>
+            </div>
 
-
- 
 
             <h2 style="color: #4682B4;">Tutorial</h2>
-            <div class="fancy-list">
-            <ul class="article-list">
-                <li><span class="date">[2024.01]</span> <a href="documents/LLM-Systems-Basics.pdf">Introduction to LLM Systems</a></li>
-                <li><span class="date">[2023.09]</span> <a href="documents/llm-fine-tuning.pdf">Introduction to LLM Fine-tuning</a></li>
-                <li><span class="date">[2023.06]</span> <a href="documents/vectordb_101.pdf">Introduction to Vector Database</a></li>
-            </ul>
-        </div>
+            <div class="card-grid">
+                <div class="card">
+                    <p class="date">[2024.01]</p>
+                    <h3><a href="documents/LLM-Systems-Basics.pdf">Introduction to LLM Systems</a></h3>
+                </div>
+                <div class="card">
+                    <p class="date">[2023.09]</p>
+                    <h3><a href="documents/llm-fine-tuning.pdf">Introduction to LLM Fine-tuning</a></h3>
+                </div>
+                <div class="card">
+                    <p class="date">[2023.06]</p>
+                    <h3><a href="documents/vectordb_101.pdf">Introduction to Vector Database</a></h3>
+                </div>
+            </div>
 
             <h2 style="color: #4682B4;">Research Projects</h2>
-            <div class="fancy-list">
-            <ul class="article-list">
-              <li><span class="date">[2025.05]</span> <a href="https://www.just-curieous.com/machine-learning/research/2025-06-11-exp-bench-can-ai-conduct-ai-research-experiments.html">EXP-Bench: Can AI Conduct AI Research Experiments?</a>
-                <li><span class="date">[2025.02]</span> <a href="https://github.com/Just-Curieous/Curie">Curie: Toward Rigorous and Automated Scientific Experimentation with AI Agents</a>
-                  <li><span class="date">[2024.04]</span> <a href="https://llm-qoe.github.io/">Andes: Defining and Enhancing Quality-of-Experience in LLM Text Streaming Services</a>  
-            </ul>
-        </div>
+            <div class="card-grid">
+                <div class="card">
+                    <p class="date">[2025.05]</p>
+                    <h3><a href="https://www.just-curieous.com/machine-learning/research/2025-06-11-exp-bench-can-ai-conduct-ai-research-experiments.html">EXP-Bench: Can AI Conduct AI Research Experiments?</a></h3>
+                </div>
+                <div class="card">
+                    <p class="date">[2025.02]</p>
+                    <h3><a href="https://github.com/Just-Curieous/Curie">Curie: Toward Rigorous and Automated Scientific Experimentation with AI Agents</a></h3>
+                </div>
+                <div class="card">
+                    <p class="date">[2024.04]</p>
+                    <h3><a href="https://llm-qoe.github.io/">Andes: Defining and Enhancing Quality-of-Experience in LLM Text Streaming Services</a></h3>
+                </div>
+            </div>
 
           </div>
     </div>
@@ -121,6 +143,8 @@ ul.article-list li {
     <footer>
         <p>&copy; AmberJCJJ - AI Blogger</p>
     </footer>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="javascripts/transitions.js"></script>
 </body>
 
 </html>
