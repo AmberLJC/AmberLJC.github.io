@@ -5,8 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheets/custom.css">
+    <link rel="shortcut icon" href="imag/bubbletea.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/main.css">
     <link rel="stylesheet" href="stylesheets/modernist.css">
+    <link rel="stylesheet" href="stylesheets/micro-interactions.css">
+    <script src="js/9JZkBilUSmGpH8F5SvwGOfpXbTA.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151270318-1"></script>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>System for AI Paper Summary</title>
 </head>
 <style>
@@ -26,26 +38,6 @@ ul.article-list li {
     background-color: #f8f8f8;
     color: #333;
   }
-  .topnav {
-    background-color: #2fb2fe;
-    overflow: hidden;
-  }
-  .topnav a {
-    float: left;
-    color: #995200;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  .topnav a:hover {
-    background-color: #FFFAF0;
-    color: black;
-  }
-  .topnav a.active {
-    background-color: #ff8800;
-    color: #995200;
-  }
   h2 {
     color: #2fb2fe;
     font-family: 'Lora', serif;
@@ -56,6 +48,52 @@ ul.article-list li {
   }
   a:hover {
     text-decoration: underline;
+  }
+  
+  /* Single column layout styles */
+  .article-row {
+    background-color: #fff;
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #2fb2fe;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .article-row:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .article-row .date {
+    color: #666;
+    font-size: 0.9em;
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+  }
+  
+  .article-row h3 {
+    margin: 0;
+    font-size: 1.2em;
+    line-height: 1.4;
+  }
+  
+  .article-row h3 a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .article-row h3 a:hover {
+    color: #2fb2fe;
+    text-decoration: underline;
+  }
+  
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
   }
 </style>
 <style>
@@ -70,70 +108,70 @@ ul.article-list li {
 
 <body>
 
+  <div class="fixed-nav">
+    <a href="index.html#about-me">About Me</a>
+    <a href="index.html#publications">Publications</a>
+    <a href="index.html#awards">Awards</a>
+    <a href="index.html#experience">Experience</a>
+    <a href="index.html#projects">Side Projects</a>
+    <a href="index.html#service">Service</a>
+    <a href="index.html#education">Education</a>
+  </div>
+
   <div class="topnav">
     <a href="index.html">Home</a>
-    <a class="active" href="blog.html" style="color: #4682B4;">Blog</a>
+    <a class="active" href="blog.html">Blog</a>
   </div>
 
     <div class="container">
         <div class="content">
             <h2 style="color: #4682B4;">MLSys Paper List</h2>
 
-            <div class="card-grid">
-                <div class="card">
-                    <p class="date">[2022-2024]</p>
-                    <h3><a href="https://github.com/AmberLJC/FLsystem-paper/blob/main/README.md">Awesome Federated Computation Systems Papers</a></h3>
-                </div>
-                <div class="card">
-                    <p class="date">[2024-2025]</p>
-                    <h3><a href="https://github.com/AmberLJC/LLMSys-PaperList/blob/main/README.md">Awesome LLM Systems Papers</a></h3>
-                </div>
+            <div class="article-row">
+                <span class="date">[2022-2024]</span>
+                <h3><a href="https://github.com/AmberLJC/FLsystem-paper/blob/main/README.md">Awesome Federated Computation Systems Papers</a></h3>
             </div>
-
+            <div class="article-row">
+                <span class="date">[2024-2025]</span>
+                <h3><a href="https://github.com/AmberLJC/LLMSys-PaperList/blob/main/README.md">Awesome LLM Systems Papers</a></h3>
+            </div>
 
             <h2 style="color: #4682B4;">Blog</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <p class="date">[2025.06]</p>
-                    <h3><a href="./blog/2025-06-15-my-phd-thoughts.html">My PhD Lessons on Innovating User-Centric ML Systems</a></h3>
-                </div>
-                <div class="card">
-                    <p class="date">[2023.09]</p>
-                    <h3><a href="./blog/2023-09-method-to-enhance-llm.html">Unlocking Capabilities Beyond Pre-training: When to Fine-Tuning?</a></h3>
-                </div>
+            <div class="article-row">
+                <span class="date">[2025.06]</span>
+                <h3><a href="./blog/2025-06-15-my-phd-thoughts.html">My PhD Lessons on Innovating User-Centric ML Systems</a></h3>
+            </div>
+            <div class="article-row">
+                <span class="date">[2023.09]</span>
+                <h3><a href="./blog/2023-09-method-to-enhance-llm.html">Unlocking Capabilities Beyond Pre-training: When to Fine-Tuning?</a></h3>
             </div>
 
-
             <h2 style="color: #4682B4;">Tutorial</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <p class="date">[2024.01]</p>
-                    <h3><a href="documents/LLM-Systems-Basics.pdf">Introduction to LLM Systems</a></h3>
-                </div>
-                <div class="card">
-                    <p class="date">[2023.09]</p>
-                    <h3><a href="documents/llm-fine-tuning.pdf">Introduction to LLM Fine-tuning</a></h3>
-                </div>
-                <div class="card">
-                    <p class="date">[2023.06]</p>
-                    <h3><a href="documents/vectordb_101.pdf">Introduction to Vector Database</a></h3>
-                </div>
+            <div class="article-row">
+                <span class="date">[2024.01]</span>
+                <h3><a href="documents/LLM-Systems-Basics.pdf">Introduction to LLM Systems</a></h3>
+            </div>
+            <div class="article-row">
+                <span class="date">[2023.09]</span>
+                <h3><a href="documents/llm-fine-tuning.pdf">Introduction to LLM Fine-tuning</a></h3>
+            </div>
+            <div class="article-row">
+                <span class="date">[2023.06]</span>
+                <h3><a href="documents/vectordb_101.pdf">Introduction to Vector Database</a></h3>
             </div>
 
             <h2 style="color: #4682B4;">Research Projects</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <p class="date">[2025.05]</p>
-                    <h3><a href="https://www.just-curieous.com/machine-learning/research/2025-06-11-exp-bench-can-ai-conduct-ai-research-experiments.html">EXP-Bench: Can AI Conduct AI Research Experiments?</a></h3>
-                </div>
-                <div class="card">
-                    <p class="date">[2025.02]</p>
-                    <h3><a href="https://github.com/Just-Curieous/Curie">Curie: Toward Rigorous and Automated Scientific Experimentation with AI Agents</a></h3>
-                </div>
-                <div class="card">
-                    <p class="date">[2024.04]</p>
-                    <h3><a href="https://llm-qoe.github.io/">Andes: Defining and Enhancing Quality-of-Experience in LLM Text Streaming Services</a></h3>
-                </div>
+            <div class="article-row">
+                <span class="date">[2025.05]</span>
+                <h3><a href="https://www.just-curieous.com/machine-learning/research/2025-06-11-exp-bench-can-ai-conduct-ai-research-experiments.html">EXP-Bench: Can AI Conduct AI Research Experiments?</a></h3>
+            </div>
+            <div class="article-row">
+                <span class="date">[2025.02]</span>
+                <h3><a href="https://github.com/Just-Curieous/Curie">Curie: Toward Rigorous and Automated Scientific Experimentation with AI Agents</a></h3>
+            </div>
+            <div class="article-row">
+                <span class="date">[2024.04]</span>
+                <h3><a href="https://llm-qoe.github.io/">Andes: Defining and Enhancing Quality-of-Experience in LLM Text Streaming Services</a></h3>
             </div>
 
           </div>
