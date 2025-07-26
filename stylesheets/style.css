@@ -33,7 +33,7 @@ h1 {
 h2 {
   font-size: 2em;
   color: var(--primary-color);
-  text-align: center;
+  text-align: left;
   margin-bottom: 30px;
 }
 
