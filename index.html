@@ -32,12 +32,11 @@
     <div class="topnav">
       <a class="active" href="#">Home</a>
       <a href="blog.html">Blog</a>
-   <!--    <a href="about.html">About</a> -->
     </div>
-    <!-- ... rest of your HTML content ... -->
 
     <div class="wrapper">
-      <!-- <header> -->
+      <!-- Left Column - Profile Section -->
+      <div class="profile-section">
         <div class="profile-picture">
           <img src="imag/bubbletea.jpg" alt="Profile Picture">
         </div>
@@ -51,18 +50,14 @@
           </p>
         </center>
 
-
         <ul class="list-inline">
 <li>
-
-<a href="https://www.linkedin.com/in/jiachen-amber-liu-872506169/" target="_blank" title="LinkedIn">
-       <span class="fa-stack fa-lg" aria-hidden="true">
-   <i class="fa fa-linkedin fa-2x social-icon"></i>
-     </span>   <span class="sr-only">LinkedIn</span>
-</a>
-
+  <a href="https://www.linkedin.com/in/jiachen-amber-liu-872506169/" target="_blank" title="LinkedIn">
+        <span class="fa-stack fa-lg" aria-hidden="true">
+    <i class="fa fa-linkedin fa-2x social-icon"></i>
+      </span>   <span class="sr-only">LinkedIn</span>
+  </a>
     </li>
-
 
     <li>
     <a href="https://github.com/AmberLJC" target="_blank" title="github" >
@@ -91,14 +86,15 @@
         </a>
         </li>
   </ul> 
-      <!-- </header>   -->
- 
+      </div>
 
+      <!-- Right Column - Content Sections -->
+      <div class="content-section">
     <section id="about-me">
       <h1>About Me 👋</h1>
 
       <p>
-          Hello! I'm Amber (Jiachen) Liu, a fifth-year Ph.D. candidate in Computer Science at the University of Michigan (Umich), where I'm fortunate to work under the guidance of <a href="https://www.mosharaf.com/">Prof. Mosharaf Chowdhury</a>. 
+              I got my PhD in Computer Science from University of Michigan (UMich), advised by <a href="https://www.mosharaf.com/">Prof. Mosharaf Chowdhury</a>. 
       </p>
 
       <p>
@@ -106,7 +102,7 @@
       </p>
 
       <p>
-          To contribute to the research community, I maintain comprehensive paper collections on <strong><a href="https://github.com/AmberLJC/FLsystem-paper">Private Machine Learning Systems</a> and <a href='https://github.com/AmberLJC/LLMSys-PaperList/'>LLM Systems</a></strong>. I also serve as a Teaching Assistant for <a href="https://github.com/mosharaf/eecs598/tree/w24-genai">Systems for Generative AI</a> at Michigan, where I've developed educational materials on <a href="documents/LLM-Systems-Basics.pdf">LLM Systems Fundamentals</a>, <a href="documents/llm-fine-tuning.pdf">LLM Fine-tuning</a>, and <a href="documents/vectordb_101.pdf">Vector Databases</a>.
+          To contribute to the research community, I maintain comprehensive paper collections on <strong><a href="https://github.com/AmberLJC/FLsystem-paper">Private Machine Learning Systems</a> and <a href='https://github.com/AmberLJC/LLMSys-PaperList/'>LLM Systems</a></strong>. 
       </p>
 
       <p>
@@ -157,19 +153,20 @@
         </div>
         <hr class="pub-divider">
         <div class="publication-item-compact">
-          <div class="pub-title"><b><a href="https://neurips.cc/virtual/2024/poster/97835">IaC-Eval: A code generation benchmark for Infrastructure-as-Code programs</a></b></div>
-          <div class="pub-authors">Patrick Tser Jern Kon, Jiachen Liu, Yiming Qiu, Weijun Fan, Ting He, Lei Lin, Haoran Zhang, Owen M. Park, George Sajan Elengikal, Yuxin Kang, Ang Chen, Mosharaf Chowdhury, Myungjin Lee, Xinyu Wang</div>
-          <div class="pub-venue"><i>NeurIPS 2024</i></div>
-          <div class="pub-links"><a href="https://github.com/autoiac-project/iac-eval" target="_blank">GitHub</a> | <a href="https://neurips.cc/virtual/2024/poster/97835" target="_blank">Paper</a></div>
-        </div>
-        <hr class="pub-divider">
-        <div class="publication-item-compact">
           <div class="pub-title"><b><a href="https://arxiv.org/abs/2404.16283">Andes: Defining and Enhancing Quality-of-Experience in LLM-Based Text Streaming Services</a></b></div>
           <div class="pub-authors">Jiachen Liu, Zhiyu Wu, Jae-Won Chung, Fan Lai, Myungjin Lee, Mosharaf Chowdhury</div>
           <div class="pub-venue"><i>Arxiv 2024</i></div>
           <div class="pub-links"><a href="https://llm-qoe.github.io/" target="_blank">Blog</a> | <a href="https://arxiv.org/abs/2404.16283" target="_blank">Paper</a></div>
         </div>
         <hr class="pub-divider">
+          <div class="publication-item-compact">
+          <div class="pub-title"><b><a href="https://neurips.cc/virtual/2024/poster/97835">IaC-Eval: A code generation benchmark for Infrastructure-as-Code programs</a></b></div>
+          <div class="pub-authors">Patrick Tser Jern Kon, Jiachen Liu, Yiming Qiu, Weijun Fan, Ting He, Lei Lin, Haoran Zhang, Owen M. Park, George Sajan Elengikal, Yuxin Kang, Ang Chen, Mosharaf Chowdhury, Myungjin Lee, Xinyu Wang</div>
+          <div class="pub-venue"><i>NeurIPS 2024</i></div>
+          <div class="pub-links"><a href="https://github.com/autoiac-project/iac-eval" target="_blank">GitHub</a> | <a href="https://neurips.cc/virtual/2024/poster/97835" target="_blank">Paper</a></div>
+        </div>
+        <hr class="pub-divider">
+
         <div class="publication-item-compact">
           <div class="pub-title"><b><a href="https://arxiv.org/abs/2312.08298">Venn: Resource Management for Collaborative Learning Jobs</a></b></div>
           <div class="pub-authors">Jiachen Liu, Fan Lai, Ding Ding, Yiwen Zhang, Mosharaf Chowdhury.</div>
@@ -359,45 +356,47 @@
 
 
 
-<div class="clear-divider"></div>
+        <div class="clear-divider"></div>
 
 
-<div class="text-center">
+        <div class="text-center">
 
-  <h4>Contact </h4>
-  <div class="contact-info"> 
-  刘嘉晨
-  </div>
+          <h4>Contact </h4>
+          <div class="contact-info"> 
+          刘嘉晨
+          </div>
 
-  <i class="fa fa-envelope" style="font-size:16px"></i>
-  <span class="font-weight-bold2">amberljc<my-email></my-email></span><br>
-  <div class="contact-info">
-
-
-<div class="contact-info">
-<a href="https://twitter.com/JIACHENLIU8" target="_blank" title="Twitter">
-    <i class="fa fa-twitter twitter-icon"></i>
-<span class="font-weight-bold2"><small>@JIACHENLIU8 </small></span>
-</a>
-</div>
-
-<div class="contact-info">
-<i class="fa fa-map-marker map-marker-icon" aria-hidden="true"></i>
-<span class="font-weight-bold2"><small>University of Michigan, Ann Arbor, 2260 Hayward St </small></span>
-</div>
-</div>
+          <i class="fa fa-envelope" style="font-size:16px"></i>
+          <span class="font-weight-bold2">amberljc<my-email></my-email></span><br>
+          <div class="contact-info">
 
 
-      <footer>
+        <div class="contact-info">
+        <a href="https://twitter.com/JIACHENLIU8" target="_blank" title="Twitter">
+            <i class="fa fa-twitter twitter-icon"></i>
+        <span class="font-weight-bold2"><small>@JIACHENLIU8 </small></span>
+        </a>
+        </div>
 
-      <p class="map-container">
-        <script src="js/resume.min.js"></script>
-        <script src="javascripts/transitions.js"></script>
-        <script src="javascripts/micro-interactions.js"></script>
-        <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=3fa9f2&w=109&t=n&d=86ZbpSQwziKe8TR_KpwG3gEk5hhtVi9ICUv7jEeeP1s&co=ffffff&cmo=61c92d&cmn=ffad39'></script>
-            <!-- <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=9ac9f5&w=100&t=n&d=C9wiwH27Iusc4j3QW1Rpcxs0r_2h7Rd11ttSmAKDqAE&co=ffffff&cmo=bed6b0&cmn=fcaef0&ct=808080'> </script> -->
-    </p> 
-            </footer> 
+        <div class="contact-info">
+        <i class="fa fa-map-marker map-marker-icon" aria-hidden="true"></i>
+        <span class="font-weight-bold2"><small>University of Michigan, Ann Arbor, 2260 Hayward St </small></span>
+        </div>
+        </div>
+
+
+              <footer>
+
+              <p class="map-container">
+                <script src="js/resume.min.js"></script>
+                <script src="javascripts/transitions.js"></script>
+                <script src="javascripts/micro-interactions.js"></script>
+                <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=3fa9f2&w=109&t=n&d=86ZbpSQwziKe8TR_KpwG3gEk5hhtVi9ICUv7jEeeP1s&co=ffffff&cmo=61c92d&cmn=ffad39'></script>
+                    <!-- <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=9ac9f5&w=100&t=n&d=C9wiwH27Iusc4j3QW1Rpcxs0r_2h7Rd11ttSmAKDqAE&co=ffffff&cmo=bed6b0&cmn=fcaef0&ct=808080'> </script> -->
+            </p> 
+                        </footer> 
+        </div> <!-- End of content-section -->
+    </div> <!-- End of wrapper -->
 
   </body>
 </html>

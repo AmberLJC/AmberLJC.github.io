@@ -94,15 +94,15 @@ document.addEventListener('DOMContentLoaded', function() {
         typeWriter(mainHeading, originalText, 150);
     }
 
-    // Parallax effect for profile picture
-    window.addEventListener('scroll', function() {
-        const profilePic = document.querySelector('.profile-picture img');
-        if (profilePic) {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.5;
-            profilePic.style.transform = `translateY(${rate}px)`;
-        }
-    });
+    // Parallax effect for profile picture - DISABLED to maintain sticky positioning
+    // window.addEventListener('scroll', function() {
+    //     const profilePic = document.querySelector('.profile-picture img');
+    //     if (profilePic) {
+    //         const scrolled = window.pageYOffset;
+    //         const rate = scrolled * -0.5;
+    //         profilePic.style.transform = `translateY(${rate}px)`;
+    //     }
+    // });
 
     // Add pulse animation to important elements
     function addPulseToImportant() {

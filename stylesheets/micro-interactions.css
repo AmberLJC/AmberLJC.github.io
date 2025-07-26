@@ -61,14 +61,7 @@ a:hover {
   width: 100%;
 }
 
-/* Profile picture hover effect */
-.profile-picture img {
-  transition: transform 0.3s ease;
-}
-
-.profile-picture img:hover {
-  transform: scale(1.05);
-}
+/* Profile picture - no animations */
 
 /* Section fade-in animation */
 .section {
