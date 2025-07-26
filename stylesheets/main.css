@@ -317,16 +317,33 @@ footer {
   .wrapper {
     flex-direction: column;
     gap: 20px;
+    padding: 10px;
   }
   
   .profile-section {
     flex: none;
-    position: sticky;
-    top: 20px;
+    position: relative;
+    top: auto;
     order: 1;
+    width: 100%;
+    max-width: none;
   }
   
   .content-section {
     order: 2;
+    width: 100%;
+  }
+  
+  .profile-picture img {
+    max-width: 150px;
+    height: auto;
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+  
+  h2 {
+    font-size: 18px;
   }
 } 
