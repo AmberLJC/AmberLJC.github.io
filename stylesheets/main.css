@@ -56,7 +56,7 @@ p {
 }
 
 /* Email and Phone Formatting */
-my-email::after { 
+.my-email::after { 
   content: "@umich.edu"; 
 }
 
