@@ -20,25 +20,35 @@
     
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --text-color: #2c3e50;
-            --background-color: #f8f9fa;
-            --section-bg: #ffffff;
-            --border-color: #e9ecef;
-            --light-text: #6b7280;
+            --primary-color: #37352f;
+            --secondary-color: #5f6b7a;
+            --accent-color: #2e75cc;
+            --text-color: #37352f;
+            --background-color: #ffffff;
+            --section-bg: #fafafa;
+            --border-color: #e1e5e9;
+            --light-text: #787774;
+            --code-bg: #f7f6f3;
+            --quote-bg: #f1f1ef;
+            --hover-bg: #f7f6f3;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Georgia', serif;
-            line-height: 1.4;
-            max-width: 1000px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 0 24px;
             color: var(--text-color);
             background-color: var(--background-color);
-            margin-top: 60px;
+            margin-top: 80px;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .topnav {
@@ -46,9 +56,10 @@
             top: 0;
             left: 0;
             right: 0;
-            background-color: var(--section-bg);
-            border-bottom: 2px solid var(--secondary-color);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
             overflow: hidden;
             z-index: 1000;
             padding: 0;
@@ -60,19 +71,18 @@
             display: block;
             color: var(--primary-color);
             text-align: center;
-            padding: 14px 20px;
+            padding: 16px 20px;
             text-decoration: none;
-            font-size: 17px;
+            font-size: 15px;
             font-weight: 500;
-            transition: all 0.3s ease;
-            border-radius: 8px;
+            transition: background-color 0.2s ease;
+            border-radius: 6px;
             margin: 8px 4px;
         }
 
         .topnav a:hover {
-            background-color: var(--secondary-color);
-            color: white;
-            transform: translateY(-2px);
+            background-color: var(--hover-bg);
+            color: var(--primary-color);
         }
 
         .topnav a.active {
@@ -80,96 +90,182 @@
             color: white;
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             color: var(--primary-color);
-            margin-top: 1.5em;
-            transition: color 0.3s ease;
+            margin-top: 1.8em;
+            margin-bottom: 0.8em;
+            font-weight: 600;
+            line-height: 1.3;
         }
 
         h1 {
-            font-size: 2.5em;
-            border-bottom: 3px solid var(--secondary-color);
-            padding-bottom: 15px;
-            margin-bottom: 1em;
-            text-align: center;
+            font-size: 2.2em;
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0.5em;
+            text-align: left;
+            font-weight: 700;
         }
 
         h2 {
-            font-size: 1.8em;
-            border-left: 4px solid var(--secondary-color);
-            padding-left: 15px;
-            margin-top: 2em;
+            font-size: 1.6em;
+            border-left: none;
+            padding-left: 0;
+            margin-top: 2.2em;
+            margin-bottom: 1em;
+            font-weight: 600;
         }
 
         h3 {
-            font-size: 1.4em;
-            color: var(--secondary-color);
+            font-size: 1.3em;
+            color: var(--primary-color);
+            margin-top: 1.8em;
+            margin-bottom: 0.8em;
+        }
+
+        h4 {
+            font-size: 1.1em;
+            color: var(--primary-color);
+            margin-top: 1.5em;
+            margin-bottom: 0.6em;
         }
 
         p {
-            margin-bottom: 1em;
-            font-size: 1em;
+            margin-bottom: 1.2em;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-color);
         }
 
         .citation {
-            color: #666;
-            font-size: 0.9em;
-            background-color: var(--section-bg);
-            padding: 15px;
+            color: var(--light-text);
+            font-size: 14px;
+            background-color: var(--quote-bg);
+            padding: 24px;
+            border-radius: 12px;
+            margin: 32px 0;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .citation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .citation-header h3 {
+            margin: 0;
+            font-size: 1.1em;
+            color: var(--primary-color);
+        }
+
+        .header-icon {
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .btn-icon {
+            margin-right: 6px;
+            vertical-align: middle;
+        }
+
+        .copy-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .copy-btn:hover {
+            background-color: #1e5aa8;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        }
+
+        .copy-btn:active {
+            transform: translateY(0);
+        }
+
+
+
+        #citation-text {
+            background-color: var(--code-bg);
+            padding: 16px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
+            font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            overflow-x: auto;
+            margin: 0;
         }
 
         ul, ol {
-            margin-bottom: 1em;
-            padding-left: 2em;
+            margin-bottom: 1.2em;
+            padding-left: 1.5em;
         }
 
         li {
-            margin-bottom: 0.5em;
-            line-height: 1.4;
-        } 
+            margin-bottom: 0.6em;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
         .highlight {
-            background-color: var(--section-bg);
-            padding: 25px;
+            background-color: var(--quote-bg);
+            padding: 20px;
             border-radius: 8px;
-            margin: 25px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            border-left: 4px solid var(--accent-color);
+            margin: 24px 0;
+            border-left: 3px solid var(--accent-color);
         }
 
         .section {
-            margin-top: 1em;
-            background-color: var(--section-bg);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 2px 2px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            margin-top: 1.5em;
+            background-color: transparent;
+            padding: 0;
+            border-radius: 0;
+            box-shadow: none;
+            transition: none;
         }
 
         .section:hover {
-            transform: translateY(-5px);
+            transform: none;
         }
 
         .subsection {
-            margin-top: 1em;
-            padding: 20px;
-            border-radius: 8px;
-            background-color: var(--background-color);
+            margin-top: 1.5em;
+            padding: 0;
+            border-radius: 0;
+            background-color: transparent;
         }
 
         a {
-            color: var(--secondary-color);
+            color: var(--accent-color);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.2s ease;
+            border-bottom: 1px solid transparent;
         }
 
         a:hover {
             color: var(--accent-color);
+            border-bottom: 1px solid var(--accent-color);
         }
 
         strong {
             color: var(--primary-color);
+            font-weight: 600;
         }
 
         em {
@@ -178,105 +274,222 @@
             font-weight: 500;
         }
 
-        @media (max-width: 600px) {
-            .author-follow-section {
-                flex-direction: column !important;
-                align-items: flex-start !important;
-                gap: 15px;
-            }
-            
-            .follow-buttons {
-                align-self: flex-start;
-            }
-            
-            .follow-btn {
-                margin: 0 3px !important;
-                padding: 5px 10px !important;
-                font-size: 0.7em !important;
-            }
+        blockquote {
+            margin: 1.5em 0;
+            padding: 0 1em;
+            border-left: 3px solid var(--accent-color);
+            background-color: var(--quote-bg);
+            border-radius: 0 6px 6px 0;
         }
 
-        @media (max-width: 600px) {
+        blockquote p {
+            margin: 1em 0;
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+
+        code {
+            background-color: var(--code-bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+            font-size: 14px;
+            color: var(--primary-color);
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5em 0;
+            border: 1px solid var(--border-color);
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            border-radius: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--section-bg);
+            color: var(--primary-color);
+            font-weight: 600;
+            text-align: left;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+            background-color: white;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        figure {
+            margin: 2em 0;
+            text-align: center;
+        }
+
+        figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        figcaption {
+            text-align: center;
+            color: var(--light-text);
+            font-size: 14px;
+            margin-top: 0.8em;
+            font-style: italic;
+        }
+
+        .blog-meta {
+            color: var(--light-text);
+            font-size: 14px;
+            margin-bottom: 2.5em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1.5em;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .blog-meta p {
+            margin: 0;
+        }
+
+        .toc {
+            font-size: 15px;
+            line-height: 1.5;
+            margin: 2em 0;
+            background-color: var(--section-bg);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .toc h2 {
+            font-size: 1.3em;
+            margin-bottom: 1em;
+            margin-top: 0;
+        }
+
+        .toc ul {
+            margin-bottom: 0.8em;
+            padding-left: 1.2em;
+        }
+
+        .toc li {
+            margin-bottom: 0.4em;
+            line-height: 1.4;
+        }
+
+        .follow-btn {
+            display: inline-flex;
+            align-items: center;
+            margin: 0 4px;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .follow-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        }
+
+        .twitter-btn {
+            background-color: #1da1f2;
+            color: white;
+        }
+
+        .linkedin-btn {
+            background-color: #0077b5;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
             body {
-                padding: 20px 15px;
-                margin-top: 60px;
+                padding: 0 16px;
+                margin-top: 70px;
+                font-size: 15px;
             }
             
             h1 {
-                font-size: 2.2em;
+                font-size: 1.9em;
             }
             
-            .section {
-                padding: 5px;
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            
+            .follow-buttons {
+                display: flex;
+                gap: 8px;
+            }
+            
+            .follow-btn {
+                margin: 0;
+                padding: 6px 12px;
+                font-size: 12px;
             }
 
             .topnav a {
                 padding: 12px 16px;
-                font-size: 16px;
+                font-size: 14px;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: 8px 12px;
             }
         }
 
-    .blog-meta {
-        color: var(--light-text);
-        font-size: 0.9em;
-        margin-bottom: 2em;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .blog-meta p {
-        margin: 0;
-    }
-
-    .toc {
-        font-size: 0.9em;
-        line-height: 1.4;
-        margin-top: 0.8em;
-    }
-
-    .toc h2 {
-        font-size: 1.4em;
-        margin-bottom: 0.8em;
-    }
-
-    .toc ul {
-        margin-bottom: 0.8em;
-        padding-left: 1.5em;
-    }
-
-    .toc li {
-        margin-bottom: 0.4em;
-        line-height: 1.3;
-    }
-
-    .follow-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-
-    .twitter-btn:hover {
-        background-color: #1991db;
-    }
-
-    .linkedin-btn:hover {
-        background-color: #005885;
-    }
-
-    @media (max-width: 600px) {
-        .follow-buttons {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
+        @media (max-width: 480px) {
+            body {
+                padding: 0 12px;
+            }
+            
+            .follow-buttons {
+                flex-direction: column;
+                gap: 6px;
+            }
+            
+            .follow-btn {
+                width: 100%;
+                text-align: center;
+            }
         }
-        
-        .follow-btn {
-            margin: 0 !important;
-            width: 200px;
-        }
-    }
-
     </style>
 </head>
 <body>
@@ -292,11 +505,17 @@
     <div class="blog-meta">
         <p>Posted on June 15, 2025 by Jiachen Liu</p>  
          <div class="follow-buttons">
-            <a href="https://x.com/JIACHENLIU8" target="_blank" class="follow-btn twitter-btn" style="display: inline-block; margin: 0 5px; padding: 6px 12px; background-color: #1da1f2; color: white; text-decoration: none; border-radius: 15px; font-size: 0.75em; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-                🐦 X
+            <a href="https://x.com/JIACHENLIU8" target="_blank" class="follow-btn twitter-btn">
+                <svg class="btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/>
+                </svg>
+                X
             </a>
-            <a href="https://www.linkedin.com/in/jiachen-amber-liu-872506169/" target="_blank" class="follow-btn linkedin-btn" style="display: inline-block; margin: 0 5px; padding: 6px 12px; background-color: #0077b5; color: white; text-decoration: none; border-radius: 15px; font-size: 0.75em; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-                💼 LinkedIn
+            <a href="https://www.linkedin.com/in/jiachen-amber-liu-872506169/" target="_blank" class="follow-btn linkedin-btn">
+                <svg class="btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="currentColor"/>
+                </svg>
+                LinkedIn
             </a>
         </div>
     </div>
@@ -370,6 +589,78 @@
             // Small delay to ensure GoatCounter has tracked the visit
             setTimeout(fetchGoatCounterViews, 1000);
         });
+
+        // Copy citation function
+        function copyCitation() {
+            const citationText = document.getElementById('citation-text').textContent;
+            navigator.clipboard.writeText(citationText).then(function() {
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = '✅ Copied!';
+                btn.style.backgroundColor = '#10b981';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.backgroundColor = '';
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Could not copy text: ', err);
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = citationText;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = '✅ Copied!';
+                btn.style.backgroundColor = '#10b981';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.backgroundColor = '';
+                }, 2000);
+            });
+        }
+
+        // Copy references function
+        function copyReferences() {
+            const references = document.querySelectorAll('.citation p');
+            let referencesText = '';
+            
+            references.forEach((ref, index) => {
+                referencesText += ref.textContent + '\n';
+            });
+
+            navigator.clipboard.writeText(referencesText).then(function() {
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = '✅ Copied!';
+                btn.style.backgroundColor = '#10b981';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.backgroundColor = '';
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Could not copy text: ', err);
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = referencesText;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = '✅ Copied!';
+                btn.style.backgroundColor = '#10b981';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.backgroundColor = '';
+                }, 2000);
+            });
+        }
     </script>
   
     <div class="section">
@@ -574,8 +865,21 @@
 
 
     <div class="citation">
-        <p><strong>To cite this work:</strong></p>
-        <pre style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; font-family: 'Courier New', monospace; font-size: 0.9em; overflow-x: auto;">@phdthesis{amberljc:dissertation,
+        <div class="citation-header">
+            <h3>
+                <svg class="header-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
+                </svg>
+                Citation
+            </h3>
+            <button class="copy-btn" onclick="copyCitation()" title="Copy citation">
+                <svg class="btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 1H4C3 1 2 2 2 3V17H4V3H16V1ZM19 5H8C7 5 6 6 6 7V21C6 22 7 23 8 23H19C20 23 21 22 21 21V7C21 6 20 5 19 5ZM19 21H8V7H19V21Z" fill="currentColor"/>
+                </svg>
+                Copy
+            </button>
+        </div>
+        <pre id="citation-text">@phdthesis{amberljc:dissertation,
     author          = {Jiachen Liu},
     title           = {User-Centric Machine Learning Systems},
     year            = {2025},
@@ -585,7 +889,20 @@
     </div>
 
     <div class="citation">
-        <p><strong>Citations</strong> (Works that I did throughout my PhD):</strong></p>
+        <div class="citation-header">
+            <h3>
+                <svg class="header-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2ZM18 20H6V4H13V9H18V20Z" fill="currentColor"/>
+                </svg>
+                References
+            </h3>
+            <button class="copy-btn" onclick="copyReferences()" title="Copy all references">
+                <svg class="btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 1H4C3 1 2 2 2 3V17H4V3H16V1ZM19 5H8C7 5 6 6 6 7V21C6 22 7 23 8 23H19C20 23 21 22 21 21V7C21 6 20 5 19 5ZM19 21H8V7H19V21Z" fill="currentColor"/>
+                </svg>
+                Copy All
+            </button>
+        </div>
         <p>[1] <a href="https://arxiv.org/abs/2105.11367">Fluid: Resource-Aware Hyperparameter Tuning Engine</a>, Peifeng Yu*, Jiachen Liu*, Mosharaf Chowdhury (* Equal contribution). MLSys 2021.</p>
         <p>[2] <a href="https://arxiv.org/abs/2404.16283">Andes: Defining and Enhancing Quality-of-Experience in LLM-Based Text Streaming Services</a>, Jiachen Liu, Zhiyu Wu, Jae-Won Chung, Fan Lai, Myungjin Lee, Mosharaf Chowdhury. Arxiv 2024.</p>
         <p>[3] <a href="https://arxiv.org/abs/2312.08298">Venn: Resource Management for Collaborative Learning Jobs</a>, Jiachen Liu, Fan Lai, Ding Ding, Yiwen Zhang, Mosharaf Chowdhury. MLSys 2025.</p>
