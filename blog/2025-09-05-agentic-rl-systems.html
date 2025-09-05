@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agentic RL Systems: Scaling Training for AI Agents</title>
+<title>When LLMs Grow Hands and Feet, How to Design our Agentic RL Systems?</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
     :root {
@@ -140,8 +140,8 @@
 
 <main class="max-w-3xl mx-auto px-4 py-10">
 <article class="prose max-w-none">
-<h1 class="text-3xl font-bold text-black">Scaling RL Training for AI Agents</h1>
-<!-- <p class="text-sm text-gray-600">Posted on September 5, 2025 by Jiachen Liu</p> -->
+<h1 class="text-3xl font-bold text-black">When LLMs Grow Hands and Feet, How to Design our Agentic RL Systems?</h1>
+
 
 <div class="blog-meta">
     <p>Posted on September 5, 2025 by Jiachen Liu</p>  
@@ -163,43 +163,81 @@
 
 <section class="mt-8 p-4 border-l-4 border-blue-300 bg-blue-50">
 <h2 class="text-xl font-semibold m-0">TL;DR</h2>
-<p class="mt-2">The paradigm for training LLMs has shifted from single-response tasks to complex, multi-step problem-solving driven by AI agents. Traditional RL systems for LLMs are not built for this, especially under heavy, heterogeneous environment demands. This post answers three questions:</p>
+<p class="mt-2">The paradigm for training LLMs has shifted from single-response tasks to complex, multi-step problem-solving driven by AI agents. Traditional Reinforcement Learning (RL) systems for LLM are ill-equipped for this new paradigm because they can't handle the heavy computational and resource needs of agentic tasks. This blog post answers three key questions:</p>
 <ul class="list-disc pl-6">
-<li>How is RL for LLM-based agents different from RL for text generation?</li>
-<li>What are the critical system challenges for agentic RL?</li>
-<li>What solutions are emerging from research and industry?</li>
+<li>How is RL for LLM-based agents different from traditional RL for chat LLM?</li>
+<li>What are the critical system challenges in adapting RL systems for LLM-based agents?</li>
+<li>What solutions are top research labs or industry developing to address these challenges?</li>
 </ul>
 </section>
 
 <section class="mt-10">
-<p>This year, with the rise of AI agents, the frontier of AI has moved from single-response generation toward solving complex, multi-step problems. Researchers are building “Agentic Intelligence” — the ability to autonomously plan, reason, and act within dynamic environments. This requires models that can strategize for long horizons, use tools (code interpreters, web search), and adapt to environmental feedback.</p>
-<p>Think of LLMs as the “brain” and LLM-based agents as the “body and hands.” Earlier work focused on the brain (reasoning). To solve real tasks, the brain must direct actions through a body: interacting with sandboxes, executing code, browsing the web, or running experiments. For instance, a scientific discovery agent may autonomously design and execute ML experiments on GPUs, while a coding agent must compile and run code in isolated containers. This demands RL training pipelines purpose-built for long-horizon, tool-rich, open-ended environments.</p>
+<p>This year, with the rise of AI agents, the frontier of AI has moved from single-response generation toward solving complex, multi-step problems. Researchers start developing "Agentic Intelligence"—the ability to autonomously plan, reason, and act within dynamic environments. This evolution requires models that can strategize for long-horizon tasks, use tools like code interpreters and web search, and adapt based on environmental feedback.</p>
+<p>A useful analogy is to think of LLMs as the "brain" and the LLM-based agent as the "body and hands." In the early phase of LLM development, research focused almost exclusively on the brain—refining reasoning ability. But to solve real tasks, the brain must now direct actions through a body: interacting with sandboxes, executing code, browsing the web, or running experiments. For instance, a scientific discovery agent may need to autonomously design and execute machine learning experiments on GPUs, while a coding agent must safely compile and run code inside isolated containers. This new level of capability requires RL training pipelines purpose-built for long-horizon, tool-rich, open-ended environments.</p>
 </section>
 
 <section class="mt-10">
 <h2 class="text-2xl font-semibold text-black">The Bottleneck: Why Existing RL Frameworks Fall Short</h2>
-<p>Simply wiring agent rollouts into traditional LLM RL frameworks doesn’t work. These systems were designed for simple, stateless rollouts and crumble under the diverse and demanding needs of agents.</p>
-<p>Agents require both brain and body. While the LLM handles reasoning, the agent’s hands involve external environments, APIs, or compute resources, each with heavy and heterogeneous requirements:</p>
+<p>Simply plugging the AI agent rollout into a traditional LLM RL framework doesn't work. These frameworks were designed for simple, stateless LLM rollouts and crumble under the diverse and demanding needs of agents.</p>
+<p>The challenge is that agents require both brain and body: while the LLM handles reasoning, the agent's "hands" involve external environments, APIs, or compute resources. Each environment may impose heavy and heterogeneous requirements:</p>
 <ul class="list-disc pl-6">
-<li>A coding agent needs an isolated Docker container with specific dependencies.</li>
-<li>An ML engineering agent may require dedicated GPUs and long-running experiments.</li>
-<li>A web search or browser agent needs stateful, sandboxed sessions.</li>
+<li>A coding agent needs an isolated Docker container with a specific file system and dependencies to safely execute code.</li>
+<li>An ML engineering agent might require dedicated GPU access and run long-running experiments.</li>
+<li>A web search agent …</li>
 </ul>
-<p>Running modest batches (e.g., 128 parallel rollouts) on a single node is infeasible if each requires a dedicated container or specialized resource. Conversely, very small batches (e.g., 8) underutilize LLM serving and slow rollouts.</p>
+<p>Running even modest batches of such agents (e.g., 128 parallel rollouts) on a local node is impossible if each requires a dedicated Docker container or specialized resource. On the other hand, because of local constraints, existing frameworks run very small batches (e.g., 8), which underutilizes the LLM serving systems and slows down the agent rollout.</p>
 </section>
 
+<table class="w-full border-collapse border border-gray-300 mt-6 mb-6">
+<thead>
+<tr class="bg-gray-50">
+<th class="border border-gray-300 px-4 py-2 text-left font-semibold">Feature</th>
+<th class="border border-gray-300 px-4 py-2 text-left font-semibold">Traditional LLM RL (The "Brain")</th>
+<th class="border border-gray-300 px-4 py-2 text-left font-semibold">Agentic RL (The "Brain and Body")</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="border border-gray-300 px-4 py-2 font-semibold">Primary Goal</td>
+<td class="border border-gray-300 px-4 py-2">Optimize single‑turn language quality (helpfulness, style, safety) via preference/reward fine‑tuning.</td>
+<td class="border border-gray-300 px-4 py-2">Solve complex, multi-step problems autonomously in a dynamic environment.</td>
+</tr>
+<tr class="bg-gray-50">
+<td class="border border-gray-300 px-4 py-2 font-semibold">Task Horizon</td>
+<td class="border border-gray-300 px-4 py-2"><strong>Single turn & stateless.</strong> A single prompt leads to a single response.</td>
+<td class="border border-gray-300 px-4 py-2"><strong>Multi-turn & stateful.</strong> An agent takes a sequence of actions, and its state persists across steps.</td>
+</tr>
+<tr>
+<td class="border border-gray-300 px-4 py-2 font-semibold">Interaction Model</td>
+<td class="border border-gray-300 px-4 py-2">The LLM generates text. A reward model scores the final output.</td>
+<td class="border border-gray-300 px-4 py-2">The agent uses tools, calls APIs, executes code, and interacts with external systems.</td>
+</tr>
+<tr class="bg-gray-50">
+<td class="border border-gray-300 px-4 py-2 font-semibold">Resource Demand</td>
+<td class="border border-gray-300 px-4 py-2">Lightweight (prompt + reward model).</td>
+<td class="border border-gray-300 px-4 py-2">Heavyweight, diverse, and external (code interpreters, sandbox, web browsers).</td>
+</tr>
+<tr>
+<td class="border border-gray-300 px-4 py-2 font-semibold">Key System Bottleneck</td>
+<td class="border border-gray-300 px-4 py-2">LLM inference throughput and reward model scoring.</td>
+<td class="border border-gray-300 px-4 py-2">Orchestrating and scaling diverse, resource-intensive environments for parallel rollouts.</td>
+</tr>
+</tbody>
+<caption class="text-sm text-gray-600 mb-2 font-medium">Table 1: A comparison of system demands between LLM RL and Agentic RL.</caption>
+</table>
+
 <section class="mt-10">
-<h2 class="text-2xl font-semibold text-black">The Decoupled Solution: Introducing the Agent Layer</h2>
-<p>A practical design introduces a dedicated Agent Layer between the RL framework (inference and training engines) and agent execution environments. It acts as a scheduler and orchestrator for agent tasks.</p>
+<h2 class="text-2xl font-semibold text-black">The Decoupled Solution: Introducing the "Agent Layer"</h2>
+<p>To solve these challenges, a new system design is emerging that introduces a dedicated Agent Layer. This layer sits between the RL framework (including the inference engine and training engine) and the agent's execution environment, acting as a specialized scheduler and orchestrator for agent tasks.</p>
 <ul class="list-disc pl-6">
-<li><span class="font-semibold">RL Framework</span>: trains the model and serves LLM inference via a standard API.</li>
-<li><span class="font-semibold">Agent Execution Environments</span>: run independently on distributed machines, providing sandboxes and tools.</li>
-<li><span class="font-semibold">Agent Layer</span>: dispatches rollouts to environments, provides inference endpoints, and collects trajectory data into a replay buffer.</li>
+<li><span class="font-semibold">The RL Framework</span> focuses on what it does best: training the model and serving LLM inference requests via a standard API.</li>
+<li><span class="font-semibold">The Agent Execution Environments</span> run independently on distributed machines, providing the sandboxes and tools the agent needs.</li>
+<li><span class="font-semibold">The Agent Layer</span> is the bridge. It dispatches rollout tasks to agent environments, provides them with the API endpoint for LLM inference, and collects the resulting trajectory data to send back to a replay buffer for the trainer.</li>
 </ul>
 <figure class="my-8">
   <img src="../imag/rl-sys-overview.png" alt="Agentic RL System Overview" style="width: 80%; max-width: 700px; margin: 0 auto; display: block; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
   <figcaption style="text-align: center; color: #555; font-size: 1em; margin-top: 1em;">
-    Figure: Overview of the Agent Layer in Agentic RL Systems
+    Figure 1: Conceptual Diagram of the Agent Layer in Agentic RL Systems
   </figcaption>
 </figure>
 
@@ -207,57 +245,59 @@
 </section>
 
 <section class="mt-10">
-<h2 class="text-2xl font-semibold text-black">Challenge 1: Integrating Diverse Agents and Frameworks</h2>
-<p>Agent performance is tightly coupled to its implementation — prompting scaffold, tool integrations, and environments. A model trained with one agent implementation may not generalize to another. The training system must support diverse agents without major agent-side changes.</p>
-<p>A critical function of the Agent Layer is automatic trajectory capture via a <span class="font-semibold">Unified Data Interface</span>. By instrumenting the agent runtime (e.g., tracing LLM API calls), the system can capture stepwise trajectories with:</p>
+<h2 class="text-2xl font-semibold text-black">Challenge 1: Integrating Diverse Agents and Frameworks 🧩</h2>
+<p>The performance of an agentic LLM is deeply tied to its underlying implementation—its prompting scaffold, tool integrations, and environments. A LLM trained with one agent implementation may struggle to generalize to another with a different prompt structure or tool definition. To develop generalized agentic LLMs, the RL training system must support diverse agent implementation without requiring significant code change on the agent side.</p>
+<p>Therefore, a critical function of the Agent Layer is to automatically capture agent trajectories for any agent implementation. This is often achieved through a <span class="font-semibold">Unified Data Interface</span>. By instrumenting the agent runtime (e.g., by tracing LLM API calls), the system can capture every agent's step. These structured trajectories contain the sequence of states, actions, and rewards from the agent's run.</p>
 <ul class="list-disc pl-6">
-<li><span class="font-semibold">State</span>: snapshot of key environment variables.</li>
-<li><span class="font-semibold">Action</span>: LLM outputs (tool calls, answers).</li>
-<li><span class="font-semibold">Reward</span>: quality of actions or final outcomes.</li>
+<li><span class="font-semibold">State</span>: A snapshot of all critical variables in the agent's environment at a given time.</li>
+<li><span class="font-semibold">Action</span>: The output generated by the LLM, such as a tool call or a final answer.</li>
+<li><span class="font-semibold">Reward</span>: A signal indicating the quality of an action or the final outcome.</li>
 </ul>
-<p>This standardized format decouples agent logic from the RL framework. As noted in Agent Lightning, the trainer becomes “agent-agnostic” and the agent “trainer-agnostic.” GLM-4.5 exposes a unified HTTP endpoint for writing trajectories to a shared data pool, enabling task-specific filtering and adaptive sampling. Kimi K2 and Kimi-Researcher adopt OpenAI Gym-like interfaces to add new tasks and environments efficiently.</p>
+<p>This standardized format decouples the agent's implementation logic from the RL framework. The RL framework doesn't need to know how an agent built with LangGraph works; it just consumes the standardized trajectory data. As noted in the Agent-Lightning paper, this design makes the trainer "agent-agnostic" and the agent "trainer-agnostic" [8]. Similarly, GLM-4.5 provides a unified HTTP endpoint, allowing different agent frameworks to write trajectories to a shared data pool [3]. The data pool enables tailored, task-specific filtering and adaptive sampling methods to provide high-quality RL training data for a wide range of tasks. Finally, both Kimi K2 and Kimi-Researcher use a unified, OpenAI Gym-like interface to streamline the addition of new environments and tasks [1, 2].</p>
 </section>
 
 <section class="mt-10">
-<h2 class="text-2xl font-semibold text-black">Challenge 2: Environment Management and Rollout Scalability</h2>
-<p>Training and evaluating agentic LLMs requires massive parallel rollouts (e.g., batch size 128, multiple generations per prompt) across simulated or real environments. These dynamic environments demand orchestration for scheduling, checkpointing, fault tolerance, and reproducibility.</p>
+<h2 class="text-2xl font-semibold text-black">Challenge 2: Environment Management and Agent Rollout Scalability 🖥️</h2>
+<p>Training and evaluating agentic LLMs requires massive parallel agent rollouts (e.g. rollout batch size 128 with number of generation per prompt 4) across simulated or real environments. Unlike RL for LLM, agentic RL often involves complex, dynamic environments such as sandboxed simulators, external APIs, or sandboxed real-world interfaces, all of which demand careful orchestration of resources and reproducibility. Managing thousands of concurrent environments introduces difficulties in distributed scheduling, state checkpointing, fault tolerance, and reproducibility.</p>
+<p>The solution is to offload agent task execution to a dedicated, isolated service that runs separately from the RL training loop.</p>
 <ul class="list-disc pl-6">
-<li><span class="font-semibold">Remote Execution Services</span>: Master/worker schedulers dispatch tasks to large pools of remote workers (e.g., rStar2-Agent, SkyRL-v0), decoupling environment interaction from training and enabling parallelism.</li>
-<li><span class="font-semibold">Efficient Sandbox Infrastructure</span>: Docker/Kubernetes provision isolated environments per run (e.g., Kimi-Researcher, GLM-4.5). Systems like Daytona simplify container management. SkyRL reports 80–100 containers per replica on 16-CPU nodes via lightweight runtimes and image caching.</li>
-<li><span class="font-semibold">Centralized Environment Pools</span>: For stateful tools (filesystems, browsers), a pool allocates an environment per task and returns it upon completion (e.g., AgentFly) to minimize setup latency.</li>
+<li><span class="font-semibold">Remote Execution Services</span>: Systems like rStar2-Agent and SkyRL use a master/worker architecture where a central scheduler dispatches tasks to a large pool of remote execution workers [5, 7]. This prevents environment interactions from blocking the main training loop and enables massive parallelism.</li>
+<li><span class="font-semibold">Efficient Sandbox Infrastructure</span>: Technologies like Docker and Kubernetes are used to provision isolated environments for each agent run. This practice is highlighted by Kimi-Researcher and GLM-4.5 [2, 3]. Frameworks like Daytona further abstract away the complexities of container management, providing simple APIs for environment provisioning [6]. SkyRL [7] designs a Kubernetes-based setup with storage-optimized instances to cache container images, aidocker + crun runtime for lightweight container execution, which is able to run 80–100 containers per replica on 16-CPU nodes.</li>
+<li><span class="font-semibold">Centralized Environment Pools</span>: For stateful tools like a file system or browser, each task needs its own dedicated environment. AgentFly describes a centralized system that maintains pools of available environments. When a task starts, an environment is allocated from the pool and returned once the task is complete [4]. An environment is allocated to a task and returned to the pool upon completion, minimizing setup latency.</li>
 </ul>
 </section>
 
 <section class="mt-10">
-<h2 class="text-2xl font-semibold text-black">Challenge 3: Handling Long and Complex Tasks</h2>
-<p>Agentic tasks are heterogeneous and unpredictable; some finish quickly, others require dozens of steps. Long-tail tasks can block training and leave GPUs idle.</p>
+<h2 class="text-2xl font-semibold text-black">Challenge 3: Handling Long and Complex Tasks ⏳</h2>
+<p>Agentic tasks are heterogeneous and unpredictable; some finish quickly, while others require dozens of steps and extensive interaction. This variability creates a "long-tail" problem, where a few very long tasks can block the entire training process, leaving expensive GPUs idle while waiting for the slowest rollouts to finish.</p>
+<h3 class="text-lg font-semibold text-black mt-6">Solutions: Asynchronous Architectures and Dynamic Scheduling</h3>
 <ul class="list-disc pl-6">
-<li><span class="font-semibold">Asynchronous & Decoupled Architecture</span>: Partition resources into rollout engines (producers) and training engines (consumers) with a shared data pool or replay buffer (e.g., GLM-4.5, Kimi-Researcher, rLLM). SkyRL further pipelines initialization, rollout, and reward calculation.</li>
-<li><span class="font-semibold">Partial Rollouts</span>: Pause long tasks, save state, and resume with updated weights (used by Kimi K2 and Kimi-Researcher) for significant speedups.</li>
-<li><span class="font-semibold">Dynamic Load Balancing</span>: Assign rollouts to GPUs based on real-time KV cache availability (e.g., rStar2-Agent) to prevent idle time and cache overflows.</li>
+<li><span class="font-semibold">Asynchronous & Decoupled Architecture</span>: A popular design, used by GLM-4.5, Kimi-Researcher, and rLLM, is to partition resources into dedicated rollout engines and training engines [2, 3, 9]. The rollout engines act as producers, continuously generating trajectories and feeding them into a central data pool or replay buffer. The training engines are consumers, asynchronously pulling batches of data from this pool to update the model. SkyRL decomposes agent rollout into a fine-grained three-stage producer-consumer pipeline (initialize, rollout, reward calculation) to maximize parallelism [7].</li>
+<li><span class="font-semibold">Partial Rollouts</span>: For exceptionally long tasks, the "partial rollout" technique is effective. Instead of waiting for a task to finish, the system can pause it, save its state, and resume it in a future iteration with updated model weights. This simple but powerful trick, used by Kimi K2 and Kimi-Researcher, can yield significant speedups [1, 2].</li>
+<li><span class="font-semibold">Dynamic Load Balancing</span>: Statically distributing rollouts evenly across GPUs is inefficient. A more advanced approach, detailed by rStar2-Agent, is a dynamic, load-balanced scheduler [5]. This scheduler assigns rollout requests to GPUs based on their real-time available KV cache capacity. This ensures a balanced workload, preventing both GPU idle time and cache overflows that lead to wasted computation.</li>
 </ul>
 </section>
 
 <section class="mt-10">
 <h2 class="text-2xl font-semibold text-black">The Road Ahead</h2>
-<p>We are moving toward agents that help complete real-world tasks, not just operate in sandboxes. The systems discussed here are foundational, but more is needed:</p>
+<p>We are moving towards a future where AI agents don't just think or operate in sandboxes; they help us complete real-world tasks. The solutions of agentic RL systems discussed here are foundational pieces, but not sufficient. Looking forward, agents will have the access to real compute resources to conduct experiments and solve problems autonomously. Several trends are pointing in this direction:</p>
 <ul class="list-disc pl-6">
-<li><span class="font-semibold">Algorithmic Advances</span>: Address sparse rewards, credit assignment, and sample efficiency.</li>
-<li><span class="font-semibold">Agent-Aware Scheduling</span>: Optimize allocation based on task-specific resource and runtime profiles.</li>
-<li><span class="font-semibold">Multi-Agent Systems</span>: Enable collaboration and competition among agents.</li>
-<li><span class="font-semibold">Decentralized Agentic RL</span>: Learn continuously from end-user feedback while ensuring privacy and safe exploration.</li>
-<li><span class="font-semibold">Embodied Agents & Robotics</span>: Extend from sandboxes to the physical world with strict simulation and control requirements.</li>
+<li><span class="font-semibold">Algorithmic Advances</span>: System improvements alone cannot solve the challenges of sparse rewards, credit assignment, and sample efficiency.</li>
+<li><span class="font-semibold">Agent-Aware Scheduling</span>: Creating schedulers that understand the specific resource needs and runtime characteristics of different agentic tasks to optimize resource allocation.</li>
+<li><span class="font-semibold">Multi-Agent Systems</span>: Developing systems where multiple agents collaborate or compete to solve even more complex problems.</li>
+<li><span class="font-semibold">Decentralized Agentic RL</span>: Imagine distributing agent rollouts directly to end-users. This would allow agents to learn continuously from human feedback in real-world applications, creating a powerful, personalized learning loop. This, however, brings significant challenges in privacy, security, and ensuring safe exploration.</li>
+<li><span class="font-semibold">Embodied agents & robotics</span>: Extending agentic RL from sandboxes to the physical world introduces hard requirements: complex simulation/real environment, sample efficiency, low-latency control loops with the agent, etc.</li>
 </ul>
-<p class="mt-6">The shift from “LLMs that think” to “agents that act” demands new abstractions. Decoupling model training/inference from execution via an Agent Layer, unified trajectory formats, remote execution pools, and asynchronous pipelines enables scaling agentic RL without letting environment complexity overwhelm training.</p>
+<p class="mt-6">The shift from "LLMs that think" to "agents that act" demands new system abstractions. A resilient design pattern is to decouple model training/inference from execution using an Agent Layer, unified trajectory formats, remote execution pools, and asynchronous pipelines. These pieces together let researchers and engineers scale agentic RL without letting environment complexity overwhelm model training.</p>
 </section>
 
 <section class="mt-10">
 <h2 class="text-2xl font-semibold text-black">References</h2>
 <ol class="list-decimal pl-6">
-<li>Kimi K2: Open Agentic Intelligence</li>
-<li>Kimi-Researcher: End-to-End RL Training for Emerging Agentic Capabilities</li>
+<li><a href="https://arxiv.org/abs/2507.20534" target="_blank">Kimi K2: Open Agentic Intelligence</a></li>
+<li><a href="https://moonshotai.github.io/Kimi-Researcher/" target="_blank">Kimi-Researcher: End-to-End RL Training for Emerging Agentic Capabilities</a></li>
 <li>GLM-4.5: Agentic, Reasoning, and Coding (ARC) Foundation Models</li>
-<li>AgentFly: Extensible and Scalable Reinforcement Learning for LM Agents</li>
+<li><a href="https://arxiv.org/pdf/2507.14897" target="_blank">AgentFly: Extensible and Scalable Reinforcement Learning for LM Agents</a></li>
 <li>rStar2-Agent: Agentic Reasoning Technical Report</li>
 <li>Daytona: Sandbox Infrastructure for Reinforcement Learning Agents</li>
 <li>SkyRL-v0: Train Real-World Long-Horizon Agents via Reinforcement Learning</li>
