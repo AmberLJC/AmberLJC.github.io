@@ -177,7 +177,7 @@
 
 <section class="mt-8 p-4 border-l-4 border-blue-300 bg-blue-50">
 <h2 class="text-xl font-semibold m-0">TL;DR</h2>
-<p class="mt-2">The paradigm for training LLMs has shifted from single-response tasks to complex, multi-step problem-solving driven by AI agents. Previous Reinforcement Learning (RL) systems for chat LLM are ill-equipped for this new paradigm because they can't handle the heavy computational and resource needs of agentic tasks. This blog post answers three key questions:</p>
+<p class="mt-2">The paradigm for training LLMs has shifted from simple-response tasks to complex, multi-step problem-solving driven by AI agents. Previous Reinforcement Learning (RL) systems for chat LLM are ill-equipped for this new paradigm because they can't handle the heavy computational and resource needs of agentic tasks. This blog post answers three key questions:</p>
 <ul class="list-disc pl-6">
 <li>How is RL for LLM-based agents different from traditional RL for chat LLM?</li>
 <li>What are the critical system challenges in adapting RL systems for LLM-based agents?</li>
@@ -186,7 +186,7 @@
 </section>
 
 <section class="mt-10">
-<p>This year, with the rise of AI agents, the frontier of AI has moved from single-response generation toward solving complex, multi-step problems. Researchers start developing "Agentic Intelligence"—the ability to autonomously plan, reason, and act within dynamic environments. This evolution requires models that can strategize for long-horizon tasks, use tools like code interpreters and web search, and adapt based on environmental feedback.</p>
+<p>This year, with the rise of AI agents, the frontier of AI has moved from simple-response generation toward solving complex, multi-step problems. Researchers start developing "Agentic Intelligence"—the ability to autonomously plan, reason, and act within dynamic environments. This evolution requires models that can strategize for long-horizon tasks, use tools like code interpreters and web search, and adapt based on environmental feedback.</p>
 <p>A useful analogy is to think of LLMs as the "brain" and the LLM-based agent as the "body and hands." In the early phase of LLM development, research focused almost exclusively on the brain—refining reasoning ability. But to solve real tasks, the brain must now direct actions through a body: interacting with sandboxes, executing code, browsing the web, or running experiments. For instance, a scientific discovery agent may need to autonomously design and execute machine learning experiments on GPUs, while a coding agent must safely compile and run code inside isolated containers. This new level of capability requires RL training pipelines purpose-built for long-horizon, tool-rich, open-ended environments.</p>
 </section>
 
@@ -246,7 +246,7 @@
 <ul class="list-disc pl-6">
 <li><span class="font-semibold">The RL Framework</span> focuses on what it does best: training the model and serving LLM inference requests via a standard API.</li>
 <li><span class="font-semibold">The Agent Execution Environments</span> run independently on distributed machines, providing the sandboxes and tools the agent needs.</li>
-<li><span class="font-semibold">The Agent Layer</span> is the bridge. It dispatches rollout tasks to agent environments, provides them with the API endpoint for LLM inference, and collects the resulting trajectory data to send back to a replay buffer for the trainer.</li>
+<li><span class="font-semibold">The Agent Layer</span> is the bridge. It <span style="color: #2fb2fe">dispatches rollout tasks</span> to agent environments, provides them with <span style="color: #2fb2fe">the API endpoint for LLM inference</span>, and <span style="color: #2fb2fe">collects the resulting agent trajectory</span> to send back to a replay buffer for the trainer.</li>
 </ul>
 <figure class="my-8">
   <img src="../imag/rl-sys-overview.png" alt="Agentic RL System Overview" style="width: 80%; max-width: 700px; margin: 0 auto; display: block; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
@@ -316,13 +316,13 @@
 <ol class="list-decimal pl-6">
 <li><a href="https://arxiv.org/abs/2507.20534" target="_blank">Kimi K2: Open Agentic Intelligence</a></li>
 <li><a href="https://moonshotai.github.io/Kimi-Researcher/" target="_blank">Kimi-Researcher: End-to-End RL Training for Emerging Agentic Capabilities</a></li>
-<li>GLM-4.5: Agentic, Reasoning, and Coding (ARC) Foundation Models</li>
+<li><a href="https://z.ai/blog/glm-4.5" target="_blank">GLM-4.5: Agentic, Reasoning, and Coding (ARC) Foundation Models</a></li>
 <li><a href="https://arxiv.org/pdf/2507.14897" target="_blank">AgentFly: Extensible and Scalable Reinforcement Learning for LM Agents</a></li>
-<li>rStar2-Agent: Agentic Reasoning Technical Report</li>
-<li>Daytona: Sandbox Infrastructure for Reinforcement Learning Agents</li>
-<li>SkyRL-v0: Train Real-World Long-Horizon Agents via Reinforcement Learning</li>
-<li>Agent Lightning: Train ANY AI Agents with Reinforcement Learning</li>
-<li>rLLM: A Framework for Post-Training Language Agents</li>
+<li><a href="https://www.arxiv.org/abs/2508.20722" target="_blank">rStar2-Agent: Agentic Reasoning Technical Report</a></li>
+<li><a href="https://www.daytona.io/dotfiles" target="_blank">Daytona: Sandbox Infrastructure for Reinforcement Learning Agents</a></li>
+<li><a href="https://novasky-ai.notion.site/skyrl-v0" target="_blank">SkyRL: Train Real-World Long-Horizon Agents via Reinforcement Learning</a></li>
+<li><a href="https://arxiv.org/abs/2508.03680" target="_blank">Agent Lightning: Train ANY AI Agents with Reinforcement Learning</a></li>
+<li><a href="https://github.com/rllm-org/rllm" target="_blank">rLLM: A Framework for Post-Training Language Agents</a></li>
 </ol>
 </section>
 
