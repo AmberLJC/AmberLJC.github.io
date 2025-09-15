@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../imag/bubbletea.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <link rel="stylesheet" href="../stylesheets/main.css">
+    <link rel="stylesheet" href="../stylesheets/modernist.css">
+    <link rel="stylesheet" href="../stylesheets/micro-interactions.css">
+    <link rel="stylesheet" href="../stylesheets/blog-modern.css">
+    <script src="../js/9JZkBilUSmGpH8F5SvwGOfpXbTA.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151270318-1"></script>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Curie - Move Scientific Research at the Speed of Thought</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+            font-size: 32px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .blog-header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 25px;
+        }
+        .blog-header h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        .blog-header .subtitle {
+            font-size: 1.8rem;
+            color: #555555;
+            font-style: italic;
+            margin-bottom: 25px;
+            font-weight: 400;
+            text-align: center;
+            display: block;
+        }
+        .blog-meta {
+            font-size: 1.2rem;
+            color: #777777;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .authors {
+            font-size: 1.1rem;
+            color: #666666;
+            line-height: 1.5;
+        }
+        .content-section {
+            margin-bottom: 30px;
+        }
+        .content-section h2 {
+            font-size: 2.2rem;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            margin-top: 35px;
+            font-weight: 600;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 8px;
+        }
+        .content-section p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: #333333;
+            font-size: 1.5rem;
+        }
+        .content-section ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        .content-section li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+            color: #333333;
+        }
+        .figure-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .figure-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            border: 1px solid #f0f0f0;
+        }
+        .figure-caption {
+            font-size: 1.1rem;
+            color: #777777;
+            margin-top: 12px;
+            font-style: italic;
+        }
+        .links-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border: 1px solid #e9ecef;
+        }
+        .links-section a {
+            display: inline-block;
+            margin: 8px 12px;
+            padding: 12px 20px;
+            background: #4a5568;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 1.3rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .links-section a i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+        .links-section a:hover {
+            background: #2d3748;
+            color: white;
+            text-decoration: none;
+            transform: translateY(-1px);
+        }
+        .highlight-box {
+            background: #f7fafc;
+            border-left: 4px solid #4a5568;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 6px 6px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .highlight-box p {
+            margin: 0;
+            font-size: 1.4rem;
+            color: #2d3748;
+        }
+        .citation-container {
+            position: relative;
+            margin: 20px 0;
+        }
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #4a5568;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .copy-button:hover {
+            background: #2d3748;
+        }
+        .copy-button.copied {
+            background: #38a169;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="topnav">
+    <a href="../index.html">Home</a>
+    <a href="../blog.html">Blog</a>
+</div>
+
+<div class="container">
+    <div class="content">
+        <header class="blog-header">
+        <h1>Curie - Move Scientific Research at the Speed of Thought</h1>
+        <p class="subtitle">Toward Rigorous and Automated Scientific Experimentation with AI Agents</p>
+        <div class="blog-meta">Feb 1, 2025</div>
+    </header>
+
+    <div class="links-section" style="text-align: center; margin: -20px 15px 5px 15px;">
+        <a href="https://arxiv.org/abs/2502.16069" target="_blank"><i class="fa fa-file-text-o"></i> Paper</a>
+        <a href="https://github.com/Just-Curieous/Curie" target="_blank"><i class="fa fa-github"></i> GitHub</a>
+        <a href="http://demo.just-curieous.com:5000/" target="_blank"><i class="fa fa-external-link"></i> Demo</a>
+    </div>
+    <div class="content-section">
+        <p>
+            As researchers, this is our daily routine: we dive deep into literature, absorb diverse perspectives, and let these insights fuel our creativity. One moment, you might stumble upon an idea:
+        </p>
+
+        <ul>
+            <li>Maybe configuring the ML model architecture differently could boost performance on your dataset,</li>
+            <li>Perhaps tuning the LLM reasoning structure might improve a model's output quality,</li>
+            <li>Probably adjusting the atomic composition of a material could make it more efficient for battery storage?</li>
+        </ul>
+
+        <p>
+            These sparks of intuition are the lifeblood of research. Yet, transforming them into verified knowledge requires something far less glamorous: rigorous, often tedious scientific experimentation. Designing the experiment, executing it, collecting results, analyzing data, and refining your hypothesis—it's a cycle of trial and error that can consume days, months, even years.
+        </p>
+    </div>
+
+
+    <div class="figure-container">
+        <img src="figs/overview.png" alt="Curie Overview" style="max-width: 550px; width: 100%; display: block; margin: 0 auto;">
+        <div class="figure-caption">Figure 1. Curie overview.</div>
+    </div>
+
+    <div class="content-section">
+        <h2>The Challenge: Why Rigor Matters</h2>
+        <p>
+            However, the problem is, unlike tasks such as trip planning or general problem-solving, scientific progress demands rigor. If science isn't rigorous, it's reckless.
+        </p>
+
+        <p>
+            Experimentation is the backbone of scientific progress, demanding reliability, methodical control, and interpretability to transform curiosity into verifiable knowledge. Without rigor, we risk unreliable results, irreproducible findings, and ultimately, a lack of trust in AI-driven discoveries.
+        </p>
+    </div>
+
+    <div class="content-section">
+        <h2>Introducing Curie: Rigor-Embedded AI Experimentation</h2>
+        <p>
+            We're thrilled to introduce <strong>Curie</strong>, an AI agent framework designed to bring rigor to automated experimentation. Curie isn't just designed to automate experiments as shown in Figure 1; it's built to empower researchers to reproduce existing work, extend findings, and even challenge established conclusions, fostering a more dynamic and rigorous scientific process, as shown in Figure 2.
+        </p>
+    </div>
+
+    <div class="figure-container">
+        <img src="figs/case-study.png" alt="Case Study">
+        <div class="figure-caption">Figure 2. Case study. Curie tries to reproduce, extend and challenge the Large Language Monkeys paper[1].</div>
+    </div>
+
+    <div class="content-section">
+        <h2>How Curie Works: The Rigor Engine</h2>
+        <p>
+            At the heart of Curie lies our innovative <strong>Experimental Rigor Engine</strong>, designed to maintain agent creativity while ensuring methodological soundness. As shown in Figure 3, this engine is composed of three key modules:
+        </p>
+
+        <ul>
+            <li><strong>Intra-Agent Rigor Module:</strong> Focuses on reliability within individual agents by enforcing a set of extensible rigor policies. This includes ensuring that experiment plans align with objectives and that setups are reproducible; minimizing the risk of errors.</li>
+            <li><strong>Inter-Agent Rigor Module:</strong> Maintains methodical control over agent coordination, ensuring correct task transitions and efficient task scheduling. This module orchestrates the workflow between agents, ensuring that the experimental process adheres to a logical sequence.</li>
+            <li><strong>Experiment Knowledge Module:</strong> Enhances interpretability by maintaining well-structured documentation, enabling seamless collaboration and efficient experiment management. This module addresses the limitations of LLMs in knowledge management by providing a structured and verifiable record of the experimental process.</li>
+        </ul>
+
+        <div class="figure-container">
+            <img src="figs/workflow.png" alt="Curie Workflow" style="max-width: 750px; width: 100%; display: block; margin: 0 auto;">
+            <div class="figure-caption">Figure 3. High-level Curie workflow with an example task in LLM reasoning.</div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>Real-World Validation: The Curie Benchmark</h2>
+        <p>
+            To evaluate Curie's capabilities, we've developed a novel experimental benchmark comprising 46 tasks across four computer science domains. These tasks are derived directly from influential research papers and widely adopted open-source projects, ensuring that they reflect real-world challenges and practical significance. The evaluation shows that Curie significantly outperforms existing AI agent frameworks. When compared to the strongest baseline, Curie achieves a remarkable <strong>3.4x improvement</strong> in correctly answering research questions through experimentation. This substantial leap forward underscores Curie's ability to automate complex and rigorous experimentation, marking a major step toward accelerating scientific research and enhancing the reliability of AI-driven discovery.
+        </p>
+    </div>
+
+    <div class="content-section">
+        <h2>References</h2>
+        <div class="citation-container">
+            <button class="copy-button" onclick="copyCitation('curie-citation')">Copy</button>
+            <pre id="curie-citation" style="background: #f8f8f8; border-radius: 6px; padding: 14px; font-size: 1.1rem; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;">@misc{kon2025curierigorousautomatedscientific,
+  title     = {Curie: Toward Rigorous and Automated Scientific Experimentation with AI Agents},
+  author    = {Patrick Tser Jern Kon and Jiachen Liu and Qiuyi Ding and Yiming Qiu and Zhenning Yang and Yibo Huang and Jayanth Srinivasa and Myungjin Lee and Mosharaf Chowdhury and Ang Chen},
+  year      = {2025},
+  eprint    = {2502.16069},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI}
+}</pre>
+        </div>
+        <p>
+            [1] Large Language Monkeys: Scaling Inference Compute with Repeated Sampling. arXiv:2407.21787
+        </p>
+    </div>
+</div>
+
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="../javascripts/transitions.js"></script>
+<script>
+function copyCitation(elementId) {
+    const element = document.getElementById(elementId);
+    const text = element.textContent;
+    
+    navigator.clipboard.writeText(text).then(function() {
+        const button = element.parentElement.querySelector('.copy-button');
+        const originalText = button.textContent;
+        button.textContent = 'Copied!';
+        button.classList.add('copied');
+        
+        setTimeout(function() {
+            button.textContent = originalText;
+            button.classList.remove('copied');
+        }, 2000);
+    }).catch(function(err) {
+        console.error('Failed to copy text: ', err);
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        
+        const button = element.parentElement.querySelector('.copy-button');
+        const originalText = button.textContent;
+        button.textContent = 'Copied!';
+        button.classList.add('copied');
+        
+        setTimeout(function() {
+            button.textContent = originalText;
+            button.classList.remove('copied');
+        }, 2000);
+    });
+}
+</script>
+</body>
+
+</html>

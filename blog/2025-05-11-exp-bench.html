@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../imag/bubbletea.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <link rel="stylesheet" href="../stylesheets/main.css">
+    <link rel="stylesheet" href="../stylesheets/modernist.css">
+    <link rel="stylesheet" href="../stylesheets/micro-interactions.css">
+    <link rel="stylesheet" href="../stylesheets/blog-modern.css">
+    <script src="../js/9JZkBilUSmGpH8F5SvwGOfpXbTA.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151270318-1"></script>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>EXP-Bench: Can AI Conduct AI Research Experiments?</title>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T1JYF39V5T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-T1JYF39V5T');
+    </script>
+
+    <!-- GoatCounter Analytics -->
+    <script data-goatcounter="https://amberljc.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+            font-size: 32px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .blog-header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 25px;
+        }
+        .blog-header h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        .blog-header .subtitle {
+            font-size: 1.8rem;
+            color: #555555;
+            font-style: italic;
+            margin-bottom: 25px;
+            font-weight: 400;
+            text-align: center;
+            display: block;
+        }
+        .blog-meta {
+            font-size: 1.2rem;
+            color: #777777;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .authors {
+            font-size: 1.1rem;
+            color: #666666;
+            line-height: 1.5;
+        }
+        .content-section {
+            margin-bottom: 30px;
+        }
+        .content-section h2 {
+            font-size: 2.2rem;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            margin-top: 35px;
+            font-weight: 600;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 8px;
+        }
+        .content-section p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: #333333;
+            font-size: 1.5rem;
+        }
+        .content-section ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        .content-section li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+            color: #333333;
+        }
+        .figure-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .figure-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            border: 1px solid #f0f0f0;
+        }
+        .figure-caption {
+            font-size: 1.1rem;
+            color: #777777;
+            margin-top: 12px;
+            font-style: italic;
+        }
+        .links-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border: 1px solid #e9ecef;
+        }
+        .links-section a {
+            display: inline-block;
+            margin: 8px 12px;
+            padding: 12px 20px;
+            background: #4a5568;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 1.3rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .links-section a i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+        .links-section a:hover {
+            background: #2d3748;
+            color: white;
+            text-decoration: none;
+            transform: translateY(-1px);
+        }
+        .highlight-box {
+            background: #f7fafc;
+            border-left: 4px solid #4a5568;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 6px 6px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .highlight-box p {
+            margin: 0;
+            font-size: 1.4rem;
+            color: #2d3748;
+        }
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 6px 6px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .warning-box h4 {
+            color: #856404;
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+        .warning-box li {
+            color: #856404;
+            margin: 0.8em 0;
+        }
+        pre {
+            background: #f8f8f8;
+            border-radius: 6px;
+            padding: 14px;
+            font-size: 1.1rem;
+            overflow-x: auto;
+        }
+        strong {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        .citation-container {
+            position: relative;
+            margin: 20px 0;
+        }
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #4a5568;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .copy-button:hover {
+            background: #2d3748;
+        }
+        .copy-button.copied {
+            background: #38a169;
+        }
+    </style>
+</head>
+<body>
+
+<div class="topnav">
+    <a href="../index.html">Home</a>
+    <a href="../blog.html">Blog</a>
+</div>
+
+<div class="container">
+    <div class="content">
+        <header class="blog-header">
+        <h1>EXP-Bench: Can AI Conduct AI Research Experiments?</h1>
+        <p class="subtitle">Evaluating AI Agents on Real-World Research Experimentation Tasks</p>
+        <div class="blog-meta">June 11, 2025</div>
+    </header>
+
+    <div class="links-section" style="text-align: center; margin: -20px 15px 5px 15px;">
+        <a href="https://arxiv.org/abs/2505.24785" target="_blank"><i class="fa fa-file-text-o"></i> Paper</a>
+        <a href="https://github.com/Just-Curieous/Curie/tree/main/benchmark/exp_bench" target="_blank"><i class="fa fa-database"></i> Dataset</a>
+        <a href="https://github.com/Just-Curieous/Curie" target="_blank"><i class="fa fa-github"></i> GitHub</a>
+    </div>
+
+    <div class="content-section">
+        <h2>Overview</h2>
+        <p>
+            AI for Science is rapidly advancing, with promising early work on scientific automation—such as DeepMind's AlphaEvolve and others highlighted in this Nature paper. A particularly exciting frontier is the automation of AI research experimentation—the process of designing, executing, and analyzing experiments to advance AI itself. Unlike fields requiring physical experimentation, AI research is largely digital—well-suited for LLM-based automation.
+        </p>
+
+        <p>
+            Ideally, we want to provide an AI agent with a research goal—such as reproducing a result, validating a new hypothesis, or testing an ablation— along with the specific context and have the agent:
+        </p>
+
+        <ul>
+            <li>Formulate hypotheses, design experiments,</li>
+            <li>Interpret the associated codebase and identify how to modify it,</li>
+            <li>Configure and execute experiments under the right conditions,</li>
+            <li>Analyze results and iteratively refine its approach based on findings</li>
+        </ul>
+    </div>
+
+    <div class="figure-container">
+        <img src="./figs/exp-bench-overview.png" alt="EXP-Bench Overview">
+        <div class="figure-caption">Figure 1. EXP-Bench evaluates AI agents on research experiment tasks extracted semi-autonomously from peer-reviewed AI papers.</div>
+    </div>
+
+    <div class="content-section">
+        <p>
+            Achieving this vision requires benchmarks that evaluate agents in real-world research scenarios. But how do we define those scenarios in a way that's representative, reproducible, and gradable?
+        </p>
+
+        <p>
+            Intuitively, peer-reviewed AI papers (e.g., in NeurIPS) along with their open-source codebases, offer a rich source of completed experiments that could, in theory, be repurposed to evaluate AI capabilities in research automation. In practice, however, extracting these tasks is difficult. Papers often present a polished narrative that omits intermediate steps, while critical details—such as the precise conditions under which results hold—are scattered across dense text, supplementary materials, and sprawling repositories.
+        </p>
+    </div>
+
+    <div class="content-section">
+        <h2>Our Contribution: EXP-Bench</h2>
+        <p>
+            To address this challenge, we introduce EXP-Bench, a new benchmark designed to make the ever-expanding landscape of published research more accessible for evaluating AI agents in conducting end-to-end AI research experiments—from hypothesis to experimental setup to conclusion, as shown in Figure 1. We develop a semi-automated pipeline (Figure 2) that uses multimodal and agentic approaches to reconstruct experiments from fragmented and dense sources (e.g., coding agents identify setups by conditioning on ground-truth outcomes and leveraging the full codebase—reducing the task to a constrained search), while interleaving these steps with lightweight human validation to ensure correctness.
+        </p>
+
+        <p>
+            Using this approach, we distilled 461 experiments from NeurIPS and ICLR papers—spanning domains such as vision, RL, and computational biology—resulting in over 12,000 gradable subtasks.
+        </p>
+    </div>
+
+    <div class="figure-container">
+        <img src="./figs/exp-construction.png" alt="EXP-Bench Construction">
+        <div class="figure-caption">Figure 2. Our semi-automated pipeline for constructing EXP-Bench from published papers.</div>
+    </div>
+
+    <div class="content-section">
+        <p>
+            See Figure 3 for an example AI research task extracted through this pipeline.
+        </p>
+    </div>
+
+    <div class="figure-container">
+        <img src="./figs/exp-bench-example.png" alt="EXP-Bench Example">
+        <div class="figure-caption">Figure 3. One AI research task example from ICLR 2024 MogaNet [1].</div>
+    </div>
+
+    <div class="content-section">
+        <h2>What EXP-Bench Reveals About Today's AI Agents</h2>
+        <p>
+            We tested leading agents, including OpenHands w/ Claude Sonnet 3.7, and found that while they can earn partial credit for individual steps like experiment design or coding (~20-35% success), their ability to complete a full, executable experiment is nearly non-existent—a mere 0.5% success rate.
+        </p>
+
+        <p>
+            Our analysis pinpointed several critical weaknesses:
+        </p>
+
+        <div class="warning-box">
+            <h4>⚠️ Critical Weaknesses Identified</h4>
+            <ul>
+                <li><strong>Limited Long-Horizon Planning and Reasoning</strong></li>
+                <li><strong>Inability to Handle Open-Ended and Ambiguous Tasks (35.9%)</strong></li>
+                <li><strong>Difficulty with Environment Setup (41.3%) and Code Debugging (29.8%)</strong></li>
+            </ul>
+        </div>
+
+        <p>
+            These results highlight just how far we still are from our goal of automation of research experimentation. By identifying these bottlenecks and providing realistic step-by-step experiment procedures, EXP-Bench serves as a vital tool for future AI agents to improve their ability to conduct AI research experiments.
+        </p>
+    </div>
+
+
+    <div class="content-section">
+        <h2>Citation</h2>
+        <p>
+            To cite the original paper:
+        </p>
+        <div class="citation-container">
+            <button class="copy-button" onclick="copyCitation('exp-bench-citation')">Copy</button>
+            <pre id="exp-bench-citation" style="background: #f8f8f8; border-radius: 6px; padding: 14px; font-size: 1.1rem; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;">@article{kon2025expbenchaiconductai,
+  title={EXP-Bench: Can AI Conduct AI Research Experiments?}, 
+  author={Patrick Tser Jern Kon and Jiachen Liu and Xinyi Zhu and Qiuyi Ding and Jingjia Peng and Jiarong Xing and Yibo Huang and Yiming Qiu and Jayanth Srinivasa and Myungjin Lee and Mosharaf Chowdhury and Matei Zaharia and Ang Chen},
+  journal={arXiv preprint 2505.24785},
+  year={2025}
+}</pre>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>Looking Forward</h2>
+        <p>
+            This work is, we hope, a small step toward our broader goal of designing agents capable of automating scientific research. We see EXP-Bench as a launchpad for the next wave of AI research copilots.
+        </p>
+
+        <p>
+            That said, much work remains. While EXP-Bench currently focuses on machine learning papers, it does not yet address domains that require interaction with the physical world or support tasks involving true scientific invention. Expanding to those areas—and capturing the creativity, uncertainty, and iteration of real-world discovery—remains an open and exciting challenge.
+        </p>
+    </div>
+
+    <div class="content-section">
+        <h2>References</h2>
+        <p>
+            [1] MogaNet: Multi-order Gated Aggregation Network. ICLR 2024
+        </p>
+    </div>
+</div>
+
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="../javascripts/transitions.js"></script>
+<script>
+function copyCitation(elementId) {
+    const element = document.getElementById(elementId);
+    const text = element.textContent;
+    
+    navigator.clipboard.writeText(text).then(function() {
+        const button = element.parentElement.querySelector('.copy-button');
+        const originalText = button.textContent;
+        button.textContent = 'Copied!';
+        button.classList.add('copied');
+        
+        setTimeout(function() {
+            button.textContent = originalText;
+            button.classList.remove('copied');
+        }, 2000);
+    }).catch(function(err) {
+        console.error('Failed to copy text: ', err);
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        
+        const button = element.parentElement.querySelector('.copy-button');
+        const originalText = button.textContent;
+        button.textContent = 'Copied!';
+        button.classList.add('copied');
+        
+        setTimeout(function() {
+            button.textContent = originalText;
+            button.classList.remove('copied');
+        }, 2000);
+    });
+}
+</script>
+</body>
+
+</html>
