@@ -397,3 +397,22 @@ body.fade-out {
   margin: 6px 0 6px 0;
 }
 
+/* Badge styles for highlighting accolades like Spotlight */
+.badge {
+  display: inline-block;
+  padding: 0.12em 0.55em;
+  border-radius: 999px;
+  font-size: 0.78em;
+  font-weight: 700;
+  line-height: 1;
+  vertical-align: baseline;
+  margin-left: 6px;
+  font-style: normal;
+}
+.badge-spotlight {
+  background: #fde68a; /* amber-200 */
+  color: #92400e;      /* amber-800 */
+  border: 1px solid #f59e0b; /* amber-500 */
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
