@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Add ripple effect to all cards and buttons
-    document.querySelectorAll('.card, .publication-link, .project-link').forEach(addRippleEffect);
+    // Add ripple effect to publication links and buttons (excluding project cards)
+    document.querySelectorAll('.publication-link, .project-link').forEach(addRippleEffect);
 
     // Smooth scroll for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
