@@ -292,6 +292,30 @@ footer {
   text-decoration: none;
 }
 
+.project-title-blue {
+  color: #39c;
+  text-decoration: none;
+}
+
+.project-subtitle {
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 8px;
+  margin-bottom: 5px;
+}
+
+.project-subtitle-blue {
+  color: #39c;
+}
+
+.project-subtitle-orange {
+  color: rgb(252, 139, 69);
+}
+
+.project-subtitle-green {
+  color: rgb(76, 175, 80);
+}
+
 .project-description {
   font-size: 14px;
   line-height: 1.4;
