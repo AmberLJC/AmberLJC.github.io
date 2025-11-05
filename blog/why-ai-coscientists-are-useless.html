@@ -226,12 +226,12 @@
         background-color: var(--purple-tint);
     }
     .references ol {
-        padding-left: 24px;
+        padding-left: 20px;
     }
     .references li {
-        margin: 16px 0;
-        font-size: 14px;
-        line-height: 1.7;
+        margin: 8px 0;
+        font-size: 13px;
+        line-height: 1.5;
         color: var(--text-secondary);
     }
     .references li strong {
@@ -340,7 +340,7 @@
 <body class="bg-white text-black">
 <div class="topnav">
 <a href="../index.html">Home</a>
-<a href="../blog.html">Blog</a>
+<a class="active" href="../blog.html">Blog</a>
 </div>
 
 <main class="max-w-3xl mx-auto px-4 py-10">
@@ -365,8 +365,8 @@
 </div>
 
 <div style="background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); border-left: 4px solid #a855f7; padding: 20px 24px; margin: 32px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(168, 85, 247, 0.08);">
-    <p style="margin: 0; color: #581c87; font-size: 14px; line-height: 1.7;"><strong style="color: #6b21a8;">Note:</strong> This blog post was created with <a href="https://www.orchestra-research.com/share/HBPvxUScvAJr" target="_blank" style="color: #7c3aed; font-weight: 500;">AI Co-Scientist in a human-in-the-loop fashion</a>. All opinions and arguments are my own, but AI helped me discover relevant sources, enrich my arguments, and synthesize this document. In many ways, this post serves as a proof-of-concept for the central argument I'm making: that we need human-in-the-loop AI co-scientists, not fully autonomous ones.</p>
-    <p style="margin: 12px 0 0 0; color: #581c87; font-size: 14px; line-height: 1.7;">If you are familiar with me, you might know that I built <a href="https://github.com/Just-Curieous/Curie" target="_blank" style="color: #7c3aed; font-weight: 500;">Curie</a>, a fully autonomous AI Co-Scientist that automates scientific experiments. But over time, with more user studies and my own experience as a user, I can say that its usefulness is very limited. That experience motivated me to rethink the problem: how to build an AI co-scientist that truly helps.</p>
+    <p style="margin: 0; color: #581c87; font-size: 14px; line-height: 1.7;"><strong style="color: #6b21a8;">Note:</strong> This blog post was created with <a href="https://www.orchestra-research.com/share/HBPvxUScvAJr" target="_blank" style="color: #7c3aed; font-weight: 500;"><strong>an AI Co-Scientist in a human-in-the-loop fashion</strong></a>. All opinions and arguments are my own, but AI helped me discover relevant sources, enrich my arguments, and synthesize this document. In many ways, this post serves as a proof-of-concept for the central argument I'm making: that we need human-in-the-loop AI co-scientists, not fully autonomous ones.</p>
+    <p style="margin: 12px 0 0 0; color: #581c87; font-size: 14px; line-height: 1.7;">If you are familiar with me, you might know that earlier this year I built <a href="https://github.com/Just-Curieous/Curie" target="_blank" style="color: #7c3aed; font-weight: 500;"><strong>Curie</strong></a>, a fully autonomous AI Co-Scientist that automates scientific experiments. But over time, with more user studies and my own experience as a user, I can say that its usefulness is very limited. That experience motivated me to rethink the problem: how to build an AI co-scientist that truly helps.</p>
 </div>
 
 <section class="mt-10">
@@ -507,32 +507,29 @@
 </p>
 </div>
 
-<h2>Further Reading</h2>
+<h2>References</h2>
 
 <div class="references">
 <ol>
-<li><strong><a href="https://arxiv.org/html/2407.02651" target="_blank">Improving Steering and Verification in AI-Assisted Data Analysis with Interactive Task Decomposition</a></strong> - Kazemitabaar et al., 2024. A key HCI paper on Stepwise vs. Phasewise decomposition.</li>
-<li><strong><a href="https://arxiv.org/html/2506.11718" target="_blank">Interaction, Process, Infrastructure: A Unified Architecture for Human-Agent Collaboration</a></strong> - Wang & Lu, 2025. Proposes a foundational architecture for building inspectable collaborative systems.</li>
-<li><strong><a href="https://arxiv.org/html/2404.07387" target="_blank">BISCUIT: Scaffolding LLM-Generated Code with Ephemeral UIs in Computational Notebooks</a></strong> - Cheng et al., 2024. Introduces the clever idea of temporary UIs to bridge prompts and code.</li>
-<li><strong><a href="https://chatpaper.com/chatpaper/paper/200762" target="_blank">Build Your Personalized Research Group: A Multiagent Framework for Continual and Interactive Science Automation</a></strong> - Li et al., 2025. Describes the `freephdlabor` system and its workspace-centric approach to multi-agent collaboration.</li>
-<li><strong><a href="https://spacefrontiers.org/r/10.48550/arxiv.2504.14038" target="_blank">Flowco: Rethinking Data Analysis in the Age of LLMs</a></strong> - Freund et al., 2025. An exploration of visual dataflow interfaces for LLM-assisted analysis.</li>
-<li><strong><a href="https://arxiv.org/html/2412.10999" target="_blank">Cocoa: Co-Planning and Co-Execution with AI Agents</a></strong> - Feng, K. J. K., et al., 2024. Introduces "interactive plans" as a user interface pattern for steerable human-AI collaboration.</li>
-<li><strong><a href="https://www.vldb.org/pvldb/vol17/p3580-wang.pdf" target="_blank">Texera: A System for Collaborative and Interactive Data Analytics Using Workflows</a></strong> - Wang, Z., et al., 2024. A cloud system for interactive, collaborative data analysis workflows.</li>
-<li><strong><a href="https://ideas.repec.org/p/zbw/i4rdps/195.html" target="_blank">Comparing Human-Only, AI-Assisted, and AI-Led Teams on Assessing Research Reproducibility...</a></strong> - Brodeur et al., 2025. A large-scale empirical study on the effectiveness of different human-AI team structures.</li>
-<li><strong><a href="https://resources1972.s3.us-east-2.amazonaws.com/s41562-024-02024-1.pdf" target="_blank">When Combinations of Humans and AI Are Useful: A Systematic Review and Meta-Analysis</a></strong> - Vaccaro, M., Almaatouq, A., & Malone, T., 2024. A meta-analysis of 106 experiments quantifying when human-AI teams outperform individuals.</li>
-<li><strong><a href="https://arxiv.org/html/2409.05890" target="_blank">Automating the practice of science – Opportunities, Challenges, and Implications</a></strong> - Musslick et al., 2024. A perspective on which scientific tasks should (and should not) be automated.</li>
-<li><strong><a href="https://arxiv.org/html/2510.10074" target="_blank">Agentic Troubleshooting Guide Automation for Incident Management (StepFly)</a></strong> - Mao et al., 2025. A powerful example of how structuring tasks offline improves automation reliability.</li>
-<li><strong><a href="https://arxiv.org/html/2402.09894" target="_blank">Not Just Novelty: A Longitudinal Study on Utility and Customization of an AI Workflow</a></strong> - Long, T., Gero, K. I., & Chilton, L. B., 2024. A study showing that customization is a key driver of sustained utility in AI tools.</li>
-<li><strong><a href="https://arxiv.org/html/2401.00077" target="_blank">SciOps: Achieving Productivity and Reliability in Data-Intensive Research</a></strong> - Johnson et al., 2023. A practical maturity model for integrating automation into research operations.</li>
-<li><strong><a href="http://arxiv.org/abs/2511.02824" target="_blank">Kosmos: An AI Scientist for Autonomous Discovery</a></strong> - Ludovico Mitchener. (2025). Presents an AI system designed for autonomous scientific discovery.</li>
+<li><strong><a href="https://arxiv.org/html/2407.02651" target="_blank">Improving Steering and Verification in AI-Assisted Data Analysis with Interactive Task Decomposition</a></strong> - Kazemitabaar et al., 2024.</li>
+<li><strong><a href="https://arxiv.org/html/2506.11718" target="_blank">Interaction, Process, Infrastructure: A Unified Architecture for Human-Agent Collaboration</a></strong> - Wang et al., 2025.</li>
+<li><strong><a href="https://arxiv.org/html/2404.07387" target="_blank">BISCUIT: Scaffolding LLM-Generated Code with Ephemeral UIs in Computational Notebooks</a></strong> - Cheng et al., 2024.</li>
+<li><strong><a href="https://chatpaper.com/chatpaper/paper/200762" target="_blank">Build Your Personalized Research Group: A Multiagent Framework for Continual and Interactive Science Automation</a></strong> - Li et al., 2025.</li>
+<li><strong><a href="https://spacefrontiers.org/r/10.48550/arxiv.2504.14038" target="_blank">Flowco: Rethinking Data Analysis in the Age of LLMs</a></strong> - Freund et al., 2025.</li>
+<li><strong><a href="https://arxiv.org/html/2412.10999" target="_blank">Cocoa: Co-Planning and Co-Execution with AI Agents</a></strong> - Feng et al., 2024.</li>
+<li><strong><a href="https://www.vldb.org/pvldb/vol17/p3580-wang.pdf" target="_blank">Texera: A System for Collaborative and Interactive Data Analytics Using Workflows</a></strong> - Wang et al., 2024.</li>
+<li><strong><a href="https://ideas.repec.org/p/zbw/i4rdps/195.html" target="_blank">Comparing Human-Only, AI-Assisted, and AI-Led Teams on Assessing Research Reproducibility...</a></strong> - Brodeur et al., 2025.</li>
+<li><strong><a href="https://resources1972.s3.us-east-2.amazonaws.com/s41562-024-02024-1.pdf" target="_blank">When Combinations of Humans and AI Are Useful: A Systematic Review and Meta-Analysis</a></strong> - Vaccaro et al., 2024.</li>
+<li><strong><a href="https://arxiv.org/html/2409.05890" target="_blank">Automating the practice of science – Opportunities, Challenges, and Implications</a></strong> - Musslick et al., 2024.</li>
+<li><strong><a href="https://arxiv.org/html/2510.10074" target="_blank">Agentic Troubleshooting Guide Automation for Incident Management (StepFly)</a></strong> - Mao et al., 2025.</li>
+<li><strong><a href="https://arxiv.org/html/2402.09894" target="_blank">Not Just Novelty: A Longitudinal Study on Utility and Customization of an AI Workflow</a></strong> - Long et al., 2024.</li>
+<li><strong><a href="https://arxiv.org/html/2401.00077" target="_blank">SciOps: Achieving Productivity and Reliability in Data-Intensive Research</a></strong> - Johnson et al., 2024.</li>
+<li><strong><a href="http://arxiv.org/abs/2511.02824" target="_blank">Kosmos: An AI Scientist for Autonomous Discovery</a></strong> - Mitchener et al., 2025.</li>
 </ol>
 </div>
 
 <hr style="margin: 48px 0; border: 0; border-top: 1px solid #e9d5ff;">
 
-<div style="background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); padding: 24px; border-radius: 12px; margin: 32px 0; border: 1px solid #e9d5ff;">
-    <p style="font-style: italic; color: #6b21a8; font-size: 14px; margin: 0; line-height: 1.6;">✨ This research blog post was created using <a href="https://www.orchestra-research.com" target="_blank" style="color: #9333ea; font-weight: 500;">Orchestra Research</a>, an AI-powered research platform for accelerating scientific discovery.</p>
-</div>
 
 </article>
 </main>
