@@ -5,68 +5,83 @@
 <meta http-equiv="X-UA-Compatible" content="chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Build AI Co-Scientists That Actually Help</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
     :root {
-        --primary-color: #37352f;
-        --border-color: #e1e5e9;
-        --background-color: #ffffff;
-        --hover-bg: #f7f6f3;
+        --primary-purple: #9333ea;
+        --light-purple: #a855f7;
+        --lighter-purple: #c084fc;
+        --lightest-purple: #e9d5ff;
+        --purple-tint: #faf5ff;
+        --text-primary: #1f2937;
+        --text-secondary: #4b5563;
+        --text-tertiary: #6b7280;
+        --border-color: #e5e7eb;
+        --background-white: #ffffff;
+        --background-gray: #f9fafb;
     }
     body {
-        margin-top: 80px;
-        background-color: var(--background-color);
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        line-height: 1.7;
-        color: #1f2937;
+        margin-top: 75px;
+        background-color: var(--background-white);
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        line-height: 1.75;
+        color: var(--text-primary);
+        font-size: 16px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
     .topnav {
         position: fixed;
         top: 0;
         left: 0;
         right: 0;
-        background-color: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(12px);
-        border-bottom: 1px solid #e5e7eb;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         overflow: hidden;
         z-index: 1000;
         display: flex;
         align-items: center;
-        height: 60px;
-        padding: 0 24px;
+        height: 65px;
+        padding: 0 32px;
         margin: 0;
     }
     .topnav a {
-        display: block;
-        color: #1f2937;
+        display: inline-block;
+        color: var(--text-primary);
         text-align: center;
-        padding: 8px 16px;
+        padding: 10px 20px;
         text-decoration: none;
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 500;
         transition: all 0.2s ease;
-        border-radius: 8px;
-        margin: 0 12px 0 0;
+        border-radius: 6px;
+        margin: 0 8px;
+        letter-spacing: -0.01em;
     }
     .topnav a:hover {
-        background-color: #f3f4f6;
-        color: #1f2937;
+        background-color: var(--purple-tint);
+        color: var(--primary-purple);
     }
     .blog-meta {
-        margin: 32px 0;
-        padding: 20px 0;
-        border-bottom: 1px solid #e5e7eb;
+        margin: 40px 0;
+        padding: 24px 0;
+        border-bottom: 1px solid var(--border-color);
         display: flex;
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
-        gap: 16px;
+        gap: 20px;
     }
     .blog-meta p {
         margin: 0;
-        color: #6b7280;
+        color: var(--text-tertiary);
         font-size: 14px;
+        letter-spacing: -0.01em;
     }
     .follow-buttons {
         display: flex;
@@ -75,189 +90,223 @@
     .follow-btn {
         display: inline-flex;
         align-items: center;
-        gap: 6px;
-        padding: 6px 12px;
-        border-radius: 6px;
+        gap: 8px;
+        padding: 8px 14px;
+        border-radius: 8px;
         text-decoration: none;
         font-size: 13px;
         font-weight: 500;
         transition: all 0.2s ease;
-        border: 1px solid #e5e7eb;
-        background: #ffffff;
-        color: #1f2937;
+        border: 1px solid var(--border-color);
+        background: var(--background-white);
+        color: var(--text-primary);
     }
     .follow-btn:hover {
-        background: #f9fafb;
-        border-color: #d1d5db;
+        background: var(--purple-tint);
+        border-color: var(--lighter-purple);
+        color: var(--primary-purple);
         transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(147, 51, 234, 0.1);
     }
     .btn-icon {
         width: 16px;
         height: 16px;
     }
     h1 {
-        color: #111827 !important;
-        font-size: 2.25rem !important;
-        font-weight: 700 !important;
-        line-height: 1.2 !important;
-        margin: 24px 0 16px 0 !important;
+        color: var(--text-primary) !important;
+        font-size: 2.5rem !important;
+        font-weight: 800 !important;
+        line-height: 1.1 !important;
+        margin: 32px 0 20px 0 !important;
+        letter-spacing: -0.02em !important;
     }
     h2 {
-        color: #1f2937 !important;
-        font-size: 1.5rem !important;
-        font-weight: 600 !important;
-        margin: 32px 0 16px 0 !important;
-        line-height: 1.3 !important;
+        color: var(--text-primary) !important;
+        font-size: 1.875rem !important;
+        font-weight: 700 !important;
+        margin: 48px 0 20px 0 !important;
+        line-height: 1.25 !important;
+        letter-spacing: -0.01em !important;
     }
     h3 {
-        color: #1f2937 !important;
-        font-size: 1.25rem !important;
+        color: var(--text-primary) !important;
+        font-size: 1.5rem !important;
         font-weight: 600 !important;
-        margin: 28px 0 14px 0 !important;
+        margin: 40px 0 16px 0 !important;
         line-height: 1.3 !important;
+        letter-spacing: -0.01em !important;
     }
     h4 {
-        color: #1f2937 !important;
+        color: var(--text-secondary) !important;
         font-size: 1.125rem !important;
         font-weight: 600 !important;
-        margin: 24px 0 12px 24px !important;
-        line-height: 1.3 !important;
-    }
-    h4 ~ p,
-    h4 ~ ul {
-        margin-left: 24px;
-    }
-    h3 ~ p,
-    h3 ~ ul {
-        margin-left: 0;
-    }
-    h3 ~ h4 ~ p,
-    h3 ~ h4 ~ ul {
-        margin-left: 24px;
+        margin: 28px 0 12px 0 !important;
+        line-height: 1.4 !important;
     }
     p {
-        margin: 24px 0;
-        color: #1f2937;
+        margin: 20px 0;
+        color: var(--text-secondary);
+        font-size: 16px;
+        line-height: 1.8;
+    }
+    strong {
+        color: var(--text-primary);
+        font-weight: 600;
+    }
+    em {
+        font-style: italic;
+        color: var(--text-primary);
     }
     ul, ol {
-        margin: 16px 0;
-        color: #1f2937;
-        padding-left: 0px;
+        margin: 24px 0;
+        color: var(--text-secondary);
+        padding-left: 24px;
     }
     ul {
         list-style-type: disc;
-        list-style-position: inside;
     }
-    ul li {
-        margin: 8px 0;
-        display: list-item;
+    ul li, ol li {
+        margin: 10px 0;
+        line-height: 1.7;
     }
-    li {
-        margin: 8px 0;
+    li strong {
+        color: var(--text-primary);
     }
     .prose {
         max-width: none;
     }
-    .prose a {
-        color: #2563eb;
+    .prose a, a {
+        color: var(--light-purple);
         text-decoration: none;
+        font-weight: 500;
+        transition: all 0.2s ease;
     }
-    .prose a:hover {
+    .prose a:hover, a:hover {
+        color: var(--primary-purple);
         text-decoration: underline;
+        text-underline-offset: 2px;
     }
     table {
         width: 100%;
-        border-collapse: collapse;
-        margin: 24px 0;
-        font-size: 15px;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin: 32px 0;
+        font-size: 14px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
     .paradigm-comparison table {
-        width: 120%;
-        margin-left: -10%;
+        width: 100%;
+        margin-left: 0;
     }
     table th {
-        background-color: #ffffff;
-        border: 1px solid #e5e7eb;
-        border-bottom: 2px solid #2563eb;
-        padding: 14px;
+        background-color: var(--purple-tint);
+        border-bottom: 2px solid var(--lighter-purple);
+        padding: 16px;
         text-align: left;
         font-weight: 600;
-        color: #1f2937;
+        color: var(--text-primary);
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
     }
     table td {
-        border: 1px solid #e5e7eb;
-        padding: 14px;
-        color: #1f2937;
-        background-color: #ffffff;
-    }
-    table tr:hover td {
-        background-color: #fafbfc;
-    }
-    .references ol {
-        padding-left: 20px;
-    }
-    .references li {
-        margin: 12px 0;
+        border-bottom: 1px solid var(--border-color);
+        padding: 16px;
+        color: var(--text-secondary);
+        background-color: var(--background-white);
         font-size: 14px;
         line-height: 1.6;
     }
+    table tr:last-child td {
+        border-bottom: none;
+    }
+    table tr:hover td {
+        background-color: var(--purple-tint);
+    }
+    .references ol {
+        padding-left: 24px;
+    }
+    .references li {
+        margin: 16px 0;
+        font-size: 14px;
+        line-height: 1.7;
+        color: var(--text-secondary);
+    }
+    .references li strong {
+        color: var(--text-primary);
+    }
     .tldr-box {
-        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-        border-left: 4px solid #2563eb;
-        border-radius: 0 12px 12px 0;
-        padding: 24px;
-        margin: 24px 0;
-        box-shadow: 0 2px 12px rgba(37, 99, 235, 0.08);
-        border: 1px solid rgba(37, 99, 235, 0.12);
+        background: linear-gradient(135deg, var(--purple-tint) 0%, #faf5ff 100%);
+        border-left: 4px solid var(--light-purple);
+        border-radius: 12px;
+        padding: 28px;
+        margin: 32px 0;
+        box-shadow: 0 2px 12px rgba(168, 85, 247, 0.08);
+        border: 1px solid rgba(168, 85, 247, 0.12);
     }
     .tldr-box h2 {
         margin-top: 0 !important;
-        color: #1e40af !important;
-        font-size: 1.125rem !important;
+        color: var(--primary-purple) !important;
+        font-size: 1rem !important;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.08em;
+        font-weight: 700 !important;
     }
     .tldr-box p {
-        color: #1e3a8a;
+        color: var(--text-primary);
         font-size: 15px;
-        line-height: 1.7;
+        line-height: 1.8;
+        margin: 12px 0;
     }
     .section-highlight {
-        background: linear-gradient(135deg, #fafbfc 0%, #f3f4f6 100%);
-        border-left: 4px solid #10b981;
-        border-radius: 0 12px 12px 0;
-        padding: 24px;
-        margin: 28px 0;
-        box-shadow: 0 2px 12px rgba(16, 185, 129, 0.08);
-        border: 1px solid rgba(16, 185, 129, 0.12);
+        background: linear-gradient(135deg, #faf5ff 0%, var(--purple-tint) 100%);
+        border-left: 4px solid var(--lighter-purple);
+        border-radius: 12px;
+        padding: 32px;
+        margin: 48px 0;
+        box-shadow: 0 4px 16px rgba(168, 85, 247, 0.08);
+        border: 1px solid rgba(168, 85, 247, 0.1);
     }
     .section-highlight h3 {
         margin-top: 0 !important;
+        color: var(--primary-purple) !important;
+    }
+    .section-highlight p {
+        color: var(--text-primary);
+        line-height: 1.8;
     }
     .key-term {
-        color: #2563eb;
-        font-weight: 500;
+        color: var(--light-purple);
+        font-weight: 600;
     }
     .paradigm-comparison {
-        background: #fafbfc;
-        padding: 24px;
-        border-radius: 12px;
-        margin: 28px 0;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        background: var(--background-gray);
+        padding: 32px;
+        border-radius: 16px;
+        margin: 48px 0;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+        border: 1px solid var(--border-color);
     }
     .open-questions-list {
-        margin: 20px 0;
+        margin: 24px 0;
         padding: 0;
         list-style: none;
     }
     .open-questions-list li {
-        background: #ffffff;
-        border-left: 3px solid #8b5cf6;
-        padding: 12px 16px;
-        margin: 12px 0;
-        border-radius: 0 8px 8px 0;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        background: var(--background-white);
+        border-left: 3px solid var(--light-purple);
+        padding: 16px 20px;
+        margin: 14px 0;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(147, 51, 234, 0.05);
         list-style: none;
+        transition: all 0.2s ease;
+    }
+    .open-questions-list li:hover {
+        transform: translateX(4px);
+        box-shadow: 0 4px 12px rgba(147, 51, 234, 0.1);
     }
     table caption {
         caption-side: bottom;
@@ -298,16 +347,16 @@
 <article class="prose max-w-none">
 <h1 class="text-3xl font-bold text-black">Build AI Co-Scientists That Actually Help</h1>
 <div class="blog-meta">
-    <p>Posted on January 2025 by Jiachen Liu</p>
-     <div class="follow-buttons">
-        <a href="https://x.com/JIACHENLIU8" target="_blank" class="follow-btn">
-            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <p>Posted on Nov 2025 by Jiachen Liu</p>
+    <div class="follow-buttons">
+        <a href="https://x.com/JIACHENLIU8" target="_blank" class="follow-btn twitter-btn">
+            <svg class="btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/>
             </svg>
             X
         </a>
-        <a href="https://www.linkedin.com/in/jiachen-amber-liu-872506169/" target="_blank" class="follow-btn">
-            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <a href="https://www.linkedin.com/in/jiachen-amber-liu-872506169/" target="_blank" class="follow-btn linkedin-btn">
+            <svg class="btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="currentColor"/>
             </svg>
             LinkedIn
@@ -315,56 +364,56 @@
     </div>
 </div>
 
-<div style="background-color: #fefce8; border-left: 4px solid #ca8a04; padding: 16px 20px; margin: 24px 0; border-radius: 4px;">
-    <p style="margin: 0; color: #854d0e; font-size: 14px; line-height: 1.6;"><strong>Note:</strong> This blog post was created with AI Co-Scientist <a href="http://localhost:3000/share/8mY9K5mDaQFr" target="_blank" style="color: #854d0e; text-decoration: underline;">in a human-in-the-loop fashion</a>. All opinions and arguments are my own, but AI helped me discover relevant sources, enrich my arguments, and synthesize this document. In many ways, this post serves as a proof-of-concept for the central argument I'm making: that we need human-in-the-loop AI co-scientists, not fully autonomous ones.</p>
+<div style="background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); border-left: 4px solid #a855f7; padding: 20px 24px; margin: 32px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(168, 85, 247, 0.08);">
+    <p style="margin: 0; color: #581c87; font-size: 14px; line-height: 1.7;"><strong style="color: #6b21a8;">Note:</strong> This blog post was created with <a href="https://www.orchestra-research.com/share/HBPvxUScvAJr" target="_blank" style="color: #7c3aed; font-weight: 500;">AI Co-Scientist in a human-in-the-loop fashion</a>. All opinions and arguments are my own, but AI helped me discover relevant sources, enrich my arguments, and synthesize this document. In many ways, this post serves as a proof-of-concept for the central argument I'm making: that we need human-in-the-loop AI co-scientists, not fully autonomous ones.</p>
+    <p style="margin: 12px 0 0 0; color: #581c87; font-size: 14px; line-height: 1.7;">If you are familiar with me, you might know that I built <a href="https://github.com/Just-Curieous/Curie" target="_blank" style="color: #7c3aed; font-weight: 500;">Curie</a>, a fully autonomous AI Co-Scientist that automates scientific experiments. But over time, with more user studies and my own experience as a user, I can say that its usefulness is very limited. That experience motivated me to rethink the problem: how to build an AI co-scientist that truly helps.</p>
 </div>
 
 <section class="mt-10">
-<p>My news feed is constantly buzzing with headlines about AI discovering novel materials or outperforming humans on complex scientific tasks. It's exciting, but after the initial awe fades, a nagging question takes over: <em>How does this help me?</em> A few months ago, I tried to reproduce the code from one of these groundbreaking "AI scientist" papers, thinking it might offer a shortcut for a tedious analysis I was running. But it was just as hard as reproducing any other paper in my field, if not harder. That skepticism isn't about the technology's potential; it's about the chasm between headline-grabbing breakthroughs and the daily, friction-filled grind of research. <strong>These systems feel like demos, not tools.</strong> They perform for the headlines but are useless for my workflow.</p>
+<p>My news feed is constantly buzzing with headlines claiming AIs like today Kosmos (Mitchener et al. 2025) can do six months of work in a day—reading 1,500 papers and writing 42,000 lines of code in a single run. It's exciting, but after the initial awe fades, a nagging question takes over: <em>How does this help me?</em> </p>
 
-<h3>🤖 The Alluring Myth of the Autonomous Scientist</h3>
+<p> A few months ago, I tried to reproduce one of these groundbreaking "AI scientist" papers, thinking it might offer a shortcut for a tedious analysis I was running. But the output was misaligned and unusable for my actual research topic, and I ended up having to do all the tedious work myself anyway. That skepticism isn't about the technology's potential; it's about the chasm between headline-grabbing breakthroughs and the daily, friction-filled grind of research. <strong>These systems feel like demos, not tools.</strong> They perform for the headlines but are useless for my workflow.</p>
 
-<p>The vision of a fully autonomous AI scientist is a powerful one. It promises to independently generate hypotheses, design and run experiments, and write up novel discoveries, all while we sleep. But this vision is fundamentally flawed, not because our language models aren't powerful enough, but because it misunderstands the very nature of scientific work. Research isn't a linear, predictable process to be automated away; it's a messy, iterative, and deeply human endeavor. The prevailing autonomous model is bound to fail because it sidelines the researcher, overlooking two critical drivers of progress: the scientist's deep contextual understanding and the creative judgment needed to navigate ambiguity and unexpected results.</p>
+<h3>🤖 From Black Box Oracles to Transparent Partners</h3>
 
-<p>Studies applying cognitive task analysis, such as the work by Irons et al. on <a href="https://sciety.org/articles/activity/10.31219/osf.io/fjc3w" target="_blank">AI for Scientists</a>, confirm this. They show that scientific workflows are highly variable and that one-size-fits-all AI solutions often miss crucial domain signals and decision points. The grand, autonomous agent doesn't know when to interrupt, what context matters, or how to integrate with the tools I already use and trust.</p>
+<p>That experience crystalized a problem many of us in research are feeling. The dominant paradigm of "AI scientist" often feels like a black-box oracle: you ask a question, and it delivers a final answer. If the answer is wrong, it's often costly to correct them in the end. This forces us into a high-stakes, all-or-nothing gamble.</p>
 
-<p>💡 The goal shouldn't be to replace the scientist with an autonomous agent, but to <strong>create a collaborative partnership</strong> that leverages the complementary strengths of both human and machine. The paradigm needs to shift from <em>supervision</em> of a black box to <em>true teaming</em>, as argued by <a href="https://link.springer.com/article/10.1007/s43681-024-00489-4" target="_blank">Taddeo et al. (2024)</a>.</p>
+<p>What the research community is realizing is that we don't need an oracle. We need a lab partner. This is the core idea behind <strong>Human-AI Interactive Research Workflows</strong>: sustained, multi-step processes where humans and AI systems collaboratively build research artifacts. Instead of one big leap, we take many small, verifiable steps together.</p>
 
-<h3>🤝 A New Vision: The Human-in-the-Loop Co-Scientist</h3>
-
-<p>If the autonomous scientist is a dead end for practical research, what's the alternative? A <strong>human-in-the-loop AI co-scientist</strong>—a system designed from the ground up to augment, not replace, human researchers. This approach is built on three foundational pillars: <span class="key-term">a principled division of labor</span>, <span class="key-term">mixed-initiative collaboration</span>, and <span class="key-term">deep workflow integration</span>.</p>
-
-<h4>1. Defining Roles and the Division of Labor</h4>
-
-<p>Instead of asking an AI to do everything, a more productive approach is to carefully assign roles based on what each partner does best. Humans excel at goal-setting, creative ideation, ethical judgment, and interpreting ambiguous results. AI excels at large-scale pattern matching, rapid simulation, and tirelessly exploring vast parameter spaces.</p>
-
-<p>Recent frameworks help formalize this. <a href="https://arxiv.org/pdf/2505.18422" target="_blank">Afroogh et al. (2025)</a> propose a task-driven model where the AI's role adapts based on risk and complexity:</p>
-
+<p>💡 <strong>The Core Idea:</strong> An interactive workflow is built on a few key pillars:</p>
 <ul>
-<li>• <strong>🤖 Autonomous:</strong> For low-risk, well-defined tasks (e.g., running a standard data cleaning script).</li>
-<li>• <strong>🤝 Collaborative:</strong> For complex, creative tasks where AI provides suggestions for a human to refine (e.g., generating hypothesis drafts).</li>
-<li>• <strong>😈 Adversarial:</strong> For high-risk tasks where the AI challenges human assumptions to improve robustness (e.g., finding flaws in an experimental design).</li>
+<li style="margin-left: 24px;">• <strong>Task Decomposition:</strong> Breaking a complex goal (e.g., "analyze this dataset") into smaller, inspectable subgoals.</li>
+<li style="margin-left: 24px;">• <strong>Turn-Taking:</strong> A clear protocol for how control shifts between the human and the AI. Who suggests the next step? Who verifies it? Who executes it?</li>
+<li style="margin-left: 24px;">• <strong>Session Persistence:</strong> A shared "lab notebook" or workspace where the history of our collaboration—the code, the assumptions, the failed attempts—is saved so we can pause, resume, and audit our work.</li>
 </ul>
 
-<p>This dynamic is what <a href="https://arxiv.org/pdf/2505.03105" target="_blank">Xule Lin (2025)</a> calls an <span class="key-term">"epistemic partnership,"</span> where agency shifts over time. The ultimate goal is to build AI <span class="key-term">"thought partners"</span> that can model human reasoning and actively support our thinking processes, a vision laid out by <a href="https://arxiv.org/pdf/2408.03943" target="_blank">Collins et al. (2024)</a>.</p>
+<p>This shifts the AI's role from a know-it-all who delivers a final manuscript to a diligent assistant who says, "Here's the first step I'm proposing, and here are my assumptions. Does this look right to you?"</p>
 
-<h4>2. Mastering the Dance of Mixed-Initiative Collaboration</h4>
+<h3>🥊 The Old Way: The Perils of the One-Shot Answer</h3>
 
-<p>Collaboration requires a dynamic give-and-take, where either the human or the AI can take the lead. This is known as <span class="key-term">mixed-initiative interaction</span>. A simple chat interface isn't enough; it lacks structure and makes complex, multi-step tasks difficult to manage and reproduce.</p>
+<p>The baseline we're moving away from is the "one-shot" or "AI-led" system. You write a complex prompt, and the AI generates thousands of lines of code or a full analysis in one go. The appeal is obvious: maximum automation, minimum effort. But the drawbacks are severe:</p>
 
-<p>The <strong>Cocoa</strong> project from <a href="https://arxiv.org/html/2412.10999" target="_blank">Feng et al. (2024)</a> introduces a powerful alternative: <span class="key-term">interactive plans</span>. These are explicit, editable, multi-step plans that both the user and AI can create and execute together within a document. This makes the AI's actions transparent and steerable, turning a vague conversation into a concrete, auditable workflow.</p>
+<ol style="padding-left: 20px;">
+<li><strong>• Opacity:</strong> The AI's reasoning is hidden. If it makes a subtle error in data cleaning, that error silently propagates through the entire analysis.</li>
+<li><strong>• Brittleness:</strong> These systems are sensitive to the initial prompt. A slightly ambiguous instruction can lead the AI down a completely wrong path, as I learned the hard way.</li>
+<li><strong>• High Verification Cost:</strong> Verifying a massive, monolithic output is often as much work as doing it yourself. As a study on research reproducibility found, fully AI-led teams can actually underperform human-only or AI-assisted teams, likely due to this verification burden <a href="https://ideas.repec.org/p/zbw/i4rdps/195.html" target="_blank">(Brodeur et al., 2025)</a>.</li>
+</ol>
 
-<p>Behind the scenes, adaptive agents can learn <em>when</em> to intervene. Research by <a href="https://ojs.aaai.org/index.php/AAAI/article/view/35220/37375" target="_blank">Natarajan (2025)</a> uses probabilistic models to decide when an AI should make a suggestion, take control, or step back, based on a model of the user's reliance and trust.</p>
+<p>This approach is fundamentally misaligned with the scientific process, which is iterative, exploratory, and full of backtracking and refinement.</p>
 
-<h4>3. Deep Integration into the Daily Workflow</h4>
+<h3>✨ A Better Way: Building Workflows We Can Trust</h3>
 
-<p>Even the most brilliant AI is useless if it doesn't fit into a researcher's actual workflow. The fragmented reality of scientific work—jumping between PDF readers, code notebooks, terminals, and manuscript editors—is a major source of friction. An effective AI co-scientist must live where the work happens.</p>
+<p>Fortunately, a wave of research is focused on building this new generation of collaborative tools. Instead of aiming for a single, magical AI, these efforts provide practical scaffolding to make the human-AI partnership more transparent and effective. This is a deliberate move towards what some call incremental automation, prioritizing low-risk, high-reward steps first <a href="https://arxiv.org/html/2409.05890" target="_blank">(Musslick et al., 2024)</a>.</p>
 
-<p>This means embedding AI into the tools we already use. Systems like <strong>ScholarMate</strong> (<a href="https://arxiv.org/html/2504.14406" target="_blank">Ye et al., 2025</a>) demonstrate this by integrating AI-powered sensemaking directly into a canvas-based tool for qualitative analysis. On the systems side, workflow engines like <strong>Texera</strong> (<a href="https://www.vldb.org/pvldb/vol17/p3580-wang.pdf" target="_blank">Wang et al., 2024</a>) show the power of interactive data pipelines that can be paused, inspected, and modified on the fly—a crucial feature for iterative scientific analysis.</p>
+<p>Here's how researchers are doing things differently:</p>
 
-<p>Crucially, allowing researchers to customize these tools is key to their long-term adoption. A longitudinal study by <a href="https://arxiv.org/html/2402.09894" target="_blank">Long et al. (2024)</a> found that the perceived utility of an AI workflow increased significantly after a familiarization period, and that the ability for users to edit and customize prompts was a primary driver of this sustained value.</p>
+<ol style="padding-left: 20px;">
+<li><strong>• Breaking Down the Problem (Decomposition):</strong> Research from Kazemitabaar et al. <a href="https://arxiv.org/html/2407.02651" target="_blank">(Kazemitabaar et al., 2024)</a> explores two powerful models for this. A <strong>Stepwise</strong> interface breaks a task into tiny, sequential steps, each with editable assumptions. A <strong>Phasewise</strong> interface groups them into larger phases (e.g., data loading, analysis, plotting). Both give the user crucial intervention points.</li>
 
-<h3>📊 A Tale of Two Paradigms</h3>
+<li><strong>• Making Interaction Fluid (Better Interfaces):</strong> Instead of just chat, new interfaces are emerging. The <strong>BISCUIT</strong> project <a href="https://arxiv.org/html/2404.07387" target="_blank">(Cheng et al., 2024)</a> introduces "ephemeral UIs" in notebooks—temporary widgets like sliders or forms that let you adjust the AI's parameters before code is even generated. Systems like <strong>Flowco</strong> <a href="https://spacefrontiers.org/r/10.48550/arxiv.2504.14038" target="_blank">(Freund et al., 2025)</a> use a visual dataflow model, where each step in an analysis is a node you can inspect and debug.</li>
+
+<li><strong>• Creating a Shared Memory (Persistent Architectures):</strong> To support long-term collaboration, we need a persistent, shared context. Conceptual frameworks like the three-layer architecture (Interaction, Process, Infrastructure) <a href="https://arxiv.org/html/2506.11718" target="_blank">(Wang & Lu, 2025)</a> propose making the <em>process</em> itself a first-class, inspectable object. Multi-agent systems like `freephdlabor` <a href="https://chatpaper.com/chatpaper/paper/200762" target="_blank">(Li et al., 2025)</a> use a shared, file-based workspace as a reliable source of truth, preventing the information decay that happens when agents just pass text messages to each other.</li>
+</ol>
 
 <p>The difference between these two approaches is stark. It's not just a technical distinction; it's a philosophical one about the role of technology in science.</p>
 
@@ -391,7 +440,7 @@
 <tr>
 <td><strong>Interaction Model</strong></td>
 <td>Fire-and-forget; black box operations</td>
-<td>Mixed-initiative; transparent, editable workflows (<a href="https://arxiv.org/html/2412.10999" target="_blank">Cocoa</a>)</td>
+<td>Mixed-initiative; transparent, editable workflows <a href="https://arxiv.org/html/2412.10999" target="_blank">(Feng et al., 2024)</a></td>
 </tr>
 <tr>
 <td><strong>Control</strong></td>
@@ -401,27 +450,49 @@
 <tr>
 <td><strong>Workflow</strong></td>
 <td>Operates in a silo, separate from daily tools</td>
-<td>Deeply integrated into notebooks, dashboards, etc. (<a href="https://www.vldb.org/pvldb/vol17/p3580-wang.pdf" target="_blank">Texera</a>)</td>
+<td>Deeply integrated into notebooks, dashboards, etc. <a href="https://www.vldb.org/pvldb/vol17/p3580-wang.pdf" target="_blank">(Wang et al., 2024)</a></td>
 </tr>
 <tr>
 <td><strong>Evidence</strong></td>
-<td>Often leads to degraded performance vs. the best single actor (<a href="https://resources1972.s3.us-east-2.amazonaws.com/s41562-024-02024-1.pdf" target="_blank">Vaccaro et al., 2024</a>)</td>
-<td>Sustained utility driven by customization and control (<a href="https://arxiv.org/html/2402.09894" target="_blank">Long et al., 2024</a>)</td>
+<td>Often leads to degraded performance vs. the best single actor <a href="https://resources1972.s3.us-east-2.amazonaws.com/s41562-024-02024-1.pdf" target="_blank">(Vaccaro et al., 2024)</a></td>
+<td>Sustained utility driven by customization and control <a href="https://arxiv.org/html/2402.09894" target="_blank">(Long et al., 2024)</a></td>
 </tr>
 </tbody>
 </table>
 <caption>Table 1: Comparison of autonomous vs. human-in-the-loop AI co-scientist paradigms.</caption>
 </div>
 
-<h3>🔭 Open Questions and the Road Ahead</h3>
+<h3>🔬 What the Evidence Says</h3>
 
-<p>While the path forward is clearer, it's not without its challenges. The research community is actively working on several key open questions:</p>
+<p>This isn't just theory; early experiments show these interactive approaches work.</p>
 
-<ul class="open-questions-list">
-<li><strong>Traceability and Provenance:</strong> How do we create tamper-proof, auditable records of every step in a human-AI collaborative discovery? This is vital for reproducibility and assigning credit.</li>
-<li><strong>The Non-Delegable Core:</strong> Which decisions, for ethical and accountability reasons, <em>must</em> remain under human authority? Work by <a href="https://zenodo.org/records/15744943" target="_blank">Engin & Hand (2025)</a> provides a framework for thinking about this, but operationalizing it in specific domains is a major challenge.</li>
-<li><strong>Safe Instrument Control:</strong> How can we safely connect AI planners to real-world lab equipment? Prototypes like <strong>VISION</strong> (<a href="https://arxiv.org/html/2412.18161" target="_blank">Mathur et al., 2024</a>), which uses an AI assistant for voice-controlled experiments, are a promising start but require rigorous safety validation.</li>
-<li><strong>Standardized Evaluation:</strong> We lack benchmarks to measure the effectiveness of collaborative AI systems in realistic, multi-step research workflows. We need to move beyond simple accuracy metrics to evaluate trust, creativity, and efficiency over longitudinal studies.</li>
+<div style="background: #f9fafb; border-left: 3px solid #d1d5db; padding: 20px 24px; margin: 24px 0;">
+    <p style="margin: 0 0 12px 0; color: #1f2937; font-weight: 600; font-size: 16px;">
+        🎯 Result 1: Making steps visible gives users control.
+    </p>
+    <p style="margin: 0; color: #4b5563; line-height: 1.7; font-size: 15px;">
+        In a controlled study comparing a standard chatbot against Stepwise and Phasewise interfaces for data analysis, Kazemitabaar et al. found that both decomposition methods gave users a significantly higher sense of control. More importantly, it made verifying the AI's work and intervening to correct its course far easier <a href="https://arxiv.org/html/2407.02651" target="_blank">(Kazemitabaar et al., 2024)</a>. This directly addresses the failure mode of black-box systems.
+    </p>
+</div>
+
+<div style="background: #f9fafb; border-left: 3px solid #d1d5db; padding: 20px 24px; margin: 24px 0;">
+    <p style="margin: 0 0 12px 0; color: #1f2937; font-weight: 600; font-size: 16px;">
+        🎯 Result 2: Assistance beats full automation for complex tasks.
+    </p>
+    <p style="margin: 0; color: #4b5563; line-height: 1.7; font-size: 15px;">
+        A large-scale study by Brodeur et al. had teams of researchers assess the reproducibility of scientific papers. They found that teams <em>assisted</em> by AI performed just as well as human-only teams, and both significantly outperformed the <em>AI-led</em> teams where humans were only minimal guides <a href="https://ideas.repec.org/p/zbw/i4rdps/195.html" target="_blank">(Brodeur et al., 2025)</a>. This provides strong evidence that for nuanced research tasks, the most effective role for AI today is as a collaborator, not an autonomous replacement.
+    </p>
+</div>
+
+<h3>🧭 Open Questions and the Road Ahead</h3>
+
+<p>We're just at the beginning of this journey, and many hard questions remain.</p>
+
+<ul style="padding-left: 20px;">
+<li style="margin-left: 24px;">• <strong>What's the right level of granularity?</strong> When is it better to show five small steps versus one big phase? The answer likely depends on the user's expertise and the task's complexity.</li>
+<li style="margin-left: 24px;">• <strong>How do we build a truly persistent memory?</strong> LLM context windows are finite. We need robust techniques for session checkpointing and memory compaction without losing critical information.</li>
+<li style="margin-left: 24px;">• <strong>How do we measure success?</strong> We lack standard benchmarks for evaluating human-AI collaboration. We need metrics beyond task completion, like verification effort, user trust, and the reproducibility of the final result.</li>
+<li style="margin-left: 24px;">• <strong>How do we make this robust?</strong> The <strong>StepFly</strong> framework for automating troubleshooting guides shows that adding structure <em>offline</em> (like extracting a workflow graph from a document before execution) dramatically improves the reliability of online automation <a href="https://arxiv.org/html/2510.10074" target="_blank">(Mao et al., 2025)</a>. How can we apply this principle more broadly?</li>
 </ul>
 
 <div class="section-highlight">
@@ -436,38 +507,38 @@
 </p>
 </div>
 
-<h2>References</h2>
+<h2>Further Reading</h2>
 
 <div class="references">
 <ol>
-<li><strong><a href="https://resources1972.s3.us-east-2.amazonaws.com/s41562-024-02024-1.pdf" target="_blank">When combinations of humans and AI are useful: A systematic review and meta-analysis</a></strong> - Vaccaro, M., Almaatouq, A., & Malone, T. (2024). A meta-analysis of 106 experiments quantifying when human-AI teams outperform individuals.</li>
-<li><strong><a href="https://link.springer.com/article/10.1007/s43681-024-00489-4" target="_blank">Human control of AI systems: from supervision to teaming</a></strong> - Taddeo, M. (2024). A conceptual analysis contrasting supervisory control with a more collaborative human-machine teaming model.</li>
-<li><strong><a href="https://arxiv.org/pdf/2505.18422" target="_blank">A Task-Driven Human-AI Collaboration: When to Automate, When to Collaborate, When to Challenge</a></strong> - Afroogh, S., Varshney, K. R., & DCruz, J. (2025). A framework for assigning AI roles based on task risk and complexity.</li>
-<li><strong><a href="https://arxiv.org/pdf/2505.03105" target="_blank">Cognitio Emergens: Agency, Dimensions, and Dynamics in Human-AI Knowledge Co-Creation</a></strong> - Lin, X. (2025). A conceptual framework for dynamic, emergent partnerships between humans and AI in research.</li>
-<li><strong><a href="https://arxiv.org/pdf/2408.03943" target="_blank">Building Machines that Learn and Think with People</a></strong> - Collins, K. M., et al. (2024). A perspective on designing AI "thought partners" that model and reason with human collaborators.</li>
-<li><strong><a href="https://arxiv.org/html/2412.10999" target="_blank">Cocoa: Co-Planning and Co-Execution with AI Agents</a></strong> - Feng, K. J. K., et al. (2024). Introduces "interactive plans" as a user interface pattern for steerable human-AI collaboration.</li>
-<li><strong><a href="https://ojs.aaai.org/index.php/AAAI/article/view/35220/37375" target="_blank">Adaptive Agents for Mixed-Initiative Human-AI Collaborations</a></strong> - Natarajan, M. (2025). Research on adaptive agents that model user reliance to decide when to take initiative.</li>
-<li><strong><a href="https://arxiv.org/html/2402.09894" target="_blank">Not Just Novelty: A Longitudinal Study on Utility and Customization of an AI Workflow</a></strong> - Long, T., Gero, K. I., & Chilton, L. B. (2024). A study showing that customization is a key driver of sustained utility in AI tools.</li>
-<li><strong><a href="https://arxiv.org/html/2504.14406" target="_blank">ScholarMate: A Mixed-Initiative Tool for Qualitative Knowledge Work and Information Sensemaking</a></strong> - Ye, R., et al. (2025). A system demonstrating mixed-initiative AI support embedded in a canvas for qualitative analysis.</li>
-<li><strong><a href="https://www.vldb.org/pvldb/vol17/p3580-wang.pdf" target="_blank">Texera: A System for Collaborative and Interactive Data Analytics Using Workflows</a></strong> - Wang, Z., et al. (2024). A cloud system for interactive, collaborative data analysis workflows.</li>
-<li><strong><a href="https://zenodo.org/records/15744943" target="_blank">The Non-Delegable Core: Designing Legitimate Oversight for Agentic AI</a></strong> - Engin, Z., & Hand, D. (2025). Proposes that certain governance functions must remain human to ensure legitimacy.</li>
-<li><strong><a href="https://arxiv.org/html/2412.18161" target="_blank">VISION: A Modular AI Assistant for Natural Human-Instrument Interaction at Scientific User Facilities</a></strong> - Mathur, S., et al. (2024). A prototype for a voice-controlled AI assistant for scientific instruments.</li>
-<li><strong><a href="https://arxiv.org/html/2507.06000" target="_blank">Exploring Collaboration Patterns and Strategies in Human-AI Co-creation</a></strong> - Zhang, S., Wang, H., & Yi, X. (2025). A scoping review mapping agency patterns and control mechanisms in HCI literature.</li>
-<li><strong><a href="https://arxiv.org/html/2510.06224" target="_blank">Exploring Human-AI Collaboration Using Mental Models of Early Adopters of Multi-Agent Generative AI Tools</a></strong> - Naik, S., et al. (2022). A qualitative study on how developers conceptualize multi-agent AI systems.</li>
+<li><strong><a href="https://arxiv.org/html/2407.02651" target="_blank">Improving Steering and Verification in AI-Assisted Data Analysis with Interactive Task Decomposition</a></strong> - Kazemitabaar et al., 2024. A key HCI paper on Stepwise vs. Phasewise decomposition.</li>
+<li><strong><a href="https://arxiv.org/html/2506.11718" target="_blank">Interaction, Process, Infrastructure: A Unified Architecture for Human-Agent Collaboration</a></strong> - Wang & Lu, 2025. Proposes a foundational architecture for building inspectable collaborative systems.</li>
+<li><strong><a href="https://arxiv.org/html/2404.07387" target="_blank">BISCUIT: Scaffolding LLM-Generated Code with Ephemeral UIs in Computational Notebooks</a></strong> - Cheng et al., 2024. Introduces the clever idea of temporary UIs to bridge prompts and code.</li>
+<li><strong><a href="https://chatpaper.com/chatpaper/paper/200762" target="_blank">Build Your Personalized Research Group: A Multiagent Framework for Continual and Interactive Science Automation</a></strong> - Li et al., 2025. Describes the `freephdlabor` system and its workspace-centric approach to multi-agent collaboration.</li>
+<li><strong><a href="https://spacefrontiers.org/r/10.48550/arxiv.2504.14038" target="_blank">Flowco: Rethinking Data Analysis in the Age of LLMs</a></strong> - Freund et al., 2025. An exploration of visual dataflow interfaces for LLM-assisted analysis.</li>
+<li><strong><a href="https://arxiv.org/html/2412.10999" target="_blank">Cocoa: Co-Planning and Co-Execution with AI Agents</a></strong> - Feng, K. J. K., et al., 2024. Introduces "interactive plans" as a user interface pattern for steerable human-AI collaboration.</li>
+<li><strong><a href="https://www.vldb.org/pvldb/vol17/p3580-wang.pdf" target="_blank">Texera: A System for Collaborative and Interactive Data Analytics Using Workflows</a></strong> - Wang, Z., et al., 2024. A cloud system for interactive, collaborative data analysis workflows.</li>
+<li><strong><a href="https://ideas.repec.org/p/zbw/i4rdps/195.html" target="_blank">Comparing Human-Only, AI-Assisted, and AI-Led Teams on Assessing Research Reproducibility...</a></strong> - Brodeur et al., 2025. A large-scale empirical study on the effectiveness of different human-AI team structures.</li>
+<li><strong><a href="https://resources1972.s3.us-east-2.amazonaws.com/s41562-024-02024-1.pdf" target="_blank">When Combinations of Humans and AI Are Useful: A Systematic Review and Meta-Analysis</a></strong> - Vaccaro, M., Almaatouq, A., & Malone, T., 2024. A meta-analysis of 106 experiments quantifying when human-AI teams outperform individuals.</li>
+<li><strong><a href="https://arxiv.org/html/2409.05890" target="_blank">Automating the practice of science – Opportunities, Challenges, and Implications</a></strong> - Musslick et al., 2024. A perspective on which scientific tasks should (and should not) be automated.</li>
+<li><strong><a href="https://arxiv.org/html/2510.10074" target="_blank">Agentic Troubleshooting Guide Automation for Incident Management (StepFly)</a></strong> - Mao et al., 2025. A powerful example of how structuring tasks offline improves automation reliability.</li>
+<li><strong><a href="https://arxiv.org/html/2402.09894" target="_blank">Not Just Novelty: A Longitudinal Study on Utility and Customization of an AI Workflow</a></strong> - Long, T., Gero, K. I., & Chilton, L. B., 2024. A study showing that customization is a key driver of sustained utility in AI tools.</li>
+<li><strong><a href="https://arxiv.org/html/2401.00077" target="_blank">SciOps: Achieving Productivity and Reliability in Data-Intensive Research</a></strong> - Johnson et al., 2023. A practical maturity model for integrating automation into research operations.</li>
+<li><strong><a href="http://arxiv.org/abs/2511.02824" target="_blank">Kosmos: An AI Scientist for Autonomous Discovery</a></strong> - Ludovico Mitchener. (2025). Presents an AI system designed for autonomous scientific discovery.</li>
 </ol>
 </div>
 
-<hr style="margin: 40px 0; border: 0; border-top: 1px solid #e5e7eb;">
+<hr style="margin: 48px 0; border: 0; border-top: 1px solid #e9d5ff;">
 
-<div style="background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 20px; border-radius: 8px; margin: 24px 0;">
-    <p style="font-style: italic; color: #6b7280; font-size: 14px; margin: 0;">✨ This research blog post was created using <a href="https://www.orchestra-research.com" target="_blank" style="color: #2563eb; font-weight: 500;">Orchestra Research</a>, an AI-powered research platform for accelerating scientific discovery.</p>
+<div style="background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); padding: 24px; border-radius: 12px; margin: 32px 0; border: 1px solid #e9d5ff;">
+    <p style="font-style: italic; color: #6b21a8; font-size: 14px; margin: 0; line-height: 1.6;">✨ This research blog post was created using <a href="https://www.orchestra-research.com" target="_blank" style="color: #9333ea; font-weight: 500;">Orchestra Research</a>, an AI-powered research platform for accelerating scientific discovery.</p>
 </div>
 
 </article>
 </main>
 
-<footer class="border-t border-blue-200 py-6">
-<div class="max-w-4xl mx-auto px-4 text-sm text-gray-600">© AmberLJC</div>
+<footer style="border-top: 1px solid #e9d5ff; padding: 32px 0; margin-top: 64px;">
+<div class="max-w-4xl mx-auto px-4 text-sm" style="color: #6b7280;">© AmberLJC</div>
 </footer>
 
 </body>

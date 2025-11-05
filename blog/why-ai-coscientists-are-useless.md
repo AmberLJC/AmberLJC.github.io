@@ -1,53 +1,42 @@
+Note: This blog post was created with **AI Co-Scientist in a human-in-the-loop fashion**. All opinions and arguments are my own, but AI helped me discover relevant sources, enrich my arguments, and synthesize this document. In many ways, this post serves as a proof-of-concept for the central argument I'm making: that we need human-in-the-loop AI co-scientists, not fully autonomous ones.
 
-Note: This blog post was created with AI Co-Scientist in a human-in-the-loop fashion. All opinions and arguments are my own, but AI helped me discover relevant sources, enrich my arguments, and synthesize this document. In many ways, this post serves as a proof-of-concept for the central argument I'm making: that we need human-in-the-loop AI co-scientists, not fully autonomous ones.
+My news feed is constantly buzzing with headlines claiming AIs like today Kosmos (Mitchener et al. 2025) can do six months of work in a day—reading 1,500 papers and writing 42,000 lines of code in a single run. It's exciting, but after the initial awe fades, a nagging question takes over: How does this help *me*? A few months ago, I tried to reproduce one of these groundbreaking "AI scientist" papers, thinking it might offer a shortcut for a tedious analysis I was running. But the output was misaligned and unusable for my actual research topic, and I ended up having to do all the tedious work myself anyway. That skepticism isn't about the technology's potential; it's about the chasm between headline-grabbing breakthroughs and the daily, friction-filled grind of research. These systems feel like demos, not tools. They perform for the headlines but are useless for my workflow. 
 
-My news feed is constantly buzzing with headlines about AI discovering novel materials or outperforming humans on complex scientific tasks. It's exciting, but after the initial awe fades, a nagging question takes over: How does this help *me*? A few months ago, I tried to reproduce the code from one of these groundbreaking "AI scientist" papers, thinking it might offer a shortcut for a tedious analysis I was running. But it was just as hard as reproducing any other paper in my field, if not harder. That skepticism isn't about the technology's potential; it's about the chasm between headline-grabbing breakthroughs and the daily, friction-filled grind of research. These systems feel like demos, not tools. They perform for the headlines but are useless for my workflow. 
+### 🤖 From Black Box Oracles to Transparent Partners
 
-### 🤖 The Alluring Myth of the Autonomous Scientist
+That experience crystalized a problem many of us in research are feeling. The dominant paradigm of “AI scientist” often feels like a black-box oracle: you ask a question, and it delivers a final answer. If the answer is wrong, it’s often costly to correct them in the end. This forces us into a high-stakes, all-or-nothing gamble.
 
-The vision of a fully autonomous AI scientist is a powerful one. It promises to independently generate hypotheses, design and run experiments, and write up novel discoveries, all while we sleep. But this vision is fundamentally flawed, not because our language models aren't powerful enough, but because it misunderstands the very nature of scientific work. Research isn't a linear, predictable process to be automated away; it's a messy, iterative, and deeply human endeavor. The prevailing autonomous model is bound to fail because it sidelines the researcher, overlooking two critical drivers of progress: the scientist's deep contextual understanding and the creative judgment needed to navigate ambiguity and unexpected results.
+What the research community is realizing is that we don’t need an oracle. We need a lab partner. This is the core idea behind **Human-AI Interactive Research Workflows**: sustained, multi-step processes where humans and AI systems collaboratively build research artifacts. Instead of one big leap, we take many small, verifiable steps together.
 
+💡 **The Core Idea:** An interactive workflow is built on a few key pillars:
+- **Task Decomposition:** Breaking a complex goal (e.g., “analyze this dataset”) into smaller, inspectable subgoals.
+- **Turn-Taking:** A clear protocol for how control shifts between the human and the AI. Who suggests the next step? Who verifies it? Who executes it?
+- **Session Persistence:** A shared “lab notebook” or workspace where the history of our collaboration—the code, the assumptions, the failed attempts—is saved so we can pause, resume, and audit our work.
 
+This shifts the AI's role from a know-it-all who delivers a final manuscript to a diligent assistant who says, “Here’s the first step I'm proposing, and here are my assumptions. Does this look right to you?”
 
+### 🥊 The Old Way: The Perils of the One-Shot Answer
 
-Studies applying cognitive task analysis, such as the work by Irons et al. on [AI for Scientists](https://sciety.org/articles/activity/10.31219/osf.io/fjc3w), confirm this. They show that scientific workflows are highly variable and that one-size-fits-all AI solutions often miss crucial domain signals and decision points. The grand, autonomous agent doesn't know when to interrupt, what context matters, or how to integrate with the tools I already use and trust.
+The baseline we're moving away from is the “one-shot” or “AI-led” system. You write a complex prompt, and the AI generates thousands of lines of code or a full analysis in one go. The appeal is obvious: maximum automation, minimum effort. But the drawbacks are severe:
 
+1.  **Opacity:** The AI's reasoning is hidden. If it makes a subtle error in data cleaning, that error silently propagates through the entire analysis.
+2.  **Brittleness:** These systems are sensitive to the initial prompt. A slightly ambiguous instruction can lead the AI down a completely wrong path, as I learned the hard way.
+3.  **High Verification Cost:** Verifying a massive, monolithic output is often as much work as doing it yourself. As a study on research reproducibility found, fully AI-led teams can actually underperform human-only or AI-assisted teams, likely due to this verification burden [[Comparing Human-Only, AI-Assisted, and AI-Led Teams...](https://ideas.repec.org/p/zbw/i4rdps/195.html)].
 
-💡 The goal shouldn't be to replace the scientist with an autonomous agent, but to create a collaborative partnership that leverages the complementary strengths of both human and machine. The paradigm needs to shift from *supervision* of a black box to true *teaming*, as argued by [Taddeo et al. (2024)](https://link.springer.com/article/10.1007/s43681-024-00489-4).
+This approach is fundamentally misaligned with the scientific process, which is iterative, exploratory, and full of backtracking and refinement.
 
-### 🤝 A New Vision: The Human-in-the-Loop Co-Scientist
+### ✨ A Better Way: Building Workflows We Can Trust
 
-If the autonomous scientist is a dead end for practical research, what’s the alternative? A human-in-the-loop AI co-scientist—a system designed from the ground up to augment, not replace, human researchers. This approach is built on three foundational pillars: a principled division of labor, mixed-initiative collaboration, and deep workflow integration.
+Fortunately, a wave of research is focused on building this new generation of collaborative tools. Instead of aiming for a single, magical AI, these efforts provide practical scaffolding to make the human-AI partnership more transparent and effective. This is a deliberate move towards what some call incremental automation, prioritizing low-risk, high-reward steps first [[Automating the practice of science](https://arxiv.org/html/2409.05890)].
 
-#### 1. Defining Roles and the Division of Labor
+Here’s how researchers are doing things differently:
 
-Instead of asking an AI to do everything, a more productive approach is to carefully assign roles based on what each partner does best. Humans excel at goal-setting, creative ideation, ethical judgment, and interpreting ambiguous results. AI excels at large-scale pattern matching, rapid simulation, and tirelessly exploring vast parameter spaces.
+1.  **Breaking Down the Problem (Decomposition):** Research from Kazemitabaar et al. [[Improving Steering and Verification...](https://arxiv.org/html/2407.02651)] explores two powerful models for this. A **Stepwise** interface breaks a task into tiny, sequential steps, each with editable assumptions. A **Phasewise** interface groups them into larger phases (e.g., data loading, analysis, plotting). Both give the user crucial intervention points.
 
-Recent frameworks help formalize this. [Afroogh et al. (2025)](https://arxiv.org/pdf/2505.18422) propose a task-driven model where the AI's role adapts based on risk and complexity:
+2.  **Making Interaction Fluid (Better Interfaces):** Instead of just chat, new interfaces are emerging. The **BISCUIT** project [[BISCUIT: Scaffolding LLM-Generated Code...](https://arxiv.org/html/2404.07387)] introduces “ephemeral UIs” in notebooks—temporary widgets like sliders or forms that let you adjust the AI's parameters before code is even generated. Systems like **Flowco** [[Flowco: Rethinking Data Analysis...](https://spacefrontiers.org/r/10.48550/arxiv.2504.14038)] use a visual dataflow model, where each step in an analysis is a node you can inspect and debug.
 
-*   • **🤖 Autonomous:** For low-risk, well-defined tasks (e.g., running a standard data cleaning script).
-*   • **🤝 Collaborative:** For complex, creative tasks where AI provides suggestions for a human to refine (e.g., generating hypothesis drafts).
-*   • **😈 Adversarial:** For high-risk tasks where the AI challenges human assumptions to improve robustness (e.g., finding flaws in an experimental design).
-
-This dynamic is what [Xule Lin (2025)](https://arxiv.org/pdf/2505.03105) calls an “epistemic partnership,” where agency shifts over time. The ultimate goal is to build AI “thought partners” that can model human reasoning and actively support our thinking processes, a vision laid out by [Collins et al. (2024)](https://arxiv.org/pdf/2408.03943).
-
-#### 2. Mastering the Dance of Mixed-Initiative Collaboration
-
-Collaboration requires a dynamic give-and-take, where either the human or the AI can take the lead. This is known as mixed-initiative interaction. A simple chat interface isn't enough; it lacks structure and makes complex, multi-step tasks difficult to manage and reproduce.
-
-The **Cocoa** project from [Feng et al. (2024)](https://arxiv.org/html/2412.10999) introduces a powerful alternative: **interactive plans**. These are explicit, editable, multi-step plans that both the user and AI can create and execute together within a document. This makes the AI's actions transparent and steerable, turning a vague conversation into a concrete, auditable workflow.
-
-Behind the scenes, adaptive agents can learn *when* to intervene. Research by [Natarajan (2025)](https://ojs.aaai.org/index.php/AAAI/article/view/35220/37375) uses probabilistic models to decide when an AI should make a suggestion, take control, or step back, based on a model of the user's reliance and trust.
-
-#### 3. Deep Integration into the Daily Workflow
-
-Even the most brilliant AI is useless if it doesn't fit into a researcher's actual workflow. The fragmented reality of scientific work—jumping between PDF readers, code notebooks, terminals, and manuscript editors—is a major source of friction. An effective AI co-scientist must live where the work happens.
-
-This means embedding AI into the tools we already use. Systems like **ScholarMate** ([Ye et al., 2025](https://arxiv.org/html/2504.14406)) demonstrate this by integrating AI-powered sensemaking directly into a canvas-based tool for qualitative analysis. On the systems side, workflow engines like **Texera** ([Wang et al., 2024](https://www.vldb.org/pvldb/vol17/p3580-wang.pdf)) show the power of interactive data pipelines that can be paused, inspected, and modified on the fly—a crucial feature for iterative scientific analysis.
-
-Crucially, allowing researchers to customize these tools is key to their long-term adoption. A longitudinal study by [Long et al. (2024)](https://arxiv.org/html/2402.09894) found that the perceived utility of an AI workflow increased significantly after a familiarization period, and that the ability for users to edit and customize prompts was a primary driver of this sustained value.
-
-### 📊 A Tale of Two Paradigms
+3.  **Creating a Shared Memory (Persistent Architectures):** To support long-term collaboration, we need a persistent, shared context. Conceptual frameworks like the three-layer architecture (Interaction, Process, Infrastructure) [[Interaction, Process, Infrastructure...](https://arxiv.org/html/2506.11718)] propose making the *process* itself a first-class, inspectable object. Multi-agent systems like `freephdlabor` [[Build Your Personalized Research Group...](https://chatpaper.com/chatpaper/paper/200762)] use a shared, file-based workspace as a reliable source of truth, preventing the information decay that happens when agents just pass text messages to each other.
+ 
 
 The difference between these two approaches is stark. It’s not just a technical distinction; it’s a philosophical one about the role of technology in science.
 
@@ -59,41 +48,43 @@ The difference between these two approaches is stark. It’s not just a technica
 | **Control** | AI holds primary agency; human control is limited | Human retains ultimate control and agency |
 | **Workflow** | Operates in a silo, separate from daily tools | Deeply integrated into notebooks, dashboards, etc. ([Texera](https://www.vldb.org/pvldb/vol17/p3580-wang.pdf)) |
 | **Evidence** | Often leads to degraded performance vs. the best single actor ([Vaccaro et al., 2024](https://resources1972.s3.us-east-2.amazonaws.com/s41562-024-02024-1.pdf)) | Sustained utility driven by customization and control ([Long et al., 2024](https://arxiv.org/html/2402.09894)) |
+### 🔬 What the Evidence Says
 
-### 🔭 Open Questions and the Road Ahead
+This isn't just theory; early experiments show these interactive approaches work.
 
-While the path forward is clearer, it's not without its challenges. The research community is actively working on several key open questions:
+🎯 Result 1: Making steps visible gives users control.
+> In a controlled study comparing a standard chatbot against Stepwise and Phasewise interfaces for data analysis, Kazemitabaar et al. found that both decomposition methods gave users a significantly higher sense of control. More importantly, it made verifying the AI's work and intervening to correct its course far easier [[Improving Steering and Verification...](https://arxiv.org/html/2407.02651)]. This directly addresses the failure mode of black-box systems.
 
-*   **Traceability and Provenance:** How do we create tamper-proof, auditable records of every step in a human-AI collaborative discovery? This is vital for reproducibility and assigning credit.
-*   **The Non-Delegable Core:** Which decisions, for ethical and accountability reasons, *must* remain under human authority? Work by [Engin & Hand (2025)](https://zenodo.org/records/15744943) provides a framework for thinking about this, but operationalizing it in specific domains is a major challenge.
-*   **Safe Instrument Control:** How can we safely connect AI planners to real-world lab equipment? Prototypes like **VISION** ([Mathur et al., 2024](https://arxiv.org/html/2412.18161)), which uses an AI assistant for voice-controlled experiments, are a promising start but require rigorous safety validation.
-*   **Standardized Evaluation:** We lack benchmarks to measure the effectiveness of collaborative AI systems in realistic, multi-step research workflows. We need to move beyond simple accuracy metrics to evaluate trust, creativity, and efficiency over longitudinal studies.
+🎯 Result 2: Assistance beats full automation for complex tasks.
+> A large-scale study by Brodeur et al. had teams of researchers assess the reproducibility of scientific papers. They found that teams *assisted* by AI performed just as well as human-only teams, and both significantly outperformed the *AI-led* teams where humans were only minimal guides [[Comparing Human-Only, AI-Assisted, and AI-Led Teams...](https://ideas.repec.org/p/zbw/i4rdps/195.html)]. This provides strong evidence that for nuanced research tasks, the most effective role for AI today is as a collaborator, not an autonomous replacement.
+
+### 🧭 Open Questions and the Road Ahead
+
+We're just at the beginning of this journey, and many hard questions remain.
+
+-   **What's the right level of granularity?** When is it better to show five small steps versus one big phase? The answer likely depends on the user's expertise and the task's complexity.
+-   **How do we build a truly persistent memory?** LLM context windows are finite. We need robust techniques for session checkpointing and memory compaction without losing critical information.
+-   **How do we measure success?** We lack standard benchmarks for evaluating human-AI collaboration. We need metrics beyond task completion, like verification effort, user trust, and the reproducibility of the final result.
+-   **How do we make this robust?** The **StepFly** framework for automating troubleshooting guides shows that adding structure *offline* (like extracting a workflow graph from a document before execution) dramatically improves the reliability of online automation [[Agentic Troubleshooting Guide Automation...](https://arxiv.org/html/2510.10074)]. How can we apply this principle more broadly?
+
 
 ### ✨ From Autonomous Agents to Empowering Tools
-
 The vision of an AI that replaces the scientist is not only unhelpful, but profoundly uninteresting. The real challenge is that brilliant researchers spend far too much time mired in friction—wrestling with infrastructure, manually synthesizing literature, and managing administrative tasks—instead of focusing on discovery.
 
 The exciting opportunity lies in building AI co-pilots that dissolve this friction. We need tools that handle the tedious work so researchers can focus on what matters. The future of AI in science isn't about removing the human from the loop; it's about designing a more creative, powerful, and joyful loop, giving every researcher the superpowers to ask big questions and find breakthrough answers.
 
+## Further Reading
 
----
-
-## References
-
-1.  **[When combinations of humans and AI are useful: A systematic review and meta-analysis](https://resources1972.s3.us-east-2.amazonaws.com/s41562-024-02024-1.pdf)** - Vaccaro, M., Almaatouq, A., & Malone, T. (2024). A meta-analysis of 106 experiments quantifying when human-AI teams outperform individuals.
-2.  **[Human control of AI systems: from supervision to teaming](https://link.springer.com/article/10.1007/s43681-024-00489-4)** - Taddeo, M. (2024). A conceptual analysis contrasting supervisory control with a more collaborative human-machine teaming model.
-3.  **[A Task-Driven Human-AI Collaboration: When to Automate, When to Collaborate, When to Challenge](https://arxiv.org/pdf/2505.18422)** - Afroogh, S., Varshney, K. R., & DCruz, J. (2025). A framework for assigning AI roles based on task risk and complexity.
-4.  **[Cognitio Emergens: Agency, Dimensions, and Dynamics in Human-AI Knowledge Co-Creation](https://arxiv.org/pdf/2505.03105)** - Lin, X. (2025). A conceptual framework for dynamic, emergent partnerships between humans and AI in research.
-5.  **[Building Machines that Learn and Think with People](https://arxiv.org/pdf/2408.03943)** - Collins, K. M., et al. (2024). A perspective on designing AI “thought partners” that model and reason with human collaborators.
-6.  **[Cocoa: Co-Planning and Co-Execution with AI Agents](https://arxiv.org/html/2412.10999)** - Feng, K. J. K., et al. (2024). Introduces “interactive plans” as a user interface pattern for steerable human-AI collaboration.
-7.  **[Adaptive Agents for Mixed-Initiative Human-AI Collaborations](https://ojs.aaai.org/index.php/AAAI/article/view/35220/37375)** - Natarajan, M. (2025). Research on adaptive agents that model user reliance to decide when to take initiative.
-8.  **[Not Just Novelty: A Longitudinal Study on Utility and Customization of an AI Workflow](https://arxiv.org/html/2402.09894)** - Long, T., Gero, K. I., & Chilton, L. B. (2024). A study showing that customization is a key driver of sustained utility in AI tools.
-9.  **[ScholarMate: A Mixed-Initiative Tool for Qualitative Knowledge Work and Information Sensemaking](https://arxiv.org/html/2504.14406)** - Ye, R., et al. (2025). A system demonstrating mixed-initiative AI support embedded in a canvas for qualitative analysis.
-10. **[Texera: A System for Collaborative and Interactive Data Analytics Using Workflows](https://www.vldb.org/pvldb/vol17/p3580-wang.pdf)** - Wang, Z., et al. (2024). A cloud system for interactive, collaborative data analysis workflows.
-11. **[The Non-Delegable Core: Designing Legitimate Oversight for Agentic AI](https://zenodo.org/records/15744943)** - Engin, Z., & Hand, D. (2025). Proposes that certain governance functions must remain human to ensure legitimacy.
-12. **[VISION: A Modular AI Assistant for Natural Human-Instrument Interaction at Scientific User Facilities](https://arxiv.org/html/2412.18161)** - Mathur, S., et al. (2024). A prototype for a voice-controlled AI assistant for scientific instruments.
-13. **[Exploring Collaboration Patterns and Strategies in Human-AI Co-creation](https://arxiv.org/html/2507.06000)** - Zhang, S., Wang, H., & Yi, X. (2025). A scoping review mapping agency patterns and control mechanisms in HCI literature.
-14. **[Exploring Human-AI Collaboration Using Mental Models of Early Adopters of Multi-Agent Generative AI Tools](https://arxiv.org/html/2510.06224)** - Naik, S., et al. (2022). A qualitative study on how developers conceptualize multi-agent AI systems.
+1.  **[Improving Steering and Verification in AI-Assisted Data Analysis with Interactive Task Decomposition](https://arxiv.org/html/2407.02651)** - Kazemitabaar et al., 2024. A key HCI paper on Stepwise vs. Phasewise decomposition.
+2.  **[Interaction, Process, Infrastructure: A Unified Architecture for Human-Agent Collaboration](https://arxiv.org/html/2506.11718)** - Wang & Lu, 2025. Proposes a foundational architecture for building inspectable collaborative systems.
+3.  **[BISCUIT: Scaffolding LLM-Generated Code with Ephemeral UIs in Computational Notebooks](https://arxiv.org/html/2404.07387)** - Cheng et al., 2024. Introduces the clever idea of temporary UIs to bridge prompts and code.
+4.  **[Build Your Personalized Research Group: A Multiagent Framework for Continual and Interactive Science Automation](https://chatpaper.com/chatpaper/paper/200762)** - Li et al., 2025. Describes the `freephdlabor` system and its workspace-centric approach to multi-agent collaboration.
+5.  **[Flowco: Rethinking Data Analysis in the Age of LLMs](https://spacefrontiers.org/r/10.48550/arxiv.2504.14038)** - Freund et al., 2025. An exploration of visual dataflow interfaces for LLM-assisted analysis.
+6.  **[Comparing Human-Only, AI-Assisted, and AI-Led Teams on Assessing Research Reproducibility...](https://ideas.repec.org/p/zbw/i4rdps/195.html)** - Brodeur et al., 2025. A large-scale empirical study on the effectiveness of different human-AI team structures.
+7.  **[Automating the practice of science – Opportunities, Challenges, and Implications](https://arxiv.org/html/2409.05890)** - Musslick et al., 2024. A perspective on which scientific tasks should (and should not) be automated.
+8.  **[Agentic Troubleshooting Guide Automation for Incident Management (StepFly)](https://arxiv.org/html/2510.10074)** - Mao et al., 2025. A powerful example of how structuring tasks offline improves automation reliability.
+9.  **[SciOps: Achieving Productivity and Reliability in Data-Intensive Research](https://arxiv.org/html/2401.00077)** - Johnson et al., 2023. A practical maturity model for integrating automation into research operations.
+10. **[Kosmos: An AI Scientist for Autonomous Discovery](http://arxiv.org/abs/2511.02824)** - Ludovico Mitchener. (2025). Presents an AI system designed for autonomous scientific discovery.
 
 ---
 
