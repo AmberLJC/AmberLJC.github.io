@@ -365,15 +365,15 @@
 </div>
 
 <div style="background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); border-left: 4px solid #a855f7; padding: 20px 24px; margin: 32px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(168, 85, 247, 0.08);">
-    <p style="margin: 0; color: #581c87; font-size: 14px; line-height: 1.7;"><strong style="color: #6b21a8;">Note:</strong> This blog post was created with <a href="https://www.orchestra-research.com/share/HBPvxUScvAJr" target="_blank" style="color: #7c3aed; font-weight: 500;"><strong>an AI Co-Scientist in a human-in-the-loop fashion</strong></a>. All opinions and arguments are my own, but AI helped me discover relevant sources, enrich my arguments, and synthesize this document. In many ways, this post serves as a proof-of-concept for the central argument I'm making: that we need human-in-the-loop AI co-scientists, not fully autonomous ones.</p>
-    <p style="margin: 12px 0 0 0; color: #581c87; font-size: 14px; line-height: 1.7;">If you are familiar with me, you might know that earlier this year I built <a href="https://github.com/Just-Curieous/Curie" target="_blank" style="color: #7c3aed; font-weight: 500;"><strong>Curie</strong></a>, a fully autonomous AI Co-Scientist that automates scientific experiments. But over time, with more user studies and my own experience as a user, I can say that its usefulness is very limited. That experience motivated me to rethink the problem: how to build an AI co-scientist that truly helps.</p>
+    <p style="margin: 12px 0 0 0; color: #581c87; font-size: 14px; line-height: 1.7;"><strong style="color: #6b21a8;">Note:</strong> If you are familiar with me, you might know that earlier this year I built <a href="https://github.com/Just-Curieous/Curie" target="_blank" style="color: #7c3aed; font-weight: 500;"><strong>Curie</strong></a>, a fully autonomous AI Co-Scientist that automates scientific experiments. But over time, with more user studies and my own experience as a user, I can say that its usefulness is very limited. That experience motivated me to rethink the problem: how to build an AI co-scientist that truly helps.</p>
+    <p style="margin: 0; color: #581c87; font-size: 14px; line-height: 1.7;">This blog post was created with <a href="https://www.orchestra-research.com/share/HBPvxUScvAJr" target="_blank" style="color: #7c3aed; font-weight: 500;"><strong>an AI Co-Scientist in a human-in-the-loop fashion</strong></a>. All opinions and arguments are my own, but AI helped me discover relevant sources, enrich my arguments, and synthesize this document. In many ways, this post serves as a proof-of-concept for the central argument I'm making: that we need human-in-the-loop AI co-scientists, not fully autonomous ones.</p>
 </div>
 
 <section class="mt-10">
 <p>My news feed is constantly buzzing with headlines claiming AIs like today Kosmos (Mitchener et al. 2025) can do six months of work in a day—reading 1,500 papers and writing 42,000 lines of code in a single run. It's exciting, but after the initial awe fades, a nagging question takes over: <em>How does this help me?</em> </p>
 
 <p> A few months ago, I tried to reproduce one of these groundbreaking "AI scientist" papers, thinking it might offer a shortcut for a tedious analysis I was running. But the output was misaligned and unusable for my actual research topic, and I ended up having to do all the tedious work myself anyway. That skepticism isn't about the technology's potential; it's about the chasm between headline-grabbing breakthroughs and the daily, friction-filled grind of research. <strong>These systems feel like demos, not tools.</strong> They perform for the headlines but are useless for my workflow.</p>
-
+ 
 <h3>🤖 From Black Box Oracles to Transparent Partners</h3>
 
 <p>That experience crystalized a problem many of us in research are feeling. The dominant paradigm of "AI scientist" often feels like a black-box oracle: you ask a question, and it delivers a final answer. If the answer is wrong, it's often costly to correct them in the end. This forces us into a high-stakes, all-or-nothing gamble.</p>
@@ -408,9 +408,21 @@
 <p>Here's how researchers are doing things differently:</p>
 
 <ol style="padding-left: 20px;">
-<li><strong>• Breaking Down the Problem (Decomposition):</strong> Research from Kazemitabaar et al. <a href="https://arxiv.org/html/2407.02651" target="_blank">(Kazemitabaar et al., 2024)</a> explores two powerful models for this. A <strong>Stepwise</strong> interface breaks a task into tiny, sequential steps, each with editable assumptions. A <strong>Phasewise</strong> interface groups them into larger phases (e.g., data loading, analysis, plotting). Both give the user crucial intervention points.</li>
+<li><strong>• Breaking Down the Problem (Decomposition):</strong> Research from Kazemitabaar et al. <a href="https://arxiv.org/html/2407.02651" target="_blank">(Kazemitabaar et al., 2024)</a> explores two powerful models for this. A <strong>Stepwise</strong> interface breaks a task into tiny, sequential steps, each with editable assumptions. A <strong>Phasewise</strong> interface groups them into larger phases (e.g., data loading, analysis, plotting). Both give the user crucial intervention points.
 
-<li><strong>• Making Interaction Fluid (Better Interfaces):</strong> Instead of just chat, new interfaces are emerging. The <strong>BISCUIT</strong> project <a href="https://arxiv.org/html/2404.07387" target="_blank">(Cheng et al., 2024)</a> introduces "ephemeral UIs" in notebooks—temporary widgets like sliders or forms that let you adjust the AI's parameters before code is even generated. Systems like <strong>Flowco</strong> <a href="https://spacefrontiers.org/r/10.48550/arxiv.2504.14038" target="_blank">(Freund et al., 2025)</a> use a visual dataflow model, where each step in an analysis is a node you can inspect and debug.</li>
+<div style="margin: 24px 0; text-align: center;">
+    <img src="gif/lit-review.gif" alt="Fine-grained literature review" style="max-width: 100%; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+    <p style="margin-top: 12px; font-size: 14px; color: #6b7280; font-style: italic;">An AI co-scientist conducting fine-grained literature review with transparent search and filtering steps, allowing researchers to verify and guide the process at each stage.</p>
+</div>
+</li>
+
+<li><strong>• Making Interaction Fluid (Better Interfaces):</strong> Instead of just chat, new interfaces are emerging. The <strong>BISCUIT</strong> project <a href="https://arxiv.org/html/2404.07387" target="_blank">(Cheng et al., 2024)</a> introduces "ephemeral UIs" in notebooks—temporary widgets like sliders or forms that let you adjust the AI's parameters before code is even generated. Systems like <strong>Flowco</strong> <a href="https://spacefrontiers.org/r/10.48550/arxiv.2504.14038" target="_blank">(Freund et al., 2025)</a> use a visual dataflow model, where each step in an analysis is a node you can inspect and debug.
+
+<div style="margin: 24px 0; text-align: center;">
+    <img src="gif/chat-node.gif" alt="Research Canvas" style="max-width: 100%; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+    <p style="margin-top: 12px; font-size: 14px; color: #6b7280; font-style: italic;">Interactive research canvas enabling free-style brainstorming where ideas can be explored, connected, and refined collaboratively between human and AI.</p>
+</div>
+</li>
 
 <li><strong>• Creating a Shared Memory (Persistent Architectures):</strong> To support long-term collaboration, we need a persistent, shared context. Conceptual frameworks like the three-layer architecture (Interaction, Process, Infrastructure) <a href="https://arxiv.org/html/2506.11718" target="_blank">(Wang & Lu, 2025)</a> propose making the <em>process</em> itself a first-class, inspectable object. Multi-agent systems like `freephdlabor` <a href="https://chatpaper.com/chatpaper/paper/200762" target="_blank">(Li et al., 2025)</a> use a shared, file-based workspace as a reliable source of truth, preventing the information decay that happens when agents just pass text messages to each other.</li>
 </ol>
@@ -475,6 +487,11 @@
     </p>
 </div>
 
+<div style="margin: 32px 0; text-align: center;">
+    <img src="gif/writing.gif" alt="Human-in-the-loop writing" style="max-width: 100%; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+    <p style="margin-top: 12px; font-size: 14px; color: #6b7280; font-style: italic;">Collaborative writing and ideation where the researcher guides the AI through iterative refinement, maintaining control over direction and argumentation while leveraging AI assistance for synthesis and structure.</p>
+</div>
+
 <div style="background: #f9fafb; border-left: 3px solid #d1d5db; padding: 20px 24px; margin: 24px 0;">
     <p style="margin: 0 0 12px 0; color: #1f2937; font-weight: 600; font-size: 16px;">
         🎯 Result 2: Assistance beats full automation for complex tasks.
@@ -482,6 +499,21 @@
     <p style="margin: 0; color: #4b5563; line-height: 1.7; font-size: 15px;">
         A large-scale study by Brodeur et al. had teams of researchers assess the reproducibility of scientific papers. They found that teams <em>assisted</em> by AI performed just as well as human-only teams, and both significantly outperformed the <em>AI-led</em> teams where humans were only minimal guides <a href="https://ideas.repec.org/p/zbw/i4rdps/195.html" target="_blank">(Brodeur et al., 2025)</a>. This provides strong evidence that for nuanced research tasks, the most effective role for AI today is as a collaborator, not an autonomous replacement.
     </p>
+</div>
+
+<div style="margin: 32px 0; text-align: center;">
+    <img src="gif/setup-exp.gif" alt="Setting up experiments with guidance" style="max-width: 100%; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+    <p style="margin-top: 12px; font-size: 14px; color: #6b7280; font-style: italic;">Instructing the experiment agent with specific parameters and constraints, giving researchers precise control over experimental design before execution.</p>
+</div>
+
+<div style="margin: 32px 0; text-align: center;">
+    <img src="gif/exp-agent.gif" alt="Running experiments with transparency" style="max-width: 100%; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+    <p style="margin-top: 12px; font-size: 14px; color: #6b7280; font-style: italic;">Transparent and reproducible experiment execution with real-time monitoring, allowing researchers to track progress, intervene if needed, and ensure full reproducibility.</p>
+</div>
+
+<div style="margin: 32px 0; text-align: center;">
+    <img src="gif/exp-fig.gif" alt="Experiment results and visualizations" style="max-width: 100%; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+    <p style="margin-top: 12px; font-size: 14px; color: #6b7280; font-style: italic;">Interactive visualization of experimental results, enabling researchers to explore data, identify patterns, and make informed decisions about next steps.</p>
 </div>
 
 <h3>🧭 Open Questions and the Road Ahead</h3>

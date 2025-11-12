@@ -14,7 +14,10 @@ This blog post was created with **an AI Co-Scientist in a human-in-the-loop fash
 
 My news feed is constantly buzzing with headlines claiming AIs like today Kosmos (Mitchener et al. 2025) can do six months of work in a day—reading 1,500 papers and writing 42,000 lines of code in a single run. It's exciting, but after the initial awe fades, a nagging question takes over: How does this help *me*?
 
-A few months ago, I tried to reproduce one of these groundbreaking "AI scientist" papers, thinking it might offer a shortcut for a tedious analysis I was running. But the output was misaligned and unusable for my actual research topic, and I ended up having to do all the tedious work myself anyway. That skepticism isn't about the technology's potential; it's about the chasm between headline-grabbing breakthroughs and the daily, friction-filled grind of research. These systems feel like demos, not tools. They perform for the headlines but are useless for my workflow. 
+A few months ago, I tried to reproduce one of these groundbreaking "AI scientist" papers, thinking it might offer a shortcut for a tedious analysis I was running. But the output was misaligned and unusable for my actual research topic, and I ended up having to do all the tedious work myself anyway. That skepticism isn't about the technology's potential; it's about the chasm between headline-grabbing breakthroughs and the daily, friction-filled grind of research. These systems feel like demos, not tools. They perform for the headlines but are useless for my workflow.
+
+![Problem-solving with AI assistance](gif/solve-this.gif)
+*The challenge: asking AI to "solve this" often produces solutions that miss the mark, requiring researchers to start over rather than saving time.*
 
 ### 🤖 From Black Box Oracles to Transparent Partners
 
@@ -49,12 +52,12 @@ Here's how researchers are doing things differently:
 **1. Breaking Down the Problem (Decomposition):** Research from Kazemitabaar et al. (Kazemitabaar et al., 2024) explores two powerful models for this. A **Stepwise** interface breaks a task into tiny, sequential steps, each with editable assumptions. A **Phasewise** interface groups them into larger phases (e.g., data loading, analysis, plotting). Both give the user crucial intervention points.
 
 ![Fine-grained literature review](gif/lit-review.gif)
-*Fine-grained literature review.*
+*An AI co-scientist conducting fine-grained literature review with transparent search and filtering steps, allowing researchers to verify and guide the process at each stage.*
 
 **2. Making Interaction Fluid (Better Interfaces):** Instead of just chat, new interfaces are emerging. The **BISCUIT** project (Cheng et al., 2024) introduces "ephemeral UIs" in notebooks—temporary widgets like sliders or forms that let you adjust the AI's parameters before code is even generated. Systems like **Flowco** (Freund et al., 2025) use a visual dataflow model, where each step in an analysis is a node you can inspect and debug.
 
 ![Research Canvas](gif/chat-node.gif)
-*Free-style brainstorming with Research Canvas.*
+*Interactive research canvas enabling free-style brainstorming where ideas can be explored, connected, and refined collaboratively between human and AI.*
 
 **3. Creating a Shared Memory (Persistent Architectures):** To support long-term collaboration, we need a persistent, shared context. Conceptual frameworks like the three-layer architecture (Interaction, Process, Infrastructure) (Wang & Lu, 2025) propose making the *process* itself a first-class, inspectable object. Multi-agent systems like `freephdlabor` (Li et al., 2025) use a shared, file-based workspace as a reliable source of truth, preventing the information decay that happens when agents just pass text messages to each other.
 
@@ -78,18 +81,21 @@ This isn't just theory; early experiments show these interactive approaches work
 
 In a controlled study comparing a standard chatbot against Stepwise and Phasewise interfaces for data analysis, Kazemitabaar et al. found that both decomposition methods gave users a significantly higher sense of control. More importantly, it made verifying the AI's work and intervening to correct its course far easier (Kazemitabaar et al., 2024). This directly addresses the failure mode of black-box systems.
 
-![Instruct the experiment design](gif/writing.gif)
-*Human-in-the-loop brainstorming.*
+![Human-in-the-loop writing](gif/writing.gif)
+*Collaborative writing and ideation where the researcher guides the AI through iterative refinement, maintaining control over direction and argumentation while leveraging AI assistance for synthesis and structure.*
 
 **🎯 Assistance beats full automation for complex tasks**
 
 A large-scale study by Brodeur et al. had teams of researchers assess the reproducibility of scientific papers. They found that teams *assisted* by AI performed just as well as human-only teams, and both significantly outperformed the *AI-led* teams where humans were only minimal guides (Brodeur et al., 2025). This provides strong evidence that for nuanced research tasks, the most effective role for AI today is as a collaborator, not an autonomous replacement.
 
-![Guide the experiment agent](gif/setup-exp.gif)
-*Controllable experiments.*
+![Setting up experiments with guidance](gif/setup-exp.gif)
+*Instructing the experiment agent with specific parameters and constraints, giving researchers precise control over experimental design before execution.*
 
-![Controllable and reproducible experiments](gif/exp-agent.gif)
-*Transparent and reproducible experiments.*
+![Running experiments with transparency](gif/exp-agent.gif)
+*Transparent and reproducible experiment execution with real-time monitoring, allowing researchers to track progress, intervene if needed, and ensure full reproducibility.*
+
+![Experiment results and visualizations](gif/exp-fig.gif)
+*Interactive visualization of experimental results, enabling researchers to explore data, identify patterns, and make informed decisions about next steps.*
 
 ### 🧭 Open Questions and the Road Ahead
 
