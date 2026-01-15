@@ -1,0 +1,509 @@
+/* Theme 1: Minimal White
+ * Ultra clean design with lots of white space, muted colors, elegant typography
+ */
+
+:root {
+  --primary: #1a1a1a;
+  --accent: #666;
+  --amber: #e67e22;
+  --amber-light: #f39c12;
+  --amber-glow: rgba(230, 126, 34, 0.15);
+  --text: #333;
+  --text-light: #888;
+  --bg: #fff;
+  --bg-secondary: #fafafa;
+  --border: #eee;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Amber text selection */
+::selection {
+  background: var(--amber-glow);
+  color: var(--primary);
+}
+
+::-moz-selection {
+  background: var(--amber-glow);
+  color: var(--primary);
+}
+
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text);
+  background-color: var(--bg);
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Hide default nav elements */
+.topnav {
+  background: transparent;
+  border-bottom: 1px solid var(--border);
+  padding: 20px 40px;
+  display: flex;
+  gap: 40px;
+}
+
+.topnav a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.topnav a:hover, .topnav a.active {
+  color: var(--amber);
+  background: transparent;
+}
+
+.fixed-nav {
+  display: none;
+}
+
+/* Main Layout - Single column centered */
+.wrapper {
+  display: block;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+/* Profile Section - Centered hero */
+.profile-section {
+  text-align: center;
+  margin-bottom: 80px;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  position: relative;
+}
+
+.profile-picture {
+  margin-bottom: 30px;
+}
+
+.profile-picture img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  filter: grayscale(30%);
+  transition: filter 0.3s;
+}
+
+.profile-picture img:hover {
+  filter: grayscale(0%);
+  box-shadow: 0 0 30px var(--amber-glow);
+}
+
+.profile-section h1 {
+  font-size: 36px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+}
+
+.profile-section h1::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--amber-light), var(--amber));
+  border-radius: 2px;
+}
+
+.profile-section p {
+  color: var(--text-light);
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.list-inline {
+  margin-top: 30px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  list-style: none;
+}
+
+.list-inline li {
+  margin: 0;
+}
+
+.social-icon {
+  color: var(--text-light) !important;
+  font-size: 20px !important;
+  transition: color 0.3s;
+}
+
+.social-icon:hover {
+  color: var(--amber) !important;
+  transform: none;
+}
+
+/* Content Section */
+.content-section {
+  max-width: none;
+}
+
+/* Typography */
+h1, h2 {
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+h2, h2.award-heading {
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-light) !important;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.3s;
+}
+
+h2:first-child {
+  margin-top: 0;
+}
+
+h2 i, h2.award-heading i {
+  color: var(--amber);
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+p {
+  text-align: left;
+  margin-bottom: 20px;
+  color: var(--text);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--amber);
+}
+
+/* About Section */
+#about-me h1 {
+  display: none;
+}
+
+#about-me p {
+  font-size: 17px;
+  line-height: 2;
+  margin-bottom: 25px;
+  max-width: 100%;
+}
+
+/* Projects Section */
+#projects {
+  margin: 60px 0;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.card {
+  position: relative;
+  background: var(--bg-secondary);
+  padding: 30px;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: border-color 0.3s;
+}
+
+
+.card:hover {
+  border-color: var(--amber);
+  box-shadow: 0 4px 20px var(--amber-glow);
+}
+
+.card img {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  opacity: 0.85;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 2;
+}
+
+.card:hover img {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.card h3, .card p {
+  position: relative;
+  z-index: 2;
+}
+
+.card h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.card h3 a {
+  color: var(--primary) !important;
+  text-decoration: none;
+}
+
+.project-subtitle {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-light) !important;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.project-description {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* Publications Section */
+#publications {
+  margin: 60px 0;
+}
+
+.publication-list-compact {
+  display: flex;
+  flex-direction: column;
+}
+
+.publication-item-compact {
+  padding: 30px 0;
+}
+
+.pub-title {
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.pub-title a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.pub-title a:hover {
+  text-decoration: underline;
+  color: var(--amber);
+}
+
+.pub-authors {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 5px;
+}
+
+.pub-venue {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+
+.pub-venue .badge {
+  background: var(--amber);
+  color: #fff;
+  padding: 2px 8px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-left: 10px;
+}
+
+.pub-links {
+  font-size: 13px;
+}
+
+.pub-links a {
+  color: var(--text-light);
+  margin-right: 15px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.pub-links a:hover {
+  color: var(--amber);
+}
+
+.pub-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+/* Awards Section */
+#awards {
+  margin: 60px 0;
+}
+
+#awards ul {
+  list-style: none;
+  padding: 0;
+}
+
+#awards li {
+  padding: 15px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+  transition: padding-left 0.3s, border-color 0.3s;
+}
+
+#awards li:hover {
+  padding-left: 10px;
+  border-bottom-color: var(--amber);
+}
+
+/* Experience & Service Tables */
+table {
+  width: 100%;
+  margin: 30px 0;
+  border-collapse: collapse;
+  box-shadow: none !important;
+}
+
+thead {
+  display: none;
+}
+
+tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background-color 0.3s;
+}
+
+tbody tr:hover {
+  background-color: var(--amber-glow);
+}
+
+td {
+  padding: 20px 15px;
+  vertical-align: top;
+  background: transparent !important;
+}
+
+td img {
+  opacity: 0.7;
+}
+
+/* Education */
+#education + h2 + table,
+table:last-of-type {
+  margin-top: 30px;
+}
+
+/* Footer */
+footer {
+  margin-top: 80px;
+  padding-top: 40px;
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(90deg, transparent, var(--amber), transparent) 1;
+  text-align: center;
+}
+
+.contact-info {
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 2;
+}
+
+.twitter-icon {
+  color: var(--text-light) !important;
+}
+
+.map-marker-icon {
+  color: var(--text-light);
+}
+
+h4 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--amber);
+  margin-bottom: 20px;
+}
+
+/* Amber nickname highlight */
+.profile-section center .font-weight-bold {
+  color: var(--amber);
+  font-style: italic;
+}
+
+/* Amber accent for project title colors */
+.project-title-orange,
+.project-title-blue,
+.project-title-green {
+  transition: color 0.3s !important;
+}
+
+.card:hover .project-title-orange,
+.card:hover .project-title-blue,
+.card:hover .project-title-green {
+  color: var(--amber) !important;
+}
+
+/* Awards star icon */
+#awards li strong {
+  color: var(--primary);
+}
+
+/* Twitter icon hover */
+.twitter-icon:hover {
+  color: var(--amber) !important;
+}
+
+/* Section header accent on hover */
+h2:hover, h2.award-heading:hover {
+  color: var(--amber) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 40px 20px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-section h1 {
+    font-size: 28px;
+  }
+}
