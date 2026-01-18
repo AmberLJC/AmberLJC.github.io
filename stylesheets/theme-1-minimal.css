@@ -493,6 +493,66 @@ h2:hover, h2.award-heading:hover {
   color: var(--amber) !important;
 }
 
+/* Blog Page Styles */
+.article-row {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  transition: padding-left 0.3s, border-color 0.3s;
+}
+
+.article-row:hover {
+  padding-left: 10px;
+  border-bottom-color: var(--amber);
+}
+
+.article-row .date {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-right: 10px;
+}
+
+.article-row h3 {
+  display: inline;
+  font-size: 16px;
+}
+
+.article-row h3 a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.article-row h3 a:hover {
+  color: var(--amber);
+}
+
+/* Blog Tags */
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.tag.research {
+  background: #d35400;
+  color: #fff;
+}
+
+.tag.article {
+  background: #f5b041;
+  color: #1a1a1a;
+}
+
+.tag.tutorial {
+  background: var(--amber-glow);
+  color: var(--amber);
+  border: 1px solid var(--amber);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .wrapper {
