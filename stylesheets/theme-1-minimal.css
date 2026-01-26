@@ -308,12 +308,12 @@ a:hover {
 }
 
 .publication-item-compact {
-  padding: 30px 0;
+  padding: 12px 0;
 }
 
 .pub-title {
   font-size: 17px;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .pub-title a {
@@ -329,13 +329,13 @@ a:hover {
 .pub-authors {
   font-size: 14px;
   color: var(--text-light);
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 }
 
 .pub-venue {
   font-size: 13px;
   color: var(--text-light);
-  margin-bottom: 10px;
+  margin-bottom: 4px;
 }
 
 .pub-venue .badge {

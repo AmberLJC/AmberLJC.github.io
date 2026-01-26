@@ -10,3 +10,8 @@ _site
 # Bundler
 .bundle/
 vendor/
+documents/cv/main.log 
+documents/cv/main.aux 
+documents/cv/main.synctex.gz 
+documents/cv/main.fdb_latexmk
+documents/cv/main.fls
