@@ -17,6 +17,11 @@
 <meta property="og:site_name" content="Jiachen (Amber) Liu">
 <meta property="article:published_time" content="2025-09-05">
 <meta property="article:author" content="Jiachen Liu">
+<meta property="article:section" content="ML Systems">
+<meta property="article:tag" content="agentic RL">
+<meta property="article:tag" content="reinforcement learning">
+<meta property="article:tag" content="LLM agents">
+<meta property="og:image" content="https://amberljc.github.io/imag/nyc-amber.jpg">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
@@ -25,31 +30,49 @@
 <meta name="twitter:description" content="The shift from chat-based LLM training to agentic RL. How a decoupled Agent Layer solves key scalability challenges.">
 <meta name="twitter:creator" content="@JIACHENLIU8">
 
-<!-- BlogPosting Schema -->
+<!-- Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "When LLMs Grow Hands and Feet, How to Design our Agentic RL Systems?",
-  "description": "Exploring the shift from chat-based LLM training to agentic RL systems and a decoupled Agent Layer architecture.",
-  "datePublished": "2025-09-05",
-  "author": {
-    "@type": "Person",
-    "name": "Jiachen Liu",
-    "alternateName": "Amber Liu",
-    "url": "https://amberljc.github.io"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://amberljc.github.io/blog/2025-09-05-agentic-rl-systems.html"
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "Jiachen Liu",
-    "url": "https://amberljc.github.io"
-  },
-  "inLanguage": "en-US",
-  "keywords": ["agentic RL", "reinforcement learning", "LLM agents", "agent layer", "ML systems"]
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "When LLMs Grow Hands and Feet, How to Design our Agentic RL Systems?",
+      "description": "Exploring the shift from chat-based LLM training to agentic RL systems. Why existing RL frameworks fall short for multi-step agent tasks and how a decoupled Agent Layer solves key challenges.",
+      "datePublished": "2025-09-05",
+      "author": {
+        "@type": "Person",
+        "name": "Jiachen Liu",
+        "alternateName": "Amber Liu",
+        "url": "https://amberljc.github.io"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://amberljc.github.io/blog/2025-09-05-agentic-rl-systems.html"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Jiachen Liu",
+        "url": "https://amberljc.github.io"
+      },
+      "image": "https://amberljc.github.io/imag/nyc-amber.jpg",
+      "inLanguage": "en-US",
+      "articleSection": "ML Systems",
+      "keywords": ["agentic RL", "reinforcement learning", "LLM agents", "agent layer", "ML systems", "multi-step agent training"],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", "article > p:first-of-type"]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://amberljc.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://amberljc.github.io/blog.html" },
+        { "@type": "ListItem", "position": 3, "name": "How to Design Agentic RL Systems" }
+      ]
+    }
+  ]
 }
 </script>
 

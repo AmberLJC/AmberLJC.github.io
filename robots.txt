@@ -48,3 +48,6 @@ User-agent: cohere-ai
 Allow: /
 
 Sitemap: https://amberljc.github.io/sitemap.xml
+
+# RSS Feed for content discovery
+# https://amberljc.github.io/feed.xml

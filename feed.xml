@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Jiachen (Amber) Liu - AI Research Blog</title>
+    <link>https://amberljc.github.io/blog.html</link>
+    <atom:link href="https://amberljc.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>Research articles and insights on ML systems, LLM serving, AI agents for science, and machine learning research by Jiachen (Amber) Liu.</description>
+    <language>en-US</language>
+    <managingEditor>jiachenliu8@gmail.com (Jiachen Liu)</managingEditor>
+    <webMaster>jiachenliu8@gmail.com (Jiachen Liu)</webMaster>
+    <lastBuildDate>Thu, 27 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://amberljc.github.io/imag/nyc-amber.jpg</url>
+      <title>Jiachen (Amber) Liu - AI Research Blog</title>
+      <link>https://amberljc.github.io/blog.html</link>
+    </image>
+
+    <item>
+      <title>I Built an Auto Research Claw Too. I'm Begging You Not to Trust It.</title>
+      <link>https://amberliu2.substack.com/p/i-built-an-auto-research-claw-too</link>
+      <guid isPermaLink="true">https://amberliu2.substack.com/p/i-built-an-auto-research-claw-too</guid>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 +0000</pubDate>
+      <dc:creator>Jiachen (Amber) Liu</dc:creator>
+      <category>article</category>
+      <category>AI agents</category>
+      <category>research automation</category>
+      <description>Why fully automated research tools can be dangerously misleading, and what responsible AI-assisted research actually looks like.</description>
+    </item>
+
+    <item>
+      <title>Don't Build Another Agent. Build Your Agent Skill.</title>
+      <link>https://substack.com/home/post/p-189413321</link>
+      <guid isPermaLink="true">https://substack.com/home/post/p-189413321</guid>
+      <pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
+      <dc:creator>Jiachen (Amber) Liu</dc:creator>
+      <category>article</category>
+      <category>AI agents</category>
+      <category>agent skills</category>
+      <description>Why the future of AI agents is not more agents, but better skills — modular, composable capabilities that agents can learn and share.</description>
+    </item>
+
+    <item>
+      <title>Skill Evolving: What Happens When Agents Learn From Each Other</title>
+      <link>https://substack.com/home/post/p-187895121</link>
+      <guid isPermaLink="true">https://substack.com/home/post/p-187895121</guid>
+      <pubDate>Sun, 01 Feb 2026 00:00:00 +0000</pubDate>
+      <dc:creator>Jiachen (Amber) Liu</dc:creator>
+      <category>article</category>
+      <category>AI agents</category>
+      <category>skill evolution</category>
+      <description>Exploring the paradigm of agents that evolve by sharing and learning skills from each other, moving beyond static agent architectures.</description>
+    </item>
+
+    <item>
+      <title>Decoding the DNA of AI Research Innovation</title>
+      <link>https://substack.com/home/post/p-183998016</link>
+      <guid isPermaLink="true">https://substack.com/home/post/p-183998016</guid>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+      <dc:creator>Jiachen (Amber) Liu</dc:creator>
+      <category>research</category>
+      <category>AI research</category>
+      <category>innovation</category>
+      <description>Analyzing the patterns and traits that drive breakthrough AI research, from problem selection to execution strategies.</description>
+    </item>
+
+    <item>
+      <title>The Rise of AI-Native Researchers</title>
+      <link>https://amberljc.github.io/blog/2026-01-10-ai-native-researchers.html</link>
+      <guid isPermaLink="true">https://amberljc.github.io/blog/2026-01-10-ai-native-researchers.html</guid>
+      <pubDate>Sat, 10 Jan 2026 00:00:00 +0000</pubDate>
+      <dc:creator>Jiachen (Amber) Liu</dc:creator>
+      <category>article</category>
+      <category>AI-native research</category>
+      <category>AI agents</category>
+      <category>research methodology</category>
+      <description>How AI is transforming research across literature review, brainstorming, and experimentation. Why people with taste and domain knowledge benefit most from the AI-native research paradigm.</description>
+    </item>
+
+    <item>
+      <title>A Survival Guide for Machine Learning Systems Research</title>
+      <link>https://amberljc.github.io/blog/2026-01-03-mlsys-survival.html</link>
+      <guid isPermaLink="true">https://amberljc.github.io/blog/2026-01-03-mlsys-survival.html</guid>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <dc:creator>Jiachen (Amber) Liu</dc:creator>
+      <category>article</category>
+      <category>MLSys</category>
+      <category>machine learning systems</category>
+      <category>research guide</category>
+      <description>Practical advice for navigating machine learning systems research — from finding impactful problems to building systems that actually work.</description>
+    </item>
+
+    <item>
+      <title>AI Research Engineering Skills</title>
+      <link>https://www.orchestra-research.com/perspectives/ai-research-skills</link>
+      <guid isPermaLink="true">https://amberljc.github.io/blog/2025-11-20-ai-research-skills.html</guid>
+      <pubDate>Thu, 20 Nov 2025 00:00:00 +0000</pubDate>
+      <dc:creator>Jiachen (Amber) Liu</dc:creator>
+      <category>article</category>
+      <category>AI research</category>
+      <category>engineering skills</category>
+      <description>The essential engineering skills needed for modern AI research — bridging the gap between research ideas and working systems.</description>
+    </item>
+
+    <item>
+      <title>Build AI Co-Scientists That Actually Help</title>
+      <link>https://www.orchestra-research.com/perspectives/build-ai-co-scientists</link>
+      <guid isPermaLink="true">https://amberljc.github.io/blog/2025-11-05-why-fully-autonomous-ai-coscientists-are-useless.html</guid>
+      <pubDate>Wed, 05 Nov 2025 00:00:00 +0000</pubDate>
+      <dc:creator>Jiachen (Amber) Liu</dc:creator>
+      <category>article</category>
+      <category>AI co-scientists</category>
+      <category>scientific research</category>
+      <description>Why fully autonomous AI co-scientists fail in practice, and how to build AI systems that genuinely augment human researchers.</description>
+    </item>
+
+    <item>
+      <title>Agent-Oriented Compute: My Experiment Agent Had a GPU Problem</title>
+      <link>https://www.orchestra-research.com/perspectives/agent-oriented-compute</link>
+      <guid isPermaLink="true">https://amberljc.github.io/blog/2025-10-9-agent-oriented-comput.html</guid>
+      <pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate>
+      <dc:creator>Jiachen (Amber) Liu</dc:creator>
+      <category>article</category>
+      <category>agent-oriented compute</category>
+      <category>GPU</category>
+      <category>AI infrastructure</category>
+      <description>How a GPU allocation problem in an experiment agent led to rethinking compute infrastructure for the age of AI agents.</description>
+    </item>
+
+    <item>
+      <title>When LLMs Grow Hands and Feet: How to Design Agentic RL Systems</title>
+      <link>https://amberljc.github.io/blog/2025-09-05-agentic-rl-systems.html</link>
+      <guid isPermaLink="true">https://amberljc.github.io/blog/2025-09-05-agentic-rl-systems.html</guid>
+      <pubDate>Fri, 05 Sep 2025 00:00:00 +0000</pubDate>
+      <dc:creator>Jiachen (Amber) Liu</dc:creator>
+      <category>research</category>
+      <category>agentic RL</category>
+      <category>reinforcement learning</category>
+      <category>LLM agents</category>
+      <category>ML systems</category>
+      <description>Exploring the shift from chat-based LLM training to agentic RL systems. Why existing RL frameworks fall short for multi-step agent tasks and how a decoupled Agent Layer solves key challenges.</description>
+    </item>
+
+    <item>
+      <title>My PhD Lessons as a ML Systems Researcher</title>
+      <link>https://amberljc.github.io/blog/2025-06-15-my-phd-thoughts.html</link>
+      <guid isPermaLink="true">https://amberljc.github.io/blog/2025-06-15-my-phd-thoughts.html</guid>
+      <pubDate>Sun, 15 Jun 2025 00:00:00 +0000</pubDate>
+      <dc:creator>Jiachen (Amber) Liu</dc:creator>
+      <category>article</category>
+      <category>PhD</category>
+      <category>ML systems</category>
+      <category>career advice</category>
+      <description>PhD lessons and reflections on building user-centric machine learning systems. Insights from research in ML systems, LLM serving, and federated learning at the University of Michigan.</description>
+    </item>
+
+    <item>
+      <title>EXP-Bench: Can AI Conduct AI Research Experiments?</title>
+      <link>https://amberljc.github.io/blog/2025-05-11-exp-bench.html</link>
+      <guid isPermaLink="true">https://amberljc.github.io/blog/2025-05-11-exp-bench.html</guid>
+      <pubDate>Sun, 11 May 2025 00:00:00 +0000</pubDate>
+      <dc:creator>Jiachen (Amber) Liu</dc:creator>
+      <category>research</category>
+      <category>EXP-Bench</category>
+      <category>AI benchmarks</category>
+      <category>research automation</category>
+      <description>Introducing EXP-Bench, a benchmark to evaluate AI agents' ability to conduct real AI research experiments — from setting up environments to running and interpreting results.</description>
+    </item>
+
+    <item>
+      <title>Curie: Move Scientific Research at the Speed of Thought</title>
+      <link>https://amberljc.github.io/blog/2025-02-01-curie.html</link>
+      <guid isPermaLink="true">https://amberljc.github.io/blog/2025-02-01-curie.html</guid>
+      <pubDate>Sat, 01 Feb 2025 00:00:00 +0000</pubDate>
+      <dc:creator>Jiachen (Amber) Liu</dc:creator>
+      <category>research</category>
+      <category>Curie</category>
+      <category>AI agents</category>
+      <category>scientific research</category>
+      <description>Introducing Curie, an AI agent framework that automates scientific experimentation — from hypothesis generation to experiment execution and result interpretation.</description>
+    </item>
+
+    <item>
+      <title>How to Enhance Your LLM Beyond Pre-training</title>
+      <link>https://amberljc.github.io/blog/2023-09-method-to-enhance-llm.html</link>
+      <guid isPermaLink="true">https://amberljc.github.io/blog/2023-09-method-to-enhance-llm.html</guid>
+      <pubDate>Fri, 01 Sep 2023 00:00:00 +0000</pubDate>
+      <dc:creator>Jiachen (Amber) Liu</dc:creator>
+      <category>article</category>
+      <category>LLM</category>
+      <category>fine-tuning</category>
+      <category>RAG</category>
+      <description>A comprehensive guide to unlocking LLM capabilities beyond pre-training through fine-tuning, RAG, and other advanced techniques.</description>
+    </item>
+
+  </channel>
+</rss>
