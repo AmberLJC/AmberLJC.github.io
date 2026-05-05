@@ -147,7 +147,7 @@ body {
 
 .social-icon {
   color: var(--text-light) !important;
-  font-size: 20px !important;
+  font-size: 28px !important;
   transition: color 0.3s;
 }
 
@@ -551,6 +551,19 @@ h2:hover, h2.award-heading:hover {
   background: var(--amber-glow);
   color: var(--amber);
   border: 1px solid var(--amber);
+}
+
+/* Visually hide content while keeping it accessible to screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* Responsive */
