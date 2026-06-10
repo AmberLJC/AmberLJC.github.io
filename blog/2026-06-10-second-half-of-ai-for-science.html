@@ -304,6 +304,7 @@
         margin: 34px 0;
     }
     /* references */
+    .acknowledgements { font-size: 0.88em; color: var(--ink-2); }
     .refs { font-size: 0.88em; color: var(--ink-2); }
     .refs ol { padding-left: 22px; }
     .refs li { margin: 8px 0; line-height: 1.55; }
@@ -369,7 +370,7 @@
 
 <section>
 <h2 id="first-half">The First Half: Racing on Individual Intelligence</h2>
-<p>For the past few years, the AI for Science playbook has been a repeating loop: make the individual AI scientist smarter in terms of literature review, ideation, experimentation or writing. We added more scaffolding, deeper memory, strategic multi-agent orchestration, and self-evolving loop. We'd show a gain on a benchmark, celebrate a flashy demo, and then start over.</p>
+<p>For the past few years, the AI for Science playbook has been a repeating loop: make the individual AI scientist smarter in terms of literature review, ideation, experimentation or writing. We added more scaffolding, deeper memory, more domain-specific agent skills, and self-evolving loop. We'd show a gain on a benchmark, celebrate a flashy demo, and then start over.</p>
 <p>And for a while, it worked brilliantly. AI Scientist v2 [1] pushed a fully AI-generated paper through a peer-reviewed workshop. Biomni [2] began autonomously executing complex biomedical workflows. The Virtual Lab [3] spun up a team of AI agents that successfully designed nanobodies (later validated in actual wet labs). Meanwhile, yardsticks like RE-Bench [4], PaperBench [5], and MLE-Bench [6] gave us ways to measure research engineering, paper reproduction, and ML experimentation &mdash; and we watched those numbers steadily climb.</p>
 
 <!-- FIG 2 · the first-half playbook (HTML recreation of fig-first-half-node.png) -->
@@ -479,15 +480,14 @@
 </figure>
 
 <p class="pull">But the single-agent game has hit diminishing returns.</p>
-<p>First, the marginal returns on clever scaffolding are collapsing. You might build an elaborate multi-agent pipeline to squeeze out a 5% gain on a benchmark, only to watch the next generation of foundation models deliver a 30% jump straight out of the box. Much of what we painstakingly hand-engineer today &mdash; memory systems, multi-agent orchestration, agent skills &mdash; functions as a temporary prosthetic. As foundation models develop better intrinsic reasoning and broader knowledge, they will simply absorb these functions. We've seen this movie before; it's The Bitter Lesson, playing out all over again at the agent level.</p>
+<p>First, the marginal returns on clever scaffolding are collapsing. A friend of mine works on hypothesis generation for protein design. Just a few months ago, their team tried everything they could &mdash; elaborate pipelines, handcrafted heuristics, careful prompting tricks &mdash; to coax better candidates out of the models. Then the latest generation of GPT and Claude arrived, and the quality of their hypotheses jumped significantly, without much scaffolding at all. Much of what we painstakingly hand-engineer today functions as a temporary prosthetic. As foundation models develop better intrinsic reasoning and broader knowledge, they will simply absorb these functions. We've seen this movie before; it's The Bitter Lesson, playing out all over again at the agent level.</p>
 <p>Second, and arguably worse, much of this first-half work optimizes for artificial constraints rather than fundamental needs. We've seen demos that proudly generate 100 papers overnight &mdash; but who was asking for 100 mediocre papers? The ultimate bottleneck in science has never been our paper count. We've built AI scientists to win rebuttal battles with reviewers, optimizing the art of getting past the gate instead of getting the science right. We've built academic-prose polishers to perfect the rigid, formulaic essay of the modern PDF. These tools are locally clever, but globally misguided. They treat the deep dysfunctions of the human research system as unchangeable laws of physics, training AI to excel at our own inefficiencies.</p>
 <p>The first half asked: <em>Can we make one scientist smarter?</em> The answer is a resounding yes, and frontier labs will increasingly deliver that intelligence as a baseline. The harder problem was never the scientist.</p>
 </section>
 
 <section>
 <h2 id="bottleneck">The Real Bottleneck: A Formula 1 Car on a Dirt Road</h2>
-<p>The fundamental flaw in the single-agent framing is that science was never the product of one isolated, brilliant mind.</p>
-<p>Science is inherently collective and generational. It moves forward because thousands of people push in different directions simultaneously. Results collide. Discoveries circulate. Each generation absorbs the hard-won assumptions of the previous one, relies on them, and eventually tears a few of them down. When Newton credited the "shoulders of giants," he wasn't just being modest; he was giving a hyper-accurate description of how knowledge is produced. The unit of scientific progress is the network, not the individual scientist.</p>
+<p>Science is, and always has been, a collective, generational endeavor. It moves forward because thousands of people push in different directions simultaneously. Results collide. Discoveries circulate. Each generation absorbs the hard-won assumptions of the previous one, relies on them, and eventually tears a few of them down. When Newton credited the "shoulders of giants," he wasn't just being modest; he was giving a hyper-accurate description of how knowledge is produced. The unit of scientific progress is the network, not the individual scientist.</p>
 <p>Because of this, the speed of science is dictated by network properties: how fast knowledge moves, how losslessly it transfers, and how cheaply it can be verified and built upon. If you make an individual node 10x smarter but leave the network untouched, you don't get a 10x acceleration in science. You get a Formula 1 car stuck on a road built for horses.</p>
 <p>We built AI scientists with superhuman bandwidth, then dropped them into an ecosystem built for human limits:</p>
 <ul>
@@ -757,22 +757,22 @@
       </g>
       <text x="505" y="166" font-size="10.5" font-style="italic" fill="#8a937f">diff</text>
       <!-- diff card -->
-      <rect x="552" y="62" width="238" height="200" rx="10" fill="#fffdf8" stroke="#d6d9c6" stroke-width="1.3"/>
-      <path d="M 552 90 L 790 90" stroke="#e7e7da" stroke-width="1.2"/>
+      <rect x="552" y="62" width="296" height="200" rx="10" fill="#fffdf8" stroke="#d6d9c6" stroke-width="1.3"/>
+      <path d="M 552 90 L 848 90" stroke="#e7e7da" stroke-width="1.2"/>
       <circle cx="568" cy="76" r="3.5" fill="#c2674b" opacity="0.75"/>
       <circle cx="580" cy="76" r="3.5" fill="#c9a24e" opacity="0.75"/>
       <circle cx="592" cy="76" r="3.5" fill="#7a8c5f" opacity="0.75"/>
       <text x="608" y="80" font-size="10.5" font-family="ui-monospace, Menlo, monospace" fill="#8a937f">results.diff</text>
       <g font-size="11" font-family="ui-monospace, Menlo, monospace">
         <text x="566" y="113" fill="#8a937f">@@ node 47 @@</text>
-        <rect x="558" y="122" width="226" height="17" fill="#f7e6de"/>
+        <rect x="558" y="122" width="284" height="17" fill="#f7e6de"/>
         <text x="566" y="135" fill="#a14e33">- env: stationary</text>
-        <rect x="558" y="143" width="226" height="17" fill="#e8eedd"/>
+        <rect x="558" y="143" width="284" height="17" fill="#e8eedd"/>
         <text x="566" y="156" fill="#5d7045">+ env: drifting</text>
         <text x="566" y="181" fill="#8a937f">@@ results @@</text>
-        <rect x="558" y="190" width="226" height="17" fill="#f7e6de"/>
+        <rect x="558" y="190" width="284" height="17" fill="#f7e6de"/>
         <text x="566" y="203" fill="#a14e33">- claim C3 holds</text>
-        <rect x="558" y="211" width="226" height="17" fill="#e8eedd"/>
+        <rect x="558" y="211" width="284" height="17" fill="#e8eedd"/>
         <text x="566" y="224" fill="#5d7045">+ C3 fails under drift</text>
         <text x="566" y="250" fill="#8a937f" font-size="10">verified by re-execution, not by trust</text>
       </g>
@@ -809,6 +809,11 @@
 </section>
 
 <hr>
+
+<section class="acknowledgements">
+<h2 id="acknowledgements">Acknowledgements</h2>
+<p>Thanks to <a href="https://scholar.google.com/citations?user=HtD-aVUAAAAJ&amp;hl=zh-CN&amp;authuser=1" target="_blank" rel="noopener">Ang Cao</a>, <a href="https://scholar.google.com/citations?user=4GqSgjkAAAAJ&amp;hl=en" target="_blank" rel="noopener">Vandon Duong</a>, <a href="https://scholar.google.com/citations?user=mAHXzngAAAAJ&amp;hl=en" target="_blank" rel="noopener">Velvin Fu</a>, <a href="https://scholar.google.com/citations?user=webEN50AAAAJ&amp;hl=en" target="_blank" rel="noopener">Jintao Huang</a>, <a href="https://scholar.google.com/citations?user=fSyeqzAAAAAJ&amp;hl=en" target="_blank" rel="noopener">Abhishaike Mahajan</a>, and <a href="https://shokuhoumisak1.github.io/" target="_blank" rel="noopener">Chengyang Shi</a> for the thoughtful discussions and feedback that shaped this post.</p>
+</section>
 
 <section class="refs">
 <h2 id="references">References</h2>
