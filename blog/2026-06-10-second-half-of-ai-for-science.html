@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Second Half of AI for Science | Amber Liu</title>
+<meta name="description" content="The true speed limit of science isn't the brilliance of the individual scientist — it's the ecosystem they work within. The second half of AI for Science is about rebuilding the network where human and artificial intelligence compound.">
+<meta name="author" content="Amber Liu">
+<link rel="canonical" href="https://amberljc.github.io/blog/2026-06-10-second-half-of-ai-for-science.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="The Second Half of AI for Science">
+<meta property="og:description" content="Make the node 10x smarter and leave the network untouched — you don't get 10x science. The second half is about paving the roads.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://amberljc.github.io/blog/2026-06-10-second-half-of-ai-for-science.html">
+<meta property="og:site_name" content="Amber Liu">
+<meta property="article:published_time" content="2026-06-10">
+<meta property="article:author" content="Jiachen Liu">
+<meta property="article:section" content="AI Research">
+<meta property="article:tag" content="Agent-Native Research Artifacts">
+<meta property="article:tag" content="AI for Science">
+<meta property="og:image" content="https://amberljc.github.io/imag/nyc-amber.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@JIACHENLIU8">
+<meta name="twitter:title" content="The Second Half of AI for Science">
+<meta name="twitter:description" content="Make the node 10x smarter and leave the network untouched — you don't get 10x science. The second half is about paving the roads.">
+<meta name="twitter:creator" content="@JIACHENLIU8">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "The Second Half of AI for Science",
+      "description": "The true speed limit of science isn't the brilliance of the individual scientist — it's the ecosystem they work within. The second half of AI for Science is about rebuilding the network where human and artificial intelligence compound.",
+      "datePublished": "2026-06-10",
+      "dateModified": "2026-06-10",
+      "author": {
+        "@type": "Person",
+        "name": "Jiachen Liu",
+        "alternateName": "Amber Liu",
+        "url": "https://amberljc.github.io"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://amberljc.github.io/blog/2026-06-10-second-half-of-ai-for-science.html"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Jiachen Liu",
+        "url": "https://amberljc.github.io"
+      },
+      "inLanguage": "en-US",
+      "articleSection": "AI Research",
+      "keywords": ["AI for Science", "Agent-Native Research Artifacts", "ARA", "AI scientists", "scientific ecosystem", "research infrastructure"],
+      "sameAs": "https://arxiv.org/abs/2604.24658"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://amberljc.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://amberljc.github.io/blog.html" },
+        { "@type": "ListItem", "position": 3, "name": "The Second Half of AI for Science" }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+    /* ── Fresh-and-light (小清新) take on the dusk-scholar identity ───────
+       Warm cream paper, sage & lake-teal accents, generous air. Structure
+       follows the reference blog (fixed topnav, single reading column,
+       bordered figure panels), palette follows brand/site.css strata. */
+    :root {
+        --paper:      #fbfaf4;
+        --panel:      #f6f8f0;
+        --panel-2:    #fdfcf8;
+        --ink:        #2c332c;
+        --ink-2:      #55604f;
+        --ink-3:      #8a937f;
+        --line:       #e7e7da;
+        --line-2:     #d6d9c6;
+        --sage:       #7a8c5f;
+        --sage-deep:  #5d7045;
+        --sage-soft:  #e8eedd;
+        --teal:       #569088;
+        --teal-deep:  #3d736c;
+        --teal-soft:  #e2efec;
+        --slate:      #5d6f96;
+        --slate-soft: #e6eaf3;
+        --clay:       #c2674b;
+        --clay-soft:  #f7e6de;
+        --ochre:      #c9a24e;
+        --ochre-soft: #f6eed8;
+        --peach:      #e8a878;
+        --serif: 'Instrument Serif', 'Iowan Old Style', Georgia, serif;
+        --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
+        --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+        margin: 0;
+        padding-top: 76px;
+        background: var(--paper);
+        font-family: var(--sans);
+        font-size: 16.5px;
+        line-height: 1.75;
+        color: var(--ink);
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+    }
+    /* pale watercolour wash behind the header — the one decorative flourish */
+    .hero-wash {
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 460px;
+        pointer-events: none;
+        z-index: -1;
+        background:
+            radial-gradient(420px 260px at 18% 18%, rgba(122,140,95,0.13), transparent 70%),
+            radial-gradient(460px 280px at 82% 8%, rgba(86,144,136,0.12), transparent 70%),
+            radial-gradient(360px 220px at 60% 40%, rgba(232,168,120,0.10), transparent 70%);
+    }
+    .topnav {
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        padding: 0 24px;
+        background: rgba(251, 250, 244, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--line);
+        z-index: 1000;
+    }
+    .topnav a {
+        color: var(--ink-2);
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 500;
+        padding: 8px 14px;
+        border-radius: 8px;
+        margin-right: 8px;
+        transition: all 0.2s ease;
+    }
+    .topnav a:hover { background: var(--sage-soft); color: var(--sage-deep); }
+    .topnav .brand {
+        font-family: var(--serif);
+        font-size: 18px;
+        color: var(--ink);
+        margin-right: 16px;
+    }
+    main { max-width: 760px; margin: 0 auto; padding: 40px 20px 60px; }
+    h1 {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: 2.7rem;
+        line-height: 1.15;
+        color: var(--ink);
+        margin: 18px 0 10px;
+        letter-spacing: -0.01em;
+    }
+    .subtitle {
+        color: var(--ink-3);
+        font-size: 1.18rem;
+        line-height: 1.5;
+        margin: 0;
+    }
+    .blog-meta {
+        margin: 30px 0 6px;
+        padding: 18px 0;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+    .blog-meta p { margin: 0; color: var(--ink-3); font-size: 14px; }
+    .resource-links { display: flex; gap: 10px; flex-wrap: wrap; }
+    .resource-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 15px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        border: 1px solid var(--line-2);
+        background: var(--panel-2);
+        color: var(--ink-2);
+        transition: all 0.2s ease;
+    }
+    .resource-link:hover { border-color: var(--sage); color: var(--sage-deep); background: var(--sage-soft); }
+    h2 {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: 1.7rem;
+        line-height: 1.25;
+        color: var(--ink);
+        margin: 52px 0 4px;
+        scroll-margin-top: 84px;
+    }
+    h2::after {
+        content: '';
+        display: block;
+        width: 44px;
+        height: 3px;
+        border-radius: 2px;
+        background: linear-gradient(90deg, var(--sage), var(--teal));
+        margin-top: 10px;
+        opacity: 0.65;
+    }
+    h3 {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: 1.32rem;
+        color: var(--ink);
+        margin: 36px 0 8px;
+        scroll-margin-top: 84px;
+    }
+    p { margin: 18px 0; color: var(--ink); }
+    article ul, article ol { margin: 18px 0; padding-left: 26px; }
+    article li { margin: 10px 0; }
+    article li::marker { color: var(--sage); }
+    strong { color: var(--ink); font-weight: 600; }
+    a { color: var(--teal-deep); text-decoration: none; border-bottom: 1px solid var(--teal-soft); transition: border-color 0.2s; }
+    a:hover { border-bottom-color: var(--teal); }
+    .lede-quote {
+        text-align: center;
+        font-family: var(--serif);
+        font-size: 1.45rem;
+        line-height: 1.45;
+        color: var(--ink);
+        padding: 26px 18px;
+        margin: 28px 0;
+        border-top: 1px solid var(--line-2);
+        border-bottom: 1px solid var(--line-2);
+    }
+    .lede-quote em { color: var(--sage-deep); font-style: italic; }
+    code {
+        font-family: var(--mono);
+        font-size: 0.86em;
+        background: var(--sage-soft);
+        color: var(--sage-deep);
+        padding: 2px 6px;
+        border-radius: 5px;
+    }
+    .qa {
+        font-family: var(--serif);
+        font-size: 1.25rem;
+        line-height: 1.5;
+        text-align: center;
+        color: var(--ink-2);
+        margin: 30px auto;
+        max-width: 36rem;
+    }
+    .qa .q2 { color: var(--teal-deep); }
+    /* figures */
+    figure { margin: 36px 0; }
+    .fig-panel {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 18px 14px;
+        overflow: hidden;
+    }
+    .fig-panel svg { width: 100%; height: auto; display: block; }
+    .net-live canvas { width: 100%; aspect-ratio: 360 / 252; display: block; }
+    .panel-note { text-align: center; font-size: 12.5px; color: var(--teal-deep); margin: 10px 0 2px; }
+    .fig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: stretch; }
+    .fig-grid .col .cap {
+        font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+        text-transform: uppercase; color: var(--ink-3);
+        text-align: center; margin: 0 0 10px;
+    }
+    figcaption {
+        text-align: center;
+        color: var(--ink-3);
+        font-size: 0.9em;
+        line-height: 1.6;
+        margin-top: 14px;
+        padding: 0 16px;
+    }
+    figcaption em { color: var(--ink-2); }
+    hr { border: none; height: 1px; background: var(--line); margin: 48px 0; }
+    /* pull-line — small sage flourish for one-line beats */
+    .pull {
+        font-family: var(--serif);
+        font-size: 1.3rem;
+        text-align: center;
+        color: var(--sage-deep);
+        margin: 34px 0;
+    }
+    /* references */
+    .refs { font-size: 0.88em; color: var(--ink-2); }
+    .refs ol { padding-left: 22px; }
+    .refs li { margin: 8px 0; line-height: 1.55; }
+    .refs a { word-break: break-all; }
+    /* share bar */
+    .share-bar {
+        display: flex; gap: 10px; align-items: center;
+        padding: 20px 0; margin: 44px 0 0;
+        border-top: 1px solid var(--line);
+    }
+    .share-bar span {
+        font-size: 13px; font-weight: 600; color: var(--ink-3);
+        letter-spacing: 0.04em; text-transform: uppercase; margin-right: 4px;
+    }
+    .share-btn {
+        display: inline-flex; align-items: center; justify-content: center;
+        width: 36px; height: 36px; border-radius: 8px;
+        border: 1px solid var(--line-2); background: var(--panel-2);
+        color: var(--ink-2); transition: all 0.2s ease;
+    }
+    .share-btn:hover { background: var(--sage-soft); border-color: var(--sage); color: var(--sage-deep); transform: translateY(-1px); }
+    .share-btn svg { width: 16px; height: 16px; }
+    footer {
+        border-top: 1px solid var(--line);
+        padding: 22px 24px;
+        color: var(--ink-3);
+        font-size: 13px;
+        text-align: center;
+    }
+    @media (max-width: 700px) {
+        body { padding-top: 66px; font-size: 16px; }
+        h1 { font-size: 2.05rem; }
+        .lede-quote { font-size: 1.2rem; }
+        .fig-grid { grid-template-columns: 1fr; gap: 22px; }
+        .blog-meta { flex-direction: column; align-items: flex-start; }
+    }
+</style>
+</head>
+<body>
+<div class="hero-wash"></div>
+<div class="topnav">
+    <a href="../index.html">Home</a>
+    <a href="../blog.html">Blog</a>
+</div>
+
+<main>
+<article>
+<h1>The Second Half of AI&nbsp;for&nbsp;Science</h1>
+<p class="subtitle">Beyond isolated intelligence — rebuilding the ecosystem where science compounds</p>
+
+<div class="blog-meta">
+    <p>Posted on June 10, 2026 by Amber Liu</p>
+    <div class="resource-links">
+        <a href="https://arxiv.org/abs/2604.24658" target="_blank" rel="noopener" class="resource-link">Paper &rarr;</a>
+        <a href="https://github.com/Orchestra-Research/Agent-Native-Research-Artifact" target="_blank" rel="noopener" class="resource-link">Code &rarr;</a>
+    </div>
+</div>
+
+<p class="lede-quote">The true speed limit of science isn't the brilliance of the individual scientist — it is the <em>ecosystem</em> they work within.</p>
+
+<p><strong>TL;DR:</strong> The first half of the "AI for Science" era focused entirely on making the scientist smarter. The second half must be about rebuilding the ecosystem itself, creating a network where human and artificial intelligence can seamlessly compound.</p>
+
+
+<section>
+<h2 id="first-half">The First Half: Racing on Individual Intelligence</h2>
+<p>For the past few years, the AI for Science playbook has been a repeating loop: make the individual AI scientist smarter in terms of literature review, ideation, experimentation or writing. We added more scaffolding, deeper memory, strategic multi-agent orchestration, and self-evolving loop. We'd show a gain on a benchmark, celebrate a flashy demo, and then start over.</p>
+<p>And for a while, it worked brilliantly. AI Scientist v2 [1] pushed a fully AI-generated paper through a peer-reviewed workshop. Biomni [2] began autonomously executing complex biomedical workflows. The Virtual Lab [3] spun up a team of AI agents that successfully designed nanobodies (later validated in actual wet labs). Meanwhile, yardsticks like RE-Bench [4], PaperBench [5], and MLE-Bench [6] gave us ways to measure research engineering, paper reproduction, and ML experimentation &mdash; and we watched those numbers steadily climb.</p>
+
+<!-- FIG 2 · the first-half playbook (HTML recreation of fig-first-half-node.png) -->
+<figure>
+  <div class="fig-panel">
+    <svg viewBox="0 0 920 545" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+      <text x="22" y="36" font-size="13" font-weight="600" letter-spacing="2" fill="#55604f">THE FIRST-HALF SYSTEM &#8212; ONE NODE, MADE SMARTER</text>
+      <text x="898" y="36" text-anchor="end" font-size="11" font-style="italic" fill="#8a937f">other minds &#8212; unreachable across the wall</text>
+      <circle cx="893" cy="62" r="13" fill="none" stroke="#d6d9c6" stroke-width="1.3" stroke-dasharray="3 4"/>
+      <circle cx="862" cy="80" r="8" fill="none" stroke="#d6d9c6" stroke-width="1.3" stroke-dasharray="3 4"/>
+      <rect x="10" y="52" width="900" height="482" rx="14" fill="#fdfcf8" stroke="#e7e7da"/>
+
+      <!-- bolt-on augmentations -->
+      <text x="130" y="106" text-anchor="middle" font-size="11" font-style="italic" fill="#8a937f">bolt-on augmentations</text>
+      <g>
+        <rect x="30" y="120" width="200" height="48" rx="10" fill="#f1f3ea" stroke="#a9b29a" stroke-width="1.3"/>
+        <rect x="30" y="120" width="6" height="48" rx="3" fill="#a9b29a"/>
+        <text x="130" y="149" text-anchor="middle" font-size="14" fill="#2c332c">Scaffolding</text>
+        <rect x="30" y="188" width="200" height="48" rx="10" fill="#f1f3ea" stroke="#a9b29a" stroke-width="1.3"/>
+        <rect x="30" y="188" width="6" height="48" rx="3" fill="#a9b29a"/>
+        <text x="130" y="217" text-anchor="middle" font-size="14" fill="#2c332c">Memory</text>
+        <rect x="30" y="256" width="200" height="48" rx="10" fill="#f1f3ea" stroke="#a9b29a" stroke-width="1.3"/>
+        <rect x="30" y="256" width="6" height="48" rx="3" fill="#a9b29a"/>
+        <text x="130" y="285" text-anchor="middle" font-size="14" fill="#2c332c">Multi-agent</text>
+        <rect x="30" y="324" width="200" height="48" rx="10" fill="#f1f3ea" stroke="#a9b29a" stroke-width="1.3"/>
+        <rect x="30" y="324" width="6" height="48" rx="3" fill="#a9b29a"/>
+        <text x="130" y="353" text-anchor="middle" font-size="14" fill="#2c332c">Self-evolving Loop</text>
+      </g>
+      <g stroke="#b9bfae" stroke-width="1.4" fill="none">
+        <path d="M 230 144 Q 295 146 334 198"/>
+        <path d="M 230 212 Q 290 214 328 234"/>
+        <path d="M 230 280 Q 290 278 328 266"/>
+        <path d="M 230 348 Q 295 344 334 302"/>
+      </g>
+
+      <!-- the loop -->
+      <g stroke="#aab0a0" stroke-width="2.4" fill="none" stroke-linecap="round">
+        <path d="M 380 135 A 140 140 0 0 1 540 135"/>
+        <path d="M 575 170 A 140 140 0 0 1 575 330"/>
+        <path d="M 540 365 A 140 140 0 0 1 380 365"/>
+        <path d="M 345 330 A 140 140 0 0 1 345 170"/>
+      </g>
+      <g fill="#aab0a0">
+        <path d="M 540 135 L 529 130 L 534 142 Z"/>
+        <path d="M 575 330 L 584 322 L 578 318 Z"/>
+        <path d="M 380 365 L 387 374 L 391 368 Z"/>
+        <path d="M 345 170 L 342 181 L 336 177 Z"/>
+      </g>
+      <g>
+        <circle cx="361" cy="151" r="11" fill="#fdfcf8" stroke="#aab0a0" stroke-width="1.5"/>
+        <text x="361" y="155" text-anchor="middle" font-size="11" font-weight="600" fill="#55604f">1</text>
+        <text x="344" y="132" text-anchor="end" font-size="11" font-style="italic" fill="#55604f">add scaffolding</text>
+        <circle cx="559" cy="151" r="11" fill="#fdfcf8" stroke="#aab0a0" stroke-width="1.5"/>
+        <text x="559" y="155" text-anchor="middle" font-size="11" font-weight="600" fill="#55604f">2</text>
+        <text x="566" y="125" text-anchor="middle" font-size="11" font-style="italic" fill="#55604f">+5% on a benchmark</text>
+        <circle cx="559" cy="349" r="11" fill="#fdfcf8" stroke="#aab0a0" stroke-width="1.5"/>
+        <text x="559" y="353" text-anchor="middle" font-size="11" font-weight="600" fill="#55604f">3</text>
+        <text x="578" y="372" font-size="11" font-style="italic" fill="#55604f">ship a demo</text>
+        <circle cx="361" cy="349" r="11" fill="#fdfcf8" stroke="#aab0a0" stroke-width="1.5"/>
+        <text x="361" y="353" text-anchor="middle" font-size="11" font-weight="600" fill="#55604f">4</text>
+        <text x="344" y="372" text-anchor="end" font-size="11" font-style="italic" fill="#55604f">start over</text>
+      </g>
+
+      <!-- the node -->
+      <circle cx="460" cy="250" r="105" fill="#fcecdd" stroke="#dca57e" stroke-width="2.5"/>
+      <text x="460" y="248" text-anchor="middle" font-size="26" font-weight="600" fill="#2c332c">AI Scientist</text>
+      <text x="460" y="274" text-anchor="middle" font-size="13" fill="#b07a52">a single smarter node</text>
+
+      <!-- benchmarks panel -->
+      <path d="M 600 250 L 654 250" stroke="#b9bfae" stroke-width="1.6" fill="none"/>
+      <path d="M 660 250 L 649 245 L 649 255 Z" fill="#b9bfae"/>
+      <rect x="670" y="115" width="225" height="290" rx="12" fill="#faf8ee" stroke="#ddd6b9" stroke-width="1.2"/>
+      <text x="782" y="141" text-anchor="middle" font-size="12" font-weight="600" fill="#998c5e">Benchmarks climb (then flatten)</text>
+      <g>
+        <rect x="688" y="155" width="189" height="64" rx="8" fill="#fdfcf8" stroke="#eae8d8"/>
+        <text x="698" y="172" font-size="10.5" fill="#55604f">RE-Bench</text>
+        <path d="M 698 209 C 738 181 768 173 867 170" stroke="#c4b384" stroke-width="2" fill="none"/>
+        <rect x="688" y="235" width="189" height="64" rx="8" fill="#fdfcf8" stroke="#eae8d8"/>
+        <text x="698" y="252" font-size="10.5" fill="#55604f">PaperBench</text>
+        <path d="M 698 289 C 738 261 768 253 867 250" stroke="#c4b384" stroke-width="2" fill="none"/>
+        <rect x="688" y="315" width="189" height="64" rx="8" fill="#fdfcf8" stroke="#eae8d8"/>
+        <text x="698" y="332" font-size="10.5" fill="#55604f">MLE-Bench</text>
+        <path d="M 698 369 C 738 341 768 333 867 330" stroke="#c4b384" stroke-width="2" fill="none"/>
+      </g>
+
+      <!-- pick one stage → pipeline -->
+      <path d="M 352 360 Q 262 420 232 452" stroke="#b9bfae" stroke-width="1.6" fill="none"/>
+      <path d="M 229 457 L 233 446 L 241 452 Z" fill="#b9bfae"/>
+      <text x="305" y="426" font-size="11" font-style="italic" fill="#8a937f">pick one stage</text>
+      <text x="860" y="452" text-anchor="end" font-size="11" font-style="italic" fill="#8a937f">the research pipeline</text>
+      <g>
+        <rect x="105" y="462" width="170" height="44" rx="10" fill="#f0f4e8" stroke="#a8b496" stroke-width="1.3"/>
+        <text x="190" y="489" text-anchor="middle" font-size="13" fill="#2c332c">Literature Review</text>
+        <path d="M 280 484 L 294 484 M 296 484 l -6 -4 m 6 4 l -6 4" stroke="#9aa688" stroke-width="1.6" fill="none"/>
+        <rect x="302" y="462" width="130" height="44" rx="10" fill="#f0f4e8" stroke="#a8b496" stroke-width="1.3"/>
+        <text x="367" y="489" text-anchor="middle" font-size="13" fill="#2c332c">Ideation</text>
+        <path d="M 437 484 L 451 484 M 453 484 l -6 -4 m 6 4 l -6 4" stroke="#9aa688" stroke-width="1.6" fill="none"/>
+        <rect x="459" y="462" width="170" height="44" rx="10" fill="#f0f4e8" stroke="#a8b496" stroke-width="1.3"/>
+        <text x="544" y="489" text-anchor="middle" font-size="13" fill="#2c332c">Experimentation</text>
+        <path d="M 634 484 L 648 484 M 650 484 l -6 -4 m 6 4 l -6 4" stroke="#9aa688" stroke-width="1.6" fill="none"/>
+        <rect x="656" y="462" width="120" height="44" rx="10" fill="#f0f4e8" stroke="#a8b496" stroke-width="1.3"/>
+        <text x="716" y="489" text-anchor="middle" font-size="13" fill="#2c332c">Writing</text>
+      </g>
+    </svg>
+  </div>
+  <figcaption>The first-half playbook in one picture: bolt more scaffolding, memory, and multi-agent orchestration onto a single AI scientist, point it at one stage of the pipeline, show a benchmark gain, ship a demo, repeat. The node gets smarter &#8212; but it stays a single node, unable to reach the other minds working alongside it.</figcaption>
+</figure>
+
+<p class="pull">But the single-agent game has hit diminishing returns.</p>
+<p>First, the marginal returns on clever scaffolding are collapsing. You might build an elaborate multi-agent pipeline to squeeze out a 5% gain on a benchmark, only to watch the next generation of foundation models deliver a 30% jump straight out of the box. Much of what we painstakingly hand-engineer today &mdash; memory systems, multi-agent orchestration, agent skills &mdash; functions as a temporary prosthetic. As foundation models develop better intrinsic reasoning and broader knowledge, they will simply absorb these functions. We've seen this movie before; it's The Bitter Lesson, playing out all over again at the agent level.</p>
+<p>Second, and arguably worse, much of this first-half work optimizes for artificial constraints rather than fundamental needs. We've seen demos that proudly generate 100 papers overnight &mdash; but who was asking for 100 mediocre papers? The ultimate bottleneck in science has never been our paper count. We've built AI scientists to win rebuttal battles with reviewers, optimizing the art of getting past the gate instead of getting the science right. We've built academic-prose polishers to perfect the rigid, formulaic essay of the modern PDF. These tools are locally clever, but globally misguided. They treat the deep dysfunctions of the human research system as unchangeable laws of physics, training AI to excel at our own inefficiencies.</p>
+<p>The first half asked: <em>Can we make one scientist smarter?</em> The answer is a resounding yes, and frontier labs will increasingly deliver that intelligence as a baseline. The harder problem was never the scientist.</p>
+</section>
+
+<section>
+<h2 id="bottleneck">The Real Bottleneck: A Formula 1 Car on a Dirt Road</h2>
+<p>The fundamental flaw in the single-agent framing is that science was never the product of one isolated, brilliant mind.</p>
+<p>Science is inherently collective and generational. It moves forward because thousands of people push in different directions simultaneously. Results collide. Discoveries circulate. Each generation absorbs the hard-won assumptions of the previous one, relies on them, and eventually tears a few of them down. When Newton credited the "shoulders of giants," he wasn't just being modest; he was giving a hyper-accurate description of how knowledge is produced. The unit of scientific progress is the network, not the individual scientist.</p>
+<p>Because of this, the speed of science is dictated by network properties: how fast knowledge moves, how losslessly it transfers, and how cheaply it can be verified and built upon. If you make an individual node 10x smarter but leave the network untouched, you don't get a 10x acceleration in science. You get a Formula 1 car stuck on a road built for horses.</p>
+<p>We built AI scientists with superhuman bandwidth, then dropped them into an ecosystem built for human limits:</p>
+<ul>
+<li><strong>The PDF.</strong> An AI scientist can run ten thousand experiments and hold reasoning traces no human mind could, yet to "publish" it must crush all of that into eight pages of linear prose &mdash; which another AI scientist then burns effort decompressing back into executable logic, guessing at the details the narrative stripped out. It's two superhuman intelligences talking through a format built for human readers three centuries ago, and the compression deletes exactly what AI scientists need most: the dead ends, the precise specifications, the real failures.
+
+<!-- FIG 3 · PDF — a lossy codec in both directions -->
+<figure>
+  <div class="fig-panel">
+    <svg viewBox="0 0 920 372" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+      <!-- left: what the AI scientist knows -->
+      <text x="140" y="42" text-anchor="middle" font-size="11" font-weight="600" letter-spacing="1.2" fill="#55604f">WHAT THE AI SCIENTIST KNOWS</text>
+      <text x="140" y="59" text-anchor="middle" font-size="10.5" font-style="italic" fill="#8a937f">ten thousand experiments &#183; the full reasoning trace</text>
+      <g stroke="#8a937f" stroke-width="1.5" fill="none" stroke-linecap="round">
+        <path d="M 140 96 Q 100 120 72 144"/>
+        <path d="M 140 96 L 140 144"/>
+        <path d="M 140 96 Q 180 120 208 144"/>
+        <path d="M 70 152 Q 55 180 47 204"/>
+        <path d="M 70 152 Q 85 180 93 204"/>
+        <path d="M 140 152 Q 128 180 121 204"/>
+        <path d="M 208 152 Q 222 180 231 204"/>
+        <path d="M 93 212 Q 85 240 80 262"/>
+      </g>
+      <g stroke="#7aa884" stroke-width="2" fill="none" stroke-linecap="round">
+        <path d="M 140 152 Q 155 180 164 204"/>
+        <path d="M 165 212 L 165 262"/>
+      </g>
+      <circle cx="140" cy="90" r="7" fill="none" stroke="#55604f" stroke-width="1.8"/>
+      <g fill="none" stroke="#8a937f" stroke-width="1.5">
+        <circle cx="70" cy="148" r="5"/><circle cx="140" cy="148" r="5"/><circle cx="208" cy="148" r="5"/>
+        <circle cx="93" cy="208" r="4.5"/>
+      </g>
+      <g stroke="#c98a6b" stroke-width="2" stroke-linecap="round">
+        <path d="M 42 206 L 52 216 M 52 206 L 42 216"/>
+        <path d="M 116 206 L 126 216 M 126 206 L 116 216"/>
+        <path d="M 226 206 L 236 216 M 236 206 L 226 216"/>
+        <path d="M 75 264 L 85 274 M 85 264 L 75 274"/>
+      </g>
+      <!-- what each dead branch held — exactly what the funnel will drop -->
+      <g font-size="8.5" font-weight="500">
+        <rect x="14" y="222" width="66" height="15" rx="7.5" fill="#f9ece4" stroke="#c98a6b" stroke-width="0.9"/>
+        <text x="47" y="232.5" text-anchor="middle" fill="#b06a4a">&#10007; dead ends</text>
+        <rect x="184" y="222" width="80" height="15" rx="7.5" fill="#f9ece4" stroke="#c98a6b" stroke-width="0.9"/>
+        <text x="224" y="232.5" text-anchor="middle" fill="#b06a4a">&#10007; precise specs</text>
+        <rect x="33" y="280" width="94" height="15" rx="7.5" fill="#f9ece4" stroke="#c98a6b" stroke-width="0.9"/>
+        <text x="80" y="290.5" text-anchor="middle" fill="#b06a4a">&#10007; real failures</text>
+      </g>
+      <circle cx="165" cy="208" r="4.5" fill="none" stroke="#7aa884" stroke-width="1.8"/>
+      <circle cx="165" cy="270" r="8" fill="none" stroke="#7aa884" stroke-width="2.2"/>
+      <path d="M 160 270 L 164 275 L 171 265" stroke="#7aa884" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="140" y="314" text-anchor="middle" font-size="10" fill="#8a937f">branches &#183; specs &#183; failures &#183; one success</text>
+
+      <!-- funnel 1: compress -->
+      <text x="335" y="118" text-anchor="middle" font-size="11" font-style="italic" fill="#7d937a">compress</text>
+      <path d="M 285 130 L 385 183 L 385 217 L 285 290 Z" fill="#eef2e9" stroke="#a3b298" stroke-width="1.4" stroke-linejoin="round"/>
+      <g stroke="#bcc7af" stroke-width="1.1" fill="none">
+        <path d="M 293 152 L 380 192"/>
+        <path d="M 293 210 L 380 200"/>
+        <path d="M 293 268 L 380 208"/>
+      </g>
+
+      <!-- the 8-page PDF -->
+      <path d="M 405 135 L 487 135 L 515 163 L 515 285 L 405 285 Z" fill="#fffdf8" stroke="#c98a6b" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M 487 135 L 487 163 L 515 163" fill="#f9ece4" stroke="#c98a6b" stroke-width="1.3" stroke-linejoin="round"/>
+      <rect x="420" y="150" width="40" height="19" rx="4" fill="#c98a6b"/>
+      <text x="440" y="164" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fffdf8">PDF</text>
+      <g stroke="#ddd3c2" stroke-width="3" stroke-linecap="round">
+        <path d="M 420 192 L 500 192"/>
+        <path d="M 420 207 L 492 207"/>
+        <path d="M 420 222 L 500 222"/>
+        <path d="M 420 237 L 484 237"/>
+        <path d="M 420 252 L 498 252"/>
+        <path d="M 420 267 L 462 267"/>
+      </g>
+      <text x="460" y="312" text-anchor="middle" font-size="11" fill="#b06a4a">8 pages of linear narrative</text>
+
+      <!-- funnel 2: decompress -->
+      <text x="585" y="118" text-anchor="middle" font-size="11" font-style="italic" fill="#557b72">decompress</text>
+      <path d="M 535 183 L 635 130 L 635 290 L 535 217 Z" fill="#eaf2ef" stroke="#94b5ad" stroke-width="1.4" stroke-linejoin="round"/>
+      <g stroke="#aac8c0" stroke-width="1.1" stroke-dasharray="4 4" fill="none">
+        <path d="M 540 192 L 627 152"/>
+        <path d="M 540 200 L 627 210"/>
+        <path d="M 540 208 L 627 268"/>
+      </g>
+      <g font-size="14" font-weight="700" fill="#c98a6b">
+        <text x="584" y="178">?</text>
+        <text x="598" y="212">?</text>
+        <text x="583" y="252">?</text>
+      </g>
+
+      <!-- right: what the next AI recovers -->
+      <text x="780" y="42" text-anchor="middle" font-size="11" font-weight="600" letter-spacing="1.2" fill="#557b72">WHAT THE NEXT AI RECOVERS</text>
+      <text x="780" y="59" text-anchor="middle" font-size="10.5" font-style="italic" fill="#8a937f">from eight pages, only one storyline can be rebuilt</text>
+      <circle cx="700" cy="210" r="22" fill="#eaf2ef" stroke="#94b5ad" stroke-width="1.8"/>
+      <text x="700" y="215" text-anchor="middle" font-size="12" font-weight="600" fill="#557b72">AI</text>
+      <g stroke="#7aa884" stroke-width="2" fill="none" stroke-linecap="round">
+        <path d="M 800 112 L 800 153"/>
+        <path d="M 800 167 L 800 208"/>
+        <path d="M 800 222 L 800 261"/>
+      </g>
+      <circle cx="800" cy="105" r="6.5" fill="none" stroke="#7aa884" stroke-width="1.8"/>
+      <circle cx="800" cy="160" r="5" fill="none" stroke="#7aa884" stroke-width="1.8"/>
+      <circle cx="800" cy="215" r="5" fill="none" stroke="#7aa884" stroke-width="1.8"/>
+      <circle cx="800" cy="272" r="8" fill="none" stroke="#7aa884" stroke-width="2.2"/>
+      <path d="M 795 272 L 799 277 L 806 267" stroke="#7aa884" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="818" y="185" font-size="9.5" fill="#7aa884">the winning path,</text>
+      <text x="818" y="197" font-size="9.5" fill="#7aa884">and nothing else</text>
+      <text x="790" y="316" text-anchor="middle" font-size="10" fill="#8a937f">only the winning path survives &#8212;</text>
+      <text x="790" y="330" text-anchor="middle" font-size="10" fill="#8a937f">the map of where not to go is gone</text>
+    </svg>
+  </div>
+  <figcaption>The PDF is a lossy codec in both directions: one superhuman intelligence compresses a vast exploration tree into eight pages, and another spends enormous effort decompressing it &#8212; guessing at what was stripped away. What's lost is exactly what AI scientists need most: <em>the dead ends, the precise specifications, the real failures</em>.</figcaption>
+</figure>
+</li>
+<li><strong>Peer Review.</strong> We currently rely on three exhausted humans, dedicating a few hours each over several months, to judge work that is increasingly produced &mdash; and entirely consumable &mdash; by machines. These machines could verify claims instantly by simply re-executing the code.</li>
+<li><strong>Incentives.</strong> Our scientific reward system &mdash; citations, prestige, grant committees &mdash; operates as a pure attention economy. Attention is the scarcest resource in human cognition, so we built our entire metric of success around capturing it. But AI scientists do not have an attention bottleneck. If you point them at an attention economy, you get exactly what you'd expect: paper mills running at machine speed, aggressively salami-sliced results, and endless benchmark gaming. The most embarrassing AI demos of the first half aren't bugs in the technology; they are the inevitable result of something with infinite stamina perfectly optimizing our deeply flawed reward system.</li>
+</ul>
+<p>When the nature of the bottleneck shifts, the rules of the game have to change. The second half of AI for Science isn't about making the car any faster. It's about paving the roads.</p>
+</section>
+
+<section>
+<h2 id="second-half">The Second Half: Paving the Roads</h2>
+<p>How do we rebuild a scientific ecosystem that feels native to AI, rather than actively hostile to it? The place to begin is the most basic primitive of all: how we document research knowledge.</p>
+
+<!-- FIG 1 · hero — node vs network -->
+<figure>
+  <div class="fig-grid">
+    <div class="col">
+      <p class="cap">Making a Smarter Node</p>
+      <div class="fig-panel">
+        <svg viewBox="0 0 360 290" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+          <defs>
+            <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#e8a878" stop-opacity="0.65"/>
+              <stop offset="55%" stop-color="#e8a878" stop-opacity="0.22"/>
+              <stop offset="100%" stop-color="#e8a878" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <!-- milestone rings: the node keeps being scaled up -->
+          <circle cx="180" cy="132" r="52" fill="none" stroke="#dbb693" stroke-width="1.1" stroke-dasharray="4 5" opacity="0.9"/>
+          <circle cx="180" cy="132" r="78" fill="none" stroke="#dbb693" stroke-width="1" stroke-dasharray="3 6" opacity="0.65"/>
+          <circle cx="180" cy="132" r="104" fill="none" stroke="#dbb693" stroke-width="1" stroke-dasharray="2 7" opacity="0.45"/>
+          <text x="224" y="96" font-size="10.5" fill="#c08e62">2&#215;</text>
+          <text x="243" y="77" font-size="10.5" fill="#c08e62">5&#215;</text>
+          <text x="261" y="58" font-size="12" font-weight="700" fill="#c8784a">10&#215;</text>
+          <!-- expanding pulse: the glow never stops growing -->
+          <g fill="none" stroke="#e0976b" stroke-width="1.6">
+            <circle cx="180" cy="132" r="30">
+              <animate attributeName="r" values="28;110" dur="3.6s" begin="0s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.6;0" dur="3.6s" begin="0s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="180" cy="132" r="30">
+              <animate attributeName="r" values="28;110" dur="3.6s" begin="-1.2s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.6;0" dur="3.6s" begin="-1.2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="180" cy="132" r="30">
+              <animate attributeName="r" values="28;110" dur="3.6s" begin="-2.4s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.6;0" dur="3.6s" begin="-2.4s" repeatCount="indefinite"/>
+            </circle>
+          </g>
+          <!-- breathing glow + core -->
+          <circle cx="180" cy="132" r="54" fill="url(#nodeGlow)">
+            <animate attributeName="r" values="48;62;48" dur="3.6s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.75;1;0.75" dur="3.6s" repeatCount="indefinite"/>
+          </circle>
+          <!-- the AI Scientist: a little robot, floating alone -->
+          <g>
+            <animateTransform attributeName="transform" type="translate" values="0 0; 0 -3.5; 0 0" dur="3.6s" repeatCount="indefinite"/>
+            <circle cx="180" cy="92" r="3.5" fill="#c8784a">
+              <animate attributeName="opacity" values="1;0.35;1" dur="1.8s" repeatCount="indefinite"/>
+            </circle>
+            <path d="M 180 95.5 L 180 102" stroke="#c8784a" stroke-width="2" stroke-linecap="round"/>
+            <rect x="162" y="102" width="36" height="28" rx="9" fill="#f3c49e" stroke="#c8784a" stroke-width="2"/>
+            <circle cx="172" cy="114" r="2.8" fill="#8a4a26"/>
+            <circle cx="188" cy="114" r="2.8" fill="#8a4a26"/>
+            <path d="M 174 121 Q 180 125 186 121" stroke="#8a4a26" stroke-width="1.7" fill="none" stroke-linecap="round"/>
+            <rect x="160" y="132" width="40" height="30" rx="10" fill="#fbe3d0" stroke="#c8784a" stroke-width="1.8"/>
+            <rect x="170" y="138" width="20" height="14" rx="3" fill="#fffdf6" stroke="#c8784a" stroke-width="1.2"/>
+            <text x="180" y="148.5" text-anchor="middle" font-size="9.5" font-family="ui-monospace, Menlo, monospace" fill="#3d736c">{ }</text>
+            <path d="M 159 138 Q 150 142 148 152" stroke="#c8784a" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <path d="M 201 138 Q 210 142 212 152" stroke="#c8784a" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <path d="M 171 162 L 171 171 M 189 162 L 189 171" stroke="#c8784a" stroke-width="4.5" stroke-linecap="round"/>
+          </g>
+          <!-- other minds: present, but no edge ever forms -->
+          <g fill="none" stroke="#c9ccba" stroke-width="1.4">
+            <circle cx="38" cy="44" r="7"/>
+            <circle cx="324" cy="240" r="7"/>
+            <circle cx="36" cy="240" r="7"/>
+          </g>
+          <g stroke="#c9ccba" stroke-width="1.1" stroke-dasharray="3 6" opacity="0.8">
+            <path d="M 110 84 L 60 54"/>
+            <path d="M 256 184 L 306 228"/>
+            <path d="M 108 180 L 58 228"/>
+          </g>
+          <text x="54" y="24" font-size="9.5" fill="#8a937f">other minds,</text>
+          <text x="54" y="35" font-size="9.5" fill="#8a937f">unreachable</text>
+          <text x="180" y="272" text-anchor="middle" font-size="12" fill="#55604f">The node gets brighter &#8212; and stays alone. Zero edges.</text>
+        </svg>
+      </div>
+    </div>
+    <div class="col">
+      <p class="cap">It Is the Network</p>
+      <div class="fig-panel net-live">
+          <canvas id="netcanvas" aria-label="A dense network where the edges glow brighter than the nodes"></canvas>
+          <p class="panel-note">The edges carry the compounding, not the nodes.</p>
+      </div>
+    </div>
+  </div>
+  <figcaption>Make the node 10&#215;, leave the network untouched, and you don't get 10&#215; science. The unit of scientific progress was never the scientist &#8212; it is the network.</figcaption>
+</figure>
+
+<h3 id="ara-protocol">The Research Artifact as a Protocol</h3>
+<p>Human civilization didn't start compounding knowledge just because our brains got larger &mdash; anatomically modern brains predate civilization by hundreds of thousands of years. Knowledge truly started compounding when we invented language, and it exploded when we invented writing. The foundational primitive we use to encode knowledge determines whether that knowledge can accumulate at all.</p>
+<p>For three centuries, science's core primitive has been the paper. But the paper is not a neutral container. It is a highly specific protocol optimized for human readers: it is linear, narrative, and persuasive. And it quietly levies two massive structural taxes that we've simply accepted as normal:</p>
+<ul>
+<li><strong>The Storytelling Tax:</strong> The messy, branching, failure-riddled reality of actual research gets sanitized into a clean, linear story. Everything that didn't fit that neat narrative &mdash; the rejected hypotheses, the failed runs, the entire exploration tree &mdash; is thrown in the trash.</li>
+<li><strong>The Engineering Tax:</strong> Prose that perfectly satisfies a human reviewer is wildly insufficient as a technical specification. The granular details an AI scientist would actually need to reproduce and build upon the work were simply never written down.</li>
+</ul>
+<p>Humans tolerate these taxes. AI scientists are crushed by them.</p>
+<p>What AI scientists need is an <strong>Agent-Native Research Artifact (ARA)</strong>, which we propose in our recent paper (provocatively titled <em>The Last Human-Written Paper</em> [7]). Rather than a narrative written for casual reading, an ARA is the basic unit for systematically documenting research knowledge so that <strong>AI scientists can evolve collectively</strong> on top of it: a complete computational entity that carries the scientific logic, executable code with full specifications, evidence linking every claim back to its raw outputs, and the entire exploration graph, preserving the vital dead ends that a traditional paper would throw away.</p>
+<p>We measured this against the three things an AI scientist actually does with a piece of research: understand it, reproduce it, and build on it. On understanding, when the same work is handed over as an ARA instead of a PDF, an AI scientist's question-answering accuracy across 450 questions jumps from 72.4% to 93.7%. On reproduction, end-to-end success rises from 57.4% to 64.4% &mdash; a smaller gain, because reproduction is bounded as much by the model's own capability as by the artifact it reads. And on extension, preserving the failure traces that a PDF deletes measurably speeds up the next AI scientist, since knowing what <em>doesn't</em> work is half the battle in research and precisely the half the paper format throws away.</p>
+<p>But changing the format is just the beginning. The real paradigm shift is what the format unlocks: AI scientists actively <strong>forking, exchanging, and composing</strong> executable research.</p>
+<p>Instead of an AI scientist saying, "I read your paper and was inspired," the interaction becomes: "I forked your artifact at experiment node 47, swapped out your environment assumption, and my new results are immediately diff-able against yours." Knowledge ceases to be something you summarize; it becomes something you inherit, exactly like open-source code. The moment research becomes natively forkable, science finally gets its version control, its dependency graph, and its <code>git blame</code>. Intelligence can finally compound across the entire network, rather than dying inside a single context window.</p>
+
+<!-- FIG 4 · fork &amp; diff — git for science -->
+<figure>
+  <div class="fig-panel">
+    <svg viewBox="0 0 880 330" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+      <text x="70" y="68" font-size="10.5" font-weight="600" letter-spacing="1.4" fill="#5d6f96">ORIGINAL ARTIFACT</text>
+      <!-- main lane -->
+      <path d="M 70 110 L 452 110" stroke="#5d6f96" stroke-width="2.2" stroke-linecap="round"/>
+      <g fill="#e6eaf3" stroke="#5d6f96" stroke-width="1.8">
+        <circle cx="105" cy="110" r="8"/>
+        <circle cx="165" cy="110" r="8"/>
+        <circle cx="225" cy="110" r="8"/>
+        <circle cx="305" cy="110" r="8"/>
+        <circle cx="365" cy="110" r="8"/>
+      </g>
+      <g font-size="10" font-family="ui-monospace, Menlo, monospace" fill="#8a937f" text-anchor="middle">
+        <text x="105" y="136">45</text>
+        <text x="165" y="136">46</text>
+        <text x="305" y="136">48</text>
+        <text x="365" y="136">49</text>
+      </g>
+      <!-- node 47, the fork point -->
+      <circle cx="225" cy="110" r="14" fill="none" stroke="#c9a24e" stroke-width="2"/>
+      <text x="225" y="88" text-anchor="middle" font-size="10.5" font-weight="600" font-family="ui-monospace, Menlo, monospace" fill="#7d6326">node 47</text>
+      <!-- result A -->
+      <circle cx="460" cy="110" r="9" fill="#e6eaf3" stroke="#5d6f96" stroke-width="2"/>
+      <path d="M 455 110 L 459 115 L 466 104" stroke="#5d6f96" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="460" y="88" text-anchor="middle" font-size="10.5" fill="#5d6f96">result A</text>
+      <!-- fork branch -->
+      <path d="M 228 121 C 258 158, 262 210, 308 210 L 450 210" stroke="#569088" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+      <text x="238" y="176" text-anchor="end" font-size="10.5" font-weight="600" letter-spacing="1.2" fill="#3d736c">FORK @ NODE 47</text>
+      <!-- swap point -->
+      <path d="M 350 196 L 364 210 L 350 224 L 336 210 Z" fill="#f6eed8" stroke="#c9a24e" stroke-width="1.8" stroke-linejoin="round"/>
+      <text x="340" y="246" text-anchor="middle" font-size="10.5" fill="#7d6326">swap: environment assumption</text>
+      <circle cx="415" cy="210" r="8" fill="#e2efec" stroke="#569088" stroke-width="1.8"/>
+      <text x="415" y="236" text-anchor="middle" font-size="10" font-family="ui-monospace, Menlo, monospace" fill="#8a937f">47&#8242;</text>
+      <!-- result B -->
+      <circle cx="460" cy="210" r="9" fill="#e2efec" stroke="#569088" stroke-width="2"/>
+      <path d="M 455 210 L 459 215 L 466 204" stroke="#3d736c" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="462" y="186" text-anchor="middle" font-size="10.5" fill="#3d736c">result B &#8212; yours, hours later</text>
+      <!-- diff connectors -->
+      <g stroke="#b9bfae" stroke-width="1.3" stroke-dasharray="3 4" fill="none">
+        <path d="M 470 110 C 500 110, 512 130, 546 144"/>
+        <path d="M 470 210 C 500 210, 512 190, 546 176"/>
+      </g>
+      <text x="505" y="166" font-size="10.5" font-style="italic" fill="#8a937f">diff</text>
+      <!-- diff card -->
+      <rect x="552" y="62" width="238" height="200" rx="10" fill="#fffdf8" stroke="#d6d9c6" stroke-width="1.3"/>
+      <path d="M 552 90 L 790 90" stroke="#e7e7da" stroke-width="1.2"/>
+      <circle cx="568" cy="76" r="3.5" fill="#c2674b" opacity="0.75"/>
+      <circle cx="580" cy="76" r="3.5" fill="#c9a24e" opacity="0.75"/>
+      <circle cx="592" cy="76" r="3.5" fill="#7a8c5f" opacity="0.75"/>
+      <text x="608" y="80" font-size="10.5" font-family="ui-monospace, Menlo, monospace" fill="#8a937f">results.diff</text>
+      <g font-size="11" font-family="ui-monospace, Menlo, monospace">
+        <text x="566" y="113" fill="#8a937f">@@ node 47 @@</text>
+        <rect x="558" y="122" width="226" height="17" fill="#f7e6de"/>
+        <text x="566" y="135" fill="#a14e33">- env: stationary</text>
+        <rect x="558" y="143" width="226" height="17" fill="#e8eedd"/>
+        <text x="566" y="156" fill="#5d7045">+ env: drifting</text>
+        <text x="566" y="181" fill="#8a937f">@@ results @@</text>
+        <rect x="558" y="190" width="226" height="17" fill="#f7e6de"/>
+        <text x="566" y="203" fill="#a14e33">- claim C3 holds</text>
+        <rect x="558" y="211" width="226" height="17" fill="#e8eedd"/>
+        <text x="566" y="224" fill="#5d7045">+ C3 fails under drift</text>
+        <text x="566" y="250" fill="#8a937f" font-size="10">verified by re-execution, not by trust</text>
+      </g>
+      <!-- what the format unlocks -->
+      <g font-size="11" font-family="ui-monospace, Menlo, monospace" fill="#5d6f96">
+        <rect x="239" y="288" width="128" height="24" rx="12" fill="#e6eaf3" stroke="#c3cbdd"/>
+        <text x="303" y="304" text-anchor="middle">version control</text>
+        <rect x="383" y="288" width="142" height="24" rx="12" fill="#e6eaf3" stroke="#c3cbdd"/>
+        <text x="454" y="304" text-anchor="middle">dependency graph</text>
+        <rect x="541" y="288" width="100" height="24" rx="12" fill="#e6eaf3" stroke="#c3cbdd"/>
+        <text x="591" y="304" text-anchor="middle">git blame</text>
+      </g>
+    </svg>
+  </div>
+  <figcaption>"I forked your artifact at experiment node 47, swapped out your environment assumption, and my new results are immediately diff-able against yours." The moment research becomes natively forkable, science gets its version control, its dependency graph, and its <em>git blame</em>.</figcaption>
+</figure>
+
+<h3 id="human-role">The Human Role: From Road-Builders to Stewards</h3>
+<p>If AI networks compound knowledge at a thousand kilometers an hour, human cognition cannot physically keep pace to oversee every step. We have to give up the illusion of micro-managing the scientific process. Our role moves up the stack &mdash; not "drivers" relying on personal taste, but system architects anchored to physical reality and societal needs. The manual execution and the infinite hypothesis testing go to the machines, while humans focus on macro-control:</p>
+<p><strong>Target definition and compute allocation</strong> &mdash; Instead of evaluating every intermediate hypothesis, humans will define the ultimate societal goals (e.g., "design a carbon-negative concrete") and allocate the compute budget. We shift from being the laborers of science to its clients and investors.</p>
+<p><strong>Epistemic anchoring</strong> &mdash; We will no longer read raw literature. Instead, we will rely on specialized Interpretability AIs whose sole job is to translate hyper-dimensional AI research graphs into human-comprehensible risk/reward models, ensuring we understand the macro-implications of the network's discoveries.</p>
+<p><strong>The physical failsafe</strong> &mdash; Crucially, humans must guard the firewall between digital discovery and physical reality. To prevent machine-speed catastrophes in high-risk fields like synthetic biology, "alignment" must become hard engineering.</p>
+</section>
+
+<section>
+<h2 id="picture-it">Picture It</h2>
+<p>When you put all these pieces together, the second half of AI for Science looks like this:</p>
+<p>A human articulates a complex problem. A vast population of AI scientists fans out across the hypothesis space. They don't publish static papers; they publish living, executable artifacts. These artifacts are forked, composed, stress-tested, and re-executed by peer AI scientists in a matter of hours, not across multi-month review cycles. Verification happens continuously and mechanically. Failed branches are treated as first-class knowledge.</p>
+<p>The "literature" ceases to be a dusty pile of disconnected PDFs. It becomes a single, continuously growing, executable tree of everything the network knows and exactly how it knows it. Humans walk the canopy of that tree &mdash; pruning, steering, and occasionally gasping at the view.</p>
+
+<p>The first half asked how smart one scientist could be; the second asks how fast a network of them can compound. That's a problem of ecosystem, not capability &mdash; harder to benchmark and to demo, but where almost all of our future acceleration lives, because the gap between AI's bandwidth and our legacy ecosystem's is the only thing still holding us back. The first half built smarter scientists; the second gets to rebuild science itself.</p>
+
+<p class="pull">Welcome to the second half.</p>
+</section>
+
+<hr>
+
+<section class="refs">
+<h2 id="references">References</h2>
+<ol>
+<li>Yamada, Y. et al. <em>The AI Scientist-v2: Workshop-Level Automated Scientific Discovery via Agentic Tree Search.</em> arXiv:2504.08066. <a href="https://arxiv.org/abs/2504.08066" target="_blank" rel="noopener">arxiv.org/abs/2504.08066</a></li>
+<li>Huang, K. et al. <em>Biomni: A General-Purpose Biomedical AI Agent.</em> bioRxiv 2025.05.30.656746. <a href="https://www.biorxiv.org/content/10.1101/2025.05.30.656746v1" target="_blank" rel="noopener">biorxiv.org</a></li>
+<li>Swanson, K. et al. <em>The Virtual Lab of AI agents designs new SARS-CoV-2 nanobodies.</em> Nature (2025). <a href="https://www.nature.com/articles/s41586-025-09442-9" target="_blank" rel="noopener">nature.com</a></li>
+<li>Wijk, H. et al. <em>RE-Bench: Evaluating Frontier AI R&amp;D Capabilities of Language Model Agents Against Human Experts.</em> arXiv:2411.15114. <a href="https://arxiv.org/abs/2411.15114" target="_blank" rel="noopener">arxiv.org/abs/2411.15114</a></li>
+<li>Starace, G. et al. <em>PaperBench: Evaluating AI's Ability to Replicate AI Research.</em> arXiv:2504.01848. <a href="https://arxiv.org/abs/2504.01848" target="_blank" rel="noopener">arxiv.org/abs/2504.01848</a></li>
+<li>Chan, J. S. et al. <em>MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering.</em> arXiv:2410.07095. <a href="https://arxiv.org/abs/2410.07095" target="_blank" rel="noopener">arxiv.org/abs/2410.07095</a></li>
+<li><em>The Last Human-Written Paper.</em> arXiv:2604.24658. <a href="https://arxiv.org/abs/2604.24658" target="_blank" rel="noopener">arxiv.org/abs/2604.24658</a></li>
+</ol>
+</section>
+
+<div class="share-bar">
+    <span>Share</span>
+    <a href="https://twitter.com/intent/tweet?text=The%20Second%20Half%20of%20AI%20for%20Science&url=https://amberljc.github.io/blog/2026-06-10-second-half-of-ai-for-science.html" target="_blank" rel="noopener" class="share-btn" aria-label="Share on X">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/>
+        </svg>
+    </a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://amberljc.github.io/blog/2026-06-10-second-half-of-ai-for-science.html" target="_blank" rel="noopener" class="share-btn" aria-label="Share on LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="currentColor"/>
+        </svg>
+    </a>
+</div>
+
+
+
+
+
+</article>
+</main>
+
+<footer>&copy; AmberLJC</footer>
+
+<script>
+/* Particle network (canvas-particle-network style), tuned to the page palette.
+   Lines fade with distance and outshine the nodes; gentle drift; hover links
+   the cursor in; honours prefers-reduced-motion with a single static frame. */
+(function () {
+    var canvas = document.getElementById('netcanvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var DPR = Math.min(window.devicePixelRatio || 1, 2);
+    var W = 0, H = 0, pts = [];
+    var LINK = 88, GRAB = 110, BLINK = 150;
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var mouse = { x: -1e3, y: -1e3 };
+
+    function seed() {
+        /* jittered grid: evenly woven from the very first frame */
+        var n = Math.max(16, Math.round(Math.sqrt(W * H) / 15));
+        LINK = Math.min(155, Math.max(88, W * 0.19));
+        BLINK = LINK * 1.7;
+        var cols = Math.max(1, Math.round(Math.sqrt(n * W / H)));
+        var rows = Math.max(1, Math.ceil(n / cols));
+        var cw = W / cols, ch = H / rows;
+        pts = [];
+        for (var gy = 0; gy < rows; gy++) {
+            for (var gx = 0; gx < cols; gx++) {
+                if (pts.length >= n) break;
+                pts.push({
+                    x: (gx + 0.18 + Math.random() * 0.64) * cw,
+                    y: (gy + 0.18 + Math.random() * 0.64) * ch,
+                    vx: (Math.random() - 0.5) * 0.36,
+                    vy: (Math.random() - 0.5) * 0.36,
+                    r: 1.2 + Math.random() * 1.3
+                });
+            }
+        }
+        /* a few of the particles are AI scientists */
+        var hop = Math.max(1, Math.floor(pts.length / 6)), made = 0;
+        for (var k = 0; k < pts.length && made < 6; k += hop, made++) {
+            pts[k].bot = true;
+            pts[k].vx *= 0.6; pts[k].vy *= 0.6;
+        }
+    }
+    function resize() {
+        var w = canvas.clientWidth, h = canvas.clientHeight;
+        if (!w || !h) return;
+        W = w; H = h;
+        canvas.width = Math.round(w * DPR);
+        canvas.height = Math.round(h * DPR);
+        ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+        seed();
+    }
+    function drawBot(p) {
+        var x = p.x, y = p.y;
+        ctx.fillStyle = '#fffdf6';
+        ctx.strokeStyle = '#3d8a80';
+        ctx.lineWidth = 1.2;
+        ctx.beginPath();
+        if (ctx.roundRect) ctx.roundRect(x - 5.5, y - 4, 11, 8.5, 2.5);
+        else ctx.rect(x - 5.5, y - 4, 11, 8.5);
+        ctx.fill(); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(x, y - 4); ctx.lineTo(x, y - 7.5); ctx.stroke();
+        ctx.fillStyle = '#c8784a';
+        ctx.beginPath(); ctx.arc(x, y - 8.8, 1.6, 0, 6.2832); ctx.fill();
+        ctx.fillStyle = '#3d736c';
+        ctx.beginPath(); ctx.arc(x - 2.3, y + 0.2, 1.05, 0, 6.2832); ctx.fill();
+        ctx.beginPath(); ctx.arc(x + 2.3, y + 0.2, 1.05, 0, 6.2832); ctx.fill();
+    }
+    function step() {
+        ctx.clearRect(0, 0, W, H);
+        var now = performance.now() / 1000;
+        var i, j, p, q, dx, dy, d, a, t;
+        for (i = 0; i < pts.length; i++) {
+            p = pts[i];
+            p.x += p.vx; p.y += p.vy;
+            if (p.x < 10 || p.x > W - 10) p.vx *= -1;
+            if (p.y < 12 || p.y > H - 10) p.vy *= -1;
+        }
+        for (i = 0; i < pts.length; i++) {
+            for (j = i + 1; j < pts.length; j++) {
+                p = pts[i]; q = pts[j];
+                dx = p.x - q.x; dy = p.y - q.y;
+                d = Math.sqrt(dx * dx + dy * dy);
+                if (p.bot && q.bot && d < BLINK) {
+                    /* scientists collaborating: a warmer, stronger link */
+                    a = 0.55 * (1 - d / BLINK);
+                    ctx.strokeStyle = 'rgba(196,116,72,' + a.toFixed(3) + ')';
+                    ctx.lineWidth = 1.4;
+                    ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
+                    /* knowledge travelling between them */
+                    t = (now / 2.6 + i * 0.13 + j * 0.07) % 1;
+                    ctx.fillStyle = 'rgba(196,116,72,' + (0.9 * (1 - d / BLINK)).toFixed(3) + ')';
+                    ctx.beginPath();
+                    ctx.arc(q.x + dx * t, q.y + dy * t, 2.1, 0, 6.2832);
+                    ctx.fill();
+                } else if (d < LINK) {
+                    a = 0.62 * (1 - d / LINK);
+                    ctx.strokeStyle = 'rgba(61,138,128,' + a.toFixed(3) + ')';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
+                }
+            }
+        }
+        ctx.lineWidth = 1;
+        /* the cursor joins the network */
+        for (i = 0; i < pts.length; i++) {
+            p = pts[i];
+            dx = p.x - mouse.x; dy = p.y - mouse.y;
+            d = Math.sqrt(dx * dx + dy * dy);
+            if (d < GRAB) {
+                a = 0.5 * (1 - d / GRAB);
+                ctx.strokeStyle = 'rgba(200,120,74,' + a.toFixed(3) + ')';
+                ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
+            }
+        }
+        /* plain nodes stay dim; the scientists are drawn as little robots */
+        for (i = 0; i < pts.length; i++) {
+            p = pts[i];
+            if (p.bot) { drawBot(p); continue; }
+            ctx.fillStyle = 'rgba(140,152,124,0.5)';
+            ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.2832); ctx.fill();
+        }
+    }
+    var running = false, raf;
+    function loop() { step(); if (running) raf = requestAnimationFrame(loop); }
+    function start() { if (!running && !reduced) { running = true; raf = requestAnimationFrame(loop); } }
+    function stop() { running = false; cancelAnimationFrame(raf); }
+
+    canvas.addEventListener('mousemove', function (e) {
+        var r = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+    });
+    canvas.addEventListener('mouseleave', function () { mouse.x = -1e3; mouse.y = -1e3; });
+    window.addEventListener('resize', function () { resize(); if (reduced) step(); });
+
+    resize();
+    step();
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (es) {
+            es[0].isIntersecting ? start() : stop();
+        }).observe(canvas);
+    } else { start(); }
+})();
+</script>
+</body>
+</html>

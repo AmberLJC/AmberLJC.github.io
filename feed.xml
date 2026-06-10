@@ -11,12 +11,48 @@
     <language>en-US</language>
     <managingEditor>jiachenliu8@gmail.com (Jiachen Liu)</managingEditor>
     <webMaster>jiachenliu8@gmail.com (Jiachen Liu)</webMaster>
-    <lastBuildDate>Thu, 27 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jun 2026 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://amberljc.github.io/imag/nyc-amber.jpg</url>
       <title>Jiachen (Amber) Liu - AI Research Blog</title>
       <link>https://amberljc.github.io/blog.html</link>
     </image>
+
+    <item>
+      <title>The Second Half of AI for Science</title>
+      <link>https://amberljc.github.io/blog/2026-06-10-second-half-of-ai-for-science.html</link>
+      <guid isPermaLink="true">https://amberljc.github.io/blog/2026-06-10-second-half-of-ai-for-science.html</guid>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 +0000</pubDate>
+      <dc:creator>Jiachen (Amber) Liu</dc:creator>
+      <category>article</category>
+      <category>AI for Science</category>
+      <category>Agent-Native Research Artifacts</category>
+      <description>The true speed limit of science isn't the brilliance of the individual scientist — it's the ecosystem they work within. The second half of AI for Science is about rebuilding the network where human and artificial intelligence compound.</description>
+    </item>
+
+    <item>
+      <title>The Last Human-Written Paper: Agent-Native Research Artifacts</title>
+      <link>https://amberljc.github.io/blog/2026-04-24-the-last-human-written-paper.html</link>
+      <guid isPermaLink="true">https://amberljc.github.io/blog/2026-04-24-the-last-human-written-paper.html</guid>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
+      <dc:creator>Jiachen (Amber) Liu</dc:creator>
+      <category>research</category>
+      <category>Agent-Native Research Artifacts</category>
+      <category>AI agents</category>
+      <description>When neither the author nor the audience is human, the three-century-old paper format stops making sense. Agent-Native Research Artifacts restructure the paper into a machine-executable knowledge package.</description>
+    </item>
+
+    <item>
+      <title>The Golden Age of Research Starts Now</title>
+      <link>https://amberljc.github.io/blog/2026-04-09-golden-age-of-research.html</link>
+      <guid isPermaLink="true">https://amberljc.github.io/blog/2026-04-09-golden-age-of-research.html</guid>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      <dc:creator>Jiachen (Amber) Liu</dc:creator>
+      <category>article</category>
+      <category>AI research</category>
+      <category>citizen science</category>
+      <description>A new wave of citizen scientists is coming, and it will dwarf anything history has seen. As AI collapses the execution layer of science, research stops being a career and becomes a capability.</description>
+    </item>
 
     <item>
       <title>I Built an Auto Research Claw Too. I'm Begging You Not to Trust It.</title>
