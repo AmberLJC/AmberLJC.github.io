@@ -2,64 +2,608 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Research Engineering Skills | Jiachen (Amber) Liu</title>
-<meta name="description" content="The essential engineering skills needed for modern AI research — bridging the gap between research ideas and working systems. By Jiachen (Amber) Liu.">
-<meta name="author" content="Jiachen Liu">
-<link rel="canonical" href="https://www.orchestra-research.com/perspectives/ai-research-skills">
+<title>AI Research Engineering Skills | Amber Liu</title>
+<meta name="description" content="The engineering layer for AI research agents. 82 modular skills across 20 categories (model architecture, fine-tuning, distributed training, inference, RLHF, and more) to empower AI agents for end-to-end scientific experimentation.">
+<meta name="author" content="Amber Liu">
+<link rel="canonical" href="https://amberljc.github.io/blog/2025-11-20-ai-research-skills.html">
 
 <!-- Open Graph -->
 <meta property="og:title" content="AI Research Engineering Skills">
-<meta property="og:description" content="Essential engineering skills for modern AI research — bridging research ideas and working systems.">
+<meta property="og:description" content="Modularized knowledge packages for AI research experiments. 82 skills across 20 categories to empower AI agents for end-to-end scientific experimentation.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://www.orchestra-research.com/perspectives/ai-research-skills">
-<meta property="og:site_name" content="Jiachen (Amber) Liu">
+<meta property="og:url" content="https://amberljc.github.io/blog/2025-11-20-ai-research-skills.html">
+<meta property="og:site_name" content="Amber Liu">
 <meta property="article:published_time" content="2025-11-20">
 <meta property="article:author" content="Jiachen Liu">
 <meta property="article:section" content="AI Research">
 <meta property="article:tag" content="AI research">
 <meta property="article:tag" content="engineering skills">
-<meta property="article:tag" content="research methodology">
+<meta property="article:tag" content="AI agents">
+<meta property="og:image" content="https://amberljc.github.io/blog/figs/perspectives/ai-research-skills.png">
 
 <!-- Twitter Card -->
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@JIACHENLIU8">
 <meta name="twitter:title" content="AI Research Engineering Skills">
-<meta name="twitter:description" content="Essential engineering skills for modern AI research — bridging research ideas and working systems.">
+<meta name="twitter:description" content="Modularized knowledge packages for AI research experiments. 82 skills across 20 categories.">
 <meta name="twitter:creator" content="@JIACHENLIU8">
+<meta name="twitter:image" content="https://amberljc.github.io/blog/figs/perspectives/ai-research-skills.png">
 
 <!-- Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "AI Research Engineering Skills",
-  "description": "The essential engineering skills needed for modern AI research — bridging the gap between research ideas and working systems.",
-  "datePublished": "2025-11-20",
-  "author": {
-    "@type": "Person",
-    "name": "Jiachen Liu",
-    "alternateName": "Amber Liu",
-    "url": "https://amberljc.github.io"
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "Jiachen Liu",
-    "url": "https://amberljc.github.io"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://www.orchestra-research.com/perspectives/ai-research-skills"
-  },
-  "inLanguage": "en-US",
-  "keywords": ["AI research", "engineering skills", "research methodology", "ML engineering", "systems research"]
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "AI Research Engineering Skills",
+      "description": "Modularized knowledge packages for AI research experiments. 82 skills across 20 categories to empower AI agents for end-to-end scientific experimentation.",
+      "datePublished": "2025-11-20",
+      "dateModified": "2025-11-20",
+      "author": {
+        "@type": "Person",
+        "name": "Jiachen Liu",
+        "alternateName": "Amber Liu",
+        "url": "https://amberljc.github.io"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://amberljc.github.io/blog/2025-11-20-ai-research-skills.html"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Jiachen Liu",
+        "url": "https://amberljc.github.io"
+      },
+      "image": "https://amberljc.github.io/blog/figs/perspectives/ai-research-skills.png",
+      "inLanguage": "en-US",
+      "articleSection": "AI Research",
+      "keywords": ["AI research", "machine learning", "LLM", "fine-tuning", "distributed training", "inference", "RLHF", "skills", "AI agents"]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://amberljc.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://amberljc.github.io/blog.html" },
+        { "@type": "ListItem", "position": 3, "name": "AI Research Engineering Skills" }
+      ]
+    }
+  ]
 }
 </script>
 
-<meta http-equiv="refresh" content="0; url=https://www.orchestra-research.com/perspectives/ai-research-skills">
-<script>window.location.href = "https://www.orchestra-research.com/perspectives/ai-research-skills";</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+    :root {
+        --primary-color: #37352f;
+        --border-color: #e1e5e9;
+        --background-color: #ffffff;
+        --hover-bg: #f7f6f3;
+    }
+    body {
+        margin-top: 80px;
+        background-color: var(--background-color);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        line-height: 1.7;
+        color: #374151;
+    }
+    .topnav {
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        background-color: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid #e5e7eb;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        overflow: hidden;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        height: 60px;
+        padding: 0 24px;
+        margin: 0;
+    }
+    .topnav a {
+        display: block;
+        color: #374151;
+        text-align: center;
+        padding: 8px 16px;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        border-radius: 8px;
+        margin: 0 12px 0 0;
+    }
+    .topnav a:hover { background-color: #f3f4f6; color: #1f2937; }
+    .blog-meta {
+        margin: 28px 0;
+        padding: 20px 0;
+        border-bottom: 1px solid #e5e7eb;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+    .blog-meta p { margin: 0; color: #6b7280; font-size: 14px; }
+    .blog-meta a { color: #6b7280; text-decoration: none; }
+    .blog-meta a:hover { color: #111827; }
+    .resource-links { display: flex; gap: 10px; flex-wrap: wrap; }
+    .resource-link {
+        display: inline-flex; align-items: center; gap: 6px;
+        padding: 6px 14px; border-radius: 999px; text-decoration: none;
+        font-size: 13px; font-weight: 500; transition: all 0.2s ease;
+        border: 1px solid #e5e7eb; background: #ffffff; color: #374151;
+    }
+    .resource-link:hover { background: #f9fafb; border-color: #9ca3af; color: #111827; }
+    .resource-link:active, .demo a.cta:active { transform: translateY(1px); }
+    h1 {
+        color: #111827 !important;
+        font-size: 2.25rem !important;
+        font-weight: 700 !important;
+        line-height: 1.2 !important;
+        margin: 24px 0 16px 0 !important;
+    }
+    .subtitle {
+        color: #9097a0;
+        font-size: 1.2rem;
+        font-weight: 400;
+        line-height: 1.5;
+        margin: 0;
+    }
+    h2 {
+        color: #1f2937 !important;
+        font-size: 1.5rem !important;
+        font-weight: 600 !important;
+        margin: 32px 0 16px 0 !important;
+        line-height: 1.3 !important;
+        scroll-margin-top: 80px;
+    }
+    article p { margin: 20px 0; color: #374151; }
+    a.inline-link { color: #111418; text-decoration: underline; text-underline-offset: 2px; }
+    code.kw {
+        background: #f3f4f6;
+        padding: 1px 6px;
+        border-radius: 5px;
+        font-size: 0.9em;
+        color: #2451b3;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    article figure { margin: 36px 0; }
+    figure img {
+        display: block;
+        width: 70%;
+        max-width: 480px;
+        margin: 0 auto;
+        border-radius: 10px;
+        border: 1px solid #e5e7eb;
+    }
+    figcaption { text-align: center; color: #6b7280; font-size: 0.9em; margin-top: 12px; }
+
+    /* Install box */
+    .install {
+        background: #0f172a;
+        border-radius: 12px;
+        padding: 26px 28px;
+        margin: 28px 0;
+        color: #e2e8f0;
+    }
+    .install h3 { color: #fff; font-size: 1.15rem; font-weight: 600; margin: 0 0 12px; }
+    .install h4 { color: #fff; font-size: 1rem; font-weight: 600; margin: 22px 0 10px; }
+    .install p { color: #cbd5e1; margin: 0 0 14px; font-size: 0.97rem; }
+    .install .cmd {
+        background: #1e293b;
+        border-radius: 8px;
+        padding: 14px 16px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.85rem;
+        overflow-x: auto;
+        margin: 0 0 14px;
+    }
+    .install .cmd code { color: #4ade80; display: block; white-space: pre; }
+
+    /* Key ideas callout */
+    .callout {
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 24px 26px;
+        margin: 28px 0;
+    }
+    .callout .ct { font-weight: 600; color: #111827; margin: 0 0 14px; font-size: 1.05rem; }
+    .callout ul { margin: 0; padding: 0; list-style: none; }
+    .callout li { display: flex; gap: 12px; margin: 12px 0; color: #3f444a; }
+    .callout li::before { content: "•"; color: #9ca3af; flex-shrink: 0; }
+
+    /* Demo box */
+    .demo {
+        background: linear-gradient(135deg, #eef2ff 0%, #faf5ff 100%);
+        border: 1px solid #c7d2fe;
+        border-radius: 12px;
+        padding: 26px 28px;
+        margin: 28px 0;
+    }
+    .demo h3 { color: #111827; font-size: 1.2rem; font-weight: 600; margin: 0 0 12px; }
+    .demo p { margin: 0 0 14px; color: #3f444a; }
+    .demo a.cta {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 10px 18px; border-radius: 8px;
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        color: #fff; text-decoration: none; font-weight: 500; font-size: 0.95rem;
+    }
+    .demo a.cta:hover { opacity: 0.92; }
+
+    /* Vision box */
+    .vision {
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 24px 26px;
+        margin: 32px 0;
+    }
+    .vision h2 { margin: 0 0 12px !important; font-size: 1.35rem !important; }
+    .vision p { margin: 0; color: #3f444a; }
+
+    /* Details / expanders */
+    details {
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        margin: 8px 0;
+        overflow: hidden;
+    }
+    details summary {
+        cursor: pointer;
+        list-style: none;
+        padding: 14px 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 600;
+        color: #1f2937;
+        font-size: 1rem;
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::after {
+        content: "▾";
+        margin-left: auto;
+        color: #9ca3af;
+        transition: transform 0.2s ease;
+    }
+    details[open] summary::after { transform: rotate(180deg); }
+    details summary:hover { background: #f9fafb; }
+    details summary .count {
+        font-size: 12px; font-weight: 500; color: #6b7280;
+        background: #f3f4f6; padding: 2px 10px; border-radius: 999px;
+    }
+    .skill-list {
+        border-top: 1px solid #e5e7eb;
+        background: #f9fafb;
+        padding: 16px 20px;
+        margin: 0;
+        list-style: none;
+    }
+    .skill-list li { margin: 10px 0; color: #3f444a; font-size: 0.98rem; }
+    .skill-list li strong { color: #111827; }
+    .skills-grid { margin: 24px 0; }
+
+    /* Skills table inside install box */
+    .skills-table-wrap { margin-top: 8px; }
+    .skills-table-wrap > summary { color: #cbd5e1; padding: 0; background: none; font-weight: 500; font-size: 0.95rem; }
+    .skills-table-wrap[open] > summary { margin-bottom: 12px; }
+    .skills-table-wrap > summary:hover { color: #fff; background: none; }
+    .skills-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    .skills-table th { text-align: left; padding: 8px 12px 8px 0; color: #94a3b8; font-weight: 500; border-bottom: 1px solid #334155; }
+    .skills-table td { padding: 8px 12px 8px 0; color: #cbd5e1; vertical-align: top; border-bottom: 1px solid #1e293b; }
+    .skills-table code { color: #60a5fa; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+
+    hr { border: none; height: 1px; background: #e5e7eb; margin: 40px 0; }
+    .endnote { border-top: 1px solid #e5e7eb; margin-top: 40px; padding-top: 24px; }
+    .endnote p { font-size: 13px; color: #6b7280; text-align: center; margin: 4px 0; }
+
+    @media (max-width: 768px) {
+        body { margin-top: 70px; }
+        .topnav { height: 60px; padding: 0 16px; }
+        .topnav a { padding: 8px 12px; font-size: 14px; margin-right: 8px; }
+        .blog-meta { flex-direction: column; align-items: flex-start; }
+        h1 { font-size: 1.875rem !important; }
+        figure img { width: 92%; max-width: none; }
+    }
+</style>
 </head>
-<body>
-<p>Redirecting to <a href="https://www.orchestra-research.com/perspectives/ai-research-skills">AI Research Engineering Skills</a>...</p>
+<body class="bg-white text-black">
+<div class="topnav">
+<a href="../index.html">Home</a>
+<a href="../blog.html">Blog</a>
+</div>
+
+<main class="max-w-3xl mx-auto px-4 py-10">
+<article class="prose max-w-none article-content">
+<h1 class="text-3xl font-bold text-black">AI Research Engineering <code class="kw">skills</code></h1>
+<p class="subtitle">The engineering layer for AI research agents.</p>
+
+<div class="blog-meta">
+    <p>Posted on November 20, 2025 by
+       <a href="https://www.linkedin.com/in/jiachen-amber-liu-872506169/" target="_blank" rel="noopener">Amber Liu</a>
+    </p>
+    <div class="resource-links">
+        <a href="https://github.com/Orchestra-Research/AI-research-SKILLs" target="_blank" rel="noopener" class="resource-link">GitHub &rarr;</a>
+    </div>
+</div>
+
+<section class="mt-6">
+<p>Today's AI research demands excellence in two distinct areas: algorithmic innovation and systems engineering. Unfortunately, the systems side often becomes a bottleneck for scientific progress, as researchers spend valuable time wrestling with distributed training configs and data pipelines instead of iterating on their ideas. While AI coding agents promise to help, they frequently stumble in this specialized domain. General-purpose programming capability is not enough when the software ecosystem moves this fast; an agent might write valid Python, but it often lacks the deep, up-to-date context required to navigate the complex, rapidly evolving tools used in modern AI experimentation.</p>
+
+<p>This is the motivation behind our <a class="inline-link" href="https://github.com/Orchestra-Research/AI-research-SKILLs" target="_blank" rel="noopener">AI Research Engineering <code class="kw">Skills</code> Library</a>. We built this open-source project to empower coding agents with the specific, modular engineering knowledge they need to act as capable research assistants. By covering the entire experimental workflow, from preparing high-quality datasets to configuring complex training loops and conducting rigorous evaluations, this library enables agents to handle the heavy lifting of infrastructure software. This allows researchers to stop fighting with frameworks and focus entirely on the science.</p>
+
+<figure>
+  <img src="figs/perspectives/ai-research-skills.png" alt="AI Research Engineering Skills system architecture">
+  <figcaption>The AI Research Engineering <code class="kw">Skills</code> Library</figcaption>
+</figure>
+
+<h2 id="introducing">Introducing the AI Research Engineering Skills Library</h2>
+
+<p>Our <a class="inline-link" href="https://github.com/Orchestra-Research/AI-research-SKILLs" target="_blank" rel="noopener">AI Research Engineering <code class="kw">Skills</code> Library</a> is the most comprehensive open-source library of AI research engineering <code class="kw">skills</code>, designed to empower AI agents to autonomously conduct AI research via <em>end-to-end scientific experimentation</em>: preparing datasets, executing training pipelines, deploying models, or analyzing results, just like a real researcher. We believe this is one of the most important puzzles towards a real AI Research Agent.</p>
+
+<p>Our focus is on quality over quantity (82 <code class="kw">skills</code> across 20 categories). Each skill offers comprehensive, expert-level guidance complete with real-world code examples, troubleshooting guides, and production-ready workflows.</p>
+
+<div class="install">
+  <h3>📦 Quick Install (Recommended)</h3>
+  <p>Use the interactive installer that auto-detects installed agents and offers installation by category or individual skills:</p>
+  <div class="cmd"><code>npx @orchestra-research/ai-research-skills</code></div>
+  <h4>Claude Code Marketplace Alternative</h4>
+  <p>Install individual skills directly from the marketplace:</p>
+  <div class="cmd"><code>/plugin marketplace add orchestra-research/AI-research-SKILLs
+/plugin install fine-tuning@ai-research-skills</code></div>
+  <details class="skills-table-wrap">
+    <summary>Available skills (82 total)</summary>
+    <div style="overflow-x:auto;">
+    <table class="skills-table">
+      <thead><tr><th>Category</th><th>Skills</th></tr></thead>
+      <tbody>
+        <tr><td>Model Architecture</td><td><code>litgpt</code>, <code>mamba</code>, <code>nanogpt</code>, <code>rwkv</code>, <code>torchtitan</code></td></tr>
+        <tr><td>Tokenization</td><td><code>huggingface-tokenizers</code>, <code>sentencepiece</code></td></tr>
+        <tr><td>Fine-Tuning</td><td><code>axolotl</code>, <code>llama-factory</code>, <code>peft</code>, <code>unsloth</code></td></tr>
+        <tr><td>Mechanistic Interpretability</td><td><code>transformerlens</code>, <code>saelens</code>, <code>pyvene</code>, <code>nnsight</code></td></tr>
+        <tr><td>Data Processing</td><td><code>nemo-curator</code>, <code>ray-data</code></td></tr>
+        <tr><td>Post-Training</td><td><code>fine-tuning-with-trl</code>, <code>grpo-rl-training</code>, <code>openrlhf</code>, <code>simpo</code>, <code>verl</code>, <code>slime</code>, <code>miles</code>, <code>torchforge</code></td></tr>
+        <tr><td>Safety</td><td><code>constitutional-ai</code>, <code>llamaguard</code>, <code>nemo-guardrails</code></td></tr>
+        <tr><td>Distributed Training</td><td><code>accelerate</code>, <code>deepspeed</code>, <code>megatron</code>, <code>pytorch-fsdp</code>, <code>pytorch-lightning</code>, <code>ray-train</code></td></tr>
+        <tr><td>Infrastructure</td><td><code>lambda-labs</code>, <code>modal</code>, <code>skypilot</code></td></tr>
+        <tr><td>Optimization</td><td><code>awq</code>, <code>bitsandbytes</code>, <code>flash-attention</code>, <code>gguf</code>, <code>gptq</code>, <code>hqq</code></td></tr>
+        <tr><td>Evaluation</td><td><code>lm-eval-harness</code>, <code>bigcode-harness</code>, <code>nemo-evaluator</code></td></tr>
+        <tr><td>Inference</td><td><code>llama-cpp</code>, <code>sglang</code>, <code>tensorrt-llm</code>, <code>vllm</code></td></tr>
+        <tr><td>MLOps</td><td><code>mlflow</code>, <code>tensorboard</code>, <code>weights-and-biases</code></td></tr>
+        <tr><td>Agents</td><td><code>autogpt</code>, <code>crewai</code>, <code>langchain</code>, <code>llamaindex</code></td></tr>
+        <tr><td>RAG</td><td><code>chroma</code>, <code>faiss</code>, <code>pinecone</code>, <code>qdrant</code>, <code>sentence-transformers</code></td></tr>
+        <tr><td>Prompt Engineering</td><td><code>dspy</code>, <code>guidance</code>, <code>instructor</code>, <code>outlines</code></td></tr>
+        <tr><td>Observability</td><td><code>langsmith</code>, <code>phoenix</code></td></tr>
+        <tr><td>Multimodal</td><td><code>audiocraft</code>, <code>blip-2</code>, <code>clip</code>, <code>llava</code>, <code>segment-anything</code>, <code>stable-diffusion</code>, <code>whisper</code></td></tr>
+        <tr><td>Emerging Techniques</td><td><code>knowledge-distillation</code>, <code>long-context</code>, <code>model-merging</code>, <code>model-pruning</code>, <code>moe-training</code>, <code>speculative-decoding</code></td></tr>
+        <tr><td>ML Paper Writing</td><td><code>ml-paper-writing</code></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </details>
+</div>
+
+<div class="skills-grid">
+  <details><summary>📦 Model Architecture <span class="count">5 skills</span></summary>
+    <ul class="skill-list">
+      <li><strong>LitGPT:</strong> Lightning AI's library of over 20 clean, optimized LLM implementations with production-grade training recipes.</li>
+      <li><strong>Mamba:</strong> State-space model with O(n) complexity, up to 5× faster than Transformers.</li>
+      <li><strong>RWKV:</strong> RNN+Transformer hybrid with infinite context length, now a Linux Foundation project.</li>
+      <li><strong>NanoGPT:</strong> Andrej Karpathy's educational GPT implementation in ~300 lines of clean code.</li>
+      <li><strong>TorchTitan:</strong> PyTorch native distributed training framework for large-scale models with composable parallelism.</li>
+    </ul>
+  </details>
+  <details><summary>🔤 Tokenization <span class="count">2 skills</span></summary>
+    <ul class="skill-list">
+      <li><strong>HuggingFace Tokenizers:</strong> Rust-based tokenization processing at &lt;20s/GB, supporting BPE, WordPiece, and Unigram algorithms.</li>
+      <li><strong>SentencePiece:</strong> Language-independent tokenization at 50k sentences/sec, used by T5 and ALBERT.</li>
+    </ul>
+  </details>
+  <details><summary>🎯 Fine-Tuning <span class="count">4 skills</span></summary>
+    <ul class="skill-list">
+      <li><strong>Axolotl:</strong> YAML-based fine-tuning framework supporting 100+ models.</li>
+      <li><strong>LLaMA-Factory:</strong> WebUI-based no-code fine-tuning platform.</li>
+      <li><strong>Unsloth:</strong> Optimized library for 2× faster QLoRA fine-tuning.</li>
+      <li><strong>PEFT:</strong> Hugging Face's Parameter-Efficient Fine-Tuning library for LoRA, QLoRA, and adapters.</li>
+    </ul>
+  </details>
+  <details><summary>🧠 Mechanistic Interpretability <span class="count">4 skills</span></summary>
+    <ul class="skill-list">
+      <li><strong>TransformerLens:</strong> Library for mechanistic interpretability of GPT-style models with activation patching and causal tracing.</li>
+      <li><strong>SAELens:</strong> Sparse autoencoder library for understanding neural network features and circuits.</li>
+      <li><strong>pyvene:</strong> Intervention-based interpretability library for causal analysis of neural networks.</li>
+      <li><strong>nnsight:</strong> Remote model inspection and intervention for interpretability research at scale.</li>
+    </ul>
+  </details>
+  <details><summary>📊 Data Processing <span class="count">2 skills</span></summary>
+    <ul class="skill-list">
+      <li><strong>Ray Data:</strong> Distributed ML data processing with streaming execution and GPU support.</li>
+      <li><strong>NeMo Curator:</strong> GPU-accelerated data curation with 16× faster deduplication.</li>
+    </ul>
+  </details>
+  <details><summary>⚡ Distributed Training <span class="count">6 skills</span></summary>
+    <ul class="skill-list">
+      <li><strong>Megatron-Core:</strong> NVIDIA's framework for training 2B-462B parameter models with 47% MFU on H100s.</li>
+      <li><strong>DeepSpeed:</strong> Microsoft's ZeRO optimization suite for memory-efficient training.</li>
+      <li><strong>PyTorch FSDP:</strong> Native PyTorch Fully Sharded Data Parallelism for large-scale distributed training.</li>
+      <li><strong>Accelerate:</strong> Hugging Face's 4-line API for managing distributed training with minimal code changes.</li>
+      <li><strong>PyTorch Lightning:</strong> High-level training framework with structured Trainer class.</li>
+      <li><strong>Ray Train:</strong> Distributed training orchestration across clusters with fault tolerance and elastic scaling.</li>
+    </ul>
+  </details>
+  <details><summary>🎓 Post-Training <span class="count">8 skills</span></summary>
+    <ul class="skill-list">
+      <li><strong>TRL Fine-Tuning:</strong> Hugging Face's Transformer Reinforcement Learning library for advanced fine-tuning.</li>
+      <li><strong>GRPO-RL-Training:</strong> Gold-standard Group Relative Policy Optimization implementation with TRL.</li>
+      <li><strong>OpenRLHF:</strong> Complete RLHF pipeline built on Ray and vLLM.</li>
+      <li><strong>SimPO:</strong> Simple Preference Optimization algorithm without requiring a reference model.</li>
+      <li><strong>verl:</strong> Volcano Engine RL library for scalable RLHF training with hybrid parallelism.</li>
+      <li><strong>slime:</strong> Lightweight preference learning library for efficient alignment tuning.</li>
+      <li><strong>miles:</strong> Multi-task instruction learning framework for enhanced skill acquisition.</li>
+      <li><strong>torchforge:</strong> PyTorch-native toolkit for post-training optimization and model refinement.</li>
+    </ul>
+  </details>
+  <details><summary>🚀 Inference &amp; Serving <span class="count">4 skills</span></summary>
+    <ul class="skill-list">
+      <li><strong>vLLM:</strong> Production-ready high-throughput LLM serving engine with PagedAttention.</li>
+      <li><strong>TensorRT-LLM:</strong> NVIDIA's fastest inference engine achieving 24k tokens/sec with FP8/INT4 quantization.</li>
+      <li><strong>llama.cpp:</strong> CPU and Apple Silicon inference with GGUF quantization support.</li>
+      <li><strong>SGLang:</strong> Structured generation engine with RadixAttention, 5-10× faster for agent workloads.</li>
+    </ul>
+  </details>
+  <details><summary>🛡️ Safety &amp; Alignment <span class="count">3 skills</span></summary>
+    <ul class="skill-list">
+      <li><strong>Constitutional AI:</strong> AI-driven self-improvement framework guided by core principles.</li>
+      <li><strong>LlamaGuard:</strong> Specialized safety classifier for filtering LLM inputs and outputs.</li>
+      <li><strong>NeMo Guardrails:</strong> Programmable guardrails toolkit with Colang for conversational AI.</li>
+    </ul>
+  </details>
+  <details><summary>📈 Optimization <span class="count">6 skills</span></summary>
+    <ul class="skill-list">
+      <li><strong>Flash Attention:</strong> 2-4× faster attention mechanism with improved memory efficiency.</li>
+      <li><strong>bitsandbytes:</strong> 8-bit and 4-bit quantization library for 50-75% memory reduction.</li>
+      <li><strong>GPTQ:</strong> 4-bit post-training quantization achieving 4× memory reduction with &lt;2% accuracy loss.</li>
+      <li><strong>AWQ:</strong> Activation-aware Weight Quantization for efficient 4-bit model compression.</li>
+      <li><strong>HQQ:</strong> Half-Quadratic Quantization for fast and accurate weight quantization.</li>
+      <li><strong>GGUF:</strong> GPT-Generated Unified Format for CPU/GPU inference with llama.cpp.</li>
+    </ul>
+  </details>
+  <details><summary>📊 Evaluation <span class="count">3 skills</span></summary>
+    <ul class="skill-list">
+      <li><strong>lm-eval-harness:</strong> EleutherAI's benchmark standard for evaluating LLMs across 60+ tasks.</li>
+      <li><strong>BigCode Harness:</strong> Evaluation framework for code generation models with HumanEval, MBPP, and more.</li>
+      <li><strong>NeMo Evaluator:</strong> NVIDIA's evaluation toolkit for comprehensive LLM assessment.</li>
+    </ul>
+  </details>
+  <details><summary>☁️ Infrastructure <span class="count">3 skills</span></summary>
+    <ul class="skill-list">
+      <li><strong>Modal:</strong> Serverless cloud for ML with instant GPU provisioning and simple Python SDK.</li>
+      <li><strong>SkyPilot:</strong> Multi-cloud orchestration for ML workloads with automatic spot instance management.</li>
+      <li><strong>Lambda Labs:</strong> Cloud GPU platform optimized for deep learning with pre-configured environments.</li>
+    </ul>
+  </details>
+  <details><summary>🤖 Agents <span class="count">4 skills</span></summary>
+    <ul class="skill-list">
+      <li><strong>LangChain:</strong> Most popular agent framework with 500+ integrations, ReAct pattern implementation.</li>
+      <li><strong>LlamaIndex:</strong> Data framework for LLM apps with 300+ connectors, RAG-focused architecture.</li>
+      <li><strong>CrewAI:</strong> Multi-agent orchestration framework for collaborative AI workflows.</li>
+      <li><strong>AutoGPT:</strong> Autonomous AI agent framework for goal-driven task completion.</li>
+    </ul>
+  </details>
+  <details><summary>🔎 RAG <span class="count">5 skills</span></summary>
+    <ul class="skill-list">
+      <li><strong>Chroma:</strong> Open-source embedding database, local/cloud deployment, 24k GitHub stars.</li>
+      <li><strong>FAISS:</strong> Facebook's similarity search library, billion-scale vectors, GPU acceleration.</li>
+      <li><strong>Sentence Transformers:</strong> 5000+ embedding models, multilingual support, 15k GitHub stars.</li>
+      <li><strong>Pinecone:</strong> Managed vector database with auto-scaling and &lt;100ms query latency.</li>
+      <li><strong>Qdrant:</strong> High-performance vector database with filtering, cloud-native architecture.</li>
+    </ul>
+  </details>
+  <details><summary>🎨 Multimodal <span class="count">7 skills</span></summary>
+    <ul class="skill-list">
+      <li><strong>CLIP:</strong> OpenAI's vision-language model with zero-shot classification, 25k GitHub stars.</li>
+      <li><strong>Whisper:</strong> Robust speech recognition supporting 99 languages, 73k GitHub stars.</li>
+      <li><strong>LLaVA:</strong> Vision-language assistant with image chat capabilities at GPT-4V level.</li>
+      <li><strong>Stable Diffusion:</strong> State-of-the-art text-to-image generation with ControlNet support.</li>
+      <li><strong>Segment Anything:</strong> Meta's foundation model for image segmentation tasks.</li>
+      <li><strong>BLIP-2:</strong> Bootstrapped language-image pre-training for vision-language understanding.</li>
+      <li><strong>AudioCraft:</strong> Meta's audio generation library for music and sound effects.</li>
+    </ul>
+  </details>
+  <details><summary>✍️ Prompt Engineering <span class="count">4 skills</span></summary>
+    <ul class="skill-list">
+      <li><strong>DSPy:</strong> Programming framework for optimizing LM prompts and weights declaratively.</li>
+      <li><strong>Instructor:</strong> Structured output extraction from LLMs using Pydantic models and validation.</li>
+      <li><strong>Guidance:</strong> Structured output generation with handlebars templates and role-based parsing.</li>
+      <li><strong>Outlines:</strong> Constrained generation library with regex and JSON schema support.</li>
+    </ul>
+  </details>
+  <details><summary>📟 MLOps <span class="count">3 skills</span></summary>
+    <ul class="skill-list">
+      <li><strong>MLflow:</strong> Complete ML lifecycle management with experiment tracking and model registry.</li>
+      <li><strong>Weights &amp; Biases:</strong> ML experiment tracking with real-time visualization and collaborative dashboards.</li>
+      <li><strong>TensorBoard:</strong> TensorFlow's visualization toolkit for tracking metrics and model graphs.</li>
+    </ul>
+  </details>
+  <details><summary>👁️ Observability <span class="count">2 skills</span></summary>
+    <ul class="skill-list">
+      <li><strong>LangSmith:</strong> LLM observability platform with tracing, debugging, and prompt versioning.</li>
+      <li><strong>Phoenix:</strong> Open-source LLM observability with tracing, evaluation, and dataset management.</li>
+    </ul>
+  </details>
+  <details><summary>🔬 Emerging Techniques <span class="count">6 skills</span></summary>
+    <ul class="skill-list">
+      <li><strong>MoE (Mixture of Experts):</strong> Sparse model architecture activating only relevant experts per token.</li>
+      <li><strong>Model Merging:</strong> Techniques for combining multiple fine-tuned models into a single model.</li>
+      <li><strong>Long Context:</strong> Methods for extending context windows beyond standard limits.</li>
+      <li><strong>Speculative Decoding:</strong> Accelerated inference using draft models for parallel token generation.</li>
+      <li><strong>Knowledge Distillation:</strong> Transferring knowledge from large models to smaller, efficient ones.</li>
+      <li><strong>Model Pruning:</strong> Removing redundant weights to create smaller, faster models.</li>
+    </ul>
+  </details>
+  <details><summary>📝 ML Paper Writing <span class="count">1 skill</span></summary>
+    <ul class="skill-list">
+      <li><strong>ML Paper Writing:</strong> Publication-ready LaTeX templates, citation verification, and writing guidance for NeurIPS, ICML, ICLR, ACL, AAAI, and COLM.</li>
+    </ul>
+  </details>
+</div>
+
+<h2 id="philosophy">The Philosophy Behind <code class="kw">Skills</code></h2>
+
+<p>Think of <code class="kw">skills</code> as <em>invocable knowledge packages</em>: modular units that contain structured instructions, references, and resources for a specific domain. This concept, pioneered in the transition from Claude's <code class="kw">claude.md</code> to <code class="kw">skills</code>, marks a new era of modular intelligence. Regardless of future model architectures or context window sizes, this design principle will remain a cornerstone of AGI: separating lightweight reasoning from heavy resource retrieval.</p>
+
+<div class="callout">
+  <p class="ct">Key ideas:</p>
+  <ul>
+    <li><span><strong>Instant invocation mechanism:</strong> Instead of loading all tool descriptions into the model at once, a dedicated tool retriever dynamically searches and loads the right one when needed, just like browsing functions in a directory.</span></li>
+    <li><span><strong>Reduced context burden:</strong> Tool information is injected only when relevant, avoiding context overflow and resource waste while improving reasoning focus and response efficiency.</span></li>
+    <li><span><strong>Higher precision and quality:</strong> On-demand loading ensures the model only uses the most relevant tools, reducing interference and miscalls, leading to more focused and interpretable outputs.</span></li>
+    <li><span><strong>Simplified version management:</strong> Tools can be updated or replaced directly without complex version control, keeping the system lightweight and flexible.</span></li>
+  </ul>
+</div>
+
+<p>Imagine giving Claude, or any advanced model, a set of <code class="kw">skills</code> encapsulating a financial analyst's tools, experience, and workflows. You'd essentially create an <strong>AI financial analyst</strong>. Extend this to every knowledge domain, and a <strong><code class="kw">Skills</code> Marketplace</strong> becomes a true <em>digital labor market</em>, capable of simulating any professional role.</p>
+
+<p>As Dario Amodei once emphasized, <em>the simplest solutions often scale the furthest</em>. <code class="kw">Skills</code> are precisely that: a simple but transformative step toward general intelligence.</p>
+
+<h2 id="production">Research Skills in Production</h2>
+
+<div class="demo">
+  <h3>Demo: Reproducing Cutting-Edge LoRA Research</h3>
+  <p>Want to see these research <code class="kw">skills</code> in action? I used the <strong>GRPO-RL-Training</strong> and <strong>PPTX</strong> skills from this library to reproduce Thinking Machines Lab's cutting-edge LoRA research, complete with GPU provisioning, experiment tracking, and automated presentation generation.</p>
+  <p>In just 2 days (instead of the typical 2-3 weeks), I validated their findings on both supervised fine-tuning and reinforcement learning tasks, generated publication-ready plots, and delivered a comprehensive analysis, all through natural language conversations with Orchestra.</p>
+  <a class="cta" href="https://www.orchestra-research.com/perspectives/LLM-with-Orchestra" target="_blank" rel="noopener">Read the full demo &rarr;</a>
+</div>
+
+<h2 id="democratizing">Democratizing AI Research</h2>
+
+<p>We <strong>open-sourced</strong> this collection of AI Research Engineering <code class="kw">Skills</code> because we believe that AI research should not be a privilege any more. Our goal is to democratize the entire AI research workflow, making it accessible to anyone with curiosity, not just those with compute clusters or elite research engineering teams.</p>
+
+<p>By encapsulating AI research engineering knowledge into reusable, modular, and invocable <code class="kw">skills</code>, a student, a startup founder, or a cross-disciplinary researcher in a developing region can now use the same experimental capabilities as top AI labs: launching large-scale training, evaluating models, and running reproducible experiments with the help of AI agents.</p>
+
+<div class="vision">
+  <h2>A Future Without Gatekeepers</h2>
+  <p>We envision a future where every individual can contribute to AI research, where the frontier of science is no longer gated by hardware or institutional privilege, but powered by collective intelligence and creativity. The <a class="inline-link" href="https://github.com/Orchestra-Research/AI-research-SKILLs" target="_blank" rel="noopener">AI Research Engineering <code class="kw">Skills</code> Library</a> is our contribution to this vision: a step toward a world where groundbreaking research is limited only by imagination, not resources.</p>
+</div>
+
+<div class="endnote">
+  <p>Explore the <a class="inline-link" href="https://github.com/Orchestra-Research/AI-research-SKILLs" target="_blank" rel="noopener">AI Research Engineering Skills Library</a> on GitHub,</p>
+  <p>and start conducting AI research experiments by just prompting <a class="inline-link" href="https://www.orchestra-research.com" target="_blank" rel="noopener">Orchestra Research</a>.</p>
+</div>
+</section>
+
+</article>
+</main>
+
+<footer class="border-t border-blue-200 py-6">
+<div class="max-w-4xl mx-auto px-4 text-sm text-gray-600">&copy; AmberLJC</div>
+</footer>
+
 </body>
 </html>

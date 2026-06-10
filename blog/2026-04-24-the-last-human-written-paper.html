@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Last Human-Written Paper: Agent-Native Research Artifacts | Amber Liu</title>
+<meta name="description" content="In the near future, most CS papers will be written by AI and read by AI. Agent-Native Research Artifacts (ARA) restructure the paper into a machine-executable knowledge package across four interlocking layers.">
+<meta name="author" content="Amber Liu">
+<link rel="canonical" href="https://amberljc.github.io/blog/2026-04-24-the-last-human-written-paper.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="The Last Human-Written Paper: Agent-Native Research Artifacts">
+<meta property="og:description" content="When neither the author nor the audience is human, the three-century-old paper format stops making sense. Introducing Agent-Native Research Artifacts.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://amberljc.github.io/blog/2026-04-24-the-last-human-written-paper.html">
+<meta property="og:site_name" content="Amber Liu">
+<meta property="article:published_time" content="2026-04-24">
+<meta property="article:author" content="Jiachen Liu">
+<meta property="article:section" content="AI Research">
+<meta property="article:tag" content="Agent-Native Research Artifacts">
+<meta property="article:tag" content="AI agents">
+<meta property="article:tag" content="research reproducibility">
+<meta property="og:image" content="https://amberljc.github.io/imag/nyc-amber.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@JIACHENLIU8">
+<meta name="twitter:title" content="The Last Human-Written Paper: Agent-Native Research Artifacts">
+<meta name="twitter:description" content="When neither the author nor the audience is human, the three-century-old paper format stops making sense.">
+<meta name="twitter:creator" content="@JIACHENLIU8">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "headline": "The Last Human-Written Paper: Agent-Native Research Artifacts",
+      "description": "Agent-Native Research Artifacts (ARA) restructure a paper into a machine-executable knowledge package across four interlocking layers: cognitive, physical, exploration graph, and evidence.",
+      "datePublished": "2026-04-24",
+      "dateModified": "2026-04-24",
+      "author": {
+        "@type": "Person",
+        "name": "Jiachen Liu",
+        "alternateName": "Amber Liu",
+        "url": "https://amberljc.github.io"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://amberljc.github.io/blog/2026-04-24-the-last-human-written-paper.html"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Jiachen Liu",
+        "url": "https://amberljc.github.io"
+      },
+      "inLanguage": "en-US",
+      "articleSection": "AI Research",
+      "keywords": ["Agent-Native Research Artifacts", "ARA", "AI agents", "research reproducibility", "scientific knowledge", "PaperBench", "RE-Bench"],
+      "sameAs": "https://arxiv.org/abs/2604.24658"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://amberljc.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://amberljc.github.io/blog.html" },
+        { "@type": "ListItem", "position": 3, "name": "The Last Human-Written Paper: Agent-Native Research Artifacts" }
+      ]
+    }
+  ]
+}
+</script>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+    :root {
+        --primary-color: #37352f;
+        --border-color: #e1e5e9;
+        --background-color: #ffffff;
+        --hover-bg: #f7f6f3;
+    }
+    body {
+        margin-top: 80px;
+        background-color: var(--background-color);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        line-height: 1.7;
+        color: #374151;
+    }
+    .topnav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid #e5e7eb;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        overflow: hidden;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        height: 60px;
+        padding: 0 24px;
+        margin: 0;
+    }
+    .topnav a {
+        display: block;
+        color: #374151;
+        text-align: center;
+        padding: 8px 16px;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        border-radius: 8px;
+        margin: 0 12px 0 0;
+    }
+    .topnav a:hover {
+        background-color: #f3f4f6;
+        color: #1f2937;
+    }
+    .blog-meta {
+        margin: 32px 0;
+        padding: 20px 0;
+        border-bottom: 1px solid #e5e7eb;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+    .blog-meta p {
+        margin: 0;
+        color: #6b7280;
+        font-size: 14px;
+    }
+    .resource-links {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .resource-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        border: 1px solid #e5e7eb;
+        background: #ffffff;
+        color: #374151;
+    }
+    .resource-link:hover {
+        background: #f9fafb;
+        border-color: #9ca3af;
+        color: #111827;
+    }
+    .resource-link:active, .share-btn:active {
+        transform: translateY(1px);
+    }
+    h1 {
+        color: #111827 !important;
+        font-size: 2.25rem !important;
+        font-weight: 700 !important;
+        line-height: 1.2 !important;
+        margin: 24px 0 16px 0 !important;
+    }
+    .subtitle {
+        color: #9097a0;
+        font-size: 1.2rem;
+        font-weight: 400;
+        line-height: 1.5;
+        margin: 0;
+    }
+    h2 {
+        color: #1f2937 !important;
+        font-size: 1.5rem !important;
+        font-weight: 600 !important;
+        margin: 32px 0 16px 0 !important;
+        line-height: 1.3 !important;
+        scroll-margin-top: 80px;
+    }
+    article p {
+        margin: 20px 0;
+        color: #374151;
+    }
+    article ul, article ol {
+        margin: 20px 0;
+        color: #374151;
+    }
+    article li {
+        margin: 8px 0;
+    }
+    .prose {
+        max-width: none;
+    }
+    .lede-quote {
+        text-align: center;
+        font-family: Georgia, 'Times New Roman', serif;
+        font-size: 1.6rem;
+        line-height: 1.35;
+        color: #111827;
+        padding: 28px 16px;
+        margin: 24px 0;
+        border-top: 1px solid #e5e7eb;
+        border-bottom: 1px solid #e5e7eb;
+    }
+    .lede-quote .u { border-bottom: 2px solid #111827; font-weight: 600; }
+    .lede-quote em { color: #6b7280; }
+    article figure { margin: 32px 0; }
+    figure img {
+        width: 70%;
+        max-width: 560px;
+        margin: 0 auto;
+        display: block;
+        border-radius: 8px;
+    }
+    figcaption {
+        text-align: center;
+        color: #6b7280;
+        font-size: 0.9em;
+        margin-top: 12px;
+    }
+    /* File tree */
+    .filetree {
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 20px 22px;
+        overflow-x: auto;
+    }
+    .filetree pre {
+        margin: 0;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 13px;
+        line-height: 1.65;
+        color: #4b5563;
+        white-space: pre;
+    }
+    .filetree .c { color: #9ca3af; }
+    .filetree .blue { color: #2563eb; }
+    .filetree .green { color: #059669; }
+    .filetree .red { color: #ef4444; }
+    .filetree .amber { color: #d97706; }
+    /* Gap bars */
+    .gap-box {
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 24px;
+    }
+    .gap-box .gtitle {
+        font-size: 12px; font-weight: 600; color: #9ca3af;
+        text-transform: uppercase; letter-spacing: 0.06em; text-align: center; margin: 0 0 8px;
+    }
+    .gap-box .gsub { font-size: 13px; color: #6b7280; text-align: center; margin: 0 0 18px; }
+    .bar-row { max-width: 460px; margin: 0 auto 12px; }
+    .bar-row .bl { display: flex; justify-content: space-between; font-size: 13px; color: #4b5563; margin-bottom: 4px; }
+    .bar-track { height: 10px; background: #e5e7eb; border-radius: 999px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 999px; }
+    /* Results grid */
+    .results {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin: 28px 0;
+    }
+    .results .card {
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        padding: 22px 16px;
+        text-align: center;
+    }
+    .results .card .k { font-size: 13px; color: #6b7280; margin-bottom: 8px; }
+    .results .card .v { font-size: 2rem; font-weight: 300; line-height: 1; }
+    .results .card .d { font-size: 12px; color: #6b7280; margin-top: 10px; }
+    .results .card .s { font-size: 10px; color: #9ca3af; margin-top: 4px; }
+    .pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 24px 0; }
+    .pill { padding: 6px 14px; border-radius: 999px; border: 1px solid #e5e7eb; background: #f9fafb; font-size: 12px; color: #6b7280; }
+    .closing {
+        text-align: center;
+        padding: 32px 0;
+    }
+    .closing .big { font-size: 1.8rem; font-weight: 300; color: #111827; }
+    .closing .sm { font-size: 1.05rem; color: #6b7280; margin: 12px auto 0; max-width: 32rem; }
+    .video-wrap {
+        position: relative; width: 100%; padding-bottom: 56.25%;
+        border-radius: 10px; overflow: hidden; background: #111827;
+    }
+    .video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .video-wrap.facade { cursor: pointer; }
+    .video-wrap .yt-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .video-wrap .yt-play {
+        position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+        width: 68px; height: 48px; border-radius: 14px;
+        background: rgba(17, 17, 17, 0.72);
+        display: flex; align-items: center; justify-content: center;
+        transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .video-wrap .yt-play::before {
+        content: ""; display: block;
+        border-style: solid; border-width: 9px 0 9px 15px;
+        border-color: transparent transparent transparent #ffffff;
+        margin-left: 3px;
+    }
+    .video-wrap.facade:hover .yt-play { background: #ff0000; transform: translate(-50%, -50%) scale(1.05); }
+    .video-wrap .yt-fallback {
+        position: absolute; bottom: 10px; right: 12px; z-index: 2;
+        font-size: 12px; color: #e5e7eb; text-decoration: underline;
+        background: rgba(0,0,0,0.35); padding: 3px 8px; border-radius: 6px;
+    }
+    .bibtex {
+        background: #0f172a;
+        border-radius: 10px;
+        padding: 20px 22px;
+        overflow-x: auto;
+    }
+    .bibtex pre {
+        margin: 0;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 12px;
+        line-height: 1.7;
+        color: #cbd5e1;
+        white-space: pre-wrap;
+        word-break: break-word;
+    }
+    .bibtex .key { color: #fbbf24; }
+    .bibtex .name { color: #34d399; }
+    /* Storytelling comparison figure */
+    .story-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        align-items: start;
+    }
+    .story-col .cap {
+        font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
+        text-transform: uppercase; color: #9ca3af; text-align: center; margin: 0 0 10px;
+    }
+    .story-panel {
+        background: #f9fafb; border: 1px solid #eef0f2; border-radius: 10px; padding: 10px 8px;
+    }
+    .story-grid svg { width: 100%; height: auto; display: block; }
+    @media (max-width: 640px) {
+        .story-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+
+    hr { border: none; height: 1px; background: #e5e7eb; margin: 40px 0; }
+
+    /* Share bar */
+    .share-bar {
+        display: flex; gap: 10px; align-items: center;
+        padding: 20px 0; margin: 40px 0 0 0; border-top: 1px solid #e5e7eb;
+    }
+    .share-bar span {
+        font-size: 13px; font-weight: 600; color: #6b7280;
+        letter-spacing: 0.02em; text-transform: uppercase; margin-right: 4px;
+    }
+    .share-btn {
+        display: inline-flex; align-items: center; justify-content: center;
+        width: 36px; height: 36px; border-radius: 6px; border: 1px solid #e5e7eb;
+        background: #ffffff; color: #6b7280; text-decoration: none; transition: all 0.2s ease;
+    }
+    .share-btn:hover { background: #f9fafb; border-color: #d1d5db; color: #374151; transform: translateY(-1px); }
+    .share-btn svg { width: 16px; height: 16px; }
+
+    @media (max-width: 768px) {
+        body { margin-top: 70px; }
+        .topnav { height: 60px; padding: 0 16px; }
+        .topnav a { padding: 8px 12px; font-size: 14px; margin-right: 8px; }
+        .blog-meta { flex-direction: column; align-items: flex-start; }
+        h1 { font-size: 1.875rem !important; }
+        .lede-quote { font-size: 1.25rem; }
+        .results { grid-template-columns: 1fr; }
+    }
+</style>
+</head>
+<body class="bg-white text-black">
+<div class="topnav">
+<a href="../index.html">Home</a>
+<a href="../blog.html">Blog</a>
+</div>
+
+<main class="max-w-3xl mx-auto px-4 py-10">
+<article class="prose max-w-none article-content">
+<h1 class="text-3xl font-bold text-black">The Last Human-Written Paper</h1>
+<p class="subtitle">Agent-Native Research Artifacts</p>
+
+<div class="blog-meta">
+    <p>Posted on April 24, 2026 by Amber Liu &amp; the Orchestra Research team</p>
+    <div class="resource-links">
+        <a href="https://arxiv.org/abs/2604.24658" target="_blank" rel="noopener" class="resource-link">Paper &rarr;</a>
+        <a href="https://github.com/Orchestra-Research/Agent-Native-Research-Artifact" target="_blank" rel="noopener" class="resource-link">Code &rarr;</a>
+    </div>
+</div>
+
+<section class="mt-6">
+<p class="lede-quote">
+    In the near future, most <em>CS papers</em> will be written by <span class="u">AI</span>, and most will be read by <span class="u">AI</span>.
+</p>
+
+<p>When neither the author nor the audience is human, the three-century-old paper format stops making sense. Papers flatten a branching research process into a clean story, and that flattening imposes two taxes.</p>
+</section>
+
+<section class="mt-8">
+<h2 id="storytelling-tax">The Storytelling Tax</h2>
+<p>Research is inherently branching and exploratory. Scientists try dozens of approaches, hit dead ends, pivot, and iterate. But papers collapse this rich process into a single winning narrative, discarding every failed attempt, rejected hypothesis, and negative result.</p>
+
+<figure class="story-fig">
+  <div class="story-grid">
+    <!-- LEFT: The Real Research Process -->
+    <div class="story-col">
+      <p class="cap">The Real Research Process</p>
+      <div class="story-panel">
+        <svg viewBox="0 0 460 530" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+          <!-- Root -->
+          <g style="transition-delay:0s">
+            <circle class="s-fade" cx="230" cy="28" r="8" fill="none" stroke="#6b7280" stroke-width="2"/>
+            <text class="s-fade" x="230" y="16" text-anchor="middle" font-size="11" fill="#374151" font-weight="500">Initial question</text>
+          </g>
+          <!-- L1 branches -->
+          <g style="transition-delay:0.12s">
+            <path class="s-draw" pathLength="1" d="M 222 33 Q 140 60 75 95" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path class="s-draw" pathLength="1" d="M 230 36 L 230 95" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path class="s-draw" pathLength="1" d="M 238 33 Q 320 60 385 95" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          </g>
+          <g style="transition-delay:0.28s">
+            <circle class="s-fade" cx="75" cy="100" r="6" fill="none" stroke="#6b7280" stroke-width="1.8"/>
+            <text class="s-fade" x="6" y="98" font-size="10" fill="#6b7280" font-weight="500">Hyp. A</text>
+            <text class="s-fade" x="6" y="111" font-size="9" fill="#9ca3af">CNN baseline</text>
+            <circle class="s-fade" cx="230" cy="100" r="6" fill="none" stroke="#6b7280" stroke-width="1.8"/>
+            <text class="s-fade" x="248" y="98" font-size="10" fill="#6b7280" font-weight="500">Hyp. B</text>
+            <text class="s-fade" x="248" y="111" font-size="9" fill="#9ca3af">Transformer</text>
+            <circle class="s-fade" cx="385" cy="100" r="6" fill="none" stroke="#6b7280" stroke-width="1.8"/>
+            <text class="s-fade" x="404" y="98" font-size="10" fill="#6b7280" font-weight="500">Hyp. C</text>
+            <text class="s-fade" x="404" y="111" font-size="9" fill="#9ca3af">GAN variant</text>
+          </g>
+          <!-- L2 -->
+          <g style="transition-delay:0.5s">
+            <path class="s-draw" pathLength="1" d="M 75 106 Q 55 140 48 170" stroke="#dc2626" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path class="s-draw" pathLength="1" d="M 224 106 Q 185 140 160 180" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path class="s-draw" pathLength="1" d="M 236 106 Q 275 140 305 180" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path class="s-draw" pathLength="1" d="M 391 106 Q 415 140 425 170" stroke="#dc2626" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path class="s-draw" pathLength="1" d="M 379 106 Q 350 140 335 170" stroke="#dc2626" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          </g>
+          <g style="transition-delay:0.66s">
+            <path class="s-fade" d="M 41 163 L 55 177 M 55 163 L 41 177" stroke="#dc2626" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <text class="s-fade" x="6" y="193" font-size="9" fill="#dc2626">OOM at batch 64</text>
+            <circle class="s-fade" cx="160" cy="185" r="5" fill="none" stroke="#6b7280" stroke-width="1.5"/>
+            <text class="s-fade" x="100" y="183" font-size="9" fill="#9ca3af" text-anchor="end">Standard</text>
+            <text class="s-fade" x="100" y="195" font-size="9" fill="#9ca3af" text-anchor="end">LayerNorm</text>
+            <circle class="s-fade" cx="305" cy="185" r="5" fill="none" stroke="#d97706" stroke-width="2"/>
+            <text class="s-fade" x="320" y="183" font-size="9" fill="#d97706" font-weight="600">Pivot!</text>
+            <text class="s-fade" x="320" y="196" font-size="9" fill="#9ca3af">inv-std outside fwd</text>
+            <path class="s-fade" d="M 418 163 L 432 177 M 432 163 L 418 177" stroke="#dc2626" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <text class="s-fade" x="425" y="193" text-anchor="middle" font-size="9" fill="#dc2626">Mode collapse</text>
+            <path class="s-fade" d="M 328 163 L 342 177 M 342 163 L 328 177" stroke="#dc2626" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <text class="s-fade" x="335" y="193" text-anchor="middle" font-size="9" fill="#dc2626">Gradient exploded</text>
+          </g>
+          <!-- L3 -->
+          <g style="transition-delay:0.86s">
+            <path class="s-draw" pathLength="1" d="M 160 190 Q 142 220 132 250" stroke="#dc2626" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path class="s-draw" pathLength="1" d="M 305 191 Q 310 230 305 265" stroke="#059669" stroke-width="2" stroke-linecap="round" fill="none"/>
+          </g>
+          <g style="transition-delay:1s">
+            <path class="s-fade" d="M 125 243 L 139 257 M 139 243 L 125 257" stroke="#dc2626" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <text class="s-fade" x="78" y="260" font-size="9" fill="#dc2626" text-anchor="end">Loss diverged</text>
+            <text class="s-fade" x="78" y="272" font-size="9" fill="#dc2626" text-anchor="end">at 7.28</text>
+            <circle class="s-fade" cx="305" cy="270" r="5" fill="none" stroke="#059669" stroke-width="1.8"/>
+            <text class="s-fade" x="320" y="268" font-size="9" fill="#059669">Training stable</text>
+            <text class="s-fade" x="320" y="281" font-size="9" fill="#9ca3af">loss &#8595; 4.60</text>
+          </g>
+          <!-- L4 -->
+          <g style="transition-delay:1.18s">
+            <path class="s-draw" pathLength="1" d="M 305 276 Q 300 310 295 340" stroke="#059669" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <circle class="s-fade" cx="295" cy="345" r="5" fill="none" stroke="#059669" stroke-width="1.8"/>
+            <text class="s-fade" x="310" y="343" font-size="9" fill="#059669">Differential LR</text>
+            <text class="s-fade" x="310" y="356" font-size="9" fill="#9ca3af">emb 3e-4, tfm 3e-5</text>
+          </g>
+          <!-- L5 success -->
+          <g style="transition-delay:1.38s">
+            <path class="s-draw" pathLength="1" d="M 295 351 L 290 405" stroke="#059669" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <circle class="s-fade" cx="290" cy="415" r="10" fill="none" stroke="#059669" stroke-width="2.5"/>
+            <path class="s-fade" d="M 284 415 L 289 421 L 298 409" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <text class="s-fade" x="310" y="413" font-size="10" fill="#059669" font-weight="500">Loss 3.98</text>
+            <text class="s-fade" x="310" y="426" font-size="9" fill="#9ca3af">+13% improvement</text>
+          </g>
+          <g style="transition-delay:1.6s">
+            <text class="s-fade" x="230" y="480" text-anchor="middle" font-size="12" fill="#6b7280">5 dead ends, 1 pivot, 1 success</text>
+            <text class="s-fade" x="230" y="500" text-anchor="middle" font-size="11" fill="#dc2626">All of this gets thrown away</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- RIGHT: What Gets Published -->
+    <div class="story-col">
+      <p class="cap">What Gets Published</p>
+      <div class="story-panel">
+        <svg viewBox="0 0 460 530" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+          <g style="transition-delay:0.35s">
+            <circle class="s-fade" cx="170" cy="28" r="8" fill="none" stroke="#059669" stroke-width="2"/>
+            <text class="s-fade" x="195" y="26" font-size="11" fill="#059669" font-weight="500">Research question</text>
+            <text class="s-fade" x="195" y="39" font-size="9" fill="#86efac">&#8220;Can ReLU transformers match softmax?&#8221;</text>
+          </g>
+          <g style="transition-delay:0.5s">
+            <path class="s-draw" pathLength="1" d="M 170 36 L 170 90" stroke="#059669" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <circle class="s-fade" cx="170" cy="98" r="7" fill="none" stroke="#059669" stroke-width="1.8"/>
+            <text class="s-fade" x="195" y="96" font-size="11" fill="#059669" font-weight="500">Abstract</text>
+            <text class="s-fade" x="195" y="109" font-size="9" fill="#86efac">&#8220;We present a ReLU transformer...&#8221;</text>
+          </g>
+          <g style="transition-delay:0.7s">
+            <path class="s-draw" pathLength="1" d="M 170 105 L 170 163" stroke="#059669" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <circle class="s-fade" cx="170" cy="171" r="7" fill="none" stroke="#059669" stroke-width="1.8"/>
+            <text class="s-fade" x="195" y="169" font-size="11" fill="#059669" font-weight="500">Introduction</text>
+            <text class="s-fade" x="195" y="182" font-size="9" fill="#86efac">&#8220;Prior work lacks efficiency...&#8221;</text>
+          </g>
+          <g style="transition-delay:0.9s">
+            <path class="s-draw" pathLength="1" d="M 170 178 L 170 238" stroke="#059669" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <circle class="s-fade" cx="170" cy="246" r="7" fill="none" stroke="#059669" stroke-width="1.8"/>
+            <text class="s-fade" x="195" y="244" font-size="11" fill="#059669" font-weight="500">Method</text>
+            <text class="s-fade" x="195" y="257" font-size="9" fill="#86efac">&#8220;We compute inv-std outside fwd...&#8221;</text>
+          </g>
+          <g style="transition-delay:1.1s">
+            <path class="s-draw" pathLength="1" d="M 170 253 L 170 313" stroke="#059669" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <circle class="s-fade" cx="170" cy="321" r="7" fill="none" stroke="#059669" stroke-width="1.8"/>
+            <text class="s-fade" x="195" y="319" font-size="11" fill="#059669" font-weight="500">Experiments</text>
+            <text class="s-fade" x="195" y="332" font-size="9" fill="#86efac">&#8220;Differential LR outperforms...&#8221;</text>
+          </g>
+          <g style="transition-delay:1.3s">
+            <path class="s-draw" pathLength="1" d="M 170 328 L 170 405" stroke="#059669" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <circle class="s-fade" cx="170" cy="415" r="10" fill="none" stroke="#059669" stroke-width="2.5"/>
+            <path class="s-fade" d="M 164 415 L 169 421 L 178 409" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <text class="s-fade" x="195" y="413" font-size="11" fill="#059669" font-weight="500">Results</text>
+            <text class="s-fade" x="195" y="426" font-size="9" fill="#86efac">&#8220;Loss 3.98, +13% improvement&#8221;</text>
+          </g>
+          <!-- Ghost branches (pruned) -->
+          <g style="transition-delay:1.6s">
+            <path class="s-fade" d="M 162 33 Q 75 60 35 95" stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4 4" stroke-linecap="round" fill="none"/>
+            <path class="s-fade" d="M 178 33 Q 300 60 360 95" stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4 4" stroke-linecap="round" fill="none"/>
+            <path class="s-fade" d="M 163 102 Q 85 130 50 165" stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4 4" stroke-linecap="round" fill="none"/>
+            <path class="s-fade" d="M 163 175 Q 80 205 50 240" stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4 4" stroke-linecap="round" fill="none"/>
+            <path class="s-fade" d="M 163 250 Q 85 280 55 315" stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4 4" stroke-linecap="round" fill="none"/>
+          </g>
+          <g style="transition-delay:1.85s">
+            <text class="s-fade" x="230" y="480" text-anchor="middle" font-size="12" fill="#059669">Clean narrative, straight line</text>
+            <text class="s-fade" x="230" y="500" text-anchor="middle" font-size="11" fill="#9ca3af">No dead ends. No failures. No tricks.</text>
+            <text class="s-fade" x="230" y="518" text-anchor="middle" font-size="11" fill="#9ca3af" font-style="italic">Knowledge lost forever.</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <figcaption>Research explores many branches, but papers only report the winning path. The map of where <em>not</em> to go, often the most expensive knowledge a project produces, never leaves the lab.</figcaption>
+</figure>
+</section>
+
+<section class="mt-8">
+<h2 id="engineering-tax">The Engineering Tax</h2>
+<p>Papers describe methods at the precision needed to convince a reviewer, not at the precision needed to reproduce the work. Hyperparameters are underspecified. Warmup schedules live in someone's head. Numerical stability fixes exist in no document. The gap between "sufficient to believe" and "sufficient to execute" is where reproduction breaks down.</p>
+
+<figure>
+  <div class="gap-box">
+    <p class="gtitle">Reproduction Information Gap</p>
+    <p class="gsub">8,921 expert-annotated reproduction requirements across 23 ICML papers (PaperBench)</p>
+    <div class="bar-row">
+      <div class="bl"><span>Fully specified in PDF</span><span>45.4%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:45.4%;background:#111827;"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bl"><span>Missing hyperparameters</span><span>26.2%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:26.2%;background:#f87171;"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bl"><span>Vague description</span><span>21.9%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:21.9%;background:#fbbf24;"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bl"><span>Cross-reference only</span><span>13.4%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:13.4%;background:#fcd34d;"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bl"><span>Missing code / baseline detail</span><span>21.7%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:21.7%;background:#d1d5db;"></div></div>
+    </div>
+  </div>
+  <figcaption>Less than half of what an agent needs to reproduce a paper is actually in the PDF.</figcaption>
+</figure>
+
+<p>The information exists somewhere (a lab notebook, a Slack thread, the original author's muscle memory), but not in any document an AI agent can access. Every reproduction attempt pays the full cost of rediscovering it.</p>
+</section>
+
+<section class="mt-8">
+<h2 id="solution">The Solution: Four Interlocking Layers</h2>
+<p>ARA restructures a paper into four machine-native layers. Together they form a single executable knowledge package: the organized, evolving knowledge produced during research, not the narrative compiled afterward.</p>
+
+<figure>
+  <div class="filetree">
+<pre>PAPER.md                      <span class="c"># Human-readable overview &amp; entry point</span>
+│
+├── <span class="blue">logic/</span>                    <span class="c"># Cognitive Layer</span>
+│   ├── claims.yaml           <span class="c"># Falsifiable claims with epistemic status</span>
+│   ├── concepts/             <span class="c"># Formal concept definitions</span>
+│   ├── experiments/          <span class="c"># Declarative experiment plans</span>
+│   └── problem_spec.md       <span class="c"># The "what and why" of the research</span>
+│
+├── <span class="green">src/</span>                     <span class="c"># Physical Layer</span>
+│   ├── kernel/               <span class="c"># Novel algorithm core</span>
+│   ├── configs/              <span class="c"># Annotated with search ranges &amp; sensitivity</span>
+│   └── environment.yaml      <span class="c"># Exact reproducibility spec</span>
+│
+├── <span class="red">trace/</span>                   <span class="c"># Exploration Graph</span>
+│   ├── graph.json            <span class="c"># Full branching research DAG</span>
+│   ├── dead_ends/            <span class="c"># Every failed attempt preserved</span>
+│   └── pivots/               <span class="c"># Decision points &amp; lessons learned</span>
+│
+└── <span class="amber">evidence/</span>                <span class="c"># Evidence Layer</span>
+    ├── results/              <span class="c"># Machine-readable quantitative outputs</span>
+    ├── logs/                 <span class="c"># Raw experiment logs</span>
+    └── curves/               <span class="c"># Training curves &amp; metrics</span></pre>
+  </div>
+</figure>
+</section>
+
+<section class="mt-8">
+<h2 id="live-research-manager">Live Research Manager</h2>
+<p>ARA doesn't require researchers to manually package their work. The Live Research Manager silently captures the research trajectory during AI-human collaboration: no interruptions, no extra effort. The artifact builds itself in the background.</p>
+<p>Collaborate with AI on research, and the trajectory is automatically captured with epistemic provenance: every claim tagged with who proposed it, who verified it, and how strongly the evidence supports it.</p>
+<div class="pills">
+  <span class="pill">Silent integration</span>
+  <span class="pill">Epistemic objectivity</span>
+  <span class="pill">Framework independence</span>
+  <span class="pill">Comprehensive capture</span>
+  <span class="pill">Faithful translation</span>
+</div>
+</section>
+
+<section class="mt-8">
+<h2 id="results">Results</h2>
+<p>A paper shows the path taken. ARA remembers the paths abandoned, and the choices that made the road. We evaluate across three layers: understanding, reproduction, and extension.</p>
+
+<div class="results">
+  <div class="card">
+    <div class="k">Understanding</div>
+    <div class="v" style="color:#2563eb;">+21.3pp</div>
+    <div class="d">93.7% vs 72.4% across 450 questions</div>
+    <div class="s">PaperBench + RE-Bench · wins every category</div>
+  </div>
+  <div class="card">
+    <div class="k">Reproduction</div>
+    <div class="v" style="color:#059669;">+7.0pp</div>
+    <div class="d">64.4% vs 57.4%; advantage grows with difficulty</div>
+    <div class="s">150 subtasks · 15 PaperBench papers</div>
+  </div>
+  <div class="card">
+    <div class="k">Extension</div>
+    <div class="v" style="color:#d97706;">3/5</div>
+    <div class="d">Tasks where ARA wins on best score; reaches a useful first move earlier on all 5</div>
+    <div class="s">5 RE-Bench tasks · MALT failure traces</div>
+  </div>
+</div>
+
+<div class="closing">
+  <div class="big">Knowledge over Narrative</div>
+  <p class="sm">The organized, evolving knowledge produced during research is the primary scientific object. The narrative paper is a compiled view.</p>
+</div>
+</section>
+
+<section class="mt-8">
+<h2 id="talk">Talk</h2>
+<figure>
+  <div class="video-wrap facade" id="ytFacade" role="button" tabindex="0"
+       aria-label="Play talk: The Last Human-Written Paper" data-yt="hbcZmuhaO_w">
+    <img class="yt-poster" src="https://img.youtube.com/vi/hbcZmuhaO_w/hqdefault.jpg"
+         alt="Talk: The Last Human-Written Paper" loading="lazy">
+    <span class="yt-play" aria-hidden="true"></span>
+    <a class="yt-fallback" href="https://www.youtube.com/watch?v=hbcZmuhaO_w" target="_blank" rel="noopener">Watch on YouTube</a>
+  </div>
+</figure>
+</section>
+
+<section class="mt-8">
+<h2 id="cite">Cite</h2>
+<div class="bibtex">
+<pre><span class="key">@article</span>{<span class="name">liu2026ara</span>,
+  title   = {The Last Human-Written Paper: Agent-Native Research Artifacts},
+  author  = {Liu, Jiachen and Pei, Jiaxin and Huang, Jintao and Si, Chenglei and others},
+  year    = {2026},
+  journal = {arXiv preprint arXiv:2604.24658},
+  url     = {https://arxiv.org/abs/2604.24658}
+}</pre>
+</div>
+</section>
+
+<!-- Social Share Buttons -->
+<div class="share-bar">
+    <span>Share</span>
+    <a href="https://twitter.com/intent/tweet?text=The%20Last%20Human-Written%20Paper%3A%20Agent-Native%20Research%20Artifacts&url=https://amberljc.github.io/blog/2026-04-24-the-last-human-written-paper.html" target="_blank" rel="noopener" class="share-btn" aria-label="Share on X">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/>
+        </svg>
+    </a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://amberljc.github.io/blog/2026-04-24-the-last-human-written-paper.html" target="_blank" rel="noopener" class="share-btn" aria-label="Share on LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="currentColor"/>
+        </svg>
+    </a>
+</div>
+
+</article>
+</main>
+
+<footer class="border-t border-blue-200 py-6">
+<div class="max-w-4xl mx-auto px-4 text-sm text-gray-600">&copy; AmberLJC</div>
+</footer>
+
+<script>
+(function () {
+    var f = document.getElementById('ytFacade');
+    if (!f) return;
+    function play(e) {
+        // Let the fallback "Watch on YouTube" link behave normally
+        if (e && e.target && e.target.closest && e.target.closest('.yt-fallback')) return;
+        var id = f.getAttribute('data-yt');
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
+        iframe.title = 'The Last Human-Written Paper: Agent-Native Research Artifacts';
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+        iframe.setAttribute('allowfullscreen', '');
+        f.innerHTML = '';
+        f.classList.remove('facade');
+        f.appendChild(iframe);
+    }
+    f.addEventListener('click', play);
+    f.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(e); }
+    });
+})();
+</script>
+
+</body>
+</html>

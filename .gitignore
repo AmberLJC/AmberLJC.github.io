@@ -15,3 +15,12 @@ documents/cv/main.aux
 documents/cv/main.synctex.gz 
 documents/cv/main.fdb_latexmk
 documents/cv/main.fls
+documents/cv/*.aux
+documents/cv/*.log
+documents/cv/*.out
+
+# Local agent tooling
+.agents/
+.claude/
+skills/
+skills-lock.json

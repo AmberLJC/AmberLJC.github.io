@@ -19,6 +19,18 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://amberljc.github.io/blog/2026-04-24-the-last-human-written-paper.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://amberljc.github.io/blog/2026-04-09-golden-age-of-research.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://amberljc.github.io/blog/2026-01-10-ai-native-researchers.html</loc>
     <lastmod>2026-03-27</lastmod>
     <changefreq>yearly</changefreq>
@@ -43,7 +55,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://amberljc.github.io/blog/2025-10-9-agent-oriented-comput.html</loc>
+    <loc>https://amberljc.github.io/blog/2025-10-9-agent-oriented-compute.html</loc>
     <lastmod>2026-03-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
