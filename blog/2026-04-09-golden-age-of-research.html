@@ -87,44 +87,29 @@
         --hover-bg: #f7f6f3;
     }
     body {
-        margin-top: 80px;
         background-color: var(--background-color);
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         line-height: 1.7;
         color: #374151;
     }
     .topnav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        background-color: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(12px);
-        border-bottom: 1px solid #e5e7eb;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        overflow: hidden;
-        z-index: 1000;
+        background: transparent;
+        border-bottom: 1px solid #eee;
+        padding: 20px 40px;
         display: flex;
-        align-items: center;
-        height: 60px;
-        padding: 0 24px;
-        margin: 0;
+        gap: 40px;
     }
     .topnav a {
-        display: block;
-        color: #374151;
-        text-align: center;
-        padding: 8px 16px;
+        color: #888;
         text-decoration: none;
-        font-size: 15px;
-        font-weight: 500;
-        transition: all 0.2s ease;
-        border-radius: 8px;
-        margin: 0 12px 0 0;
+        font-size: 14px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        transition: color 0.3s;
     }
-    .topnav a:hover {
-        background-color: #f3f4f6;
-        color: #1f2937;
+    .topnav a:hover, .topnav a.active {
+        color: #e67e22;
+        background: transparent;
     }
     .blog-meta {
         margin: 32px 0;
@@ -324,9 +309,8 @@
     }
 
     @media (max-width: 768px) {
-        body { margin-top: 70px; }
-        .topnav { height: 60px; padding: 0 16px; }
-        .topnav a { padding: 8px 12px; font-size: 14px; margin-right: 8px; }
+        .topnav { padding: 16px 20px; }
+        .topnav a { font-size: 13px; letter-spacing: 1px; }
         .blog-meta { flex-direction: column; align-items: flex-start; }
         h1 { font-size: 1.875rem !important; }
         .lede-quote { font-size: 1.25rem; }
@@ -494,6 +478,24 @@
         </svg>
     </a>
 </div>
+
+<section class="comments" style="margin-top: 3rem;">
+  <script src="https://giscus.app/client.js"
+          data-repo="AmberLJC/AmberLJC.github.io"
+          data-repo-id="R_kgDOKXc2Fg"
+          data-category="Announcements"
+          data-category-id="DIC_kwDOKXc2Fs4C-6SL"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="light"
+          data-lang="en"
+          crossorigin="anonymous"
+          async>
+  </script>
+</section>
 
 </article>
 </main>

@@ -30,29 +30,28 @@ p {
   text-align: justify;
 }
 
-/* Navigation Bar */
+/* Navigation Bar — matches landing page (theme-1-minimal) */
 .topnav {
-  background-color: #2fb2fe;
+  background: transparent;
+  border-bottom: 1px solid #eee;
+  padding: 20px 40px;
+  display: flex;
+  gap: 40px;
   overflow: hidden;
 }
 
 .topnav a {
-  float: left;
-  color: #995200;
-  text-align: center;
-  padding: 14px 16px;
+  color: #888;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 0.3s;
 }
 
-.topnav a:hover {
-  background-color: #FFFAF0;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: #ff8800;
-  color: #995200;
+.topnav a:hover, .topnav a.active {
+  color: #e67e22;
+  background: transparent;
 }
 
 /* Email and Phone Formatting */

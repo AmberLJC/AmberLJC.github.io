@@ -23,34 +23,23 @@
     }
 
     .topnav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        background-color: #ffffff;
-        border-bottom: 1px solid #e5e5e5;
-        z-index: 1000;
+        background: transparent;
+        border-bottom: 1px solid #eee;
+        padding: 20px 40px;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 56px;
-        padding: 0 24px;
+        gap: 40px;
     }
-
     .topnav a {
-        color: #2a2a2a;
-        padding: 8px 16px;
+        color: #888;
         text-decoration: none;
-        font-size: 13px;
-        font-weight: 400;
-        letter-spacing: 0.5px;
-        transition: color 0.2s ease;
-        margin: 0 8px;
+        font-size: 14px;
+        letter-spacing: 2px;
         text-transform: uppercase;
+        transition: color 0.3s;
     }
-
-    .topnav a:hover {
-        color: #000000;
+    .topnav a:hover, .topnav a.active {
+        color: #e67e22;
+        background: transparent;
     }
 
     .blog-meta {
@@ -190,7 +179,6 @@
     }
 
     main {
-        padding-top: 120px;
         padding-bottom: 120px;
     }
 
@@ -207,15 +195,8 @@
     }
 
     @media (max-width: 768px) {
-        .topnav {
-            height: 52px;
-            padding: 0 16px;
-        }
-        .topnav a {
-            padding: 6px 12px;
-            font-size: 12px;
-            margin: 0 4px;
-        }
+        .topnav { padding: 16px 20px; }
+        .topnav a { font-size: 13px; letter-spacing: 1px; }
         .blog-meta {
             flex-direction: column;
             align-items: flex-start;
@@ -241,7 +222,6 @@
             font-size: 15px;
         }
         main {
-            padding-top: 80px;
             padding-bottom: 80px;
         }
         section {
@@ -431,6 +411,23 @@ But here's the upside: if you have a strong prediction model (knowing which prob
 </div>
 </section>
 
+<section class="comments" style="margin-top: 3rem;">
+  <script src="https://giscus.app/client.js"
+          data-repo="AmberLJC/AmberLJC.github.io"
+          data-repo-id="R_kgDOKXc2Fg"
+          data-category="Announcements"
+          data-category-id="DIC_kwDOKXc2Fs4C-6SL"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="light"
+          data-lang="en"
+          crossorigin="anonymous"
+          async>
+  </script>
+</section>
 </article>
 </main>
 

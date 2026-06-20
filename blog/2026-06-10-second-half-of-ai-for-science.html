@@ -110,7 +110,6 @@
     html { scroll-behavior: smooth; }
     body {
         margin: 0;
-        padding-top: 76px;
         background: var(--paper);
         font-family: var(--sans);
         font-size: 16.5px;
@@ -132,33 +131,23 @@
             radial-gradient(360px 220px at 60% 40%, rgba(232,168,120,0.10), transparent 70%);
     }
     .topnav {
-        position: fixed;
-        top: 0; left: 0; right: 0;
-        height: 60px;
+        background: transparent;
+        border-bottom: 1px solid #eee;
+        padding: 20px 40px;
         display: flex;
-        align-items: center;
-        padding: 0 24px;
-        background: rgba(251, 250, 244, 0.92);
-        backdrop-filter: blur(12px);
-        border-bottom: 1px solid var(--line);
-        z-index: 1000;
+        gap: 40px;
     }
     .topnav a {
-        color: var(--ink-2);
+        color: #888;
         text-decoration: none;
-        font-size: 15px;
-        font-weight: 500;
-        padding: 8px 14px;
-        border-radius: 8px;
-        margin-right: 8px;
-        transition: all 0.2s ease;
+        font-size: 14px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        transition: color 0.3s;
     }
-    .topnav a:hover { background: var(--sage-soft); color: var(--sage-deep); }
-    .topnav .brand {
-        font-family: var(--serif);
-        font-size: 18px;
-        color: var(--ink);
-        margin-right: 16px;
+    .topnav a:hover, .topnav a.active {
+        color: #e67e22;
+        background: transparent;
     }
     main { max-width: 760px; margin: 0 auto; padding: 40px 20px 60px; }
     h1 {
@@ -335,7 +324,9 @@
         text-align: center;
     }
     @media (max-width: 700px) {
-        body { padding-top: 66px; font-size: 16px; }
+        body { font-size: 16px; }
+        .topnav { padding: 16px 20px; }
+        .topnav a { font-size: 13px; letter-spacing: 1px; }
         h1 { font-size: 2.05rem; }
         .lede-quote { font-size: 1.2rem; }
         .fig-grid { grid-template-columns: 1fr; gap: 22px; }
