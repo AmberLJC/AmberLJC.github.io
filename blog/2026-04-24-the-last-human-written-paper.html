@@ -363,6 +363,79 @@
         .lede-quote { font-size: 1.25rem; }
         .results { grid-template-columns: 1fr; }
     }
+
+    /* ===================== Figure animations ===================== */
+    /* Figures start hidden; JS adds .in-view when they scroll into frame. */
+
+    /* (1) Storytelling twin-tree diagrams: staggered fade + line-draw.
+       Per-group stagger delays are authored inline on each <g> and copied
+       onto the animated children by JS, so the timing lives in one place. */
+    .story-fig .story-panel { cursor: pointer; }
+    .story-fig .s-fade { opacity: 0; transition: opacity 0.55s ease; }
+    .story-fig .s-draw {
+        stroke-dasharray: 1; stroke-dashoffset: 1;
+        transition: stroke-dashoffset 0.7s ease;
+    }
+    .story-fig.in-view .s-fade { opacity: 1; }
+    .story-fig.in-view .s-draw { stroke-dashoffset: 0; }
+    .replay-btn {
+        display: block; margin: 16px auto 0; padding: 6px 16px;
+        font-size: 12px; color: #6b7280;
+        background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px;
+        cursor: pointer; transition: all 0.2s ease;
+    }
+    .replay-btn:hover { background: #fff; border-color: #d1d5db; color: #374151; transform: translateY(-1px); }
+    .replay-btn:active { transform: translateY(0); }
+
+    /* (2) Reproduction-gap bars: grow horizontally on reveal, emphasize on hover. */
+    .gap-box .bar-fill { transform: scaleX(0); transform-origin: left center; transition: transform 1.05s cubic-bezier(0.22, 1, 0.36, 1), filter 0.2s ease; }
+    .gap-box.in-view .bar-fill { transform: scaleX(1); }
+    .gap-box.in-view .bar-row:nth-of-type(1) .bar-fill { transition-delay: 0.05s; }
+    .gap-box.in-view .bar-row:nth-of-type(2) .bar-fill { transition-delay: 0.13s; }
+    .gap-box.in-view .bar-row:nth-of-type(3) .bar-fill { transition-delay: 0.21s; }
+    .gap-box.in-view .bar-row:nth-of-type(4) .bar-fill { transition-delay: 0.29s; }
+    .gap-box.in-view .bar-row:nth-of-type(5) .bar-fill { transition-delay: 0.37s; }
+    .gap-box .bar-row { transition: transform 0.2s ease; }
+    .gap-box .bar-row:hover { transform: translateX(3px); }
+    .gap-box .bar-row:hover .bar-fill { filter: brightness(1.06) saturate(1.12); }
+    .gap-box .bar-row:hover .bl { color: #111827; }
+
+    /* (3) Four-layer file tree: fade + rise on reveal, highlight a layer on hover. */
+    .filetree { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.25s ease; }
+    .filetree.in-view { opacity: 1; transform: none; }
+    .filetree:hover { box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06); }
+    .filetree .blue, .filetree .green, .filetree .red, .filetree .amber {
+        border-radius: 3px; padding: 0 2px; cursor: default;
+        transition: background 0.2s ease, font-weight 0.2s ease;
+    }
+    .filetree .blue:hover  { background: rgba(37, 99, 235, 0.13);  font-weight: 700; }
+    .filetree .green:hover { background: rgba(5, 150, 105, 0.13);  font-weight: 700; }
+    .filetree .red:hover   { background: rgba(239, 68, 68, 0.13);  font-weight: 700; }
+    .filetree .amber:hover { background: rgba(217, 119, 6, 0.13);  font-weight: 700; }
+
+    /* (4) Results cards: staggered rise + count-up (JS), lift on hover. */
+    .results .card { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease, box-shadow 0.25s ease; }
+    .results.in-view .card { opacity: 1; transform: none; }
+    .results.in-view .card:nth-child(2) { transition-delay: 0.12s; }
+    .results.in-view .card:nth-child(3) { transition-delay: 0.24s; }
+    .results .card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08); transition-delay: 0s; }
+
+    /* Pills: subtle hover lift to match the interactive feel. */
+    .pill { transition: all 0.2s ease; }
+    .pill:hover { background: #fff; border-color: #d1d5db; color: #374151; transform: translateY(-1px); }
+
+    /* Honor reduced-motion: show every figure in its final state, no motion. */
+    @media (prefers-reduced-motion: reduce) {
+        .story-fig .s-fade, .story-fig .s-draw,
+        .gap-box .bar-fill, .filetree, .results .card,
+        .bar-row, .replay-btn, .pill, .results .card,
+        .share-btn { transition: none !important; }
+        .story-fig .s-fade { opacity: 1 !important; }
+        .story-fig .s-draw { stroke-dashoffset: 0 !important; }
+        .gap-box .bar-fill { transform: none !important; }
+        .filetree { opacity: 1 !important; transform: none !important; }
+        .results .card { opacity: 1 !important; transform: none !important; }
+    }
 </style>
 </head>
 <body class="bg-white text-black">
@@ -657,24 +730,11 @@
 </section>
 
 <section class="mt-8">
-<h2 id="talk">Talk</h2>
-<figure>
-  <div class="video-wrap facade" id="ytFacade" role="button" tabindex="0"
-       aria-label="Play talk: The Last Human-Written Paper" data-yt="hbcZmuhaO_w">
-    <img class="yt-poster" src="https://img.youtube.com/vi/hbcZmuhaO_w/hqdefault.jpg"
-         alt="Talk: The Last Human-Written Paper" loading="lazy">
-    <span class="yt-play" aria-hidden="true"></span>
-    <a class="yt-fallback" href="https://www.youtube.com/watch?v=hbcZmuhaO_w" target="_blank" rel="noopener">Watch on YouTube</a>
-  </div>
-</figure>
-</section>
-
-<section class="mt-8">
 <h2 id="cite">Cite</h2>
 <div class="bibtex">
 <pre><span class="key">@article</span>{<span class="name">liu2026ara</span>,
   title   = {The Last Human-Written Paper: Agent-Native Research Artifacts},
-  author  = {Liu, Jiachen and Pei, Jiaxin and Huang, Jintao and Si, Chenglei and others},
+  author  = {Liu, Jiachen and Pei, Jiaxin and Huang, Jintao and Si, Chenglei and Qu, Ao and Tang, Xiangru and Lu, Runyu and Chen, Lichang and Bai, Xiaoyan and Zheng, Haizhong and Chen, Carl and Chen, Zhiyang and Ye, Haojie and Fu, Yujuan and He, Zexue and Jin, Zijian and Zhang, Zhenyu and Sun, Shangquan and Harmon, Maestro and Wang, Dianzhuo and Zeng, Jianqiao and Sun, Jiachen and Wu, Mingyuan and Zhou, Baoyu and You, Chenyu and Lu, Shijian and Qiu, Yiming and Lai, Fan and Yuan, Yuan and Li, Yao and Hong, Junyuan and Zhu, Ruihao and Chen, Beidi and Pentland, Alex and Chen, Ang and Chowdhury, Mosharaf and Zhang, Zechen},
   year    = {2026},
   journal = {arXiv preprint arXiv:2604.24658},
   url     = {https://arxiv.org/abs/2604.24658}
@@ -723,26 +783,81 @@
 </footer>
 
 <script>
+// Interactive reveal animations for the article figures.
 (function () {
-    var f = document.getElementById('ytFacade');
-    if (!f) return;
-    function play(e) {
-        // Let the fallback "Watch on YouTube" link behave normally
-        if (e && e.target && e.target.closest && e.target.closest('.yt-fallback')) return;
-        var id = f.getAttribute('data-yt');
-        var iframe = document.createElement('iframe');
-        iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
-        iframe.title = 'The Last Human-Written Paper: Agent-Native Research Artifacts';
-        iframe.setAttribute('frameborder', '0');
-        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-        iframe.setAttribute('allowfullscreen', '');
-        f.innerHTML = '';
-        f.classList.remove('facade');
-        f.appendChild(iframe);
+    'use strict';
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Copy each <g>'s authored stagger delay onto its animated children, so the
+    // twin-tree diagrams draw/fade group by group in the intended sequence.
+    document.querySelectorAll('.story-fig g[style*="transition-delay"]').forEach(function (g) {
+        var d = g.style.transitionDelay;
+        if (!d) return;
+        g.querySelectorAll('.s-fade, .s-draw').forEach(function (el) { el.style.transitionDelay = d; });
+    });
+
+    // Count a result number up from zero, preserving its prefix/suffix (+, pp, /5).
+    function countUp(el) {
+        var raw = el.getAttribute('data-target');
+        if (raw === null) { raw = el.textContent; el.setAttribute('data-target', raw); }
+        var m = raw.match(/-?\d+(\.\d+)?/);
+        if (!m || reduce) { el.textContent = raw; return; }
+        var target = parseFloat(m[0]);
+        var decimals = (m[0].split('.')[1] || '').length;
+        var prefix = raw.slice(0, m.index);
+        var suffix = raw.slice(m.index + m[0].length);
+        var duration = 1100, startTs = null;
+        function step(ts) {
+            if (startTs === null) startTs = ts;
+            var p = Math.min((ts - startTs) / duration, 1);
+            var eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = prefix + (target * eased).toFixed(decimals) + suffix;
+            if (p < 1) requestAnimationFrame(step);
+            else el.textContent = raw;
+        }
+        requestAnimationFrame(step);
     }
-    f.addEventListener('click', play);
-    f.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(e); }
+
+    function reveal(el) {
+        el.classList.add('in-view');
+        if (el.classList.contains('results')) {
+            el.querySelectorAll('.card .v').forEach(countUp);
+        }
+    }
+
+    var targets = document.querySelectorAll('.story-fig, .gap-box, .filetree, .results');
+    if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (!e.isIntersecting) return;
+                reveal(e.target);
+                io.unobserve(e.target);
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+        targets.forEach(function (t) { io.observe(t); });
+    } else {
+        targets.forEach(reveal);
+    }
+
+    // Click-to-replay for the (most elaborate) storytelling diagrams.
+    document.querySelectorAll('.story-fig').forEach(function (fig) {
+        function replay() {
+            fig.classList.remove('in-view');
+            void fig.offsetWidth; // force reflow so the transition restarts
+            requestAnimationFrame(function () { fig.classList.add('in-view'); });
+        }
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'replay-btn';
+        btn.textContent = '↻ Replay animation';
+        btn.setAttribute('aria-label', 'Replay the research-process animation');
+        btn.addEventListener('click', function (e) { e.stopPropagation(); replay(); });
+        var grid = fig.querySelector('.story-grid');
+        if (grid) grid.insertAdjacentElement('afterend', btn);
+        // Clicking either diagram panel replays too, as a convenience.
+        fig.querySelectorAll('.story-panel').forEach(function (p) {
+            p.addEventListener('click', replay);
+        });
     });
 })();
 </script>
