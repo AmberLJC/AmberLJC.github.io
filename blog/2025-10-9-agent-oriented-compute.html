@@ -2,17 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agent-Oriented Compute: My Experiment Agent Had a GPU Problem | Jiachen (Amber) Liu</title>
-<meta name="description" content="How a GPU allocation problem in an experiment agent led to rethinking compute infrastructure for the age of AI agents. Exploring agent-oriented compute by Jiachen (Amber) Liu.">
+<title>My Experiment Agent Had a GPU Problem. It Led Me to "Agent-Oriented Compute." | Jiachen (Amber) Liu</title>
+<meta name="description" content="How a GPU allocation problem in an experiment agent led me to rethink compute infrastructure for the age of AI agents — and to a paradigm I call Agent-Oriented Compute.">
 <meta name="author" content="Jiachen Liu">
-<link rel="canonical" href="https://www.orchestra-research.com/perspectives/agent-oriented-compute">
+<link rel="canonical" href="https://amberljc.github.io/blog/2025-10-9-agent-oriented-compute.html">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Agent-Oriented Compute: My Experiment Agent Had a GPU Problem">
-<meta property="og:description" content="How a GPU allocation problem led to rethinking compute infrastructure for AI agents.">
+<meta property="og:title" content='My Experiment Agent Had a GPU Problem. It Led Me to "Agent-Oriented Compute."'>
+<meta property="og:description" content="How a GPU allocation problem in an experiment agent led me to rethink compute infrastructure for AI agents.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://www.orchestra-research.com/perspectives/agent-oriented-compute">
+<meta property="og:url" content="https://amberljc.github.io/blog/2025-10-9-agent-oriented-compute.html">
 <meta property="og:site_name" content="Jiachen (Amber) Liu">
 <meta property="article:published_time" content="2025-10-09">
 <meta property="article:author" content="Jiachen Liu">
@@ -20,46 +21,377 @@
 <meta property="article:tag" content="agent-oriented compute">
 <meta property="article:tag" content="GPU">
 <meta property="article:tag" content="AI agents">
+<meta property="og:image" content="https://amberljc.github.io/blog/figs/ai-exp-compute.png">
 
 <!-- Twitter Card -->
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@JIACHENLIU8">
 <meta name="twitter:title" content="Agent-Oriented Compute">
-<meta name="twitter:description" content="How a GPU problem led to rethinking compute infrastructure for AI agents.">
+<meta name="twitter:description" content="How a GPU problem led me to rethink compute infrastructure for AI agents.">
 <meta name="twitter:creator" content="@JIACHENLIU8">
+<meta name="twitter:image" content="https://amberljc.github.io/blog/figs/ai-exp-compute.png">
 
 <!-- Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Agent-Oriented Compute: My Experiment Agent Had a GPU Problem",
-  "description": "How a GPU allocation problem in an experiment agent led to rethinking compute infrastructure for the age of AI agents.",
-  "datePublished": "2025-10-09",
-  "author": {
-    "@type": "Person",
-    "name": "Jiachen Liu",
-    "alternateName": "Amber Liu",
-    "url": "https://amberljc.github.io"
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "Jiachen Liu",
-    "url": "https://amberljc.github.io"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://www.orchestra-research.com/perspectives/agent-oriented-compute"
-  },
-  "inLanguage": "en-US",
-  "keywords": ["agent-oriented compute", "GPU allocation", "AI agents", "AI infrastructure", "experiment automation"]
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "My Experiment Agent Had a GPU Problem. It Led Me to \"Agent-Oriented Compute.\"",
+      "alternativeHeadline": "Agent-Oriented Compute: My Experiment Agent Had a GPU Problem",
+      "description": "How a GPU allocation problem in an experiment agent led me to rethink compute infrastructure for the age of AI agents.",
+      "datePublished": "2025-10-09",
+      "author": {
+        "@type": "Person",
+        "name": "Jiachen Liu",
+        "alternateName": "Amber Liu",
+        "url": "https://amberljc.github.io"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://amberljc.github.io/blog/2025-10-9-agent-oriented-compute.html"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Jiachen Liu",
+        "url": "https://amberljc.github.io"
+      },
+      "image": "https://amberljc.github.io/blog/figs/ai-exp-compute.png",
+      "inLanguage": "en-US",
+      "articleSection": "AI Infrastructure",
+      "keywords": ["agent-oriented compute", "GPU allocation", "AI agents", "AI infrastructure", "experiment automation", "serverless compute"],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", "article > p:first-of-type"]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://amberljc.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://amberljc.github.io/blog.html" },
+        { "@type": "ListItem", "position": 3, "name": "Agent-Oriented Compute" }
+      ]
+    }
+  ]
 }
 </script>
 
-<meta http-equiv="refresh" content="0; url=https://www.orchestra-research.com/perspectives/agent-oriented-compute">
-<script>window.location.href = "https://www.orchestra-research.com/perspectives/agent-oriented-compute";</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+    :root {
+        --primary-color: #37352f;
+        --border-color: #e1e5e9;
+        --background-color: #ffffff;
+        --hover-bg: #f7f6f3;
+    }
+    body {
+        background-color: var(--background-color);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        line-height: 1.7;
+        color: #374151;
+    }
+    .topnav {
+        background: transparent;
+        border-bottom: 1px solid #eee;
+        padding: 20px 40px;
+        display: flex;
+        gap: 40px;
+    }
+    .topnav a {
+        color: #888;
+        text-decoration: none;
+        font-size: 14px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        transition: color 0.3s;
+    }
+    .topnav a:hover, .topnav a.active {
+        color: #e67e22;
+        background: transparent;
+    }
+    .eyebrow {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #e67e22;
+        margin-bottom: 12px;
+    }
+    .deck {
+        font-size: 1.25rem;
+        line-height: 1.5;
+        color: #6b7280;
+        font-weight: 400;
+        margin: 0 0 8px 0;
+    }
+    .blog-meta {
+        margin: 28px 0;
+        padding: 20px 0;
+        border-top: 1px solid #e5e7eb;
+        border-bottom: 1px solid #e5e7eb;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+    .blog-meta p {
+        margin: 0;
+        color: #6b7280;
+        font-size: 14px;
+    }
+    .blog-meta .read-time {
+        color: #9ca3af;
+    }
+    .follow-buttons {
+        display: flex;
+        gap: 12px;
+    }
+    .follow-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        border: 1px solid #e5e7eb;
+        background: #ffffff;
+        color: #374151;
+    }
+    .follow-btn:hover {
+        background: #f9fafb;
+        border-color: #d1d5db;
+        transform: translateY(-1px);
+    }
+    .btn-icon {
+        width: 16px;
+        height: 16px;
+    }
+    h1 {
+        color: #111827 !important;
+        font-size: 2.25rem !important;
+        font-weight: 700 !important;
+        line-height: 1.2 !important;
+        margin: 8px 0 16px 0 !important;
+    }
+    h2 {
+        color: #1f2937 !important;
+        font-size: 1.5rem !important;
+        font-weight: 600 !important;
+        margin: 32px 0 16px 0 !important;
+        line-height: 1.3 !important;
+    }
+    h3 {
+        color: #1f2937 !important;
+        font-size: 1.2rem !important;
+        font-weight: 600 !important;
+        margin: 24px 0 8px 0 !important;
+    }
+    p {
+        margin: 16px 0;
+        color: #374151;
+    }
+    ul, ol {
+        margin: 16px 0;
+        color: #374151;
+    }
+    li {
+        margin: 8px 0;
+    }
+    .prose {
+        max-width: none;
+    }
+    .challenge-block {
+        background: linear-gradient(135deg, #fafbfc 0%, #f3f4f6 100%);
+        border-radius: 0 12px 12px 0;
+        padding: 24px 28px;
+        margin: 24px 0;
+        box-shadow: 0 2px 12px rgba(99, 102, 241, 0.08);
+        border: 1px solid rgba(99, 102, 241, 0.12);
+        border-left: 4px solid #4e8eec90;
+    }
+    .challenge-block h3 {
+        margin-top: 0 !important;
+        color: #1f2937 !important;
+    }
+    .challenge-block p:last-child {
+        margin-bottom: 0;
+    }
+    .bottom-line {
+        background: #f7f6f3;
+        border-radius: 12px;
+        padding: 24px 28px;
+        margin: 28px 0;
+        border: 1px solid #e5e7eb;
+    }
+    .bottom-line h3 { margin-top: 0 !important; }
+    .cta-box {
+        background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+        border: 1px solid #fcd9a8;
+        border-radius: 12px;
+        padding: 28px;
+        margin: 36px 0;
+        text-align: center;
+    }
+    .cta-box p { margin: 0 0 16px 0; color: #374151; }
+    .cta-btn {
+        display: inline-block;
+        background: #e67e22;
+        color: #ffffff !important;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 10px 22px;
+        border-radius: 8px;
+        transition: background 0.2s ease;
+    }
+    .cta-btn:hover { background: #cf6f1c; }
+    figure { margin: 52px 0; }
+    figcaption {
+        text-align: center;
+        color: #6b7280;
+        font-size: 0.92em;
+        margin-top: 0.85em;
+    }
+    @media (max-width: 768px) {
+        .topnav { padding: 16px 20px; }
+        .topnav a { font-size: 13px; letter-spacing: 1px; }
+        .blog-meta { flex-direction: column; align-items: flex-start; }
+        h1 { font-size: 1.875rem !important; }
+        .deck { font-size: 1.1rem; }
+        .challenge-block, .bottom-line, .cta-box { padding: 18px; }
+    }
+</style>
 </head>
-<body>
-<p>Redirecting to <a href="https://www.orchestra-research.com/perspectives/agent-oriented-compute">Agent-Oriented Compute</a>...</p>
+<body class="bg-white text-black">
+<div class="topnav">
+<a href="../index.html">Home</a>
+<a href="../blog.html">Blog</a>
+</div>
+
+<main class="max-w-3xl mx-auto px-4 py-10">
+<article class="prose max-w-none">
+
+<h1>My Experiment Agent Had a GPU Problem. It Led Me to "Agent-Oriented Compute."</h1>
+<p class="deck">How to design the most native infrastructure abstraction for AI agents to conduct scientific experiments?</p>
+
+<div class="blog-meta">
+    <p>Posted on October 9, 2025 by Jiachen (Amber) Liu &nbsp;·&nbsp; <span class="read-time">4 min read</span></p>
+     <div class="follow-buttons">
+        <a href="https://x.com/JIACHENLIU8" target="_blank" class="follow-btn">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/>
+            </svg>
+            X
+        </a>
+        <a href="https://www.linkedin.com/in/jiachen-amber-liu-872506169/" target="_blank" class="follow-btn">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="currentColor"/>
+            </svg>
+            LinkedIn
+        </a>
+    </div>
+</div>
+
+<section class="mt-8">
+<h2>Building an AI Agent for Scientific Discovery</h2>
+<p>This year, I've been building AI agents that run scientific experiments. Not toy examples — actual research. Imagine you have a question like, "How does weight quantization really affect the reasoning ability of different layers in a transformer model?"</p>
+<p>To answer that, you need to run lots of experiments. You form a hypothesis, design an experiment, run the code, observe the results, refine your hypothesis, and repeat. It's the core loop of empirical science. My agent was designed to help automate and accelerate this loop.</p>
+<p>But beyond the agent's intelligence (its self-evolving ability), reproducibility, and scientific rigor, the biggest challenge I've faced is <strong>computational agency</strong> — how efficiently an AI can control and use compute resources to run different scientific experiments?</p>
+</section>
+
+<section class="mt-10">
+<h2>The Problem with "Putting an Agent on a GPU"</h2>
+<p>In my lab, I had a cluster of A40 GPUs. Easy solution, right? Just point the agent at my local GPUs and let it rip. Except… it was terrible. Here's why:</p>
+
+<figure style="margin: 72px 0;">
+  <img src="figs/exp-agent-lifecycle.png" alt="The lifecycle of an experimentation AI agent, showing how compute demand swings between idle planning and bursts of execution on different hardware" style="width: 90%; max-width: 600px; margin: 0 auto; display: block; border-radius: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+  <figcaption>Figure 1: The lifecycle of an experimentation AI agent. Compute demand swings between idle planning, thinking, and human review and bursts of execution — and different stages call for different hardware (A40 &rarr; H100).</figcaption>
+</figure>
+
+<div class="challenge-block">
+<h3>Problem #1: The Idle GPU Problem</h3>
+<p>An AI agent doesn't just spawn a training job and vanish. It thinks and plans. It generates code. Sometimes it waits for me to review its approach. During all this time? The GPU just sits there. Idle.</p>
+</div>
+
+<div class="challenge-block">
+<h3>Problem #2: The Scalability Problem</h3>
+<p>Say the agent wants to test five different experiment setups. With one local GPU node, it has to run them sequentially. The obvious alternative is to make the agent smarter about infrastructure. You could try to embed a resource scheduler, forcing the agent to learn how to choose the right compute and submit jobs. But this can be heavy. It burdens the agent with a secondary task, distracting it from its primary goal of scientific discovery. The best interface for an agent is generating code; we need a way for it to access massive parallelism with the absolute minimum change to that code.</p>
+</div>
+
+<div class="challenge-block">
+<h3>Problem #3: The Hardware Ceiling</h3>
+<p>My lab had A40s. They're great, but what if my agent's research path led it to a hypothesis that required a more powerful H100? Or maybe a CPU-intensive task? I was stuck. The agent was locked into the specific hardware I had on hand. True scientific inquiry demands the flexibility to use the right tool for the job, moving from cheap, simple experiments for early ideas to massive, rigorous evaluations later. My agent was stuck in a golden cage — powerful but inflexible.</p>
+</div>
+</section>
+
+<section class="mt-10">
+<h2>Agent-Oriented Compute</h2>
+<p>The solution that felt most natural — and the one I've started calling <strong>Agent-Oriented Compute</strong> — is simple: the agent itself lives in a lightweight, cheap sandbox. It does its thinking and planning there. But the moment it needs to run a serious experiment — training a model, running a simulation, processing data — it doesn't do it locally. Instead, it packages the job and dispatches it to a serverless compute platform with minimal code change.</p>
+
+<figure>
+  <img src="figs/ai-exp-compute.png" alt="Agent-Oriented Compute system diagram: an agent in a lightweight sandbox dispatching experiments to serverless GPUs" style="width: 65%; max-width: 420px; margin: 0 auto; display: block; border-radius: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+  <figcaption>Figure 2: Agent-Oriented Compute. The agent lives in a lightweight sandbox and dispatches each experiment to serverless compute — with minimal change to the code it already generates.</figcaption>
+</figure>
+
+<p>This is what I call <strong>Agent-Oriented Compute</strong>: compute infrastructure designed around the natural workflow of AI agents, not legacy assumptions about how jobs should run.</p>
+</section>
+
+<section class="mt-10">
+<h2>Why This Matters</h2>
+<p>I think we're at this weird inflection point. We're building increasingly capable AI agents, but we're forcing them to use compute infrastructure designed for humans submitting computational jobs. (Another counter-example is letting an AI agent control the browser the way humans do.)</p>
+<p>Agent-Oriented Compute isn't just about efficiency (though that's huge). It's about unlocking what agents can actually do: <strong>faster iteration, parallel exploration, dynamic resource scaling</strong> — the stuff that turns "this agent is impressive" into "this agent just did six months of research in a weekend."</p>
+
+<div class="bottom-line">
+<h3>The Bottom Line</h3>
+<p>Is my solution perfect? Probably not. Am I being critical enough of my own idea? Maybe not. But I know this: the moment I switched to this serverless approach, my agent went from frustrating to actually useful.</p>
+<p>This serverless compute paradigm is what enables our agents to do the ambitious things we keep promising they'll do.</p>
+</div>
+</section>
+
+<section class="mt-10">
+<h2>How to Cite</h2>
+<p>If you found this blog post helpful, please consider citing it:</p>
+<div style="background: #f6f8fa; padding: 16px; border-radius: 8px; border: 1px solid #d1d5db; font-family: monospace; font-size: 14px; overflow-x: auto; margin: 16px 0;">
+<pre style="margin: 0; line-height: 1.5;">@misc{liu2025agentcompute,
+  title={My Experiment Agent Had a GPU Problem. It Led Me to "Agent-Oriented Compute."},
+  author={Liu, Jiachen},
+  year={2025},
+  month={October},
+  url={https://amberljc.github.io/blog/2025-10-9-agent-oriented-compute.html}
+}</pre>
+</div>
+</section>
+
+<section class="comments" style="margin-top: 3rem;">
+  <script src="https://giscus.app/client.js"
+          data-repo="AmberLJC/AmberLJC.github.io"
+          data-repo-id="R_kgDOKXc2Fg"
+          data-category="Announcements"
+          data-category-id="DIC_kwDOKXc2Fs4C-6SL"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="light"
+          data-lang="en"
+          crossorigin="anonymous"
+          async>
+  </script>
+</section>
+
+</article>
+</main>
+
+<footer class="border-t border-blue-200 py-6">
+<div class="max-w-4xl mx-auto px-4 text-sm text-gray-600">© AmberLJC</div>
+</footer>
+
 </body>
 </html>
