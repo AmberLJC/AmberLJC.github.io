@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://amberljc.github.io/</loc>
-    <lastmod>2026-03-27</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Publications hosted directly on this site (PDFs are prioritized by
+       Perplexity and other AI search engines for citation). -->
+  <url>
+    <loc>https://amberljc.github.io/documents/phd-dissertation.pdf</loc>
+    <lastmod>2025-08-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://amberljc.github.io/documents/scaleml-mlsys21.pdf</loc>
+    <lastmod>2021-04-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://amberljc.github.io/documents/Amber_CV.pdf</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://amberljc.github.io/blog.html</loc>
@@ -17,6 +38,12 @@
     <lastmod>2026-03-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://amberljc.github.io/blog/2026-06-10-second-half-of-ai-for-science.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://amberljc.github.io/blog/2026-04-24-the-last-human-written-paper.html</loc>

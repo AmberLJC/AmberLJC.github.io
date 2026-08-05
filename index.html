@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jiachen (Amber) Liu - AI for Science, Research Infrastructure & AI Infrastructure</title>
-    <meta name="description" content="Jiachen (Amber) Liu builds AI-native research infrastructure and AI co-scientist agents for science. AI researcher in MLSys, LLM serving/training, and AI for research. PhD from University of Michigan; previously at Meta and Apple.">
-    <meta name="keywords" content="AI for science, AI for research, AI co-scientist, research infrastructure, AI-native research, AI research agent, AI4S, Jiachen Liu, Amber Liu, AI researcher, machine learning systems, LLM serving, LLM training, federated learning, AI agents, scientific research, MLSys, Orchestra Research, Curie AI agent">
+    <title>Jiachen (Amber) Liu - Agent-Native Research Artifacts (ARA), AI for Science & MLSys</title>
+    <meta name="description" content="Jiachen (Amber) Liu defines Agent-Native Research and created the ARA (Agent-Native Research Artifact): an executable, verifiable, forkable research package that replaces the narrative PDF paper. PhD from University of Michigan; previously at Meta and Apple.">
+    <meta name="keywords" content="Agent-Native Research Artifact, ARA, agent native research artifact, Agent-Native Research Artifacts, ARA protocol, agent-native research, AI-native science, AI for science, AI for research, AI co-scientist, research infrastructure, AI research agent, AI4S, Jiachen Liu, Amber Liu, AI researcher, machine learning systems, LLM serving, LLM training, federated learning, AI agents, scientific research, MLSys, Curie AI agent">
     <meta name="author" content="Jiachen Liu">
     <link rel="canonical" href="https://amberljc.github.io/">
     <link rel="alternate" type="application/rss+xml" title="Jiachen (Amber) Liu - AI Research Blog" href="https://amberljc.github.io/feed.xml">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Jiachen (Amber) Liu - AI for Science, Research Infrastructure & AI Infrastructure">
-    <meta property="og:description" content="AI researcher building AI-native research infrastructure and AI co-scientist agents for science. MLSys, LLM serving/training, AI for research. PhD from University of Michigan.">
+    <meta property="og:title" content="Jiachen (Amber) Liu - Agent-Native Research Artifacts (ARA), AI for Science & MLSys">
+    <meta property="og:description" content="Defining Agent-Native Research. The ARA (Agent-Native Research Artifact) is an executable, verifiable, forkable research package that replaces the narrative PDF paper, so AI agents can reproduce and extend science instead of re-walking every dead end. PhD from University of Michigan.">
     <meta property="og:image" content="https://amberljc.github.io/imag/nyc-amber.jpg">
     <meta property="og:url" content="https://amberljc.github.io/">
     <meta property="og:type" content="website">
@@ -50,11 +50,18 @@
       "@graph": [
         {
           "@type": "WebPage",
-          "name": "Jiachen (Amber) Liu - AI for Science, Research Infrastructure & AI Infrastructure",
-          "description": "Personal academic website of Jiachen (Amber) Liu, AI researcher building AI-native research infrastructure and AI co-scientist agents for science, with expertise in ML systems and LLM serving/training.",
+          "@id": "https://amberljc.github.io/#webpage",
+          "name": "Jiachen (Amber) Liu - Agent-Native Research Artifacts (ARA), AI for Science & MLSys",
+          "description": "Personal academic website of Jiachen (Amber) Liu, who defines Agent-Native Research and created the ARA (Agent-Native Research Artifact) — an executable, verifiable, forkable research package that replaces the narrative PDF paper — with expertise in ML systems and LLM serving/training.",
           "url": "https://amberljc.github.io/",
           "inLanguage": "en-US",
-          "dateModified": "2026-04-24",
+          "about": {"@id": "https://amberljc.github.io/#ara"},
+          "mentions": [
+            {"@id": "https://amberljc.github.io/#ara"},
+            {"@id": "https://amberljc.github.io/#pub-last-human-written-paper"}
+          ],
+          "mainEntity": {"@id": "https://amberljc.github.io/#person"},
+          "dateModified": "2026-08-05",
           "speakable": {
             "@type": "SpeakableSpecification",
             "cssSelector": ["h1", "#about-me"]
@@ -62,12 +69,25 @@
         },
         {
           "@type": "Person",
+          "@id": "https://amberljc.github.io/#person",
           "name": "Jiachen Liu",
           "alternateName": "Amber Liu",
+          "identifier": [
+            {
+              "@type": "PropertyValue",
+              "propertyID": "ORCID",
+              "value": "https://orcid.org/0000-0003-2317-1956"
+            },
+            {
+              "@type": "PropertyValue",
+              "propertyID": "Google Scholar",
+              "value": "https://scholar.google.com/citations?user=-kQZFScAAAAJ"
+            }
+          ],
           "url": "https://amberljc.github.io/",
           "image": "https://amberljc.github.io/imag/nyc-amber.jpg",
           "jobTitle": "AI Researcher",
-          "description": "AI researcher building AI-native research infrastructure (Orchestra Research) and AI co-scientist agents (Curie) for automated scientific experimentation. Expertise spans AI for Science (AI4S), LLM serving and training systems, agentic RL, and federated learning. PhD in Computer Science from University of Michigan.",
+          "description": "Defining Agent-Native Research. AI scientists can already generate discoveries, but the missing layer is trust — science that is reproducible, verifiable, and compounds over time. Builds the infrastructure that turns scientific output into something reliably validated, shared, and extended across agents and researchers; the unit it stores is the ARA (Agent-Native Research Artifact), an executable, verifiable, forkable knowledge package that replaces the human-era PDF. Also builds AI co-scientist agents (Curie) for automated scientific experimentation. Expertise spans AI for Science (AI4S), LLM serving and training systems, agentic RL, and federated learning. PhD in Computer Science from University of Michigan.",
           "alumniOf": [
             {
               "@type": "CollegeOrUniversity",
@@ -85,7 +105,10 @@
             "https://www.linkedin.com/in/jiachen-amber-liu-872506169/",
             "https://x.com/JIACHENLIU8",
             "https://github.com/AmberLJC",
-            "https://scholar.google.com/citations?user=-kQZFScAAAAJ&hl=en"
+            "https://scholar.google.com/citations?user=-kQZFScAAAAJ&hl=en",
+            "https://orcid.org/0000-0003-2317-1956",
+            "https://huggingface.co/AmberLJC",
+            "https://substack.com/@amberliu2"
           ],
           "address": {
             "@type": "PostalAddress",
@@ -93,6 +116,29 @@
             "addressRegion": "CA",
             "addressCountry": "US"
           }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://amberljc.github.io/#ara",
+          "name": "Agent-Native Research Artifact",
+          "alternateName": ["ARA", "Agent-Native Research Artifacts", "agent native research artifact"],
+          "termCode": "ARA",
+          "url": "https://amberljc.github.io/#about-me",
+          "description": "An Agent-Native Research Artifact (ARA) is a machine-executable research package that replaces the narrative PDF paper. It is structured around four layers: scientific logic (the claims and their dependencies), executable code with full specifications, an exploration graph that preserves the failed runs and dead ends a paper normally discards, and evidence grounding every claim in raw outputs. An ARA is executable, verifiable, and forkable — an AI agent can reproduce and extend it without re-deriving unwritten implementation details. The concept was introduced by Jiachen (Amber) Liu and collaborators in 'The Last Human-Written Paper: Agent-Native Research Artifacts' (arXiv:2604.24658), where ARA raised agent question-answering accuracy on PaperBench from 72.4% to 93.7% and reproduction success on RE-Bench from 57.4% to 64.4%.",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "@id": "https://amberljc.github.io/#agent-native-research",
+            "name": "Agent-Native Research",
+            "description": "The research paradigm and infrastructure in which AI scientists and human researchers exchange verifiable, executable knowledge artifacts instead of narrative papers.",
+            "url": "https://www.agenticresearch.sh/"
+          },
+          "subjectOf": {"@id": "https://amberljc.github.io/#pub-last-human-written-paper"},
+          "sameAs": [
+            "https://arxiv.org/abs/2604.24658",
+            "https://github.com/Orchestra-Research/Agent-Native-Research-Artifact",
+            "https://www.agenticresearch.sh/",
+            "https://amberljc.github.io/blog/2026-04-24-the-last-human-written-paper.html"
+          ]
         }
       ]
     }
@@ -106,10 +152,34 @@
       "mainEntity": [
         {
           "@type": "Question",
+          "name": "What is an Agent-Native Research Artifact (ARA)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An Agent-Native Research Artifact (ARA) is a machine-executable research package that replaces the narrative PDF paper. It is structured around four layers: (1) scientific logic — the claims and how they depend on each other; (2) executable code with full specifications; (3) an exploration graph that preserves the failed experiments, rejected hypotheses, and dead ends a normal paper discards; and (4) evidence grounding every claim in raw outputs. Unlike a PDF, an ARA is executable, verifiable, and forkable, so an AI agent can reproduce and extend the work without re-deriving unwritten implementation details. The ARA protocol was introduced by Jiachen (Amber) Liu and collaborators in 'The Last Human-Written Paper: Agent-Native Research Artifacts' (arXiv:2604.24658, ICML & CAIS Workshop Spotlight). Measured results: ARA raises agent question-answering accuracy on PaperBench from 72.4% to 93.7%, and reproduction success on RE-Bench from 57.4% to 64.4%. Reference implementation: https://github.com/Orchestra-Research/Agent-Native-Research-Artifact"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do research papers need to be replaced with Agent-Native Research Artifacts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "According to 'The Last Human-Written Paper: Agent-Native Research Artifacts' (arXiv:2604.24658), scientific publication compresses a branching, iterative research process into a linear narrative and discards most of what was discovered. This imposes two structural costs. The Storytelling Tax: failed experiments, rejected hypotheses, and the branching exploration process are thrown away to fit a linear story. The Engineering Tax: the gap between reviewer-sufficient prose and agent-sufficient specification leaves critical implementation details unwritten. These costs are tolerable for human readers but become critical when AI agents must understand, reproduce, and extend published work — every agent re-walks every dead end alone. The Agent-Native Research Artifact (ARA) removes both taxes by shipping the exploration graph and full executable specification alongside the claims."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who created the Agent-Native Research Artifact (ARA) concept?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Agent-Native Research Artifact (ARA) was introduced by Jiachen (Amber) Liu, the lead author of 'The Last Human-Written Paper: Agent-Native Research Artifacts' (arXiv:2604.24658), together with 36 collaborators including Mosharaf Chowdhury, Ang Chen, Alex Pentland, Beidi Chen, and Zechen Zhang. Jiachen Liu holds a PhD in Computer Science from the University of Michigan (ORCID 0000-0003-2317-1956) and defines the broader Agent-Native Research agenda at https://www.agenticresearch.sh/. The ARA ecosystem includes three supporting mechanisms described in the paper: a Live Research Manager that captures decisions and dead ends during ordinary development, an ARA Compiler that translates legacy PDFs and repositories into ARAs, and an ARA-native review system that automates objective checks so human reviewers can focus on significance, novelty, and taste."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Who is Jiachen (Amber) Liu?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Jiachen (Amber) Liu is an AI researcher focused on AI for Science (AI4S), building AI-native research infrastructure and AI co-scientist agents. She earned her PhD in Computer Science from the University of Michigan under Prof. Mosharaf Chowdhury, and has been a Research Scientist at Meta Superintelligence Lab working on LLM pre- and post-training systems. Her work spans LLM serving, agentic reinforcement learning, and federated learning systems."
+            "text": "Jiachen (Amber) Liu is defining Agent-Native Research (https://www.agenticresearch.sh/). AI scientists can already generate discoveries, but the missing layer is trust — science that is reproducible, verifiable, and compounds over time. She builds the infrastructure that turns scientific output into something not only generated, but reliably validated, shared, and extended across agents and researchers; the unit it stores is the ARA (Agent-Native Research Artifact), an executable, verifiable, forkable knowledge package that replaces the human-era PDF. She earned her PhD in Computer Science from the University of Michigan under Prof. Mosharaf Chowdhury, and was previously a Research Scientist at Meta working on LLM pre- and post-training systems."
           }
         },
         {
@@ -117,7 +187,7 @@
           "name": "What is AI-native research infrastructure?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "AI-native research infrastructure replaces the fragmented stack of notebooks, cluster schedulers, and ad-hoc scripts with a unified substrate where hypothesis generation, experiment execution, result analysis, and writeup share one memory and one state. Think of it as an operating system whose processes are research tasks and whose kernel is an orchestrator of AI co-scientists. Jiachen Liu is building this vision through Orchestra Research."
+            "text": "Science has a new kind of participant — the AI scientist — but the ecosystem it runs on was never built for them. AI-native research infrastructure is the missing layer: verified memory so every run compounds instead of evaporating, cheap verification so any actor can trust another's result without re-running it, and a shared protocol that carries experience — failures included — across actor boundaries at zero marginal cost. Today's research ships as a lossy compilation that erases the failed runs, dead ends, and tuning the next agent needs, so every actor re-walks every dead end alone. Jiachen Liu is building this as Agent-Native Research (https://www.agenticresearch.sh/)."
           }
         },
         {
@@ -150,6 +220,1389 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Jiachen Liu's selected work includes: Humanity's Last Exam (Nature 2026) — a frontier AI evaluation benchmark; EXP-Bench (ICLR 2026) — can AI conduct AI research experiments; Curie (arXiv 2025) — rigorous AI-agent experimentation; ML.ENERGY Benchmark (NeurIPS 2025 Spotlight) — inference energy measurement; Andes (arXiv 2024) — quality-of-experience for LLM text streaming; Venn (MLSys 2025) — resource management for collaborative learning; FedScale (ICML 2022) — federated learning at scale; and the PhD dissertation User-Centric Machine Learning Systems (2025)."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ScholarlyArticle Schema: structured metadata for every publication.
+         Enables Google/Bing scholarly rich results and gives AI search engines
+         (ChatGPT, Perplexity, Gemini, Claude) citable abstracts + identifiers. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ItemList",
+          "@id": "https://amberljc.github.io/#publication-list",
+          "name": "Publications of Jiachen (Amber) Liu",
+          "description": "Peer-reviewed publications and preprints by Jiachen (Amber) Liu spanning AI for Science (Agent-Native Research Artifacts, Curie, EXP-Bench, Sci-Reasoning, Humanity's Last Exam) and machine learning systems (Andes, Venn, Auxo, FedScale, Fluid, ML.ENERGY Benchmark), published at Nature, ICLR, ICML, NeurIPS, MLSys, SoCC, and TMLR.",
+          "url": "https://amberljc.github.io/#publications",
+          "numberOfItems": 16,
+          "itemListOrder": "https://schema.org/ItemListUnordered",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@id": "https://amberljc.github.io/#pub-last-human-written-paper",
+                "@type": "ScholarlyArticle",
+                "name": "The Last Human-Written Paper: Agent-Native Research Artifacts",
+                "url": "https://arxiv.org/abs/2604.24658"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@id": "https://amberljc.github.io/#pub-sci-reasoning",
+                "@type": "ScholarlyArticle",
+                "name": "Sci-Reasoning: A Dataset Decoding AI Innovation Patterns",
+                "url": "https://arxiv.org/abs/2601.04577"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "item": {
+                "@id": "https://amberljc.github.io/#pub-exp-bench",
+                "@type": "ScholarlyArticle",
+                "name": "EXP-Bench: Can AI Conduct AI Research Experiments?",
+                "url": "https://arxiv.org/abs/2505.24785"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "item": {
+                "@id": "https://amberljc.github.io/#pub-humanitys-last-exam",
+                "@type": "ScholarlyArticle",
+                "name": "Humanity's Last Exam",
+                "url": "https://www.nature.com/articles/s41586-025-09962-4"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "item": {
+                "@id": "https://amberljc.github.io/#pub-curie",
+                "@type": "ScholarlyArticle",
+                "name": "Curie: Toward Rigorous and Automated Scientific Experimentation with AI Agents",
+                "url": "https://arxiv.org/abs/2502.16069"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 6,
+              "item": {
+                "@id": "https://amberljc.github.io/#pub-phd-dissertation",
+                "@type": "Thesis",
+                "name": "User-Centric Machine Learning Systems",
+                "url": "https://amberljc.github.io/documents/phd-dissertation.pdf"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 7,
+              "item": {
+                "@id": "https://amberljc.github.io/#pub-ml-energy-benchmark",
+                "@type": "ScholarlyArticle",
+                "name": "The ML.ENERGY Benchmark: Toward Automated Inference Energy Measurement and Optimization",
+                "url": "https://arxiv.org/abs/2505.06371"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 8,
+              "item": {
+                "@id": "https://amberljc.github.io/#pub-venn",
+                "@type": "ScholarlyArticle",
+                "name": "Venn: Resource Management for Collaborative Learning Jobs",
+                "url": "https://arxiv.org/abs/2312.08298"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 9,
+              "item": {
+                "@id": "https://amberljc.github.io/#pub-andes",
+                "@type": "ScholarlyArticle",
+                "name": "Andes: Defining and Enhancing Quality-of-Experience in LLM-Based Text Streaming Services",
+                "url": "https://arxiv.org/abs/2404.16283"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 10,
+              "item": {
+                "@id": "https://amberljc.github.io/#pub-efficient-llm-survey",
+                "@type": "ScholarlyArticle",
+                "name": "Efficient Large Language Models: A Survey",
+                "url": "https://arxiv.org/abs/2312.03863"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 11,
+              "item": {
+                "@id": "https://amberljc.github.io/#pub-fedtrans",
+                "@type": "ScholarlyArticle",
+                "name": "FedTrans: Efficient Federated Learning via Multi-Model Transformation",
+                "url": "https://arxiv.org/abs/2404.13515"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 12,
+              "item": {
+                "@id": "https://amberljc.github.io/#pub-auxo",
+                "@type": "ScholarlyArticle",
+                "name": "Auxo: Efficient Federated Learning via Scalable Cohort Identification",
+                "url": "https://arxiv.org/abs/2210.16656"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 13,
+              "item": {
+                "@id": "https://amberljc.github.io/#pub-fedscale",
+                "@type": "ScholarlyArticle",
+                "name": "FedScale: Benchmarking Model and System Performance of Federated Learning at Scale",
+                "url": "https://arxiv.org/abs/2105.11367"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 14,
+              "item": {
+                "@id": "https://amberljc.github.io/#pub-fluid",
+                "@type": "ScholarlyArticle",
+                "name": "Fluid: Resource-Aware Hyperparameter Tuning Engine",
+                "url": "https://amberljc.github.io/documents/scaleml-mlsys21.pdf"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 15,
+              "item": {
+                "@id": "https://amberljc.github.io/#pub-genai-eval-in-the-wild",
+                "@type": "ScholarlyArticle",
+                "name": "Evaluation Framework for AI Systems in \"the Wild\"",
+                "url": "https://arxiv.org/abs/2504.16778"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 16,
+              "item": {
+                "@id": "https://amberljc.github.io/#pub-iac-eval",
+                "@type": "ScholarlyArticle",
+                "name": "IaC-Eval: A Code Generation Benchmark for Cloud Infrastructure-as-Code Programs",
+                "url": "https://neurips.cc/virtual/2024/poster/97835"
+              }
+            }
+          ]
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://amberljc.github.io/#pub-last-human-written-paper",
+          "name": "The Last Human-Written Paper: Agent-Native Research Artifacts",
+          "headline": "The Last Human-Written Paper: Agent-Native Research Artifacts",
+          "url": "https://arxiv.org/abs/2604.24658",
+          "author": [
+            {
+              "@type": "Person",
+              "@id": "https://amberljc.github.io/#person",
+              "name": "Jiachen Liu"
+            },
+            {
+              "@type": "Person",
+              "name": "Jiaxin Pei"
+            },
+            {
+              "@type": "Person",
+              "name": "Jintao Huang"
+            },
+            {
+              "@type": "Person",
+              "name": "Chenglei Si"
+            },
+            {
+              "@type": "Person",
+              "name": "Ao Qu"
+            },
+            {
+              "@type": "Person",
+              "name": "Xiangru Tang"
+            },
+            {
+              "@type": "Person",
+              "name": "Runyu Lu"
+            },
+            {
+              "@type": "Person",
+              "name": "Lichang Chen"
+            },
+            {
+              "@type": "Person",
+              "name": "Xiaoyan Bai"
+            },
+            {
+              "@type": "Person",
+              "name": "Haizhong Zheng"
+            },
+            {
+              "@type": "Person",
+              "name": "Carl Chen"
+            },
+            {
+              "@type": "Person",
+              "name": "Zhiyang Chen"
+            },
+            {
+              "@type": "Person",
+              "name": "Haojie Ye"
+            },
+            {
+              "@type": "Person",
+              "name": "Yujuan Fu"
+            },
+            {
+              "@type": "Person",
+              "name": "Zexue He"
+            },
+            {
+              "@type": "Person",
+              "name": "Zijian Jin"
+            },
+            {
+              "@type": "Person",
+              "name": "Zhenyu Zhang"
+            },
+            {
+              "@type": "Person",
+              "name": "Shangquan Sun"
+            },
+            {
+              "@type": "Person",
+              "name": "Maestro Harmon"
+            },
+            {
+              "@type": "Person",
+              "name": "Dianzhuo Wang"
+            },
+            {
+              "@type": "Person",
+              "name": "Jianqiao Zeng"
+            },
+            {
+              "@type": "Person",
+              "name": "Jiachen Sun"
+            },
+            {
+              "@type": "Person",
+              "name": "Mingyuan Wu"
+            },
+            {
+              "@type": "Person",
+              "name": "Baoyu Zhou"
+            },
+            {
+              "@type": "Person",
+              "name": "Chenyu You"
+            },
+            {
+              "@type": "Person",
+              "name": "Shijian Lu"
+            },
+            {
+              "@type": "Person",
+              "name": "Yiming Qiu"
+            },
+            {
+              "@type": "Person",
+              "name": "Fan Lai"
+            },
+            {
+              "@type": "Person",
+              "name": "Yuan Yuan"
+            },
+            {
+              "@type": "Person",
+              "name": "Yao Li"
+            },
+            {
+              "@type": "Person",
+              "name": "Junyuan Hong"
+            },
+            {
+              "@type": "Person",
+              "name": "Ruihao Zhu"
+            },
+            {
+              "@type": "Person",
+              "name": "Beidi Chen"
+            },
+            {
+              "@type": "Person",
+              "name": "Alex Pentland"
+            },
+            {
+              "@type": "Person",
+              "name": "Ang Chen"
+            },
+            {
+              "@type": "Person",
+              "name": "Mosharaf Chowdhury"
+            },
+            {
+              "@type": "Person",
+              "name": "Zechen Zhang"
+            }
+          ],
+          "datePublished": "2026-04-27",
+          "abstract": "Scientific publication compresses a branching, iterative research process into a linear narrative, discarding the majority of what was discovered along the way. This compilation imposes two structural costs: a Storytelling Tax, where failed experiments, rejected hypotheses, and the branching exploration process are discarded to fit a linear narrative; and an Engineering Tax, where the gap between reviewer-sufficient prose and agent-sufficient specification leaves critical implementation details unwritten. Tolerable for human readers, these costs become critical when AI agents must understand, reproduce, and extend published work. We introduce the Agent-Native Research Artifact (ARA), a protocol that replaces the narrative paper with a machine-executable research package structured around four layers: scientific logic, executable code with full specifications, an exploration graph that preserves the failures compilation discards, and evidence grounding every claim in raw outputs. Three mechanisms support the ecosystem: a Live Research Manager that captures decisions and dead ends during ordinary development; an ARA Compiler that translates legacy PDFs and repos into ARAs; and an ARA-native review system that automates objective checks so human reviewers can focus on significance, novelty, and taste. On PaperBench and RE-Bench, ARA raises question-answering accuracy from 72.4% to 93.7% and reproduction success from 57.4% to 64.4%.",
+          "keywords": "Agent-Native Research Artifact, ARA, AI for Science, research reproducibility, AI research agents, scientific publishing, PaperBench, RE-Bench, machine-executable research",
+          "about": {"@id": "https://amberljc.github.io/#ara"},
+          "inLanguage": "en",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://amberljc.github.io/#publications"
+          },
+          "isAccessibleForFree": true,
+          "identifier": [
+            {
+              "@type": "PropertyValue",
+              "propertyID": "arXiv",
+              "value": "arXiv:2604.24658"
+            },
+            {
+              "@type": "PropertyValue",
+              "propertyID": "URL",
+              "value": "https://arxiv.org/abs/2604.24658"
+            }
+          ],
+          "sameAs": [
+            "https://github.com/Orchestra-Research/Agent-Native-Research-Artifact",
+            "https://amberljc.github.io/blog/2026-04-24-the-last-human-written-paper.html"
+          ],
+          "creativeWorkStatus": "Preprint",
+          "publisher": {
+            "@type": "Organization",
+            "name": "arXiv"
+          },
+          "award": "ICML & CAIS Workshop Spotlight"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://amberljc.github.io/#pub-sci-reasoning",
+          "name": "Sci-Reasoning: A Dataset Decoding AI Innovation Patterns",
+          "headline": "Sci-Reasoning: A Dataset Decoding AI Innovation Patterns",
+          "url": "https://arxiv.org/abs/2601.04577",
+          "author": [
+            {
+              "@type": "Person",
+              "@id": "https://amberljc.github.io/#person",
+              "name": "Jiachen Liu"
+            },
+            {
+              "@type": "Person",
+              "name": "Maestro Harmon"
+            },
+            {
+              "@type": "Person",
+              "name": "Zechen Zhang"
+            }
+          ],
+          "datePublished": "2026-01-08",
+          "abstract": "While AI innovation accelerates rapidly, the intellectual process behind breakthroughs -- how researchers identify gaps, synthesize prior work, and generate insights -- remains poorly understood. We introduce Sci-Reasoning, the first dataset capturing the intellectual synthesis behind high-quality AI research. Using community-validated quality signals and an LLM-accelerated, human-verified pipeline, we trace Oral and Spotlight papers across NeurIPS, ICML, and ICLR (2023-2025) to their key predecessors, articulating specific reasoning links in a structured format. Our analysis identifies 15 distinct thinking patterns, with three dominant strategies accounting for 52.7%: Gap-Driven Reframing (24.2%), Cross-Domain Synthesis (18.0%), and Representation Shift (10.5%). This dataset enables quantitative studies of scientific progress and provides structured reasoning trajectories for training the next generation of AI research agents.",
+          "keywords": "Sci-Reasoning, scientific reasoning dataset, AI innovation patterns, research agents, Gap-Driven Reframing, Cross-Domain Synthesis, Representation Shift, NeurIPS, ICML, ICLR",
+          "inLanguage": "en",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://amberljc.github.io/#publications"
+          },
+          "isAccessibleForFree": true,
+          "identifier": [
+            {
+              "@type": "PropertyValue",
+              "propertyID": "arXiv",
+              "value": "arXiv:2601.04577"
+            },
+            {
+              "@type": "PropertyValue",
+              "propertyID": "URL",
+              "value": "https://arxiv.org/abs/2601.04577"
+            }
+          ],
+          "sameAs": [
+            "https://huggingface.co/datasets/AmberLJC/Sci-Reasoning",
+            "https://www.orchestra-research.com/perspectives/sci-reasoning-story"
+          ],
+          "creativeWorkStatus": "Preprint",
+          "publisher": {
+            "@type": "Organization",
+            "name": "arXiv"
+          }
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://amberljc.github.io/#pub-exp-bench",
+          "name": "EXP-Bench: Can AI Conduct AI Research Experiments?",
+          "headline": "EXP-Bench: Can AI Conduct AI Research Experiments?",
+          "url": "https://arxiv.org/abs/2505.24785",
+          "author": [
+            {
+              "@type": "Person",
+              "name": "Patrick Tser Jern Kon"
+            },
+            {
+              "@type": "Person",
+              "@id": "https://amberljc.github.io/#person",
+              "name": "Jiachen Liu"
+            },
+            {
+              "@type": "Person",
+              "name": "Xinyi Zhu"
+            },
+            {
+              "@type": "Person",
+              "name": "Qiuyi Ding"
+            },
+            {
+              "@type": "Person",
+              "name": "Jingjia Peng"
+            },
+            {
+              "@type": "Person",
+              "name": "Jiarong Xing"
+            },
+            {
+              "@type": "Person",
+              "name": "Yibo Huang"
+            },
+            {
+              "@type": "Person",
+              "name": "Yiming Qiu"
+            },
+            {
+              "@type": "Person",
+              "name": "Jayanth Srinivasa"
+            },
+            {
+              "@type": "Person",
+              "name": "Myungjin Lee"
+            },
+            {
+              "@type": "Person",
+              "name": "Mosharaf Chowdhury"
+            },
+            {
+              "@type": "Person",
+              "name": "Matei Zaharia"
+            },
+            {
+              "@type": "Person",
+              "name": "Ang Chen"
+            }
+          ],
+          "datePublished": "2025-05-30",
+          "abstract": "Automating AI research holds immense potential for accelerating scientific progress, yet current AI agents struggle with the complexities of rigorous, end-to-end experimentation. We introduce EXP-Bench, a novel benchmark designed to systematically evaluate AI agents on complete research experiments sourced from influential AI publications. Given a research question and incomplete starter code, EXP-Bench challenges AI agents to formulate hypotheses, design and implement experimental procedures, execute them, and analyze results. EXP-Bench curated 461 AI research tasks from 51 top-tier AI research papers. Evaluations of leading LLM-based agents, such as OpenHands and IterativeAgent, demonstrate partial capabilities: while scores on individual experimental aspects such as design or implementation correctness occasionally reach 20-35%, the success rate for complete, executable experiments was a mere 0.5%. By identifying these bottlenecks and providing realistic step-by-step experiment procedures, EXP-Bench serves as a vital tool for future AI agents to improve their ability to conduct AI research experiments.",
+          "keywords": "EXP-Bench, AI research agents, benchmark, automated experimentation, AI for Science, LLM agents, reproducibility, OpenHands, ICLR 2026",
+          "inLanguage": "en",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://amberljc.github.io/#publications"
+          },
+          "isAccessibleForFree": true,
+          "identifier": [
+            {
+              "@type": "PropertyValue",
+              "propertyID": "arXiv",
+              "value": "arXiv:2505.24785"
+            },
+            {
+              "@type": "PropertyValue",
+              "propertyID": "URL",
+              "value": "https://arxiv.org/abs/2505.24785"
+            }
+          ],
+          "sameAs": [
+            "https://github.com/Just-Curieous/Curie/tree/main/benchmark/exp_bench",
+            "https://amberljc.github.io/blog/2025-05-11-exp-bench.html"
+          ],
+          "publication": {
+            "@type": "PublicationEvent",
+            "name": "ICLR 2026"
+          },
+          "note": "* Patrick Tser Jern Kon and Jiachen Liu contributed equally."
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://amberljc.github.io/#pub-humanitys-last-exam",
+          "name": "Humanity's Last Exam",
+          "headline": "Humanity's Last Exam",
+          "url": "https://www.nature.com/articles/s41586-025-09962-4",
+          "author": [
+            {
+              "@type": "Person",
+              "name": "Long Phan"
+            },
+            {
+              "@type": "Person",
+              "name": "Alice Gatti"
+            },
+            {
+              "@type": "Person",
+              "@id": "https://amberljc.github.io/#person",
+              "name": "Jiachen Liu"
+            },
+            {
+              "@type": "Person",
+              "name": "Summer Yue"
+            },
+            {
+              "@type": "Person",
+              "name": "Dan Hendrycks"
+            }
+          ],
+          "datePublished": "2026",
+          "abstract": "Benchmarks are important tools for tracking the rapid advancements in large language model (LLM) capabilities. However, benchmarks are not keeping pace in difficulty: LLMs now achieve over 90% accuracy on popular benchmarks like MMLU, limiting informed measurement of state-of-the-art LLM capabilities. In response, we introduce Humanity's Last Exam (HLE), a multi-modal benchmark at the frontier of human knowledge, designed to be the final closed-ended academic benchmark of its kind with broad subject coverage. HLE consists of 2,500 questions across dozens of subjects, including mathematics, humanities, and the natural sciences. HLE is developed globally by subject-matter experts and consists of multiple-choice and short-answer questions suitable for automated grading. State-of-the-art LLMs demonstrate low accuracy and calibration on HLE, highlighting a significant gap between current LLM capabilities and the expert human frontier on closed-ended academic questions.",
+          "keywords": "Humanity's Last Exam, HLE, LLM benchmark, frontier AI evaluation, Center for AI Safety, Scale AI, MMLU, AI capability measurement",
+          "inLanguage": "en",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://amberljc.github.io/#publications"
+          },
+          "isAccessibleForFree": true,
+          "identifier": [
+            {
+              "@type": "PropertyValue",
+              "propertyID": "arXiv",
+              "value": "arXiv:2501.14249"
+            },
+            {
+              "@type": "PropertyValue",
+              "propertyID": "URL",
+              "value": "https://arxiv.org/abs/2501.14249"
+            },
+            {
+              "@type": "PropertyValue",
+              "propertyID": "DOI",
+              "value": "10.1038/s41586-025-09962-4"
+            }
+          ],
+          "sameAs": [
+            "https://lastexam.ai",
+            "https://arxiv.org/abs/2501.14249",
+            "https://doi.org/10.1038/s41586-025-09962-4"
+          ],
+          "isPartOf": {
+            "@type": "Periodical",
+            "name": "Nature"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Nature Portfolio"
+          },
+          "note": "Large-scale collaborative benchmark by the Center for AI Safety (CAIS) and Scale AI with contributions from hundreds of subject-matter experts."
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://amberljc.github.io/#pub-curie",
+          "name": "Curie: Toward Rigorous and Automated Scientific Experimentation with AI Agents",
+          "headline": "Curie: Toward Rigorous and Automated Scientific Experimentation with AI Agents",
+          "url": "https://arxiv.org/abs/2502.16069",
+          "author": [
+            {
+              "@type": "Person",
+              "name": "Patrick Tser Jern Kon"
+            },
+            {
+              "@type": "Person",
+              "@id": "https://amberljc.github.io/#person",
+              "name": "Jiachen Liu"
+            },
+            {
+              "@type": "Person",
+              "name": "Qiuyi Ding"
+            },
+            {
+              "@type": "Person",
+              "name": "Yiming Qiu"
+            },
+            {
+              "@type": "Person",
+              "name": "Zhenning Yang"
+            },
+            {
+              "@type": "Person",
+              "name": "Yibo Huang"
+            },
+            {
+              "@type": "Person",
+              "name": "Jayanth Srinivasa"
+            },
+            {
+              "@type": "Person",
+              "name": "Myungjin Lee"
+            },
+            {
+              "@type": "Person",
+              "name": "Mosharaf Chowdhury"
+            },
+            {
+              "@type": "Person",
+              "name": "Ang Chen"
+            }
+          ],
+          "datePublished": "2025-02-22",
+          "abstract": "Scientific experimentation, a cornerstone of human progress, demands rigor in reliability, methodical control, and interpretability to yield meaningful results. Despite the growing capabilities of large language models (LLMs) in automating different aspects of the scientific process, automating rigorous experimentation remains a significant challenge. To address this gap, we propose Curie, an AI agent framework designed to embed rigor into the experimentation process through three key components: an intra-agent rigor module to enhance reliability, an inter-agent rigor module to maintain methodical control, and an experiment knowledge module to enhance interpretability. To evaluate Curie, we design a novel experimental benchmark composed of 46 questions across four computer science domains, derived from influential research papers and widely adopted open-source projects. Compared to the strongest baseline tested, we achieve a 3.4x improvement in correctly answering experimental questions.",
+          "keywords": "Curie, AI co-scientist, AI agent framework, automated scientific experimentation, rigorous experimentation, LLM agents, AI for Science, AI4S",
+          "inLanguage": "en",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://amberljc.github.io/#publications"
+          },
+          "isAccessibleForFree": true,
+          "identifier": [
+            {
+              "@type": "PropertyValue",
+              "propertyID": "arXiv",
+              "value": "arXiv:2502.16069"
+            },
+            {
+              "@type": "PropertyValue",
+              "propertyID": "URL",
+              "value": "https://arxiv.org/abs/2502.16069"
+            }
+          ],
+          "sameAs": [
+            "https://github.com/Just-Curieous/Curie",
+            "https://amberljc.github.io/blog/2025-02-01-curie.html"
+          ],
+          "creativeWorkStatus": "Preprint",
+          "publisher": {
+            "@type": "Organization",
+            "name": "arXiv"
+          },
+          "note": "* Patrick Tser Jern Kon and Jiachen Liu contributed equally."
+        },
+        {
+          "@type": "Thesis",
+          "@id": "https://amberljc.github.io/#pub-phd-dissertation",
+          "name": "User-Centric Machine Learning Systems",
+          "headline": "User-Centric Machine Learning Systems",
+          "url": "https://amberljc.github.io/documents/phd-dissertation.pdf",
+          "author": [
+            {
+              "@type": "Person",
+              "@id": "https://amberljc.github.io/#person",
+              "name": "Jiachen Liu"
+            }
+          ],
+          "datePublished": "2025",
+          "abstract": "Over the past five years, artificial intelligence (AI) has evolved from a specialized technology confined to large corporations and research labs into a pervasive tool integrated into everyday life. The widespread adoption has given rise to new needs for machine learning (ML) systems to balance user-centric experiences -- such as real-time responsiveness, accessibility, and personalization -- with system efficiency, including operational cost and resource utilization. This dissertation addresses these dual objectives through design principles centered on server-client co-designed resource schedulers: user-centricity, workload-aware ML system design, and server-client collaboration. Its contributions are threefold. Andes addresses real-time responsiveness in LLM-backed conversational AI services by introducing Quality-of-Experience (QoE), combining a server-side token-level request scheduler with a client-side token buffer. Auxo delivers personalized AI services in collaborative learning via a scalable client-clustering mechanism that groups users into cohorts with lower intra-cohort heterogeneity. Venn efficiently shares heterogeneous edge resources across multi-job collaborative learning environments with a contention-aware resource scheduler that reduces job completion times.",
+          "keywords": "user-centric machine learning systems, LLM serving, Quality-of-Experience, collaborative learning, federated learning, resource scheduling, Andes, Auxo, Venn, PhD dissertation",
+          "inLanguage": "en",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://amberljc.github.io/#publications"
+          },
+          "isAccessibleForFree": true,
+          "sameAs": [
+            "https://amberljc.github.io/blog/2025-06-15-my-phd-thoughts.html"
+          ],
+          "inSupportOf": "Doctor of Philosophy in Computer Science and Engineering",
+          "publisher": {
+            "@type": "CollegeOrUniversity",
+            "name": "University of Michigan",
+            "sameAs": "https://umich.edu"
+          },
+          "encodingFormat": "application/pdf",
+          "learningResourceType": "Doctoral dissertation"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://amberljc.github.io/#pub-ml-energy-benchmark",
+          "name": "The ML.ENERGY Benchmark: Toward Automated Inference Energy Measurement and Optimization",
+          "headline": "The ML.ENERGY Benchmark: Toward Automated Inference Energy Measurement and Optimization",
+          "url": "https://arxiv.org/abs/2505.06371",
+          "author": [
+            {
+              "@type": "Person",
+              "name": "Jae-Won Chung"
+            },
+            {
+              "@type": "Person",
+              "@id": "https://amberljc.github.io/#person",
+              "name": "Jiachen Liu"
+            },
+            {
+              "@type": "Person",
+              "name": "Jeff Ma"
+            },
+            {
+              "@type": "Person",
+              "name": "Ruofan Wu"
+            },
+            {
+              "@type": "Person",
+              "name": "Oh Jun Kweon"
+            },
+            {
+              "@type": "Person",
+              "name": "Yuxuan Xia"
+            },
+            {
+              "@type": "Person",
+              "name": "Zhiyu Wu"
+            },
+            {
+              "@type": "Person",
+              "name": "Mosharaf Chowdhury"
+            }
+          ],
+          "datePublished": "2025-05-09",
+          "abstract": "As the adoption of Generative AI in real-world services grows explosively, energy has emerged as a critical bottleneck resource. We present the ML.ENERGY Benchmark, a benchmark suite and tool for measuring inference energy consumption under realistic service environments, and the corresponding ML.ENERGY Leaderboard. We explain four key design principles for benchmarking ML energy and describe how they are implemented. We highlight results from the early 2025 iteration of the benchmark, including energy measurements of 40 widely used model architectures across 6 different tasks, case studies of how ML design choices impact energy consumption, and how automated optimization recommendations can lead to significant (sometimes more than 40%) energy savings without changing what is being computed by the model.",
+          "keywords": "ML.ENERGY Benchmark, inference energy measurement, energy-efficient LLM serving, sustainable AI, GPU energy optimization, generative AI energy, NeurIPS 2025 Spotlight",
+          "inLanguage": "en",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://amberljc.github.io/#publications"
+          },
+          "isAccessibleForFree": true,
+          "identifier": [
+            {
+              "@type": "PropertyValue",
+              "propertyID": "arXiv",
+              "value": "arXiv:2505.06371"
+            },
+            {
+              "@type": "PropertyValue",
+              "propertyID": "URL",
+              "value": "https://arxiv.org/abs/2505.06371"
+            }
+          ],
+          "sameAs": [
+            "https://ml.energy/leaderboard/"
+          ],
+          "publication": {
+            "@type": "PublicationEvent",
+            "name": "NeurIPS 2025"
+          },
+          "award": "NeurIPS 2025 Spotlight"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://amberljc.github.io/#pub-venn",
+          "name": "Venn: Resource Management for Collaborative Learning Jobs",
+          "headline": "Venn: Resource Management for Collaborative Learning Jobs",
+          "url": "https://arxiv.org/abs/2312.08298",
+          "author": [
+            {
+              "@type": "Person",
+              "@id": "https://amberljc.github.io/#person",
+              "name": "Jiachen Liu"
+            },
+            {
+              "@type": "Person",
+              "name": "Fan Lai"
+            },
+            {
+              "@type": "Person",
+              "name": "Ding Ding"
+            },
+            {
+              "@type": "Person",
+              "name": "Yiwen Zhang"
+            },
+            {
+              "@type": "Person",
+              "name": "Mosharaf Chowdhury"
+            }
+          ],
+          "datePublished": "2023-12-13",
+          "abstract": "In recent years, collaborative learning (CL) has emerged as a promising approach for machine learning (ML) and data science across distributed edge devices. As the deployment of CL jobs increases, they inevitably contend for limited resources. We present Venn, a CL resource manager that efficiently schedules ephemeral, heterogeneous devices among multiple CL jobs to reduce the average job completion time (JCT). Venn formulates the Intersection Resource Scheduling (IRS) problem to identify complex resource contention among multiple CL jobs, then proposes a contention-aware scheduling heuristic to minimize the average scheduling delay, and a resource-aware device-to-job matching heuristic to optimize response collection time by mitigating stragglers. Compared to state-of-the-art CL resource managers, Venn improves the average JCT by up to 1.88x.",
+          "keywords": "Venn, collaborative learning, resource management, federated learning scheduling, job completion time, Intersection Resource Scheduling, edge devices, MLSys 2025",
+          "inLanguage": "en",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://amberljc.github.io/#publications"
+          },
+          "isAccessibleForFree": true,
+          "identifier": [
+            {
+              "@type": "PropertyValue",
+              "propertyID": "arXiv",
+              "value": "arXiv:2312.08298"
+            },
+            {
+              "@type": "PropertyValue",
+              "propertyID": "URL",
+              "value": "https://arxiv.org/abs/2312.08298"
+            }
+          ],
+          "sameAs": [
+            "https://github.com/SymbioticLab/Venn"
+          ],
+          "publication": {
+            "@type": "PublicationEvent",
+            "name": "MLSys 2025"
+          }
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://amberljc.github.io/#pub-andes",
+          "name": "Andes: Defining and Enhancing Quality-of-Experience in LLM-Based Text Streaming Services",
+          "headline": "Andes: Defining and Enhancing Quality-of-Experience in LLM-Based Text Streaming Services",
+          "url": "https://arxiv.org/abs/2404.16283",
+          "author": [
+            {
+              "@type": "Person",
+              "@id": "https://amberljc.github.io/#person",
+              "name": "Jiachen Liu"
+            },
+            {
+              "@type": "Person",
+              "name": "Zhiyu Wu"
+            },
+            {
+              "@type": "Person",
+              "name": "Jae-Won Chung"
+            },
+            {
+              "@type": "Person",
+              "name": "Fan Lai"
+            },
+            {
+              "@type": "Person",
+              "name": "Myungjin Lee"
+            },
+            {
+              "@type": "Person",
+              "name": "Mosharaf Chowdhury"
+            }
+          ],
+          "datePublished": "2024-04-25",
+          "abstract": "Large language models (LLMs) are now at the core of conversational AI services such as real-time translation and chatbots, which provide live user interaction by incrementally streaming text to the user. However, existing LLM serving systems fail to provide good user experience because their optimization metrics are not always aligned with user experience. We first introduce and define the notion of Quality-of-Experience (QoE) for text streaming services by considering each user's end-to-end interaction timeline. Based on this, we propose Andes, a QoE-aware LLM serving system that ensures users receive the first token promptly and subsequent tokens at a smooth, digestible pace, even during surge periods, via a preemptive request scheduler that dynamically prioritizes requests at token granularity. Andes improves the average QoE by up to 4.7x given the same GPU resource, or saves up to 61% GPU resources while maintaining the same high QoE.",
+          "keywords": "Andes, LLM serving, Quality-of-Experience, QoE, text streaming, token-level scheduling, GPU efficiency, inference serving systems, MLSys",
+          "inLanguage": "en",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://amberljc.github.io/#publications"
+          },
+          "isAccessibleForFree": true,
+          "identifier": [
+            {
+              "@type": "PropertyValue",
+              "propertyID": "arXiv",
+              "value": "arXiv:2404.16283"
+            },
+            {
+              "@type": "PropertyValue",
+              "propertyID": "URL",
+              "value": "https://arxiv.org/abs/2404.16283"
+            }
+          ],
+          "sameAs": [
+            "https://llm-qoe.github.io/"
+          ],
+          "creativeWorkStatus": "Preprint",
+          "publisher": {
+            "@type": "Organization",
+            "name": "arXiv"
+          }
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://amberljc.github.io/#pub-efficient-llm-survey",
+          "name": "Efficient Large Language Models: A Survey",
+          "headline": "Efficient Large Language Models: A Survey",
+          "url": "https://arxiv.org/abs/2312.03863",
+          "author": [
+            {
+              "@type": "Person",
+              "name": "Zhongwei Wan"
+            },
+            {
+              "@type": "Person",
+              "name": "Xin Wang"
+            },
+            {
+              "@type": "Person",
+              "name": "Che Liu"
+            },
+            {
+              "@type": "Person",
+              "name": "Samiul Alam"
+            },
+            {
+              "@type": "Person",
+              "name": "Yu Zheng"
+            },
+            {
+              "@type": "Person",
+              "@id": "https://amberljc.github.io/#person",
+              "name": "Jiachen Liu"
+            },
+            {
+              "@type": "Person",
+              "name": "Zhongnan Qu"
+            },
+            {
+              "@type": "Person",
+              "name": "Shen Yan"
+            },
+            {
+              "@type": "Person",
+              "name": "Yi Zhu"
+            },
+            {
+              "@type": "Person",
+              "name": "Quanlu Zhang"
+            },
+            {
+              "@type": "Person",
+              "name": "Mosharaf Chowdhury"
+            },
+            {
+              "@type": "Person",
+              "name": "Mi Zhang"
+            }
+          ],
+          "datePublished": "2023-12-06",
+          "abstract": "Large Language Models (LLMs) have demonstrated remarkable capabilities in important tasks such as natural language understanding and language generation, and thus have the potential to make a substantial impact on our society. Such capabilities, however, come with the considerable resources they demand, highlighting the strong need to develop effective techniques for addressing their efficiency challenges. In this survey, we provide a systematic and comprehensive review of efficient LLMs research, organized in a taxonomy consisting of three main categories covering model-centric, data-centric, and framework-centric perspectives.",
+          "keywords": "efficient large language models, LLM efficiency survey, model compression, quantization, pruning, knowledge distillation, efficient inference, TMLR 2024",
+          "inLanguage": "en",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://amberljc.github.io/#publications"
+          },
+          "isAccessibleForFree": true,
+          "identifier": [
+            {
+              "@type": "PropertyValue",
+              "propertyID": "arXiv",
+              "value": "arXiv:2312.03863"
+            },
+            {
+              "@type": "PropertyValue",
+              "propertyID": "URL",
+              "value": "https://arxiv.org/abs/2312.03863"
+            }
+          ],
+          "sameAs": [
+            "https://github.com/AIoT-MLSys-Lab/Efficient-LLMs-Survey"
+          ],
+          "isPartOf": {
+            "@type": "Periodical",
+            "name": "Transactions on Machine Learning Research (TMLR)"
+          }
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://amberljc.github.io/#pub-fedtrans",
+          "name": "FedTrans: Efficient Federated Learning via Multi-Model Transformation",
+          "headline": "FedTrans: Efficient Federated Learning via Multi-Model Transformation",
+          "url": "https://arxiv.org/abs/2404.13515",
+          "author": [
+            {
+              "@type": "Person",
+              "name": "Yuxuan Zhu"
+            },
+            {
+              "@type": "Person",
+              "@id": "https://amberljc.github.io/#person",
+              "name": "Jiachen Liu"
+            },
+            {
+              "@type": "Person",
+              "name": "Mosharaf Chowdhury"
+            },
+            {
+              "@type": "Person",
+              "name": "Fan Lai"
+            }
+          ],
+          "datePublished": "2024-04-21",
+          "abstract": "Federated learning (FL) aims to train machine learning (ML) models across potentially millions of edge client devices. Yet, training and customizing models for FL clients is notoriously challenging due to the heterogeneity of client data, device capabilities, and the massive scale of clients. We introduce FedTrans, a multi-model FL training framework that automatically produces and trains high-accuracy, hardware-compatible models for individual clients at scale. FedTrans begins with a basic global model, identifies accuracy bottlenecks in model architectures during training, and then employs model transformation to derive new models for heterogeneous clients on the fly. Our evaluations show that FedTrans improves individual client model accuracy by 14% - 72% while slashing training costs by 1.6X - 20X over state-of-the-art solutions.",
+          "keywords": "FedTrans, federated learning, multi-model training, model transformation, client heterogeneity, personalized models, MLSys 2024",
+          "inLanguage": "en",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://amberljc.github.io/#publications"
+          },
+          "isAccessibleForFree": true,
+          "identifier": [
+            {
+              "@type": "PropertyValue",
+              "propertyID": "arXiv",
+              "value": "arXiv:2404.13515"
+            },
+            {
+              "@type": "PropertyValue",
+              "propertyID": "URL",
+              "value": "https://arxiv.org/abs/2404.13515"
+            }
+          ],
+          "publication": {
+            "@type": "PublicationEvent",
+            "name": "MLSys 2024"
+          }
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://amberljc.github.io/#pub-auxo",
+          "name": "Auxo: Efficient Federated Learning via Scalable Cohort Identification",
+          "headline": "Auxo: Efficient Federated Learning via Scalable Cohort Identification",
+          "url": "https://arxiv.org/abs/2210.16656",
+          "author": [
+            {
+              "@type": "Person",
+              "@id": "https://amberljc.github.io/#person",
+              "name": "Jiachen Liu"
+            },
+            {
+              "@type": "Person",
+              "name": "Fan Lai"
+            },
+            {
+              "@type": "Person",
+              "name": "Yinwei Dai"
+            },
+            {
+              "@type": "Person",
+              "name": "Aditya Akella"
+            },
+            {
+              "@type": "Person",
+              "name": "Harsha Madhyastha"
+            },
+            {
+              "@type": "Person",
+              "name": "Mosharaf Chowdhury"
+            }
+          ],
+          "datePublished": "2022-10-29",
+          "abstract": "Federated learning (FL) is an emerging machine learning paradigm that enables heterogeneous edge devices to collaboratively train ML models without revealing their raw data to a logically centralized server. Beyond heterogeneous device capacity, FL participants often exhibit non-IID data distributions. We propose Auxo to gradually identify cohorts of clients with statistically similar data distributions in large-scale, low-availability, and resource-constrained FL populations. Auxo then adaptively determines how to train cohort-specific models to achieve better model performance and ensure resource efficiency. Our extensive evaluations show that Auxo boosts various existing FL solutions in terms of final accuracy (2.1% - 8.2%), convergence time (up to 2.2x), and model bias (4.8% - 53.8%).",
+          "keywords": "Auxo, federated learning, cohort identification, client clustering, non-IID data, statistical heterogeneity, personalized federated learning, SoCC 2023",
+          "inLanguage": "en",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://amberljc.github.io/#publications"
+          },
+          "isAccessibleForFree": true,
+          "alternateName": "Auxo: Efficient Federated Learning via Scalable Client Clustering",
+          "identifier": [
+            {
+              "@type": "PropertyValue",
+              "propertyID": "arXiv",
+              "value": "arXiv:2210.16656"
+            },
+            {
+              "@type": "PropertyValue",
+              "propertyID": "URL",
+              "value": "https://arxiv.org/abs/2210.16656"
+            }
+          ],
+          "sameAs": [
+            "https://github.com/SymbioticLab/FedScale"
+          ],
+          "publication": {
+            "@type": "PublicationEvent",
+            "name": "ACM Symposium on Cloud Computing (SoCC) 2023"
+          }
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://amberljc.github.io/#pub-fedscale",
+          "name": "FedScale: Benchmarking Model and System Performance of Federated Learning at Scale",
+          "headline": "FedScale: Benchmarking Model and System Performance of Federated Learning at Scale",
+          "url": "https://arxiv.org/abs/2105.11367",
+          "author": [
+            {
+              "@type": "Person",
+              "name": "Fan Lai"
+            },
+            {
+              "@type": "Person",
+              "name": "Yinwei Dai"
+            },
+            {
+              "@type": "Person",
+              "name": "Sanjay S. Singapuram"
+            },
+            {
+              "@type": "Person",
+              "@id": "https://amberljc.github.io/#person",
+              "name": "Jiachen Liu"
+            },
+            {
+              "@type": "Person",
+              "name": "Xiangfeng Zhu"
+            },
+            {
+              "@type": "Person",
+              "name": "Harsha V. Madhyastha"
+            },
+            {
+              "@type": "Person",
+              "name": "Mosharaf Chowdhury"
+            }
+          ],
+          "datePublished": "2021-05-24",
+          "abstract": "We present FedScale, a federated learning (FL) benchmarking suite with realistic datasets and a scalable runtime to enable reproducible FL research. FedScale datasets encompass a wide range of critical FL tasks, ranging from image classification and object detection to language modeling and speech recognition. Each dataset comes with a unified evaluation protocol using real-world data splits and evaluation metrics. To reproduce realistic FL behavior, FedScale contains a scalable and extensible runtime providing high-level APIs to implement FL algorithms, deploy them at scale across diverse hardware and software backends, and evaluate them at scale, all with minimal developer effort.",
+          "keywords": "FedScale, federated learning benchmark, FL benchmarking suite, reproducible federated learning, scalable runtime, ICML 2022, open-source federated learning",
+          "inLanguage": "en",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://amberljc.github.io/#publications"
+          },
+          "isAccessibleForFree": true,
+          "identifier": [
+            {
+              "@type": "PropertyValue",
+              "propertyID": "arXiv",
+              "value": "arXiv:2105.11367"
+            },
+            {
+              "@type": "PropertyValue",
+              "propertyID": "URL",
+              "value": "https://arxiv.org/abs/2105.11367"
+            }
+          ],
+          "sameAs": [
+            "https://github.com/SymbioticLab/FedScale",
+            "https://fedscale.ai"
+          ],
+          "publication": {
+            "@type": "PublicationEvent",
+            "name": "ICML 2022"
+          }
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://amberljc.github.io/#pub-fluid",
+          "name": "Fluid: Resource-Aware Hyperparameter Tuning Engine",
+          "headline": "Fluid: Resource-Aware Hyperparameter Tuning Engine",
+          "url": "https://amberljc.github.io/documents/scaleml-mlsys21.pdf",
+          "author": [
+            {
+              "@type": "Person",
+              "name": "Peifeng Yu"
+            },
+            {
+              "@type": "Person",
+              "@id": "https://amberljc.github.io/#person",
+              "name": "Jiachen Liu"
+            },
+            {
+              "@type": "Person",
+              "name": "Mosharaf Chowdhury"
+            }
+          ],
+          "datePublished": "2021",
+          "abstract": "Current hyperparameter tuning solutions lack complementary execution engines to efficiently leverage distributed computation, thus ignoring the possibility of intra- and inter-GPU sharing, which exhibits poor resource usage. In this paper, we present Fluid, a generalized hyperparameter tuning execution engine that coordinates between hyperparameter tuning jobs and cluster resources. Fluid schedules evaluation trials in such jobs using a water-filling approach to make the best use of resources at both intra- and inter-GPU granularities to speed up the tuning process. By abstracting a hyperparameter tuning job as a sequence of TrialGroup, Fluid can boost the performance of diverse hyperparameter tuning solutions. Our experiments show that Fluid can speed up synchronous BOHB by 100%, and BOHB and ASHA by 30% while having similar final accuracy.",
+          "keywords": "Fluid, hyperparameter tuning, GPU sharing, resource-aware scheduling, water-filling, BOHB, ASHA, distributed training, MLSys 2021",
+          "inLanguage": "en",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://amberljc.github.io/#publications"
+          },
+          "isAccessibleForFree": true,
+          "sameAs": [
+            "https://github.com/SymbioticLab/Fluid",
+            "https://www.youtube.com/watch?v=LZQE90whvfY"
+          ],
+          "publication": {
+            "@type": "PublicationEvent",
+            "name": "MLSys 2021"
+          },
+          "encodingFormat": "application/pdf",
+          "note": "* Peifeng Yu and Jiachen Liu contributed equally."
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://amberljc.github.io/#pub-genai-eval-in-the-wild",
+          "name": "Evaluation Framework for AI Systems in \"the Wild\"",
+          "headline": "Evaluation Framework for AI Systems in \"the Wild\"",
+          "url": "https://arxiv.org/abs/2504.16778",
+          "author": [
+            {
+              "@type": "Person",
+              "name": "Sarah Jabbour"
+            },
+            {
+              "@type": "Person",
+              "name": "Trenton Chang"
+            },
+            {
+              "@type": "Person",
+              "name": "Anindya Das Antar"
+            },
+            {
+              "@type": "Person",
+              "name": "Joseph Peper"
+            },
+            {
+              "@type": "Person",
+              "name": "Insu Jang"
+            },
+            {
+              "@type": "Person",
+              "@id": "https://amberljc.github.io/#person",
+              "name": "Jiachen Liu"
+            },
+            {
+              "@type": "Person",
+              "name": "Jae-Won Chung"
+            },
+            {
+              "@type": "Person",
+              "name": "Shiqi He"
+            },
+            {
+              "@type": "Person",
+              "name": "Michael Wellman"
+            },
+            {
+              "@type": "Person",
+              "name": "Bryan Goodman"
+            },
+            {
+              "@type": "Person",
+              "name": "Elizabeth Bondi-Kelly"
+            },
+            {
+              "@type": "Person",
+              "name": "Kevin Samy"
+            },
+            {
+              "@type": "Person",
+              "name": "Rada Mihalcea"
+            },
+            {
+              "@type": "Person",
+              "name": "Mosharaf Chowdhury"
+            },
+            {
+              "@type": "Person",
+              "name": "David Jurgens"
+            },
+            {
+              "@type": "Person",
+              "name": "Lu Wang"
+            }
+          ],
+          "datePublished": "2025-04-23",
+          "abstract": "Generative AI (GenAI) models have become vital across industries, yet current evaluation methods have not adapted to their widespread use. Traditional evaluations often rely on benchmarks and fixed datasets, frequently failing to reflect real-world performance, which creates a gap between lab-tested outcomes and practical applications. This white paper proposes a comprehensive framework for how we should evaluate real-world GenAI systems, emphasizing diverse, evolving inputs and holistic, dynamic, and ongoing assessment approaches. We advocate for holistic frameworks that integrate performance, fairness, and ethics, and the use of continuous, outcome-oriented methods that combine human and automated assessments.",
+          "keywords": "GenAI evaluation, real-world AI evaluation, evaluation framework, AI policy, fairness, AI ethics, holistic evaluation, University of Michigan white paper",
+          "inLanguage": "en",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://amberljc.github.io/#publications"
+          },
+          "isAccessibleForFree": true,
+          "identifier": [
+            {
+              "@type": "PropertyValue",
+              "propertyID": "arXiv",
+              "value": "arXiv:2504.16778"
+            },
+            {
+              "@type": "PropertyValue",
+              "propertyID": "URL",
+              "value": "https://arxiv.org/abs/2504.16778"
+            }
+          ],
+          "creativeWorkStatus": "Preprint",
+          "publisher": {
+            "@type": "Organization",
+            "name": "arXiv"
+          }
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://amberljc.github.io/#pub-iac-eval",
+          "name": "IaC-Eval: A Code Generation Benchmark for Cloud Infrastructure-as-Code Programs",
+          "headline": "IaC-Eval: A Code Generation Benchmark for Cloud Infrastructure-as-Code Programs",
+          "url": "https://neurips.cc/virtual/2024/poster/97835",
+          "author": [
+            {
+              "@type": "Person",
+              "name": "Patrick Tser Jern Kon"
+            },
+            {
+              "@type": "Person",
+              "@id": "https://amberljc.github.io/#person",
+              "name": "Jiachen Liu"
+            },
+            {
+              "@type": "Person",
+              "name": "Yiming Qiu"
+            },
+            {
+              "@type": "Person",
+              "name": "Weijun Fan"
+            },
+            {
+              "@type": "Person",
+              "name": "Ting He"
+            },
+            {
+              "@type": "Person",
+              "name": "Lei Lin"
+            },
+            {
+              "@type": "Person",
+              "name": "Haoran Zhang"
+            },
+            {
+              "@type": "Person",
+              "name": "Owen M. Park"
+            },
+            {
+              "@type": "Person",
+              "name": "George Sajan Elengikal"
+            },
+            {
+              "@type": "Person",
+              "name": "Yuxin Kang"
+            },
+            {
+              "@type": "Person",
+              "name": "Ang Chen"
+            },
+            {
+              "@type": "Person",
+              "name": "Mosharaf Chowdhury"
+            },
+            {
+              "@type": "Person",
+              "name": "Myungjin Lee"
+            },
+            {
+              "@type": "Person",
+              "name": "Xinyu Wang"
+            }
+          ],
+          "datePublished": "2024-12",
+          "abstract": "Infrastructure-as-Code (IaC), an important component of cloud computing, allows the definition of cloud infrastructure in high-level programs. However, developing IaC programs is challenging, complicated by the burgeoning complexity of the cloud ecosystem and the relative scarcity of IaC-specific code examples and public repositories. While large language models (LLMs) have shown promise in general code generation and could potentially aid in IaC development, no benchmarks currently existed for evaluating their ability to generate IaC code. We present IaC-Eval, whose dataset includes 458 human-curated scenarios covering a wide range of popular AWS services at varying difficulty levels. Each scenario comprises a natural language IaC problem description and an infrastructure intent specification used to verify whether the generated IaC program conforms to the user's intent.",
+          "keywords": "IaC-Eval, Infrastructure-as-Code, code generation benchmark, Terraform, AWS, LLM code generation, cloud computing, NeurIPS 2024 Datasets and Benchmarks",
+          "inLanguage": "en",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://amberljc.github.io/#publications"
+          },
+          "isAccessibleForFree": true,
+          "sameAs": [
+            "https://github.com/autoiac-project/iac-eval"
+          ],
+          "publication": {
+            "@type": "PublicationEvent",
+            "name": "NeurIPS 2024 Datasets and Benchmarks Track"
           }
         }
       ]
@@ -267,8 +1720,16 @@
       <h2>About Me <i class="fa fa-user"></i></h2>
 
 
-        <p>              I got my PhD in Computer Science from University of Michigan (UMich), advised by <a href="https://www.mosharaf.com/">Prof. Mosharaf Chowdhury</a>.
-          My PhD research focused on building <strong>efficient systems that enable researchers to push the boundary of machine learning</strong>, including LLM <a href="https://arxiv.org/abs/2404.16283" target="_blank">serving</a> systems, LLM training systems (Meta Llama Training Systems), and <a href="https://amberljc.github.io/blog/2025-09-05-agentic-rl-systems.html" target="_blank">Agentic RL</a>. Now, my research focuses on <strong><a href="https://www.agenticresearch.sh/" target="_blank">Agent-Native Research</a></strong>.
+        <p>
+          I'm defining <strong><a href="https://www.agenticresearch.sh/" target="_blank" rel="noopener noreferrer">Agent-Native Research</a></strong>.
+          AI scientists can already generate discoveries, but the missing layer is <strong>trust</strong> &mdash; science that is reproducible, verifiable, and compounds over time.
+          I build the infrastructure that turns scientific output into something not only generated, but reliably validated, shared, and extended across agents and researchers.
+          The unit it stores is the <strong>ARA</strong> (Agent-Native Research Artifact): an <strong>executable, verifiable</strong>, forkable knowledge package that replaces the human-era PDF.
+      </p>
+
+      <p>
+          Before that, I got my PhD in Computer Science from University of Michigan (UMich), advised by <a href="https://www.mosharaf.com/">Prof. Mosharaf Chowdhury</a>.
+          My PhD research focused on building <strong>efficient systems that enable researchers to push the boundary of machine learning</strong>, including LLM <a href="https://arxiv.org/abs/2404.16283" target="_blank">serving</a> systems, LLM training systems (Meta Llama Training Systems), and <a href="https://amberljc.github.io/blog/2025-09-05-agentic-rl-systems.html" target="_blank">Agentic RL</a>.
 
           To contribute to the research community, I maintain comprehensive paper collections on <a href="https://github.com/AmberLJC/FLsystem-paper">Private ML Systems</a> and <strong><a href='https://github.com/AmberLJC/LLMSys-PaperList/'>LLM Systems</a></strong>.
       </p>
