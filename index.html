@@ -239,7 +239,7 @@
           "name": "Publications of Jiachen (Amber) Liu",
           "description": "Peer-reviewed publications and preprints by Jiachen (Amber) Liu spanning AI for Science (Agent-Native Research Artifacts, Curie, EXP-Bench, Sci-Reasoning, Humanity's Last Exam) and machine learning systems (Andes, Venn, Auxo, FedScale, Fluid, ML.ENERGY Benchmark), published at Nature, ICLR, ICML, NeurIPS, MLSys, SoCC, and TMLR.",
           "url": "https://amberljc.github.io/#publications",
-          "numberOfItems": 16,
+          "numberOfItems": 17,
           "itemListOrder": "https://schema.org/ItemListUnordered",
           "itemListElement": [
             {
@@ -401,8 +401,74 @@
                 "name": "IaC-Eval: A Code Generation Benchmark for Cloud Infrastructure-as-Code Programs",
                 "url": "https://neurips.cc/virtual/2024/poster/97835"
               }
+            },
+            {
+              "@type": "ListItem",
+              "position": 17,
+              "item": {
+                "@id": "https://amberljc.github.io/#pub-auto-research-fuzz-testing",
+                "@type": "ScholarlyArticle",
+                "name": "Agentic Auto-Research is Fuzz Testing",
+                "url": "https://arxiv.org/abs/2608.09855"
+              }
             }
           ]
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://amberljc.github.io/#pub-auto-research-fuzz-testing",
+          "name": "Agentic Auto-Research is Fuzz Testing",
+          "headline": "Agentic Auto-Research is Fuzz Testing",
+          "url": "https://arxiv.org/abs/2608.09855",
+          "author": [
+            {
+              "@type": "Person",
+              "name": "Yifeng He"
+            },
+            {
+              "@type": "Person",
+              "name": "Jicheng Wang"
+            },
+            {
+              "@type": "Person",
+              "name": "Yinzhe Zhao"
+            },
+            {
+              "@type": "Person",
+              "@id": "https://amberljc.github.io/#person",
+              "name": "Jiachen Liu"
+            },
+            {
+              "@type": "Person",
+              "name": "Hao Chen"
+            }
+          ],
+          "datePublished": "2026-08-10",
+          "abstract": "Autonomous research agents can generate experiments faster than researchers can validate them. Researchers have responded by scaling the proposer and ranking more samples with a learned judge or human reviewers. We argue that this generate-and-rank paradigm misses the problem of sparse feedback. Within a declared research problem, an agent follows the control loop of a greybox fuzzer: it proposes a candidate, executes it, observes feedback, and chooses what to try next. A fuzzer rarely finds a bug, but coverage makes partial progress observable on every execution. Fuzzers then use that signal to mutate inputs and allocate effort, rather than only to rank completed runs. Auto-research needs the same two capabilities. First, each experiment should expose a cheap, dense signal of epistemic progress before final scientific validation is available. Second, that signal should determine the next intervention so that the agent searches rather than repeatedly samples. Because the optimized progress signal is guidance rather than a verdict, final validation must still decide what counts as a discovery using evidence protected from adaptive reuse. We propose controlled tests of whether candidate signals predict validated progress, whether feedback-directed search yields more validated discoveries per unit cost than repeated sampling, and whether protected validation reduces false discoveries. Feedback architecture, not only generation, is a central bottleneck in auto-research.",
+          "keywords": "agentic auto-research, autonomous research agents, fuzz testing, greybox fuzzing, feedback-directed search, sparse feedback, epistemic progress signal, protected validation, AI for Science",
+          "inLanguage": "en",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://amberljc.github.io/#publications"
+          },
+          "isAccessibleForFree": true,
+          "identifier": [
+            {
+              "@type": "PropertyValue",
+              "propertyID": "arXiv",
+              "value": "arXiv:2608.09855"
+            },
+            {
+              "@type": "PropertyValue",
+              "propertyID": "URL",
+              "value": "https://arxiv.org/abs/2608.09855"
+            }
+          ],
+          "creativeWorkStatus": "Preprint",
+          "publisher": {
+            "@type": "Organization",
+            "name": "arXiv"
+          }
         },
         {
           "@type": "ScholarlyArticle",
@@ -1764,6 +1830,13 @@
       <div class="publication-list-compact">
 
         <h3 id="pub-ai4s" class="pub-category pub-category--ai4s"><i class="fa fa-flask"></i> AI for Science</h3>
+        <div class="publication-item-compact">
+          <div class="pub-title"><b><a href="https://arxiv.org/abs/2608.09855">Agentic Auto-Research is Fuzz Testing</a></b></div>
+          <div class="pub-authors">Yifeng He, Jicheng Wang, Yinzhe Zhao, Jiachen Liu, Hao Chen</div>
+          <div class="pub-venue"><i>Arxiv 2026</i></div>
+          <div class="pub-links"><a href="https://arxiv.org/abs/2608.09855" target="_blank">Paper</a></div>
+        </div>
+        <hr class="pub-divider">
         <div class="publication-item-compact">
           <div class="pub-title"><b><a href="https://arxiv.org/abs/2604.24658">The Last Human-Written Paper: Agent-Native Research Artifacts</a></b></div>
           <div class="pub-authors">Jiachen Liu, Jiaxin Pei, Jintao Huang, Chenglei Si, Ao Qu, Xiangru Tang, Runyu Lu, Lichang Chen, Xiaoyan Bai, Haizhong Zheng, Carl Chen, Zhiyang Chen, Haojie Ye, Yujuan Fu, Zexue He, Zijian Jin, Zhenyu Zhang, Shangquan Sun, Maestro Harmon, Dianzhuo Wang, Jianqiao Zeng, Jiachen Sun, Mingyuan Wu, Baoyu Zhou, Chenyu You, Shijian Lu, Yiming Qiu, Fan Lai, Yuan Yuan, Yao Li, Junyuan Hong, Ruihao Zhu, Beidi Chen, Alex Pentland, Ang Chen, Mosharaf Chowdhury, Zechen Zhang</div>
