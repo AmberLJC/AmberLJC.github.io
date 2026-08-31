@@ -434,7 +434,7 @@ a:hover {
 
 /* Awards Section */
 #awards {
-  margin: 60px 0;
+  margin: 0 0 60px;
 }
 
 #awards ul {
@@ -642,4 +642,268 @@ h2:hover, h2.award-heading:hover {
   .profile-section h1 {
     font-size: 28px;
   }
+}
+
+/* ── News deck (coverflow) ─────────────────────────────────────────────────
+   Same card as the ARA Hub ecosystem strip, different motion: instead of a
+   fan, the deck slides sideways like flipping through movie posters. The
+   card in the middle is the one being read; its neighbours turn away from
+   the reader and step back. Markup is a plain list of links, so the cards
+   are crawlable and clickable with JS off — layout.js only positions them. */
+#news {
+  margin: 0 0 60px;
+}
+
+.news-deck {
+  position: relative;
+  margin-top: 10px;
+  touch-action: pan-y;
+}
+
+.news-stage {
+  position: relative;
+  overflow: hidden;
+  perspective: 1400px;
+  /* Room for the lifted centre card's shadow. */
+  padding: 10px 0 6px;
+  /* The deck runs off both edges rather than being sliced by the overflow —
+     it should read as a strip that continues, not one that ends. */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.news-track {
+  position: relative;
+  height: 100%;
+  transition: transform 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.news-card {
+  display: flex;
+  flex-direction: column;
+  width: var(--news-card-w, 320px);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  text-decoration: none !important;
+  color: var(--text);
+  overflow: visible;
+  --seam: var(--amber);
+}
+
+.news-card[data-tone='press'] { --seam: #c8873a; }
+.news-card[data-tone='talk']  { --seam: #3d8b8b; }
+.news-card[data-tone='event'] { --seam: #7d8f5f; }
+
+/* Before layout.js runs (and with JS off) the cards read as a simple stack. */
+.js-news .news-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transition: transform 0.45s cubic-bezier(0.215, 0.61, 0.355, 1),
+    opacity 0.45s ease, box-shadow 0.45s ease, border-color 0.3s;
+}
+
+.js-news .news-card:not(.is-active) {
+  cursor: pointer;
+  filter: saturate(0.82);
+}
+
+.js-news .news-card.is-active {
+  box-shadow: 0 30px 54px -30px rgba(0, 0, 0, 0.28);
+  border-color: #ddd;
+}
+
+.news-card__img {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-bottom: 1px solid var(--border);
+  border-radius: 17px 17px 0 0;
+  background: linear-gradient(160deg, var(--bg-secondary), var(--bg) 75%);
+}
+
+.news-card__img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 17px 17px 0 0;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.js-news .news-card.is-active:hover .news-card__img img { transform: scale(1.03); }
+
+/* Straddles the image seam so the outlet's mark reads as a stamp. */
+.news-card__badge {
+  position: absolute;
+  left: 18px;
+  bottom: -19px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  min-width: 62px;
+  max-width: calc(100% - 36px);
+  height: 46px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: var(--bg);
+  box-shadow: 0 10px 22px -14px rgba(0, 0, 0, 0.35);
+}
+
+.news-card__badge img {
+  display: block;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+}
+
+.news-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 34px 22px 20px;
+}
+
+.news-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  min-width: 0;
+  font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.6;
+}
+
+.news-card__kind {
+  flex: none;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-weight: 600;
+  color: var(--primary);
+  background: color-mix(in srgb, var(--seam) 22%, transparent);
+}
+
+.news-card__source {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-light);
+}
+
+.news-card h3 {
+  margin: 12px 0 0;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  color: var(--primary);
+}
+
+.news-card__note {
+  margin: 10px 0 0;
+  flex: 1;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.news-card__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 16px 0 0;
+  color: var(--text-light);
+}
+
+.news-card__date {
+  font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+  font-size: 11px;
+}
+
+.news-card__foot svg {
+  flex: none;
+  transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1), color 0.3s;
+}
+
+.js-news .news-card.is-active:hover .news-card__foot svg {
+  color: var(--amber);
+  transform: translate(2px, -2px);
+}
+
+/* Arrows sit over the receding neighbours, where the reader's eye already is. */
+.news-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin-top: -21px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text-light);
+  cursor: pointer;
+  box-shadow: 0 8px 20px -12px rgba(0, 0, 0, 0.4);
+  transition: color 0.3s, border-color 0.3s, transform 0.3s, opacity 0.3s;
+}
+
+.news-nav:hover {
+  color: var(--amber);
+  border-color: var(--amber);
+  transform: scale(1.08);
+}
+
+.news-nav:disabled {
+  opacity: 0.3;
+  cursor: default;
+  transform: none;
+  color: var(--text-light);
+  border-color: var(--border);
+}
+
+.news-nav--prev { left: 0; }
+.news-nav--next { right: 0; }
+
+.news-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.news-dots button {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #d8d8d8;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s, width 0.3s;
+}
+
+.news-dots button.is-active {
+  width: 22px;
+  border-radius: 999px;
+  background: var(--amber);
+}
+
+@media (max-width: 768px) {
+  .news-card__body { padding: 32px 18px 18px; }
+  .news-nav { width: 36px; height: 36px; margin-top: -18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-news .news-card, .news-track { transition-duration: 0.01ms; }
 }
