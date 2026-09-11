@@ -135,7 +135,6 @@
           "subjectOf": {"@id": "https://amberljc.github.io/#pub-last-human-written-paper"},
           "sameAs": [
             "https://arxiv.org/abs/2604.24658",
-            "https://github.com/Orchestra-Research/Agent-Native-Research-Artifact",
             "https://www.agenticresearch.sh/",
             "https://amberljc.github.io/blog/2026-04-24-the-last-human-written-paper.html"
           ]
@@ -155,7 +154,7 @@
           "name": "What is an Agent-Native Research Artifact (ARA)?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "An Agent-Native Research Artifact (ARA) is a machine-executable research package that replaces the narrative PDF paper. It is structured around four layers: (1) scientific logic — the claims and how they depend on each other; (2) executable code with full specifications; (3) an exploration graph that preserves the failed experiments, rejected hypotheses, and dead ends a normal paper discards; and (4) evidence grounding every claim in raw outputs. Unlike a PDF, an ARA is executable, verifiable, and forkable, so an AI agent can reproduce and extend the work without re-deriving unwritten implementation details. The ARA protocol was introduced by Jiachen (Amber) Liu and collaborators in 'The Last Human-Written Paper: Agent-Native Research Artifacts' (arXiv:2604.24658, ICML & CAIS Workshop Spotlight). Measured results: ARA raises agent question-answering accuracy on PaperBench from 72.4% to 93.7%, and reproduction success on RE-Bench from 57.4% to 64.4%. Reference implementation: https://github.com/Orchestra-Research/Agent-Native-Research-Artifact"
+            "text": "An Agent-Native Research Artifact (ARA) is a machine-executable research package that replaces the narrative PDF paper. It is structured around four layers: (1) scientific logic — the claims and how they depend on each other; (2) executable code with full specifications; (3) an exploration graph that preserves the failed experiments, rejected hypotheses, and dead ends a normal paper discards; and (4) evidence grounding every claim in raw outputs. Unlike a PDF, an ARA is executable, verifiable, and forkable, so an AI agent can reproduce and extend the work without re-deriving unwritten implementation details. The ARA protocol was introduced by Jiachen (Amber) Liu and collaborators in 'The Last Human-Written Paper: Agent-Native Research Artifacts' (arXiv:2604.24658, ICML & CAIS Workshop Spotlight). Measured results: ARA raises agent question-answering accuracy on PaperBench from 72.4% to 93.7%, and reproduction success on RE-Bench from 57.4% to 64.4%."
           }
         },
         {
@@ -204,14 +203,6 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Infrastructure for Science is the systems layer that lets AI-driven research (AI for Science / AI4S) run reliably at scale — the picks and shovels beneath every AI co-scientist. Jiachen Liu's work covers efficient LLM serving (Andes, arXiv:2404.16283), rigorous experiment agents (Curie), evaluation benchmarks (Humanity's Last Exam, Nature 2026; EXP-Bench, ICLR 2026), and energy-aware ML infrastructure (ML.ENERGY Benchmark, NeurIPS 2025 Spotlight)."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How does Orchestra Research accelerate AI for research?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Orchestra Research is an AI-native Vibe Research platform that compresses the research loop from idea to publication. It integrates AI co-scientist agents for literature review, experiment design, code generation, and result analysis, backed by reproducible infrastructure. By treating research as an orchestrated multi-agent workflow, Orchestra makes rigorous science accessible to any researcher — the thesis behind Jiachen Liu's vision that everyone can be a scientist."
           }
         },
         {
@@ -408,7 +399,7 @@
               "item": {
                 "@id": "https://amberljc.github.io/#pub-auto-research-fuzz-testing",
                 "@type": "ScholarlyArticle",
-                "name": "Agentic Auto-Research is Fuzz Testing",
+                "name": "The Greatness of Science Cannot Be Planned: Agentic Auto-Research is Fuzz Testing",
                 "url": "https://arxiv.org/abs/2608.09855"
               }
             }
@@ -417,8 +408,8 @@
         {
           "@type": "ScholarlyArticle",
           "@id": "https://amberljc.github.io/#pub-auto-research-fuzz-testing",
-          "name": "Agentic Auto-Research is Fuzz Testing",
-          "headline": "Agentic Auto-Research is Fuzz Testing",
+          "name": "The Greatness of Science Cannot Be Planned: Agentic Auto-Research is Fuzz Testing",
+          "headline": "The Greatness of Science Cannot Be Planned: Agentic Auto-Research is Fuzz Testing",
           "url": "https://arxiv.org/abs/2608.09855",
           "author": [
             {
@@ -432,6 +423,10 @@
             {
               "@type": "Person",
               "name": "Yinzhe Zhao"
+            },
+            {
+              "@type": "Person",
+              "name": "Chengyang Shi"
             },
             {
               "@type": "Person",
@@ -650,7 +645,6 @@
             }
           ],
           "sameAs": [
-            "https://github.com/Orchestra-Research/Agent-Native-Research-Artifact",
             "https://amberljc.github.io/blog/2026-04-24-the-last-human-written-paper.html"
           ],
           "creativeWorkStatus": "Preprint",
@@ -703,8 +697,7 @@
             }
           ],
           "sameAs": [
-            "https://huggingface.co/datasets/AmberLJC/Sci-Reasoning",
-            "https://www.orchestra-research.com/perspectives/sci-reasoning-story"
+            "https://huggingface.co/datasets/AmberLJC/Sci-Reasoning"
           ],
           "creativeWorkStatus": "Preprint",
           "publisher": {
@@ -1788,10 +1781,7 @@
 
 
         <p>
-          I'm defining <strong><a href="https://www.agenticresearch.sh/" target="_blank" rel="noopener noreferrer">Agent-Native Research</a></strong>.
-          AI scientists can already generate discoveries, but the missing layer is <strong>trust</strong> &mdash; science that is reproducible, verifiable, and compounds over time.
-          I build the infrastructure that turns scientific output into something not only generated, but reliably validated, shared, and extended across agents and researchers.
-          The unit it stores is the <strong>ARA</strong> (Agent-Native Research Artifact): an <strong>executable, verifiable</strong>, forkable knowledge package that replaces the human-era PDF.
+          I'm building <strong>recursive self-improvement infrastructures</strong> &mdash; systems that get stronger the more they're used.
       </p>
 
       <p>
@@ -1813,7 +1803,7 @@
         <details style="margin-bottom: 0.5rem; border: 1px solid #e5e5e5; border-radius: 6px; padding: 0.2rem 0.65rem; background: transparent; line-height: 1.35;">
           <summary style="cursor: pointer; font-weight: 600; font-size: 0.95em; color: transparent;">What is AI for Science, an AI Co-Scientist, and AI-Native Research Infrastructure?</summary>
           <div style="color: transparent;">
-          <p style="margin-top: 0.3rem; margin-bottom: 0.4rem; color: transparent;">I'm building <strong style="color: transparent;">AI co-scientists for computational research</strong>. I co-lead <a href="https://github.com/Just-Curieous/Curie" target="_blank" rel="noopener noreferrer" style="color: transparent;">Curie</a>, the first AI-agent framework for rigorous automated scientific experimentation, and co-created <a href="https://arxiv.org/abs/2505.24785" target="_blank" rel="noopener noreferrer" style="color: transparent;">EXP-Bench</a> (ICLR 2026), the benchmark measuring whether agents can conduct AI research experiments end-to-end. I'm also building <a href="https://www.orchestra-research.com/" target="_blank" rel="noopener noreferrer" style="color: transparent;">Orchestra</a> — a unified substrate where hypothesis generation, experiment execution, analysis, and writeup share one memory and one state, with a kernel that orchestrates AI co-scientists across the full research lifecycle.</p>
+          <p style="margin-top: 0.3rem; margin-bottom: 0.4rem; color: transparent;">I'm building <strong style="color: transparent;">AI co-scientists for computational research</strong>. I co-lead <a href="https://github.com/Just-Curieous/Curie" target="_blank" rel="noopener noreferrer" style="color: transparent;">Curie</a>, the first AI-agent framework for rigorous automated scientific experimentation, and co-created <a href="https://arxiv.org/abs/2505.24785" target="_blank" rel="noopener noreferrer" style="color: transparent;">EXP-Bench</a> (ICLR 2026), the benchmark measuring whether agents can conduct AI research experiments end-to-end.</p>
           <p style="margin-top: 0; margin-bottom: 0.4rem; color: transparent;">On the broader <strong style="color: transparent;">AI-native research ecosystem</strong>, I argue that the academic paper itself must evolve for an agent-driven world. In <a href="https://arxiv.org/abs/2604.24658" target="_blank" rel="noopener noreferrer" style="color: transparent;">The Last Human-Written Paper: Agent-Native Research Artifacts</a>, I propose <em style="color: transparent;">ARA</em> — a machine-executable research package that replaces narrative papers with structured layers (scientific logic, executable code, exploration graph, raw evidence), eliminating the storytelling and engineering taxes that block AI from reproducing and extending science.</p>
           <p style="margin-top: 0; margin-bottom: 0.4rem; color: transparent;">Underneath, I build the <strong style="color: transparent;">systems layer</strong> that lets this ecosystem run at scale. My <strong style="color: transparent;">PhD thesis is on LLM infrastructure</strong>, spanning my expertise across <strong style="color: transparent;">LLM serving, pre-training, and post-training systems</strong>, and I was named a <strong style="color: transparent;">Machine Learning and Systems Rising Star (Class of 2023)</strong>. Through intern, part-time, and full-time roles at <strong style="color: transparent;">Meta Superintelligence Lab</strong>, I worked on the <strong style="color: transparent;">pre-training and post-training infrastructure for LLMs</strong>, powering one of the largest LLM training stacks in the world. My broader work spans efficient LLM serving (<a href="https://arxiv.org/abs/2404.16283" target="_blank" rel="noopener noreferrer" style="color: transparent;">Andes</a>), <strong style="color: transparent;"><a href="https://amberljc.github.io/blog/2025-09-05-agentic-rl-systems.html" target="_blank" rel="noopener noreferrer" style="color: transparent;">Agentic RL systems</a></strong>, and energy-aware LLM serving (<a href="https://ml.energy/leaderboard/" target="_blank" rel="noopener noreferrer" style="color: transparent;">ML.ENERGY Benchmark</a>, NeurIPS 2025 Spotlight).</p>
           </div>
@@ -1921,8 +1911,8 @@
 
         <h3 id="pub-ai4s" class="pub-category pub-category--ai4s"><i class="fa fa-flask"></i> AI for Science</h3>
         <div class="publication-item-compact">
-          <div class="pub-title"><b><a href="https://arxiv.org/abs/2608.09855">Agentic Auto-Research is Fuzz Testing</a></b></div>
-          <div class="pub-authors">Yifeng He, Jicheng Wang, Yinzhe Zhao, Jiachen Liu, Hao Chen</div>
+          <div class="pub-title"><b><a href="https://arxiv.org/abs/2608.09855">The Greatness of Science Cannot Be Planned: Agentic Auto-Research is Fuzz Testing</a></b></div>
+          <div class="pub-authors">Yifeng He, Jicheng Wang, Yinzhe Zhao, Chengyang Shi, Jiachen Liu, Hao Chen</div>
           <div class="pub-venue"><i>Arxiv 2026</i></div>
           <div class="pub-links"><a href="https://arxiv.org/abs/2608.09855" target="_blank">Paper</a></div>
         </div>
@@ -1931,14 +1921,14 @@
           <div class="pub-title"><b><a href="https://arxiv.org/abs/2604.24658">The Last Human-Written Paper: Agent-Native Research Artifacts</a></b></div>
           <div class="pub-authors">Jiachen Liu, Jiaxin Pei, Jintao Huang, Chenglei Si, Ao Qu, Xiangru Tang, Runyu Lu, Lichang Chen, Xiaoyan Bai, Haizhong Zheng, Carl Chen, Zhiyang Chen, Haojie Ye, Yujuan Fu, Zexue He, Zijian Jin, Zhenyu Zhang, Shangquan Sun, Maestro Harmon, Dianzhuo Wang, Jianqiao Zeng, Jiachen Sun, Mingyuan Wu, Baoyu Zhou, Chenyu You, Shijian Lu, Yiming Qiu, Fan Lai, Yuan Yuan, Yao Li, Junyuan Hong, Ruihao Zhu, Beidi Chen, Alex Pentland, Ang Chen, Mosharaf Chowdhury, Zechen Zhang</div>
           <div class="pub-venue"><i>Arxiv 2026</i> <span class="badge badge-spotlight">ICML &amp; CAIS Workshop Spotlight</span></div>
-          <div class="pub-links"><a href="https://arxiv.org/abs/2604.24658" target="_blank">Paper</a> | <a href="./blog/2026-04-24-the-last-human-written-paper.html">Blog</a> | <a href="https://github.com/Orchestra-Research/Agent-Native-Research-Artifact" target="_blank">Code</a></div>
+          <div class="pub-links"><a href="https://arxiv.org/abs/2604.24658" target="_blank">Paper</a> | <a href="./blog/2026-04-24-the-last-human-written-paper.html">Blog</a></div>
         </div>
         <hr class="pub-divider">
         <div class="publication-item-compact">
           <div class="pub-title"><b><a href="http://arxiv.org/abs/2601.04577">Sci-Reasoning: A Dataset Decoding AI Innovation Patterns</a></b></div>
           <div class="pub-authors">Jiachen Liu, Maestro Harmon, Zechen Zhang</div>
           <div class="pub-venue"><i>Arxiv 2026</i></div>
-          <div class="pub-links"><a href="http://arxiv.org/abs/2601.04577" target="_blank">Paper</a> | <a href="https://huggingface.co/datasets/AmberLJC/Sci-Reasoning" target="_blank">Dataset</a> | <a href="https://www.orchestra-research.com/perspectives/sci-reasoning-story" target="_blank">Blog</a></div>
+          <div class="pub-links"><a href="http://arxiv.org/abs/2601.04577" target="_blank">Paper</a> | <a href="https://huggingface.co/datasets/AmberLJC/Sci-Reasoning" target="_blank">Dataset</a></div>
         </div>
         <hr class="pub-divider">
         <div class="publication-item-compact">
